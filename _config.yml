@@ -1,2 +1,3 @@
 name: Delfina Young
 markdown: kramdown
+permalink: /blog/:year/:month/:day/:title
