@@ -2,6 +2,7 @@
 layout: post
 title: "Oh, the Places You'll Go!"
 date: 2020-08-21
+category: post
 ---
 Oh, the Places You'll Go!
 
