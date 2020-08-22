@@ -4,15 +4,26 @@
   <body>
     <main>
       {% include header.html %}
-	  <h2>Lastest Posts</h2>
+	  <h2>Posts Recientes</h2>
       <section class="posts">
-        {% for post in site.posts %}
+        {% for post in site.categories.post %}
         <div class="post">
           <a href="{{site.baseurl}}{{post.url}}"><h3>{{post.title}}</h3></a>
           <small>{{post.date|date_to_string}}</small>
           <p>
             {{post.content|truncate: 120}}
           </p>
+        </div>
+        {% endfor %}
+      </section>
+	  <br />
+	  <br />
+	  <h2>Poemas</h2>
+	  <section class="posts">
+        {% for post in site.categories.poem %}
+        <div class="poem">
+          <a href="{{site.baseurl}}{{post.url}}"><h3>{{post.title}}</h3></a>
+          <small>{{post.date|date_to_string}}</small>
         </div>
         {% endfor %}
       </section>
