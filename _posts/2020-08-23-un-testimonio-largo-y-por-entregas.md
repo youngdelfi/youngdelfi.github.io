@@ -4,7 +4,7 @@ title: "Un testimonio largo y por entregas"
 date: 2020-08-23
 category: post
 ---
-Caminando con una amiga le conté que quiero compartir cosas en un blog, pero que no sabía qué le iba a servir a la gente. Me dijo que con mi testimonio estaría bien. Usó esa palabra, testimonio, que me llamó la atención.  
+Le conté a una amiga que quiero compartir cosas en un blog, pero que no sabía qué le iba a servir a la gente. Me dijo que con mi testimonio estaría bien. Usó esa palabra, testimonio, que me llamó la atención.  
   
 Así que como estoy en plan dejar de darle vueltas a todo y directamente hacer lo que la gente me sugiere, acá estoy yo dando mi testimonio de cómo una mujer impaciente transita el viaje del autoconocimiento atravesando tabúes para abrazar quién es. El viaje de muchos.  
   
