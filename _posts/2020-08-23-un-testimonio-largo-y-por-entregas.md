@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Un testimonio largo y por entregas"
+title: "Mi primera infancia fue así"
 date: 2020-08-23
 category: post
 ---
