@@ -4,26 +4,8 @@ title: "Un testimonio largo y por entregas"
 date: 2020-08-23
 category: post
 ---
-Le conté a una amiga que quiero compartir cosas en un blog, pero que no sabía qué le iba a servir a la gente. Me dijo que con mi testimonio estaría bien. Usó esa palabra, testimonio, que me llamó la atención.  
-  
-Así que como estoy en plan dejar de darle vueltas a todo y directamente hacer lo que la gente me sugiere, acá estoy yo dando mi testimonio de cómo una mujer impaciente transita el viaje del autoconocimiento atravesando tabúes para abrazar quién es. El viaje de muchos.  
-  
-No sé qué forma va a tomar mi testimonio. Me imagino que será largo y por entregas, desordenad...  
--Ah Delfi ni arrancaste y ya estás por pedir perdón. La que te espera. Dale, decilo: tu idea es escribir un libro con lo que publiques. Anotaste mil veces en tu diario que querés publicar un libro, enseñar lo que descubriste de vos y traer espacios seguros al mundo donde la gente pueda ser quién es. Querés ayudar a otros en su autodescubrimiento. Qué son buenos haciendo, qué no. Cuál es su motivación.  
--Sí, tal cual... Gracias Delfi confiada por interrumpir mis ganas de evitar todo esto.  
--De nada. Aparte esto es buenísimo porque el que arranca a leer ya sabe que hay varias Delfis habitándote. Si no les copa se van.  
--Buen sí pará...  
--Relajá, va a estar bien.  
--Ok...  
--¿Sabés qué pasa? que si entrás a pensar no vas a publicar nunca y todas las Delfis queremos que publiques porque tenés muchas cosas para contar. Así que listo, publicá esto, y de a poco cada semana vas soltando la mano y se va a ir formando el libro.  
--Tenés razón. Vergüenza igual.  
--Y bueno. Pero esto es lo que hacés. Te mandás y después ves cómo la piloteás. Worst case scenario tres personas que conocés te dirán algún día "y el blog que arrancaste? qué onda?" y les dirás "nada, no lo seguí" y listo. Who cares.  
--Estoy probando. Iterando a ver si es por acá.  
--Claro! estás probando... sin presión... Mirá, un día de Mayo escribiste esto en tu diario:  
+Todo empezó una mañana rosarina de junio del 1993. Aunque en realidad todo había empezado antes, pero eso es otra historia.  
+Nací. No recuerdo mucho de eso ni de los años siguientes. Tengo recuerdos esporádicos que ya no sé si son verdad o mentira, si los recuerdo o me los contaron. Ver una película de la Máscara. Asfixiar un pajarito. Agarrar palomas con la mano. Chocar con marcos de puertas. Tirarme de la cuna.
+Sí tengo memorias nítidas desde que nos mudamos a Buenos Aires, cuando yo tenía 3 años. Fuimos a vivir a un departamento con balcón cerca de Av. Córdoba. Cada noche veía miles de lucecitas y hasta un pequeño globo aerostático de neón, o eso recuerdo, que se alzaba desde un negocio cercano. Veía Sailor Moon en mi cuarto con alfombra, comiendo pasas de uva. A la tarde dibujábamos casas con mamá y ella recortaba los paquetes de galletitas para sacarles la bandera argentina de Industria Argentina y se las ponía a la casa. Yo pegaba algodones para hacer las nubes. A la noche llegaba papá y me hacía caballito en su pierna. Cuando me iba a dormir, él me contaba un cuento de una ovejita que se ensuciaba en un arroyo de Pergamino, o mamá me cantaba una canción de un barquito hecho de cáscara de nuez. A veces me despertaba en el medio de la noche y quería escuchar la canción de nuevo, entonces me tiraba a propósito de la cama. Mamá venía asustada por el estruendo y me ponía una frazada porque yo quería seguir durmiendo en el piso.  
+Un día nació mi hermano. Yo tenía un pececito de peluche y había que ir a un lugar porque algo le pasaba a mamá pero estaba todo bien.
 
-"En un mes cumplo años y voy a cambiar cosas. Publicar un libro. Autodescubrimiento, espiritualidad. Jugar. Jugá con la vida. No tanto drama ni overthinking."  
-
--Uf, puntos por eso. Sos muy buena en tu trabajo Delfi confiada. ¿Bueno y decís que publico esto así nomás?  
--Sí, ya fue mucha exposición por hoy. Otro día seguís.  
--Bárbaro. Gracias Delfi, posta. No renuncies.  
--De nada Delfi. No, obvio.  
