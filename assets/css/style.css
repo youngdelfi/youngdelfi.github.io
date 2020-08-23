@@ -43,14 +43,14 @@ header * {
 header h1 {
   font-family: "Montserrat", sans-serif;
   font-weight: 900;
-  font-size: 3.9rem;
+  font-size: 2.9rem;
   line-height: 4.5rem;
   color: rgba(0, 0, 0, 0.9);
 }
 
 header .dmode {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   text-align: right;
 }
 
@@ -83,16 +83,16 @@ a:hover {
 }
 
 .posts {
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 
 .posts h3 {
   font-family: "Merriweather", "Georgia", serif;
-  font-weight: 900;
+  font-weight: 500;
   text-rendering: optimizeLegibility;
-  font-size: 1.4427rem;
+  font-size: 1.2427rem;
   line-height: 1.1;
-  margin-top: 3.5rem;
+  margin-top: 2.0rem;
 }
 
 .posts small {
@@ -152,6 +152,7 @@ article .meta {
 }
 .content h2 {
   font-size: 1.8rem;
+
 }
 .content h3 {
   font-size: 1.6rem;
