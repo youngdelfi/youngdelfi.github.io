@@ -3,6 +3,7 @@ layout: post
 title: "La Antigüedad Sólida - Egipto, Oct 2017"
 date: 2017-10-17
 category: journal
+tag: viajes
 ---
   
 El Cairo, Octubre 2017
