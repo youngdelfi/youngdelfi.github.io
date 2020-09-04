@@ -12,6 +12,8 @@ Me gusta escribir cartas. Me gusta enviar y recibir la palabra escrita. Ver las 
 		            <p>
             {{post.content}}
           </p>
+		  <br />
+		  <br />
         </div>
         {% endfor %}
       </section>
