@@ -147,66 +147,46 @@ volvía a casa
 buscando aceptación, complicidad
 
 <br>
-Éramos dos mujeres a oscuras en la casa
-
-oía a mamá tipeando en la otra habitación
-
-cada tanto bajaba  a la cocina y volvía a subir
-
-este es mi momento, pensaba
-
-pero no
+Éramos dos mujeres a oscuras en la casa<br>
+oía a mamá tipeando en la otra habitación<br>
+cada tanto bajaba  a la cocina y volvía a subir<br>
+este es mi momento, pensaba<br>
+pero no<br>
 <br>
 
-En la tele pasaban Tarzán
-Me vienen frases, absorbía  diálogos
-
-_¿por qué soy tan diferente?_
-
-_porque estás cubierto de barro_
-
+En la tele pasaban Tarzán<br>
+Me vienen frases, absorbía  diálogos<br>
+_¿por qué soy tan diferente?_<br>
+_porque estás cubierto de barro_<br>
 <br>
-
-Agitada como si estuviera corriendo
-tomaba aire, abría la boca
-la garganta cerrada
-lo que quería decir no me salía
+Agitada como si estuviera corriendo<br>
+tomaba aire, abría la boca<br>
+la garganta cerrada<br>
+lo que quería decir no me salía<br>
 
 <br>
 
-_cierra los ojos_
+_cierra los ojos_<br>
+_olvida lo que ves_<br>
+_¿Qué sientes?_<br>
+<br>
+Los latidos de mi corazón<br>
+el tic tac en la cocina<br>
+los hombres llegarían en cualquier momento<br>
+llamé a mi mejor amiga:<br>
+no puedo contarle<br>
+le hablé de la película<br>
+al final a Tarzán lo aceptan<br>
+_sí podés_<br>
+_va a estar todo bien_<br>
+corté<br>
 
-_olvida lo que ves_
+<br>
 
-_¿Qué sientes?_
-
-Los latidos de mi corazón
-
-el tic tac en la cocina
-
-los hombres llegarían en cualquier momento
-
-llamé a mi mejor amiga:
-
-no puedo contarle
-
-le hablé de la película
-
-al final a Tarzán lo aceptan
-
-_sí podés_
-
-_va a estar todo bien_
-
-corté
-
-Me senté en mi cama
-
-llamé: _mamá_
-
-el tipeo no cesaba
-
-_¿Qué?_
+Me senté en mi cama<br>
+llamé: _mamá_<br>
+el tipeo no cesaba<br>
+_¿Qué?_<br>
 
 no contesté a esa  pregunta
 
