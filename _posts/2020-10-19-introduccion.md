@@ -33,34 +33,34 @@ por Delfina Young
 <br>
 
 <p style="text-align: right">
-Al Universo
-a la naturaleza
-a la aurora boreal
-a la pandemia
-A los lectores de este libro</p>
+Al Universo<br>
+a la naturaleza<br>
+a la aurora boreal<br>
+a la pandemia<br>
+</p>
 
 <br>
 <br>
 
 <p style="text-align: right">
-A los lectores de este libro
-a Bea, Mai, Quimo y Kari
-a mis compañeros de trabajo
-a Vivian
-a Lu y Eri
-A Anna
-a Pal y a Flor
-a mis amigos a través de todo,
-en especial a Lena, More, Delfu y Jana
-a Agus y a Agus
-a Maru
-a mamá y papá
-a mis hermanos
-a Juan y Flor
-a G
-a Lina
-a Caro
-a Mili
+A los lectores de este libro<br>
+a Bea, Mai, Quimo y Kari<br>
+a mis compañeros de trabajo<br>
+a Vivian<br>
+a Lu y Eri<br>
+A Anna<br>
+a Pal y a Flor<br>
+a mis amigos a través de todo,<br>
+en especial a Lena, More, Delfu y Jana<br>
+a Agus y a Agus<br>
+a Maru<br>
+a mamá y papá<br>
+a mis hermanos<br>
+a Juan y Flor<br>
+a G<br>
+a Lina<br>
+a Caro<br>
+a Mili<br>
 </p>
 
 <br>
@@ -126,77 +126,136 @@ Hay partes que hubiera preferido saltear o pausar, pero, como todo ciclo vital, 
 ***
 <br>
 
-<p>
-Dos mujeres a oscuras en la casa.
-Oigo a mamá tipeando en la otra habitación. Cada tanto baja a la cocina y vuelve a subir.
-Este es mi momento
-Pero no
-</p>
+Habían comenzado los días
 
-Veo de reojo una película de Disney. Absorbo diálogos.
+de ir en remera al colegio
 
-_¿Por qué soy tan diferente?_
-_Porque estás cubierto de barro_
+tenía 17 años
 
-Respiro como si estuviera corriendo.
+aún en primavera
 
-Tomo aire, abro la boca. La garganta hinchada de lo que quiero decir y no me sale.
+no era tan fácil florecer
 
-Cierra los ojos. Olvida lo que ves. ¿Qué sientes?
+la noticia corría como rumor
 
-Los latidos de mi corazón al compás del tic tac del reloj en la cocina. Los hombres llegarán en cualquier momento.
+dos chicas juntas
 
-Llamo a mi mejor amiga: no puedo contarle. Le hablo de la película. Sí podés. Va a estar todo bien. Corto.
+era amor pero estaba mal
 
-me siento en mi cama
+volvía a casa
 
-llamo: _mamá_
+buscando aceptación, complicidad
 
-el tipeo no cesa. Yo no contesto a su pregunta
+<br>
+Éramos dos mujeres a oscuras en la casa
 
-quiero saber lo extraño que soy
+oía a mamá tipeando en la otra habitación
+
+cada tanto bajaba  a la cocina y volvía a subir
+
+este es mi momento, pensaba
+
+pero no
+<br>
+
+En la tele pasaban Tarzán
+Me vienen frases, absorbía  diálogos
+
+_¿por qué soy tan diferente?_
+
+_porque estás cubierto de barro_
+
+<br>
+
+Agitada como si estuviera corriendo
+tomaba aire, abría la boca
+la garganta cerrada
+lo que quería decir no me salía
+
+<br>
+
+_cierra los ojos_
+
+_olvida lo que ves_
+
+_¿Qué sientes?_
+
+Los latidos de mi corazón
+
+el tic tac en la cocina
+
+los hombres llegarían en cualquier momento
+
+llamé a mi mejor amiga:
+
+no puedo contarle
+
+le hablé de la película
+
+al final a Tarzán lo aceptan
+
+_sí podés_
+
+_va a estar todo bien_
+
+corté
+
+Me senté en mi cama
+
+llamé: _mamá_
+
+el tipeo no cesaba
+
+_¿Qué?_
+
+no contesté a esa  pregunta
+
+_quiero saber lo extraño que soy_
+
+_siento un algo como nunca sentí_
+
+decía Tarzán desde la pantalla
+
+Silencio
+
+apareció mamá  en el marco de la puerta
+
+_está muy oscuro acá ¿te prendo la luz?_
+
+quiero contarte algo
+
+_¿estás bien?_
 
 silencio
-
-aparece en el marco de la puerta
-
-está muy oscuro acá ¿te prendo la luz?
-
-quiero con...
-
-¿estás bien?
-
-...tarte algo
-
-silencio
-
-siento un algo como nunca sentí
 
 es bueno
 
-si fuera bueno no estarías llorando
-
-esta atracción me invita a estar
+_si fuera bueno no estarías llorando_
 
 estoy enamorada
 
-muy junto a ella
-
 de una mujer
 
-No quería, perdóname. Te ordené proteger a la familia y tu nos traicionaste.
+_No quería, perdóname._
 
-Evitaremos a los extraños
+_Tarzán, te ordené proteger a la familia y tu nos traicionaste_
 
-¿Por que te intimida lo que es diferente a ti?
+_Evitaremos a los extraños_
 
-Protege a la familia
+Su rostro cubierto en lágrimas
 
-no te les acerques más
+mi amor, aplastado, se ahogaba en mí
 
-Siempre serás mi madre
+_¿Por que te intimida lo que es diferente a ti?_
 
-créditos
+_Protege a la familia_
 
-yo tenía 17 años
+_no te les acerques más_
+
+Aún en primavera
+
+era muy pronto para ella
+
+no era tan fácil florecer
+
 
