@@ -15,7 +15,7 @@ _Esta es la historia de cómo transité mi papel como mujer y el cuestionamiento
 
 ***
 
-
+ 
 
 Al principio no viví mi sexualidad con fluidez. O mejor dicho: la viví en mi adolescencia, y luego la reprimí durante 10 años. Exploré a escondidas, hablando poco, intentando que nadie me viera y sobre todo mintiendo. Mentía porque no estaba lista para contar la verdad. En realidad, ¿qué era la verdad? Ni yo lo sabía. Pero empecé a descubrirla.
 
@@ -48,12 +48,8 @@ Tuve que tomar algunas decisiones. Decidí entonces que:
 1. Publicaría esta primera versión e iría iterando y completándola en sucesivas versiones.
 2. Tomaría dos libros que combinaran la autobiografía y el ensayo y copiaría la manera de resolver algunas cosas. Por ejemplo, diálogos, datos, nombres.
 
-En un rápido repaso por mi biblioteca, me decanté por:
+En un rápido repaso por mi biblioteca, me decanté por _Días de Viaje_ de Aniko Villalba y _El fin del amor_ de Tamara Tenenbaum
 
-
-
-*   _Días de Viaje_ de Aniko Villalba
-*   _El fin del amor_ de Tamara Tenenbaum
 3. En este libro no profundizaría en definiciones precisas de varios términos referidos a orientaciones sexuales y géneros. Tampoco hablaría en lenguaje inclusivo. Hablaría de “hombres” y “mujeres” en un binarismo que me gustaría cambiar, pero es el lenguaje que hoy tengo.
 4. Durante varios viernes tendría una call con una amiga que también estaba escribiendo un libro. Nos plantearíamos dudas y soluciones. Me ayudaría con la accountability y la compañía.
 5. Sería un trabajo artístico basado en mi vida y con componentes ficcionados.
