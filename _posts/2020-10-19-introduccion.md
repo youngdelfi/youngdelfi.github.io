@@ -25,9 +25,11 @@ por Delfina Young
 <p style="text-align: right">
 <em>para ser quien soy</em></p>
 
+<br>
+<br>
+
 
 ### Agradecimientos
-<br>
 <br>
 
 <p style="text-align: right">

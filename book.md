@@ -15,7 +15,7 @@ _Esta es la historia de cómo transité mi papel como mujer y el cuestionamiento
 
 ***
 
- 
+ <br>
 
 Al principio no viví mi sexualidad con fluidez. O mejor dicho: la viví en mi adolescencia, y luego la reprimí durante 10 años. Exploré a escondidas, hablando poco, intentando que nadie me viera y sobre todo mintiendo. Mentía porque no estaba lista para contar la verdad. En realidad, ¿qué era la verdad? Ni yo lo sabía. Pero empecé a descubrirla.
 
