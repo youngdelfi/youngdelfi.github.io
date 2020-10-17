@@ -5,6 +5,131 @@ date: 2020-10-19
 category: chapter
 tag: book
 ---
+
+## Ni hombre ni mujer
+
+por Delfina Young
+
+<br>
+<br>
+<br>
+
+<p style="text-align: right">
+<em>Para mi mamá,</em></p>
+
+
+<p style="text-align: right">
+<em>por ser quien yo necesitaba que fuera</em></p>
+
+
+<p style="text-align: right">
+<em>para ser quien soy</em></p>
+
+
+### Agradecimientos
+<br>
+<br>
+
+<p style="text-align: right">
+Al Universo</p>
+
+
+<p style="text-align: right">
+a la naturaleza</p>
+
+
+<p style="text-align: right">
+a la aurora boreal</p>
+
+
+<p style="text-align: right">
+a la pandemia</p>
+
+
+<p style="text-align: right">
+A los lectores de este libro</p>
+
+<br>
+<br>
+
+<p style="text-align: right">
+a Bea, Mai, Quimo y Kari</p>
+
+
+<p style="text-align: right">
+a mis compañeros de trabajo</p>
+
+
+<p style="text-align: right">
+a Vivian</p>
+
+
+<p style="text-align: right">
+a Lu y Eri</p>
+
+
+<p style="text-align: right">
+A Anna</p>
+
+
+<p style="text-align: right">
+a Pal y a Flor</p>
+
+
+<p style="text-align: right">
+a mis amigos a través de todo,</p>
+
+
+<p style="text-align: right">
+en especial a Lena, More, Delfu y Jana</p>
+
+
+<p style="text-align: right">
+a Agus y a Agus</p>
+
+
+<p style="text-align: right">
+a Maru</p>
+
+
+<p style="text-align: right">
+a mamá y papá</p>
+
+
+<p style="text-align: right">
+a mis hermanos</p>
+
+
+<p style="text-align: right">
+a Juan y Flor</p>
+
+
+<p style="text-align: right">
+a G</p>
+
+
+<p style="text-align: right">
+a Lina</p>
+
+
+<p style="text-align: right">
+a Caro</p>
+
+
+<p style="text-align: right">
+a Mili</p>
+
+<br>
+<br>
+
+<p style="text-align: right">
+A mí</p>
+
+<br>
+<br>
+
+## Introducción
+
 <p style="text-align: right">
 <em>“Como usted, querido lector, aún habito dos historias en conflicto, una antigua y una nueva. No soy un ser iluminado tratando de guiarlos en un viaje que ya he completado. Eso también es un antiguo modelo, que se desprende de una especie de jerarquía espiritual basada en la concepción lineal de la evolución de la conciencia. En la transición actual, cada uno de nosotros está siendo el pionero de un territorio único de la reunión de todos los seres”</em></p>
 
@@ -13,7 +138,7 @@ tag: book
 Charles Eisenstein</p>
 
 
-Frente a la pregunta “_¿debería la homosexualidad ser aceptada por la sociedad?_”[^1], la cantidad de personas que responden afirmativamente creció en las últimas dos décadas.
+Frente a la pregunta “_[¿debería la homosexualidad ser aceptada por la sociedad?](https://www.pewresearch.org/global/2020/06/25/global-divide-on-homosexuality-persists/)_”, la cantidad de personas que responden afirmativamente creció en las últimas dos décadas.
 
 La respuesta depende no sólo del país, que es una función no sólo de desarrollo económico de las naciones, sino también por actitudes políticas y religiosas.
 
