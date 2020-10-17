@@ -33,93 +33,35 @@ por Delfina Young
 <br>
 
 <p style="text-align: right">
-Al Universo</p>
-
-
-<p style="text-align: right">
-a la naturaleza</p>
-
-
-<p style="text-align: right">
-a la aurora boreal</p>
-
-
-<p style="text-align: right">
-a la pandemia</p>
-
-
-<p style="text-align: right">
+Al Universo
+a la naturaleza
+a la aurora boreal
+a la pandemia
 A los lectores de este libro</p>
 
 <br>
 <br>
 
 <p style="text-align: right">
-a Bea, Mai, Quimo y Kari</p>
-
-
-<p style="text-align: right">
-a mis compañeros de trabajo</p>
-
-
-<p style="text-align: right">
-a Vivian</p>
-
-
-<p style="text-align: right">
-a Lu y Eri</p>
-
-
-<p style="text-align: right">
-A Anna</p>
-
-
-<p style="text-align: right">
-a Pal y a Flor</p>
-
-
-<p style="text-align: right">
-a mis amigos a través de todo,</p>
-
-
-<p style="text-align: right">
-en especial a Lena, More, Delfu y Jana</p>
-
-
-<p style="text-align: right">
-a Agus y a Agus</p>
-
-
-<p style="text-align: right">
-a Maru</p>
-
-
-<p style="text-align: right">
-a mamá y papá</p>
-
-
-<p style="text-align: right">
-a mis hermanos</p>
-
-
-<p style="text-align: right">
-a Juan y Flor</p>
-
-
-<p style="text-align: right">
-a G</p>
-
-
-<p style="text-align: right">
-a Lina</p>
-
-
-<p style="text-align: right">
-a Caro</p>
-
-
-<p style="text-align: right">
-a Mili</p>
+A los lectores de este libro
+a Bea, Mai, Quimo y Kari
+a mis compañeros de trabajo
+a Vivian
+a Lu y Eri
+A Anna
+a Pal y a Flor
+a mis amigos a través de todo,
+en especial a Lena, More, Delfu y Jana
+a Agus y a Agus
+a Maru
+a mamá y papá
+a mis hermanos
+a Juan y Flor
+a G
+a Lina
+a Caro
+a Mili
+</p>
 
 <br>
 <br>
@@ -131,6 +73,7 @@ A mí</p>
 <br>
 
 ## Introducción
+<br>
 
 <p style="text-align: right">
 <em>“Como usted, querido lector, aún habito dos historias en conflicto, una antigua y una nueva. No soy un ser iluminado tratando de guiarlos en un viaje que ya he completado. Eso también es un antiguo modelo, que se desprende de una especie de jerarquía espiritual basada en la concepción lineal de la evolución de la conciencia. En la transición actual, cada uno de nosotros está siendo el pionero de un territorio único de la reunión de todos los seres”</em></p>
@@ -138,7 +81,7 @@ A mí</p>
 
 <p style="text-align: right">
 Charles Eisenstein</p>
-
+<br>
 
 Frente a la pregunta “_[¿debería la homosexualidad ser aceptada por la sociedad?](https://www.pewresearch.org/global/2020/06/25/global-divide-on-homosexuality-persists/)_”, la cantidad de personas que responden afirmativamente creció en las últimas dos décadas.
 
@@ -160,7 +103,7 @@ Como siempre, queda preguntarnos si se traducirá la teoría en la práctica. Cr
 
 ***
 
- 
+ <br>
 
 Hoy, todo es una construcción y una performance.
 
@@ -181,22 +124,19 @@ Este es mi proceso. No se apura, ni se demora, ni se termina.
 Hay partes que hubiera preferido saltear o pausar, pero, como todo ciclo vital, era necesario atravesarlo en todas sus partes por más tiempo que llevaran.
 
 ***
+<br>
 
-
-
+<p>
 Dos mujeres a oscuras en la casa.
-
 Oigo a mamá tipeando en la otra habitación. Cada tanto baja a la cocina y vuelve a subir.
-
 Este es mi momento
-
-Pero no.
+Pero no
+</p>
 
 Veo de reojo una película de Disney. Absorbo diálogos.
 
-¿Por qué soy tan diferente?
-
-Porque estás cubierto de barro.
+_¿Por qué soy tan diferente?_
+_Porque estás cubierto de barro_
 
 Respiro como si estuviera corriendo.
 
