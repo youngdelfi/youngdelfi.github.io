@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Introducción"
+title: "Capítulo 0: Introducción"
 date: 2020-10-19
 category: chapter
 tag: book
@@ -206,4 +206,5 @@ no era tan fácil florecer<br>
 <br>
 <br>
 
-_[Capítulo siguiente](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-1/)_
+_[Capítulo siguiente](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-1/)_<br>
+_[Capítulo anterior](https://youngdel.fi/posts/chapter/2020/10/19/prologo/)_
