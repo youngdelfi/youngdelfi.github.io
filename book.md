@@ -64,10 +64,16 @@ Espero que mi testimonio sirva como uno de los posibles caminos por los que reco
 
 Más allá de todo, este libro es simplemente mi manera de decir “si te pasó lo mismo que a mí, seas lo que seas y te guste lo que te guste, ya somos dos”.
 
-<section class="posts">
-        {% for post in site.tags.book %}
-        <div class="book">
-          <a href="{{site.baseurl}}{{post.url}}"><h3>{{post.title}}</h3></a>
-        </div>
-        {% endfor %}
-      </section>
+#### [Empezá por acá](https://youngdel.fi/posts/chapter/2020/10/19/prologo/)
+#### [Capítulo 0: Introducción](https://youngdel.fi/posts/chapter/2020/10/19/introduccion/)
+#### [Capítulo 1](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-1/)
+#### [Capítulo 2](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-2/)
+#### [Capítulo 3](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-3/)
+#### [Capítulo 4](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-4/)
+#### [Capítulo 5](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-5/)
+#### [Capítulo 6](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-6/)
+#### [Capítulo 7](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-7/)
+#### [Capítulo 8](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-8/)
+#### [Capítulo 9](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-9/)
+#### [Capítulo 10](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-10/)
+#### [Epílogo: Kintsugi](https://youngdel.fi/posts/chapter/2020/10/19/epilogo/)
