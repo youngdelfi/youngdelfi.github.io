@@ -24,7 +24,7 @@ Más allá de todo, este libro es simplemente mi manera de decir “si te pasó 
 #### [Empezá por acá](https://youngdel.fi/posts/chapter/2020/10/19/prologo/)
 #### [Capítulo 0: Introducción](https://youngdel.fi/posts/chapter/2020/10/19/introduccion/)
 #### [Capítulo 1: El color rosa](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-1/)
-#### [Capítulo 2: el muro de cristal](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-2/)
+#### [Capítulo 2: El muro de cristal](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-2/)
 #### [Capítulo 3: Extraños como yo](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-3/)
 #### [Capítulo 4: Se aquietan las aguas](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-4/)
 #### [Capítulo 5: Mi relación unipersonal](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-5/)
