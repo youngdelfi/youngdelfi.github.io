@@ -104,7 +104,6 @@ Como siempre, queda preguntarnos si se traducirá la teoría en la práctica. Cr
 ***
 
  <br>
-
 Hoy, todo es una construcción y una performance.
 
 Los componentes de la sexualidad de una persona son varios, e incluyen tanto el sexo biológico (hombre, mujer) y la orientación sexual (quién te atrae, como heterosexuales, lesbianas, gays, bisexuales) como identidad de género y expresión de género (relacionados con qué género, o qué tan masculina o femenina siente que es cada persona, y cómo lo manifiesta).
@@ -125,27 +124,16 @@ Hay partes que hubiera preferido saltear o pausar, pero, como todo ciclo vital, 
 
 ***
 <br>
-
-Habían comenzado los días
-
-de ir en remera al colegio
-
-tenía 17 años
-
-aún en primavera
-
-no era tan fácil florecer
-
-la noticia corría como rumor
-
-dos chicas juntas
-
-era amor pero estaba mal
-
-volvía a casa
-
-buscando aceptación, complicidad
-
+Habían comenzado los días<br>
+de ir en remera al colegio<br>
+tenía 17 años<br>
+aún en primavera<br>
+no era tan fácil florecer<br>
+la noticia corría como rumor<br>
+dos chicas juntas<br>
+era amor pero estaba mal<br>
+volvía a casa<br>
+buscando aceptación, complicidad<br>
 <br>
 Éramos dos mujeres a oscuras en la casa<br>
 oía a mamá tipeando en la otra habitación<br>
@@ -163,9 +151,7 @@ Agitada como si estuviera corriendo<br>
 tomaba aire, abría la boca<br>
 la garganta cerrada<br>
 lo que quería decir no me salía<br>
-
 <br>
-
 _cierra los ojos_<br>
 _olvida lo que ves_<br>
 _¿Qué sientes?_<br>
@@ -180,62 +166,41 @@ al final a Tarzán lo aceptan<br>
 _sí podés_<br>
 _va a estar todo bien_<br>
 corté<br>
-
 <br>
-
 Me senté en mi cama<br>
 llamé: _mamá_<br>
 el tipeo no cesaba<br>
 _¿Qué?_<br>
-
-no contesté a esa  pregunta
-
-_quiero saber lo extraño que soy_
-
-_siento un algo como nunca sentí_
-
-decía Tarzán desde la pantalla
-
-Silencio
-
-apareció mamá  en el marco de la puerta
-
-_está muy oscuro acá ¿te prendo la luz?_
-
-quiero contarte algo
-
-_¿estás bien?_
-
-silencio
-
-es bueno
-
-_si fuera bueno no estarías llorando_
-
-estoy enamorada
-
-de una mujer
-
-_No quería, perdóname._
-
-_Tarzán, te ordené proteger a la familia y tu nos traicionaste_
-
-_Evitaremos a los extraños_
-
-Su rostro cubierto en lágrimas
-
-mi amor, aplastado, se ahogaba en mí
-
-_¿Por que te intimida lo que es diferente a ti?_
-
-_Protege a la familia_
-
-_no te les acerques más_
-
-Aún en primavera
-
-era muy pronto para ella
-
-no era tan fácil florecer
+no contesté a esa  pregunta<br>
+<br>
+_quiero saber lo extraño que soy_<br>
+_siento un algo como nunca sentí_<br>
+decía Tarzán desde la pantalla<br>
+<br>
+Silencio<br>
+apareció mamá  en el marco de la puerta<br>
+_está muy oscuro acá ¿te prendo la luz?_<br>
+quiero contarte algo<br>
+_¿estás bien?_<br>
+silencio<br>
+es bueno<br>
+_si fuera bueno no estarías llorando_<br>
+estoy enamorada<br>
+de una mujer<br>
+<br>
+_No quería, perdóname._<br>
+_Tarzán, te ordené proteger a la familia y tu nos traicionaste_<br>
+_Evitaremos a los extraños_<br>
+<br>
+Su rostro cubierto en lágrimas<br>
+mi amor, aplastado, se ahogaba en mí<br>
+<br>
+_¿Por que te intimida lo que es diferente a ti?_<br>
+_Protege a la familia_<br>
+_no te les acerques más_<br>
+<br>
+Aún en primavera<br>
+era muy pronto para ella<br>
+no era tan fácil florecer<br>
 
 
