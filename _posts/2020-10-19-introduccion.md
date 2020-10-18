@@ -6,75 +6,6 @@ category: chapter
 tag: book
 ---
 
-## Ni hombre ni mujer
-
-por Delfina Young
-
-<br>
-<br>
-<br>
-
-<p style="text-align: right">
-<em>Para mi mamá,</em></p>
-
-
-<p style="text-align: right">
-<em>por ser quien yo necesitaba que fuera</em></p>
-
-
-<p style="text-align: right">
-<em>para ser quien soy</em></p>
-
-<br>
-<br>
-
-
-### Agradecimientos
-<br>
-
-<p style="text-align: right">
-Al Universo<br>
-a la naturaleza<br>
-a la aurora boreal<br>
-a la pandemia<br>
-</p>
-
-<br>
-<br>
-
-<p style="text-align: right">
-A los lectores de este libro<br>
-a Bea, Mai, Quimo y Kari<br>
-a mis compañeros de trabajo<br>
-a Vivian<br>
-a Lu y Eri<br>
-A Anna<br>
-a Pal y a Flor<br>
-a mis amigos a través de todo,<br>
-en especial a Lena, More, Delfu y Jana<br>
-a Agus y a Agus<br>
-a Maru<br>
-a mamá y papá<br>
-a mis hermanos<br>
-a Juan y Flor<br>
-a G<br>
-a Lina<br>
-a Caro<br>
-a Mili<br>
-</p>
-
-<br>
-<br>
-
-<p style="text-align: right">
-A mí</p>
-
-<br>
-<br>
-
-## Introducción
-<br>
-
 <p style="text-align: right">
 <em>“Como usted, querido lector, aún habito dos historias en conflicto, una antigua y una nueva. No soy un ser iluminado tratando de guiarlos en un viaje que ya he completado. Eso también es un antiguo modelo, que se desprende de una especie de jerarquía espiritual basada en la concepción lineal de la evolución de la conciencia. En la transición actual, cada uno de nosotros está siendo el pionero de un territorio único de la reunión de todos los seres”</em></p>
 
@@ -101,9 +32,12 @@ No somos hombres o mujeres y nada más, ni nos gusta lo mismo, ni actuamos segú
 
 Como siempre, queda preguntarnos si se traducirá la teoría en la práctica. Creo que lo que podemos rescatar de estos estudios es la visibilización que hay en cada país sobre estas temáticas. Que se hablen, que estén en boca de periodistas, políticos, científicos, por más que no se traduzcan a la vida cotidiana, es importante.
 
-***
+<p style="text-align: center;">
+**<br>
+*<br>
+</p>
 
- <br>
+
 Hoy, todo es una construcción y una performance.
 
 Los componentes de la sexualidad de una persona son varios, e incluyen tanto el sexo biológico (hombre, mujer) y la orientación sexual (quién te atrae, como heterosexuales, lesbianas, gays, bisexuales) como identidad de género y expresión de género (relacionados con qué género, o qué tan masculina o femenina siente que es cada persona, y cómo lo manifiesta).
@@ -122,8 +56,12 @@ Este es mi proceso. No se apura, ni se demora, ni se termina.
 
 Hay partes que hubiera preferido saltear o pausar, pero, como todo ciclo vital, era necesario atravesarlo en todas sus partes por más tiempo que llevaran.
 
-***
-<br>
+<p style="text-align: center;">
+**<br>
+*<br>
+</p>
+
+
 Habían comenzado los días<br>
 de ir en remera al colegio<br>
 tenía 17 años<br>
