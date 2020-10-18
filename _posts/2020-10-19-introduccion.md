@@ -145,4 +145,6 @@ no era tan fácil florecer<br>
 <br>
 
 _[Capítulo siguiente](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-1/)_<br>
-_[Capítulo anterior](https://youngdel.fi/posts/chapter/2020/10/19/prologo/)_
+_[Capítulo anterior](https://youngdel.fi/posts/chapter/2020/10/19/prologo/)_<br>
+_[Índice](https://youngdel.fi/book.html)_
+
