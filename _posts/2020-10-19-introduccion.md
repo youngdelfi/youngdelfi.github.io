@@ -202,6 +202,8 @@ Aún en primavera<br>
 era muy pronto para ella<br>
 no era tan fácil florecer<br>
 
-***
+
+<br>
+<br>
 
 _[Capítulo siguiente](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-1/)_
