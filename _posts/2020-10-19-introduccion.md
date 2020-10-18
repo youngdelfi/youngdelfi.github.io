@@ -141,7 +141,6 @@ cada tanto bajaba  a la cocina y volvía a subir<br>
 este es mi momento, pensaba<br>
 pero no<br>
 <br>
-
 En la tele pasaban Tarzán<br>
 Me vienen frases, absorbía  diálogos<br>
 _¿por qué soy tan diferente?_<br>
@@ -203,4 +202,7 @@ Aún en primavera<br>
 era muy pronto para ella<br>
 no era tan fácil florecer<br>
 
+***
+<br>
 
+_[Capítulo siguiente](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-1/)_
