@@ -7,7 +7,7 @@ Estás frente a la primera versión que publico sobre el cuestionamiento y explo
 
 Como en muchos ámbitos de la vida, hay un mapa con infinitos senderos y este es uno.
 
-Espero que mi testimonio sirva como uno de los posibles caminos por los que recorrer el género y la sexualidad. Sé que a mí me sirvió conocer experiencias de otros para para hacerle sentido a lo que me pasaba, darme cuenta que no era casualidad, que iba hacia algo. Que los puntos se conectaban.
+Espero que mi testimonio sirva como uno de los posibles caminos por los que recorrer el género y la sexualidad. Sé que a mí me sirvió conocer experiencias de otros para para hacerle sentido a lo que me pasaba, darme cuenta de que no era casualidad, que iba hacia algo. Que los puntos se conectaban.
 
 Más allá de todo, este futuro libro es simplemente mi manera de decir “si te pasó lo mismo que a mí, seas lo que seas y te guste lo que te guste, ya somos dos”.
 <br>
