@@ -3,7 +3,7 @@ title: Ni hombre ni mujer (V1.0)
 layout: post
 ---
 
-Esta es la primera versión que publico sobre mi cuestionamiento y exploración de mi sexualidad, desde mi infancia hasta ahora, mis 27 años.
+Esta es la primera versión que publico sobre mi cuestionamiento y exploración de mi sexualidad, desde mi infancia hasta ahora, mis 27 años. Mi objetivo es mejorar y ampliar este testimonio en futuras versiones, hasta que un día se convierta en libro.
 
 Como en muchos ámbitos de la vida, hay un mapa con infinitos senderos y este es uno.
 
@@ -12,7 +12,7 @@ Espero que mi testimonio sirva como uno de los posibles caminos por los que reco
 Más allá de todo, este libro es simplemente mi manera de decir “si te pasó lo mismo que a mí, seas lo que seas y te guste lo que te guste, ya somos dos”.
 <br>
 
-_Si querés dejarme comentarios, podés hacerlo de manera anónima [acá](https://docs.google.com/forms/d/e/1FAIpQLSfzMtxHsHTN48PjhNlpn5GfvpnESc9zGzM5D8xt-4N5zie1Tg/viewform) es vital para seguir mejorando este testimonio en futuras versiones, hasta que un día se convierta en libro._
+_Si querés dejarme comentarios, podés hacerlo de manera anónima [acá](https://docs.google.com/forms/d/e/1FAIpQLSfzMtxHsHTN48PjhNlpn5GfvpnESc9zGzM5D8xt-4N5zie1Tg/viewform)._
 <br>
 
 #### [Empezá por acá](https://youngdel.fi/posts/chapter/2020/10/19/prologo/)
