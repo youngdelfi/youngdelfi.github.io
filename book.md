@@ -3,7 +3,7 @@ title: Ni hombre ni mujer (V1.0)
 layout: post
 ---
 
-Bienvenid@ a la primera versión que publico sobre mi cuestionamiento y exploración de mi sexualidad, desde mi infancia hasta ahora, mis 27 años. Mi objetivo es mejorar y ampliar este testimonio en futuras versiones, hasta que un día se convierta en libro.
+Estás frente a la primera versión que publico sobre el cuestionamiento y exploración de mi sexualidad, desde mi infancia hasta ahora, mis 27 años. Mi objetivo es mejorar y ampliar este testimonio en futuras versiones hasta que un día se convierta en libro.
 
 Como en muchos ámbitos de la vida, hay un mapa con infinitos senderos y este es uno.
 
