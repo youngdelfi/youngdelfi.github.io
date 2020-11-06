@@ -112,4 +112,4 @@ Ella me dijo: “pero vos, andá con quien quieras y contanos lo que quieras. So
 
 _[Capítulo siguiente](https://youngdel.fi/posts/chapter/2020/10/19/epilogo/)_<br>
 _[Capítulo anterior](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-9-print/)_<br>
-_[Índice](https://youngdel.fi/book.html)_
+_[Índice](https://youngdel.fi/book-print.html)_

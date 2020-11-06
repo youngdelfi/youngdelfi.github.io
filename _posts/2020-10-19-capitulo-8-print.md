@@ -202,4 +202,4 @@ Seguimos mirando las imágenes en la pared. Me sentí aceptada, me sentí su có
 
 _[Capítulo siguiente](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-9-print/)_<br>
 _[Capítulo anterior](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-7/)_<br>
-_[Índice](https://youngdel.fi/book.html)_
+_[Índice](https://youngdel.fi/book-print.html)_

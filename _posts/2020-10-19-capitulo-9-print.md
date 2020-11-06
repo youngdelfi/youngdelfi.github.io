@@ -76,4 +76,4 @@ La vida es mucho más bella desde que también me gustan las mujeres. En realida
 
 _[Capítulo siguiente](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-10-print/)_<br>
 _[Capítulo anterior](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-8/)_<br>
-_[Índice](https://youngdel.fi/book.html)_
+_[Índice](https://youngdel.fi/book-print.html)_
