@@ -15,9 +15,13 @@ Más allá de todo, este futuro libro es simplemente mi manera de decir “si te
 _Si querés dejarme comentarios, podés hacerlo de manera anónima [acá](https://docs.google.com/forms/d/e/1FAIpQLSfzMtxHsHTN48PjhNlpn5GfvpnESc9zGzM5D8xt-4N5zie1Tg/viewform)._
 <br>
 
+V1.1
+- Mejorado el poema de Anoushka Shankar
+- Cambié el título al Capítulo 1 y mejoré mi infancia
+
 #### [Empezá por acá](https://youngdel.fi/posts/chapter/2020/10/19/prologo/)
 #### [Capítulo 0: Introducción](https://youngdel.fi/posts/chapter/2020/10/19/introduccion/)
-#### [Capítulo 1: El color rosa](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-1/)
+#### [Capítulo 1: Recipiente de mujer](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-1/)
 #### [Capítulo 2: El muro de cristal](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-2/)
 #### [Capítulo 3: Extraños como yo](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-3/)
 #### [Capítulo 4: Se aquietan las aguas](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-4/)
