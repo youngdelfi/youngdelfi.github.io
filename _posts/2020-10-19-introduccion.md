@@ -55,120 +55,78 @@ Hay partes que hubiera preferido saltear o pausar, pero, como todo ciclo vital, 
 </p>
 
 
-Habían comenzado los días
+Habían comenzado los días<br>
+de ir en remera al colegio<br>
+tenía 17 años<br>
+aún en primavera<br>
+no era tan fácil florecer<br>
 
-de ir en remera al colegio
+La noticia corría como rumor:<br>
+“_dos chicas juntas_”<br>
+era amor pero estaba mal<br>
+volví a casa<br>
+buscaba aceptación, complicidad<br>
 
-tenía 17 años
+Éramos dos mujeres a oscuras en la casa<br>
+mamá tipeaba en la otra habitación<br>
+cada tanto bajaba a la cocina y volvía a subir<br>
+“_este es mi momento_”, pensaba,<br> 
+pero no<br>
 
-aún en primavera
+En la tele pasaban Tarzán<br>
+captaba frases, diálogos<br>
 
-no era tan fácil florecer
+_¿Por qué soy tan diferente?_<br>
+_porque estás cubierto de barro_<br>
 
-La noticia corría como rumor:
+Agitada como si estuviera corriendo<br>
+tomaba aire, abría la boca<br>
+la garganta cerrada<br>
+lo que quería decir no me salía<br>
 
-“_dos chicas juntas_”
+Los latidos de mi corazón<br>
+el tic tac en la cocina<br>
+los hombres que llegarían en cualquier momento<br>
 
-era amor pero estaba mal
+Llamé a mi mejor amiga:<br>
+no puedo contarle,<br>
+_sí podés_<br>
+_va a estar todo bien_<br>
+corté<br>
 
-volví a casa
+Me senté en mi cama<br>
+llamé: mamá,<br>
+el tipeo no cesaba<br>
+_¿qué?_<br>
+no contesté a esa  pregunta<br>
 
-buscaba aceptación, complicidad
+_Quiero saber lo extraño que soy_<br>
+_siento un algo como nunca sentí_<br>
 
-Éramos dos mujeres a oscuras en la casa
+Apareció mamá en el marco de la puerta<br>
+_está muy oscuro acá_<br>
+_¿te prendo la luz?_<br>
+quiero contarte algo<br>
+_¿estás bien?_<br>
+silencio<br>
+es bueno<br>
+_si fuera bueno no llorarías_<br>
 
-mamá tipeaba en la otra habitación
+estoy enamorada<br>
+de una mujer<br>
 
-cada tanto bajaba a la cocina y volvía a subir
+Su rostro cubierto en lágrimas<br>
+mi amor, aplastado, se ahogaba en mí<br>
 
-“_este es mi momento_”, pensaba, 
+_¿Por que te intimida lo que es diferente a ti?_<br>
+_Protege a la familia, Tarzán_<br>
+_no te les acerques más_<br>
 
-pero no
+Aún en primavera<br>
+era muy pronto para ella<br>
 
-En la tele pasaban Tarzán
-
-captaba frases, diálogos 
-
-_¿Por qué soy tan diferente?_
-
-_porque estás cubierto de barro_
-
-Agitada como si estuviera corriendo
-
-tomaba aire, abría la boca
-
-la garganta cerrada
-
-lo que quería decir no me salía
-
-Los latidos de mi corazón
-
-el tic tac en la cocina
-
-los hombres que llegarían en cualquier momento
-
-Llamé a mi mejor amiga:
-
-no puedo contarle, 
-
-_sí podés_
-
-_va a estar todo bien_
-
-corté
-
-Me senté en mi cama
-
-llamé: mamá, 
-
-el tipeo no cesaba
-
-_¿qué?_
-
-no contesté a esa  pregunta
-
-_Quiero saber lo extraño que soy_
-
-_siento un algo como nunca sentí_
-
-Apareció mamá en el marco de la puerta
-
-_está muy oscuro acá_
-
-_¿te prendo la luz?_
-
-quiero contarte algo
-
-_¿estás bien?_
-
-silencio
-
-es bueno
-
-_si fuera bueno no llorarías_
-
-estoy enamorada
-
-de una mujer
-
-Su rostro cubierto en lágrimas
-
-mi amor, aplastado, se ahogaba en mí
-
-_¿Por que te intimida lo que es diferente a ti?_
-
-_Protege a la familia, Tarzán_
-
-_no te les acerques más_
-
-Aún en primavera
-
-era muy pronto para ella
-
-_Cierra los ojos_
-
-_olvida lo que ves_
-
+_Cierra los ojos_<br>
+_olvida lo que ves_<br>
 _¿Qué sientes?_
 
 
