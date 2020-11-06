@@ -26,6 +26,6 @@ _Si querés dejarme comentarios, podés hacerlo de manera anónima [acá](https:
 #### [Capítulo 6: Amanecer](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-6/)
 #### [Capítulo 7: Agarrar mis botas e irme](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-7/)
 #### [Capítulo 8: La aurora boreal me dijo que sí](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-8/)
-#### [Capítulo 9: Matrix](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-9/)
-#### [Capítulo 10: ¿Hasta dónde llega esto?](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-10/)
+#### [Capítulo 9: Luna llena](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-9-print/)
+#### [Capítulo 10: ¿Hasta dónde llega esto?](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-10-print/)
 #### [Epílogo: Kintsugi](https://youngdel.fi/posts/chapter/2020/10/19/epilogo/)
