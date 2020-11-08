@@ -49,7 +49,7 @@ Lo que había abierto no era una puerta sino la caja de Pandora. Vi los límites
 
 Cuestionar el deseo sexual por uno de los géneros posibles (mujer) implicaba preguntarse por el resto de los géneros. Y por el resto de maneras de vincularse (monogamia o no monogamia). Y por las prácticas sexuales en que esa exploración se diera.
 
-Mi plan había empezado siendo: _¿Me gustan las mujeres? _Respuestas posibles: Sí / No. Si respondía que sí, entonces era lesbiana, bisexual o algo parecido. Si respondía que no, entonces era heterosexual porque “probé y no me gustó”.
+Mi plan había empezado siendo: _¿Me gustan las mujeres?_ Respuestas posibles: Sí / No. Si respondía que sí, entonces era lesbiana, bisexual o algo parecido. Si respondía que no, entonces era heterosexual porque “probé y no me gustó”.
 
 ¿Cómo saber si me gustan las mujeres? Teniendo una experiencia sexual con una.
 
