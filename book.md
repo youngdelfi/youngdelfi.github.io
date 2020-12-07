@@ -1,5 +1,5 @@
 ---
-title: Ni hombre ni mujer (V1.1)
+title: Ni hombre ni mujer (V1.2)
 layout: post
 ---
 
@@ -12,6 +12,7 @@ Espero que mi testimonio sirva como uno de los posibles caminos por los que reco
 Más allá de todo, este futuro libro es simplemente mi manera de decir “si te pasó lo mismo que a mí, seas lo que seas y te guste lo que te guste, ya somos dos”.
 <br>
 
+_Si querés recibir el libro impreso, escribime a delfi.young@gmail.com_<br>
 _Si querés dejarme comentarios, podés hacerlo de manera anónima [acá](https://docs.google.com/forms/d/e/1FAIpQLSfzMtxHsHTN48PjhNlpn5GfvpnESc9zGzM5D8xt-4N5zie1Tg/viewform)._
 <br>
 
