@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Capítulo 0: Introducción"
-date: 2020-10-19
+date: 2021-01-11
 category: chapter
 tag: book
 ---
