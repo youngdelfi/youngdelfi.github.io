@@ -16,16 +16,14 @@ Charles Eisenstein</p>
 
 Frente a la pregunta “_[¿debería la homosexualidad ser aceptada por la sociedad?](https://www.pewresearch.org/global/2020/06/25/global-divide-on-homosexuality-persists/)_”, la cantidad de personas que responden afirmativamente creció en las últimas dos décadas.
 
-La respuesta depende no sólo del país, que es una función no sólo de desarrollo económico de las naciones, sino también por actitudes políticas y religiosas.
-
-Si lo dividimos por atributos demográficos, las investigaciones sugieren que, entre hombres y mujeres, son estas últimas las que más aceptan la homosexualidad. Ocurre lo mismo con las generaciones más jóvenes.
+Si dividimos esa respuesta por atributos demográficos, las investigaciones sugieren que, entre hombres y mujeres, son estas últimas las que más aceptan la homosexualidad. Ocurre lo mismo con las generaciones más jóvenes.
 
 No me extraña: veo chicas de 20 años fluir con su sexualidad sin tapujos. Se definen con respecto a su orientación sexual como homosexuales, bisexuales, pansexuales, o simplemente no se definen: declaran que están explorando.
 
 Las generaciones más nuevas, aunque de ellas a mí hay poco más de 5 años, probablemente no entienden la oscuridad que rodea al sexo, como yo no entiendo la oscuridad que rodeaba al divorcio en la época de mis padres. Fluyen con muchos menos tabúes — si es que alguno — con respecto a su deseo y atracción.
 
-Gracias a esta exploración de la sexualidad, hay creencias arraigadas que se están cayendo y volviendo a construir. No somos hombres o mujeres y nada más, ni nos gusta lo mismo, ni actuamos según lo típicamente asociado a lo femenino o masculino.
-Lo que nos enseñaron toda la vida — que a los hombres les gustan las mujeres y son masculinos, y las mujeres les gustan los hombres y son femeninas — ya no tiene sentido.
+Gracias a esta exploración de la sexualidad, hay creencias arraigadas que se están cayendo y volviendo a construir. No somos hombres o mujeres y nada más, ni nos gusta lo mismo, ni actuamos según lo típicamente asociado a lo femenino o masculino. Lo que nos enseñaron toda la vida — que a los hombres les gustan las mujeres y son masculinos, y a las mujeres les gustan los hombres y son femeninas — ya no tiene sentido.
+
 
 <p style="text-align: center;">
 **<br>
@@ -37,7 +35,7 @@ Hoy, todo es una construcción y una performance.
 
 Los componentes de la sexualidad de una persona son varios, e incluyen tanto al sexo biológico (hombre, mujer) y a la orientación sexual (heterosexuales, lesbianas, gays, bisexuales) como a la identidad de género y la expresión de género (relacionados con qué género, o qué tan masculina o femenina siente que es cada persona, y cómo lo manifiesta).
 
-Estos componentes son independientes entre sí. Lisa y llanamente: nacer hombre o mujer (sexo) no determina que te gusten hombres o mujeres (orientación), ni que te sientas hombre o mujer (identidad), ni que te muestres como hombre o mujer (expresión).
+Estos componentes son independientes entre sí. Lisa y llanamente: nacer hombre o mujer (sexo) no determina que te vayan a  gustar hombres o mujeres (orientación), ni que te sientas hombre o mujer (identidad), ni que te muestres como hombre o mujer (expresión).
 
 A lo que en un principio eran las siglas LGBT (lesbianas, gays, bisexuales, transexuales) se le fueron agregando nuevas letras para visibilizar más orientaciones: otra T de transgénero, otra T de travesti, I de intersexual, A de asexual, y una última que me encanta, la Q de queer, que en algunos casos también quiere decir “questioning” (cuestionando). Al final de cualquier sigla que se use también se suele incluir un “+” para visibilizar que hay más orientaciones. Dependiendo de la fuente, la sigla puede ser simplemente LGBT+ o completarse con combinaciones de letras como LGBTQIA, LGTTBI, LGBTQ y así.
 
@@ -45,8 +43,7 @@ No es necesario saber qué es cada orientación para continuar con la lectura. L
 
 Habrá que ver qué luz arrojan las nuevas generaciones sobre aquellos temas que nadie quiere hablar. Por lo pronto, quiero dejar constancia de mi lucha. De la luz que yo arrojé sobre mí.
 
-Este es mi proceso. No se apura, ni se demora, ni se termina.
-Hay partes que hubiera preferido saltear o pausar, pero, como todo ciclo vital, era crucial atravesarlo en todas sus partes por el tiempo que fuera necesario.
+Este es mi proceso. No se apura, ni se demora, ni se termina. Hay partes que hubiera preferido saltear o pausar, pero, como todo ciclo vital, es crucial atravesarlo en todas sus partes por el tiempo que sea necesario.
 
 
 <p style="text-align: center;">

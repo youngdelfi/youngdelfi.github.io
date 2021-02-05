@@ -3,13 +3,14 @@ title: Ni hombre ni mujer (V1.3)
 layout: post
 ---
 
-Estás frente a la primera versión que publico sobre el cuestionamiento y exploración de mi sexualidad, desde mi infancia hasta ahora, mis 27 años. Mi objetivo es mejorar y ampliar este testimonio en futuras versiones hasta que un día se convierta en libro.
+Estás frente a la primera versión que publico sobre la exploración de mi sexualidad, desde mi infancia hasta ahora, mis 27 años. Mi objetivo es mejorar y ampliar este testimonio en futuras versiones hasta que un día se convierta en libro.
 
-Como en muchos ámbitos de la vida, hay un mapa con infinitos senderos y este es uno.
+Como en muchos ámbitos de la vida, hay un mapa con infinitos senderos y este es uno que abarca todos mis cuestionamientos.
 
-Espero que mi testimonio sirva como uno de los posibles caminos por los que recorrer el género y la sexualidad. Sé que a mí me sirvió conocer experiencias de otros para para hacerle sentido a lo que me pasaba, darme cuenta de que no era casualidad, que iba hacia algo. Que los puntos se conectaban.
+El objetivo de mi testimonio es que sirva como uno de los posibles caminos por los cuales recorrer el género y la sexualidad. A mí me sirvió conocer experiencias de otros para poder hacer sentido a lo que me pasaba, darme cuenta de que no era casualidad, que iba hacia algo, que los puntos se conectaban.
 
 Más allá de todo, este futuro libro es simplemente mi manera de decir “si te pasó lo mismo que a mí, seas lo que seas y te guste lo que te guste, ya somos dos”.
+
 <br>
 
 _Si querés recibir el libro impreso, escribime a delfi.young@gmail.com_<br>
