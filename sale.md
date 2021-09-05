@@ -1,9 +1,9 @@
 ---
-title: Ni hombre ni mujer (V1.3)
+title: Ni hombre ni mujer
 layout: post
 ---
 
-Estás frente a la primera versión que publico sobre la exploración de mi sexualidad, desde mi infancia hasta ahora, mis 27 años. Mi objetivo es mejorar y ampliar este testimonio en futuras versiones hasta que un día se convierta en libro.
+Estás a punto de adquirir la primera versión que publico sobre la exploración de mi sexualidad, desde mi infancia hasta ahora, mis 27 años. Mi objetivo es mejorar y ampliar este testimonio en futuras versiones hasta que un día se convierta en libro.
 
 Como en muchos ámbitos de la vida, hay un mapa con infinitos senderos y este es uno que abarca todos mis cuestionamientos.
 
@@ -11,23 +11,22 @@ El objetivo de mi testimonio es que sirva como uno de los posibles caminos por l
 
 Más allá de todo, este futuro libro es simplemente mi manera de decir “si te pasó lo mismo que a mí, seas lo que seas y te guste lo que te guste, ya somos dos”.
 
+#### Comprar el Libro en versión online (apto Kindle o lector de eBook)
+
+[Amazon (en USD)](https://www.amazon.com/dp/B09CZDFJQR)
+[Mercado Libre (en ARS)](https://articulo.mercadolibre.com.ar/MLA-934805091-ni-hombre-ni-mujer-1ra-ed-ebook-100-paginas-_JM)
+
+#### Comprar el Libro impreso
+
+Si estás en Argentina podés comprarlo por [Mercado Libre (en ARS)](https://articulo.mercadolibre.com.ar/MLA-934805016-ni-hombre-ni-mujer-1ra-ed-libro-100-paginas-_JM) y retirarlo por CABA & GBA Norte, o recibirlo por correo.
+
+Si estás en otro país, escribime a delfi.young@gmail.com y coordinamos cómo hacerlo llegar :)
+
+Ante cualquier inconveniente o duda con la compra también podés escribirme a delfi.young@gmail.com y lo solucionamos.
+
 <br>
 
-_Si querés recibir el libro impreso, escribime a delfi.young@gmail.com_<br>
-_Si querés dejarme comentarios, podés hacerlo de manera anónima [acá](https://docs.google.com/forms/d/e/1FAIpQLSfzMtxHsHTN48PjhNlpn5GfvpnESc9zGzM5D8xt-4N5zie1Tg/viewform)._
-<br>
-
+Si querés saber de qué se trata, te dejo las primeras páginas:
 
 #### [Empezá por acá](https://youngdel.fi/posts/chapter/2020/10/19/prologo/)
 #### [Capítulo 0: Introducción](https://youngdel.fi/posts/chapter/2020/10/19/introduccion/)
-#### [Capítulo 1: Recipiente de mujer](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-1/)
-#### [Capítulo 2: El muro de cristal](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-2/)
-#### [Capítulo 3: Extraños como yo](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-3/)
-#### [Capítulo 4: Se aquietan las aguas](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-4/)
-#### [Capítulo 5: Mi relación unipersonal](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-5/)
-#### [Capítulo 6: Amanecer](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-6/)
-#### [Capítulo 7: Agarrar mis botas e irme](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-7/)
-#### [Capítulo 8: La aurora boreal me dijo que sí](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-8/)
-#### [Capítulo 9: Luna llena](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-9/)
-#### [Capítulo 10: ¿Hasta dónde llega esto?](https://youngdel.fi/posts/chapter/2020/10/19/capitulo-10/)
-#### [Epílogo: Kintsugi](https://youngdel.fi/posts/chapter/2020/10/19/epilogo/)
