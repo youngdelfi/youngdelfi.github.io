@@ -4,6 +4,8 @@ layout: post
 ---
 
 Estás a punto de adquirir la primera versión que publico sobre la exploración de mi sexualidad, desde mi infancia hasta mis 27 años.
+<br>
+Si querés saber de qué se trata, te dejo [el primer capítulo](https://youngdel.fi/posts/chapter/2020/10/19/preview/).
 
 <div><img style="width: 40%; display: flex;
     margin-left: auto;
@@ -21,8 +23,6 @@ Estás a punto de adquirir la primera versión que publico sobre la exploración
 
 - Si estás en otro país, escribime a delfi.young@gmail.com y coordinamos cómo hacerlo llegar :)
 
-Ante cualquier inconveniente o duda con la compra también podés escribirme a delfi.young@gmail.com y lo solucionamos.
-
+<hr>
 <br>
-
-Si querés saber de qué se trata, te dejo [el primer capítulo](https://youngdel.fi/posts/chapter/2020/10/19/preview/).
+Ante cualquier inconveniente o duda con la compra también podés escribirme a delfi.young@gmail.com y lo solucionamos.
