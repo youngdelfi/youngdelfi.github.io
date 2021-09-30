@@ -1,15 +1,12 @@
-<p>Welcome to&nbsp;<strong>Reflected</strong>, a weekly newsletter about the learnings and reflections that emerge from my daily life.</p><p>I cover topics like personal development, relationships, sexuality, diversity, and uncommon lifestyles.</p><p>If you like the sound of my project, I’d love it if you shared&nbsp;<strong>Reflected</strong>&nbsp;with someone.</p><p class="button-wrapper" data-attrs="{&quot;url&quot;:&quot;https://youngdelfi.substack.com/?utm_source=substack&amp;utm_medium=email&amp;utm_content=share&amp;action=share&quot;,&quot;text&quot;:&quot;Share Reflected&quot;,&quot;class&quot;:null}"><a class="button primary" href="https://youngdelfi.substack.com/?utm_source=substack&amp;utm_medium=email&amp;utm_content=share&amp;action=share"><span>Share Reflected</span></a></p><div class="captioned-image-container"><figure><a class="image-link image2 image2-471-628" target="_blank" href="https://cdn.substack.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fd6b0527a-c658-430b-9d37-1b16c9a5e29a_1942x1456.jpeg"><img src="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/d6b0527a-c658-430b-9d37-1b16c9a5e29a_1942x1456.jpeg" width="628" height="471" data-attrs="{&quot;src&quot;:&quot;https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/d6b0527a-c658-430b-9d37-1b16c9a5e29a_1942x1456.jpeg&quot;,&quot;height&quot;:1092,&quot;width&quot;:1456,&quot;resizeWidth&quot;:628,&quot;bytes&quot;:null,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:null,&quot;href&quot;:null}" alt=""><style>
-          a.image2.image-link.image2-471-628 {
-            padding-bottom: 75%;
-            padding-bottom: min(75%, 471px);
-            width: 100%;
-            height: 0;
-          }
-          a.image2.image-link.image2-471-628 img {
-            max-width: 628px;
-            max-height: 471px;
-          }
-        </style></a><figcaption class="image-caption">Full moon in Pisces</figcaption></figure></div><p>I’m writing from&nbsp;<strong>my house in&nbsp;<a href="https://goo.gl/maps/uPqZM8s5to4sJawv5">Ing. Maschwitz</a>,&nbsp;</strong>where I’ve been living for the last five months. <strong>This week I welcomed the spring season </strong>by going out again with my motorbike and gazing at the moon on a not-so-warm-but-it’s-getting-there suburban night.</p><p><strong>Today, I’d like to shed some more light on the diagram we saw a couple of emails ago.</strong> More specifically, we’ll focus on the combinations that emerge from the green arrows:</p><div class="captioned-image-container"><figure><a class="image-link image2 image2-393-1456" target="_blank" href="https://cdn.substack.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F2872c567-a4cd-4ad8-9f88-4b39e66a5d9d_1496x404.png"><img src="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/2872c567-a4cd-4ad8-9f88-4b39e66a5d9d_1496x404.png" width="1456" height="393" data-attrs="{&quot;src&quot;:&quot;https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/2872c567-a4cd-4ad8-9f88-4b39e66a5d9d_1496x404.png&quot;,&quot;height&quot;:393,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:141159,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null}" alt=""><style>
+---
+layout: post
+title: "#4 Cis and trans or what"
+date: 2021-09-18
+category: post
+tag: post
+---
+
+<p>Today, I’d like to shed some more light on the diagram we saw a couple of emails ago. More specifically, we’ll focus on the combinations that emerge from the green arrows:</p><div class="captioned-image-container"><figure><a class="image-link image2 image2-393-1456" target="_blank" href="https://cdn.substack.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F2872c567-a4cd-4ad8-9f88-4b39e66a5d9d_1496x404.png"><img src="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/2872c567-a4cd-4ad8-9f88-4b39e66a5d9d_1496x404.png" width="1456" height="393" data-attrs="{&quot;src&quot;:&quot;https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/2872c567-a4cd-4ad8-9f88-4b39e66a5d9d_1496x404.png&quot;,&quot;height&quot;:393,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:141159,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null}" alt=""><style>
           a.image2.image-link.image2-393-1456 {
             padding-bottom: 26.99175824175824%;
             padding-bottom: min(26.99175824175824%, 393px);
