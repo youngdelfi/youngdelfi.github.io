@@ -1,5 +1,6 @@
 title: Delfi's Blog
 markdown: kramdown
+remote_theme: andrewbanchich/fractal-jekyll-theme
 url: ""
 
 # for atom feed
