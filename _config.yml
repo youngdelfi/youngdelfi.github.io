@@ -1,0 +1,30 @@
+title: Delfi's Blog
+markdown: kramdown
+remote_theme: andrewbanchich/fractal-jekyll-theme
+url: ""
+
+# for atom feed
+author:
+  name: Delfina Young
+  email: delfi.young@gmail.com
+  image: "https://avatars3.githubusercontent.com/u/40702408?s=400&u=07b53a6885a62c0ddf05f58168f971f8f7ba69e2&v=4"
+  bio: Soy <b>Delfi</b>. Cada tanto pienso cosas y las pongo acá.
+  github: "youngdelfi"
+
+plugins:
+  - jemoji
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "post"
+      layout: "poem"
+  - scope:
+      path: "_posts"
+    values:
+      layout: "post"
+      permalink: /posts/:categories/:year/:month/:day/:title/
