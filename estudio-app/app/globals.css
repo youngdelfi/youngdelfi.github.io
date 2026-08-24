@@ -1,0 +1,39 @@
+:root{
+  --paper:#fbfbfc; --surface:#fff; --line:#e3e6ec; --ink:#15171e; --ink-2:#525a6b; --ink-3:#7d8492;
+  --accent:#1c5f63; --accent-soft:#e6f0f0; --ok:#2f7a4f; --duda:#9a6612;
+}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#0f1116; --surface:#171a21; --line:#282d38; --ink:#e7e9f0; --ink-2:#a6adbd; --ink-3:#7b8291;
+  --accent:#5fb3b8; --accent-soft:#152628; --ok:#6fcb98; --duda:#e0b35f;
+}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+main{max-width:840px;margin:0 auto;padding:32px 20px 80px}
+h1{font-size:clamp(28px,4.5vw,38px);line-height:1.15;text-wrap:balance;margin:0 0 8px}
+h2{font-size:21px;margin:40px 0 12px;text-wrap:balance}
+h3{font-size:16px;margin:0 0 4px}
+.top{border-bottom:1px solid var(--line);background:var(--surface)}
+.top{display:flex;gap:24px;align-items:center;padding:14px 20px;max-width:840px;margin:0 auto}
+.brand{font-weight:700;text-decoration:none;color:var(--ink);letter-spacing:-.02em}
+.top nav{display:flex;gap:16px;margin-left:auto;font-size:14px}
+.pie{max-width:840px;margin:0 auto;padding:24px 20px 48px;border-top:1px solid var(--line);
+  color:var(--ink-3);font-size:13px}
+.miga{font-size:13px;color:var(--ink-3);margin:0 0 16px}
+.miga a{color:var(--ink-3)}
+/* bloque de respuesta: 40-60 palabras, lo que citan los LLM */
+.respuesta{background:var(--accent-soft);border-left:3px solid var(--accent);
+  padding:16px 18px;border-radius:0 6px 6px 0;margin:20px 0;font-size:17px}
+.alias{display:flex;flex-wrap:wrap;gap:6px;padding:0;margin:12px 0 0;list-style:none}
+.alias li{font-size:12.5px;padding:3px 9px;border:1px solid var(--line);border-radius:3px;
+  background:var(--surface);color:var(--ink-2)}
+.tarjetas{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));padding:0;list-style:none}
+.tarjeta{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px}
+.tarjeta a{text-decoration:none;font-weight:600}
+.tarjeta p{margin:6px 0 0;font-size:13px;color:var(--ink-2)}
+.barrios{margin:8px 0 0;font-size:13px;color:var(--ink-3)}
+.revision{border:1px solid var(--line);border-radius:8px;padding:14px 16px;
+  background:var(--surface);font-size:13.5px;color:var(--ink-2);margin-top:36px}
+.revision b{color:var(--ink)}
+.vacio{color:var(--ink-3);font-style:italic}
