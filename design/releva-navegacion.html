@@ -1,0 +1,1412 @@
+<title>Navegación Releva</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* ============================================================
+   RELEVA · sistema de navegación
+   Paleta tomada de las piezas de marca de MCD Health.
+   ============================================================ */
+:root{
+  --papel:#F4F2F0;
+  --tarjeta:#FFFFFF;
+  --suave:#EFEAE5;
+  --suave-2:#F7F4F1;
+  --linea:#E2DBD3;
+  --linea-tenue:#EDE8E3;
+  --tinta:#16130F;
+  --gris:#6E6459;
+  --tenue:#8B8179;
+
+  --marca:#D4834F;
+  --marca-solida:#A85A33;
+  --marca-texto:#964E2A;
+  --marca-suave:#F7E8DC;
+  --sobre-marca:#FFFFFF;
+  --oro:#EFBF3F;
+
+  --hecho:#2F7A55;
+  --hecho-bg:#E4F0E9;
+  --atencion:#1C5A63;
+  --atencion-bg:#E2EEEF;
+  --atencion-linea:#C5DCDF;
+  --urgencia:#B02418;
+  --urgencia-bg:#FAE7E4;
+  --urgencia-linea:#F0CFC9;
+  --sobre-urgencia:#FFFFFF;
+
+  --pag-fondo:#EDEAE6;
+  --pag-panel:#FBFAF9;
+  --pag-texto:#211D18;
+  --pag-gris:#665D53;
+  --pag-linea:#DCD5CC;
+
+  --sombra-sm:0 1px 2px rgba(40,26,12,.05), 0 2px 6px rgba(40,26,12,.045);
+  --sombra-lg:0 26px 64px -20px rgba(35,20,8,.32), 0 4px 14px rgba(35,20,8,.10);
+  --sombra-dock:0 -1px 0 rgba(255,255,255,.55) inset, 0 10px 30px -8px rgba(40,24,10,.28), 0 2px 8px rgba(40,24,10,.10);
+  --r:16px;
+  --dock:176px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --papel:#100E0C; --tarjeta:#1A1714; --suave:#241F1B; --suave-2:#1E1A17;
+    --linea:#2F2925; --linea-tenue:#272220;
+    --tinta:#F2EDE7; --gris:#A79C92; --tenue:#7E736A;
+    --marca:#E39A6B; --marca-solida:#C4713F; --marca-texto:#EFAE81; --marca-suave:#33241A;
+    --sobre-marca:#140D07; --oro:#E8C158;
+    --hecho:#6FB68C; --hecho-bg:#15251D;
+    --atencion:#7FC4CC; --atencion-bg:#12262A; --atencion-linea:#1F3E43;
+    --urgencia:#F08A7C; --urgencia-bg:#2E1512; --urgencia-linea:#4A231D; --sobre-urgencia:#1A0806;
+    --pag-fondo:#151210; --pag-panel:#1D1917; --pag-texto:#EDE7E0; --pag-gris:#A79C92; --pag-linea:#2D2724;
+    --sombra-sm:0 1px 2px rgba(0,0,0,.45);
+    --sombra-lg:0 26px 64px -20px rgba(0,0,0,.7), 0 4px 14px rgba(0,0,0,.45);
+    --sombra-dock:0 -1px 0 rgba(255,255,255,.06) inset, 0 12px 34px -10px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --papel:#100E0C; --tarjeta:#1A1714; --suave:#241F1B; --suave-2:#1E1A17;
+  --linea:#2F2925; --linea-tenue:#272220;
+  --tinta:#F2EDE7; --gris:#A79C92; --tenue:#7E736A;
+  --marca:#E39A6B; --marca-solida:#C4713F; --marca-texto:#EFAE81; --marca-suave:#33241A;
+  --sobre-marca:#140D07; --oro:#E8C158;
+  --hecho:#6FB68C; --hecho-bg:#15251D;
+  --atencion:#7FC4CC; --atencion-bg:#12262A; --atencion-linea:#1F3E43;
+  --urgencia:#F08A7C; --urgencia-bg:#2E1512; --urgencia-linea:#4A231D; --sobre-urgencia:#1A0806;
+  --pag-fondo:#151210; --pag-panel:#1D1917; --pag-texto:#EDE7E0; --pag-gris:#A79C92; --pag-linea:#2D2724;
+  --sombra-sm:0 1px 2px rgba(0,0,0,.45);
+  --sombra-lg:0 26px 64px -20px rgba(0,0,0,.7), 0 4px 14px rgba(0,0,0,.45);
+  --sombra-dock:0 -1px 0 rgba(255,255,255,.06) inset, 0 12px 34px -10px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--pag-fondo); color:var(--pag-texto);
+  font-family:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{margin:0; text-wrap:balance; line-height:1.15; font-weight:700}
+p{margin:0}
+button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
+:focus-visible{outline:2.5px solid var(--marca-solida); outline-offset:3px; border-radius:7px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+.sprite{display:none}
+.i{width:22px;height:22px;flex:none;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.jak{font-family:"Plus Jakarta Sans",ui-sans-serif,system-ui,sans-serif}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+
+/* ---------------- HERO ---------------- */
+.hero{padding:64px 0 40px; border-bottom:1px solid var(--pag-linea)}
+.marca-fila{display:flex; align-items:center; gap:12px; margin-bottom:26px}
+.rombo{width:30px;height:30px;background:var(--marca);border-radius:6px;transform:rotate(45deg);display:grid;place-items:center;flex:none}
+.rombo::after{content:"";width:10px;height:10px;background:var(--pag-fondo);border-radius:2px}
+.marca-fila b{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:16px;line-height:1.15;letter-spacing:-.02em;color:var(--marca-solida)}
+.marca-fila b span{display:block}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--tenue);font-weight:600}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:end;margin-top:20px}
+.hero h1{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:clamp(36px,5vw,58px);line-height:1.03;letter-spacing:-.038em}
+.hero h1 em{font-style:normal;color:var(--marca-solida)}
+.hero-lede{margin-top:20px;font-size:18.5px;color:var(--pag-gris);max-width:36em}
+.hero-facts{display:flex;flex-direction:column;gap:15px;border-left:2px solid var(--pag-linea);padding-left:20px}
+.fact{font-size:14.5px;color:var(--pag-gris)}
+.fact b{display:block;color:var(--pag-texto);font-weight:700;font-size:15px;font-family:"Plus Jakarta Sans",sans-serif;letter-spacing:-.01em}
+
+/* ---------------- SECCIONES ---------------- */
+.band{padding:62px 0;border-top:1px solid var(--pag-linea)}
+.sec-head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:30px}
+.sec-head h2{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:31px;letter-spacing:-.03em}
+.sec-head p{color:var(--pag-gris);font-size:15px}
+.proto{padding:54px 0 18px}
+.stage-grid{display:grid;grid-template-columns:auto minmax(0,1fr);gap:52px;align-items:start}
+.phone-col{position:sticky;top:26px}
+
+/* ============================================================
+   TELÉFONO
+   ============================================================ */
+.phone{width:392px;background:#0A0806;border-radius:48px;padding:11px;box-shadow:var(--sombra-lg);border:1px solid rgba(255,255,255,.07)}
+.screen{
+  position:relative;height:800px;border-radius:38px;overflow:hidden;background:var(--papel);
+  display:flex;flex-direction:column;
+  font-family:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,sans-serif;
+  color:var(--tinta); font-size:var(--app-fs,16px);
+}
+.screen[data-fs="grande"]{--app-fs:18px}
+.screen[data-fs="max"]{--app-fs:21px}
+
+.statusbar{
+  flex:none;height:44px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 26px 0 30px;font-size:14px;font-weight:700;color:var(--tinta);
+  font-variant-numeric:tabular-nums;z-index:20;background:var(--papel);
+}
+.sb-right{display:flex;align-items:center;gap:5px}
+.sb-right svg{width:16px;height:12px;fill:currentColor;stroke:none}
+
+.stage{position:relative;flex:1;min-height:0}
+.scr{position:absolute;inset:0;display:none;flex-direction:column}
+.scr.is-on{display:flex}
+
+/* ============================================================
+   1 · ENCABEZADOS
+   ============================================================ */
+.hdr{flex:none;position:relative;z-index:12;background:transparent;transition:background .2s ease}
+.hdr::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--linea);
+  opacity:0;transition:opacity .2s ease;
+}
+/* scroll edge effect: el fondo aparece sólo cuando hay contenido debajo */
+.scr.colapsado .hdr{
+  background:color-mix(in srgb, var(--papel) 78%, transparent);
+  backdrop-filter:saturate(180%) blur(20px); -webkit-backdrop-filter:saturate(180%) blur(20px);
+}
+.scr.colapsado .hdr::after{opacity:1}
+
+.navbar{display:flex;align-items:center;gap:8px;min-height:48px;padding:2px 14px 0}
+.navbar .titulo-inline{
+  position:absolute;left:0;right:0;top:2px;height:48px;
+  font-size:1.02em;font-weight:800;letter-spacing:-.02em;pointer-events:none;
+  opacity:0;transform:translateY(5px);transition:opacity .16s ease,transform .16s ease;padding:0 118px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center;display:block;line-height:48px;
+}
+.scr.colapsado .navbar .titulo-inline{opacity:1;transform:none}
+.crece{flex:1}
+
+/* botón atrás CON etiqueta */
+.atras{
+  display:flex;align-items:center;gap:1px;color:var(--marca-texto);font-weight:700;
+  font-size:1.03em;letter-spacing:-.015em;padding:8px 8px 8px 2px;margin-left:-2px;min-height:44px;
+}
+.atras .i{width:1.35em;height:1.35em;stroke-width:2.4}
+.atras:hover{opacity:.72}
+
+/* acción de barra: siempre con texto, nunca sólo ícono */
+.accion{
+  display:inline-flex;align-items:center;gap:6px;color:var(--marca-texto);font-weight:700;
+  font-size:.97em;letter-spacing:-.01em;padding:8px 10px;min-height:44px;border-radius:12px;
+}
+.accion:hover{background:var(--suave)}
+.accion .i{width:1.15em;height:1.15em;stroke-width:2}
+.accion-urg{
+  color:var(--urgencia);background:var(--urgencia-bg);border:1.5px solid var(--urgencia-linea);
+  padding:7px 13px;border-radius:999px;font-weight:800;
+}
+.accion-urg:hover{background:var(--urgencia-bg);filter:brightness(.97)}
+
+/* chip de persona */
+.persona{
+  display:inline-flex;align-items:center;gap:8px;background:var(--suave);border-radius:999px;
+  padding:6px 12px 6px 6px;font-weight:700;font-size:.93em;letter-spacing:-.01em;min-height:44px;
+}
+.persona:hover{background:var(--linea-tenue)}
+.av{width:1.85em;height:1.85em;border-radius:999px;background:var(--marca-solida);color:#fff;display:grid;place-items:center;font-size:.78em;font-weight:800;flex:none}
+.persona .rol{color:var(--gris);font-weight:600}
+.persona .i{width:1em;height:1em;color:var(--gris);stroke-width:2.4}
+
+/* título grande que colapsa */
+.titulo-grande{
+  overflow:hidden;max-height:132px;opacity:1;
+  transition:max-height .24s ease,opacity .16s ease;
+  padding:2px 18px 6px;
+}
+.scr.colapsado .titulo-grande{max-height:0;opacity:0;padding-bottom:0}
+.titulo-grande h1{font-size:2.07em;letter-spacing:-.042em;font-weight:800;line-height:1.08}
+.titulo-grande p{margin-top:3px;font-size:.9em;font-weight:600;color:var(--gris)}
+
+/* buscador persistente en el encabezado */
+.buscar{
+  margin:2px 18px 10px;display:flex;align-items:center;gap:9px;min-height:48px;
+  background:var(--suave);border-radius:14px;padding:0 14px;color:var(--gris);
+  font-size:1.02em;font-weight:600;
+}
+.buscar .i{width:1.15em;height:1.15em;stroke-width:2.2}
+/* segmentado */
+.segmentado{margin:0 18px 10px;display:flex;gap:3px;background:var(--suave);border-radius:13px;padding:4px}
+.segmentado button{
+  flex:1;font-weight:700;font-size:.93em;letter-spacing:-.01em;color:var(--gris);
+  padding:10px 4px;border-radius:10px;min-height:44px;
+}
+.segmentado button[aria-selected="true"]{background:var(--tarjeta);color:var(--tinta);box-shadow:0 1px 3px rgba(0,0,0,.14)}
+
+/* encabezado modal: Cancelar / título / Listo */
+.hdr-modal .navbar{min-height:52px}
+.hdr-modal .titulo-modal{
+  position:absolute;left:0;right:0;top:2px;height:52px;line-height:52px;text-align:center;
+  font-size:1.02em;font-weight:800;letter-spacing:-.02em;pointer-events:none;padding:0 100px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+/* encabezado inmersivo de guardia */
+.hdr-urg{background:var(--urgencia);color:var(--sobre-urgencia);padding:6px 16px 16px}
+.hdr-urg .navbar{padding:0;min-height:48px}
+.hdr-urg .accion{color:var(--sobre-urgencia);background:rgba(255,255,255,.16);border-radius:999px;padding:8px 14px}
+.hdr-urg h1{font-size:1.5em;font-weight:800;letter-spacing:-.03em}
+.hdr-urg p{font-size:.88em;opacity:.92;margin-top:3px}
+
+/* barra de progreso de alta */
+.progreso{flex:none;display:flex;gap:5px;padding:4px 18px 12px}
+.progreso span{height:5px;flex:1;border-radius:99px;background:var(--linea)}
+.progreso span.on{background:var(--marca-solida)}
+
+/* ============================================================
+   2 · CUERPO
+   ============================================================ */
+.scroll{flex:1;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+.cuerpo{padding:2px 18px 26px;display:flex;flex-direction:column;gap:14px;min-height:100%}
+.scr[data-dock="si"] .cuerpo{padding-bottom:calc(var(--dock) + 10px)}
+.scr[data-dock="tabs"] .cuerpo{padding-bottom:calc(var(--dock) - 26px)}
+
+/* ============================================================
+   3 · DOCK: accesorio + tab bar flotante (Liquid Glass)
+   ============================================================ */
+.dock{position:absolute;left:0;right:0;bottom:0;z-index:15;padding:0 12px 10px;pointer-events:none;display:none}
+.stage[data-dock="si"] .dock,.stage[data-dock="tabs"] .dock{display:block}
+
+.accesorio{
+  pointer-events:auto;margin:0 4px 8px;display:flex;align-items:center;gap:11px;
+  min-height:58px;padding:8px 10px 8px 16px;border-radius:20px;
+  background:var(--marca-solida);color:var(--sobre-marca);
+  box-shadow:0 8px 24px -8px rgba(120,60,20,.5);
+  transition:min-height .22s ease,opacity .2s ease,transform .22s ease;
+}
+.stage[data-dock="tabs"] .accesorio{display:none}
+.accesorio .i{width:1.5em;height:1.5em;stroke-width:2}
+.accesorio .txt{flex:1;font-weight:800;font-size:1.02em;letter-spacing:-.02em;line-height:1.2}
+.accesorio .sub{display:block;font-weight:600;font-size:.78em;opacity:.86;letter-spacing:0}
+.accesorio .ir{width:34px;height:34px;border-radius:999px;background:rgba(255,255,255,.2);display:grid;place-items:center;flex:none}
+.accesorio.grabando{background:var(--tarjeta);color:var(--tinta);border:1.5px solid var(--linea);box-shadow:var(--sombra-dock)}
+.accesorio.grabando .ir{background:var(--urgencia-bg);color:var(--urgencia)}
+.punto-vivo{width:11px;height:11px;border-radius:999px;background:var(--urgencia);flex:none;animation:latir 1.8s ease-in-out infinite}
+@keyframes latir{0%,100%{opacity:1}50%{opacity:.28}}
+
+.tabbar{
+  pointer-events:auto;display:flex;align-items:stretch;gap:2px;padding:7px 6px;
+  border-radius:26px;
+  background:color-mix(in srgb, var(--tarjeta) 76%, transparent);
+  backdrop-filter:saturate(200%) blur(26px); -webkit-backdrop-filter:saturate(200%) blur(26px);
+  box-shadow:var(--sombra-dock);
+  border:1px solid color-mix(in srgb, var(--linea) 55%, transparent);
+  transition:padding .22s ease;
+}
+.tab{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+  min-height:56px;border-radius:19px;color:var(--gris);font-size:.68em;font-weight:700;letter-spacing:-.005em;
+  padding:6px 2px;transition:background .16s ease,color .16s ease;
+}
+.tab .i{width:1.55em;height:1.55em;stroke-width:1.9;transition:transform .18s ease}
+.tab .et{transition:max-height .2s ease,opacity .15s ease;max-height:2em;overflow:hidden}
+.tab[aria-selected="true"]{color:var(--marca-texto);background:var(--marca-suave)}
+.tab[aria-selected="true"] .i{stroke-width:2.3}
+.tab:not([aria-selected="true"]):hover{background:var(--suave)}
+
+/* minimizar al scrollear — apagado por defecto, se puede encender en la demo */
+.screen.permite-mini .stage.bajando .tabbar{padding:3px 6px}
+.screen.permite-mini .stage.bajando .tab{min-height:42px}
+.screen.permite-mini .stage.bajando .tab .et{max-height:0;opacity:0}
+.screen.permite-mini .stage.bajando .accesorio{min-height:44px;padding-top:5px;padding-bottom:5px}
+.screen.permite-mini .stage.bajando .accesorio .sub{display:none}
+
+.indicador{width:132px;height:5px;border-radius:99px;background:var(--tinta);opacity:.28;margin:9px auto 2px}
+
+/* ============================================================
+   4 · ÁTOMOS DE LA APP
+   ============================================================ */
+.card{background:var(--tarjeta);border:1px solid var(--linea-tenue);border-radius:var(--r);padding:16px;box-shadow:var(--sombra-sm)}
+.card-flat{background:var(--tarjeta);border:1px solid var(--linea-tenue);border-radius:var(--r);padding:16px}
+.lbl{font-family:"Plus Jakarta Sans",sans-serif;font-size:.7em;letter-spacing:.11em;text-transform:uppercase;font-weight:800;color:var(--tenue)}
+.muted{color:var(--gris)}
+.small{font-size:.83em}
+.big{font-size:1.08em}
+.stack{display:flex;flex-direction:column;gap:12px}
+.stack-sm{display:flex;flex-direction:column;gap:6px}
+.row{display:flex;align-items:center;gap:12px}
+.crece-b{flex:1}
+.hr{height:1px;background:var(--linea-tenue);border:0;margin:2px 0}
+.spacer{flex:1}
+
+.btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;min-height:56px;padding:0 18px;border-radius:16px;font-size:1.05em;font-weight:800;letter-spacing:-.02em;border:1.5px solid transparent;text-align:center}
+.btn-primary{background:var(--marca-solida);color:var(--sobre-marca)}
+.btn-ghost{background:var(--tarjeta);color:var(--tinta);border-color:var(--linea)}
+.btn-quiet{background:transparent;color:var(--marca-texto);min-height:48px;font-size:.97em}
+.btn-urg{background:var(--urgencia);color:var(--sobre-urgencia)}
+.btn-sm{min-height:46px;font-size:.92em;border-radius:13px;width:auto;padding:0 16px}
+.btn .i{width:1.2em;height:1.2em;stroke-width:2.1}
+
+.chip{display:inline-flex;align-items:center;gap:7px;padding:11px 15px;min-height:46px;border-radius:999px;border:1.5px solid var(--linea);background:var(--tarjeta);font-size:.95em;font-weight:600}
+.chip.on{background:var(--marca-suave);border-color:var(--marca);color:var(--marca-texto);font-weight:800}
+.chip .i{width:1em;height:1em;stroke-width:3}
+.chips{display:flex;flex-wrap:wrap;gap:9px}
+
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:.78em;font-weight:800;padding:5px 11px;border-radius:999px}
+.pill-aten{background:var(--atencion-bg);color:var(--atencion);border:1px solid var(--atencion-linea)}
+.pill-ok{background:var(--hecho-bg);color:var(--hecho)}
+.pill-urg{background:var(--urgencia-bg);color:var(--urgencia);border:1px solid var(--urgencia-linea)}
+
+.field{display:flex;flex-direction:column;gap:7px}
+.field .lbl{color:var(--gris);letter-spacing:.02em;text-transform:none;font-size:.88em;font-weight:700}
+.input{min-height:56px;border-radius:14px;border:1.5px solid var(--linea);background:var(--tarjeta);padding:15px;font-size:1.05em;font-weight:600}
+.check{width:30px;height:30px;border-radius:10px;border:2.2px solid var(--linea);flex:none;display:grid;place-items:center;color:transparent}
+.check.on{background:var(--hecho);border-color:var(--hecho);color:#fff}
+.check .i{width:18px;height:18px;stroke-width:3}
+
+.med-row{display:flex;align-items:center;gap:13px;padding:12px 0}
+.med-row+.med-row{border-top:1px solid var(--linea-tenue)}
+.med-row.done .med-name{text-decoration:line-through;color:var(--tenue)}
+.med-name{font-size:1.02em;font-weight:700;letter-spacing:-.015em}
+
+.quick{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px}
+.quick button{background:var(--tarjeta);border:1px solid var(--linea-tenue);border-radius:15px;padding:15px 8px;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:.76em;font-weight:700;line-height:1.25;text-align:center;box-shadow:var(--sombra-sm);min-height:88px;justify-content:center}
+.quick .i{width:1.6em;height:1.6em;color:var(--marca-texto)}
+
+.hero-card{background:var(--marca-solida);color:var(--sobre-marca);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:14px}
+.hero-card .lbl{color:var(--sobre-marca);opacity:.78}
+.hero-card .btn-ghost{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.3);color:var(--sobre-marca)}
+.aten-card{background:var(--atencion-bg);border:1px solid var(--atencion-linea);border-radius:var(--r);padding:15px 16px}
+.urg-card{background:var(--urgencia-bg);border:1px solid var(--urgencia-linea);border-radius:var(--r);padding:15px 16px}
+
+.lista-item{display:flex;align-items:center;gap:13px;padding:14px 0;width:100%;text-align:left}
+.lista-item+.lista-item{border-top:1px solid var(--linea-tenue)}
+.thumb{width:46px;height:46px;border-radius:12px;background:var(--suave);display:grid;place-items:center;color:var(--marca-texto);flex:none}
+.thumb.aten{background:var(--atencion-bg);color:var(--atencion)}
+.chev{color:var(--tenue);flex:none}
+.chev .i{width:1.1em;height:1.1em;stroke-width:2.4}
+
+.welcome{flex:1;display:flex;flex-direction:column;justify-content:center;gap:16px;padding:0 26px 40px;text-align:center;align-items:center}
+.mark{width:78px;height:78px;border-radius:26px;background:var(--marca-solida);color:var(--sobre-marca);display:grid;place-items:center}
+.mark .i{width:42px;height:42px;stroke-width:1.6}
+.fineprint{font-size:.82em;color:var(--gris);line-height:1.5;max-width:32ch}
+
+.rec-stage{display:flex;flex-direction:column;align-items:center;gap:16px;padding:12px 0 4px}
+.rec-orb{width:118px;height:118px;border-radius:50%;background:var(--marca-suave);display:grid;place-items:center;color:var(--marca-texto);position:relative}
+.rec-orb::after{content:"";position:absolute;inset:-14px;border-radius:50%;border:2.5px solid var(--marca);opacity:.32;animation:pulso 2.4s ease-out infinite}
+@keyframes pulso{0%{transform:scale(.86);opacity:.45}100%{transform:scale(1.14);opacity:0}}
+@media (prefers-reduced-motion:reduce){.rec-orb::after{animation:none;opacity:.25}}
+.rec-orb .i{width:46px;height:46px}
+.timer{font-size:2.1em;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.capture{display:flex;gap:11px;align-items:flex-start;padding:11px 0}
+.capture+.capture{border-top:1px solid var(--linea-tenue)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--marca-solida);margin-top:8px;flex:none}
+
+.uploader{border:2.5px dashed var(--linea);border-radius:20px;padding:26px 18px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;background:var(--suave-2)}
+.uploader .i{width:2.1em;height:2.1em;color:var(--marca-texto)}
+
+.doc{background:#FFF;color:#1A1512;border-radius:10px;padding:20px 18px;box-shadow:0 10px 28px -12px rgba(40,25,10,.45),0 0 0 1px rgba(40,25,10,.1);font-size:.78em;line-height:1.5}
+.doc h3{font-size:1.2em;color:#241A14;letter-spacing:-.02em}
+.doc .doc-lbl{font-size:.72em;letter-spacing:.13em;text-transform:uppercase;font-weight:800;color:#8A7B6E}
+.doc .doc-rule{height:1px;background:#E6DED6;margin:11px 0}
+.doc-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px 14px}
+.doc-grid b{display:block;font-size:.72em;letter-spacing:.1em;text-transform:uppercase;color:#8A7B6E;font-weight:800}
+.doc-alert{background:#FAE7E4;border:1px solid #EEC9C3;color:#8E2019;border-radius:7px;padding:8px 10px;font-weight:800}
+.doc ul{margin:6px 0 0;padding-left:16px}.doc li{margin-bottom:3px}
+.doc-foot{font-size:.74em;color:#8A7B6E;margin-top:12px;line-height:1.45}
+
+/* ============================================================
+   5 · COLUMNA DE NOTAS
+   ============================================================ */
+.controles{margin-top:20px;display:flex;flex-direction:column;gap:10px;align-items:center}
+.ctrl{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center}
+.ctrl > span{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--tenue);font-weight:600}
+.seg-demo{display:flex;gap:2px;background:var(--pag-panel);border:1px solid var(--pag-linea);border-radius:10px;padding:3px}
+.seg-demo button{font-size:12.5px;font-weight:600;padding:5px 11px;border-radius:7px;color:var(--pag-gris)}
+.seg-demo button[aria-pressed="true"]{background:var(--marca-solida);color:#fff}
+
+.notes{display:flex;flex-direction:column;gap:26px;min-width:0}
+.flowmap{display:flex;flex-direction:column;gap:15px}
+.flowgroup{display:flex;flex-direction:column;gap:8px}
+.flowbtns{display:flex;flex-wrap:wrap;gap:7px}
+.navbtn{padding:8px 13px;border-radius:10px;border:1px solid var(--pag-linea);background:var(--pag-panel);font-size:13.5px;font-weight:500;color:var(--pag-gris);box-shadow:var(--sombra-sm)}
+.navbtn:hover{border-color:var(--marca);color:var(--pag-texto)}
+.navbtn.is-active{background:var(--marca-solida);border-color:var(--marca-solida);color:#fff;font-weight:700}
+.gk{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--tenue);font-weight:600}
+
+.note{border-top:2.5px solid var(--pag-texto);padding-top:18px;display:flex;flex-direction:column;gap:12px}
+.note h3{font-family:"Plus Jakarta Sans",sans-serif;font-weight:800;font-size:25px;letter-spacing:-.03em}
+.note .kicker{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:600;color:var(--marca-texto)}
+.note p{font-size:15.5px;color:var(--pag-gris);max-width:64ch}
+.note strong{color:var(--pag-texto);font-weight:600}
+.note ul{margin:0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.note li{font-size:15px;color:var(--pag-gris);padding-left:21px;position:relative;max-width:62ch}
+.note li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:2px;background:var(--marca);opacity:.75}
+.tagrow{display:flex;flex-wrap:wrap;gap:7px}
+.tag{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;padding:4px 9px;border-radius:6px;background:var(--suave);color:var(--pag-gris);letter-spacing:.03em}
+.tag.new{background:var(--marca-suave);color:var(--marca-texto)}
+
+/* ---------------- bandas inferiores ---------------- */
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:28px}
+.cols-2{grid-template-columns:repeat(2,1fr)}
+.pcard{background:var(--pag-panel);border:1px solid var(--pag-linea);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--sombra-sm)}
+.pcard h4{font-family:"Plus Jakarta Sans",sans-serif;font-size:17.5px;letter-spacing:-.02em}
+.pcard p{font-size:14.5px;color:var(--pag-gris)}
+.pnum{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--marca-texto);font-weight:600}
+.hig{display:inline-flex;align-items:center;gap:6px;font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;color:var(--atencion);background:var(--atencion-bg);border:1px solid var(--atencion-linea);padding:3px 8px;border-radius:6px;letter-spacing:.02em;align-self:flex-start}
+
+.qa{display:flex;flex-direction:column;gap:0;margin-top:24px}
+.qitem{display:grid;grid-template-columns:auto 1fr;gap:20px;padding:20px 0;border-top:1px solid var(--pag-linea);align-items:start}
+.qitem:last-child{border-bottom:1px solid var(--pag-linea)}
+.qmark{font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;color:var(--marca-texto);padding-top:3px}
+.qitem h4{font-family:"Plus Jakarta Sans",sans-serif;font-size:17.5px;margin-bottom:7px;letter-spacing:-.02em}
+.qitem p{font-size:15px;color:var(--pag-gris);max-width:74ch}
+.qitem p+p{margin-top:9px}
+.resp{border-left:2.5px solid var(--marca);padding-left:14px;margin-top:11px}
+.resp b{color:var(--marca-texto);font-weight:600}
+
+.tabla{width:100%;border-collapse:collapse;margin-top:26px;font-size:14.5px}
+.tabla th{text-align:left;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--tenue);font-weight:600;padding:0 14px 10px 0;border-bottom:1.5px solid var(--pag-linea)}
+.tabla td{padding:13px 14px 13px 0;border-bottom:1px solid var(--pag-linea);color:var(--pag-gris);vertical-align:top}
+.tabla td:first-child{color:var(--pag-texto);font-weight:600;font-family:"Plus Jakarta Sans",sans-serif;white-space:nowrap}
+.tabla-wrap{overflow-x:auto}
+.antes{color:var(--tenue);text-decoration:line-through}
+
+footer{padding:40px 0 64px;color:var(--tenue);font-size:13.5px;border-top:1px solid var(--pag-linea)}
+
+@media (max-width:1080px){
+  .stage-grid{grid-template-columns:1fr;gap:34px}
+  .phone-col{position:static;display:flex;flex-direction:column;align-items:center}
+  .hero-grid{grid-template-columns:1fr;gap:30px;align-items:start}
+  .hero-facts{flex-direction:row;flex-wrap:wrap;gap:22px;border-left:0;border-top:1px solid var(--pag-linea);padding:20px 0 0}
+  .fact{flex:1 1 210px}
+  .cols,.cols-2{grid-template-columns:1fr}
+}
+@media (max-width:440px){
+  .wrap{padding:0 16px}
+  .phone{width:100%;padding:8px;border-radius:36px}
+  .screen{border-radius:30px;height:720px}
+  .hero{padding:44px 0 30px}
+  .qitem{grid-template-columns:1fr;gap:6px}
+}
+</style>
+
+<svg class="sprite" aria-hidden="true"><defs>
+<symbol id="ic-rombo" viewBox="0 0 24 24"><rect x="5.4" y="5.4" width="13.2" height="13.2" rx="2.4" transform="rotate(45 12 12)"></rect><rect x="10.1" y="10.1" width="3.8" height="3.8" rx="1" transform="rotate(45 12 12)" fill="currentColor" stroke="none"></rect></symbol>
+<symbol id="ic-today" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3.4"></rect><path d="M3 10h18M8 3v4M16 3v4"></path><circle cx="12" cy="15.5" r="1.7" fill="currentColor" stroke="none"></circle></symbol>
+<symbol id="ic-folder" viewBox="0 0 24 24"><path d="M4 6.5A1.5 1.5 0 015.5 5h3.6c.5 0 1 .24 1.3.65l1 1.35h7.1A1.5 1.5 0 0120 8.5v9A1.5 1.5 0 0118.5 19h-13A1.5 1.5 0 014 17.5z"></path><path d="M8 12.5h8M8 15.5h5"></path></symbol>
+<symbol id="ic-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5.5 11.5a6.5 6.5 0 0013 0M12 18v3"></path></symbol>
+<symbol id="ic-user" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.8"></circle><path d="M4.5 20c1.3-3.7 4.1-5.6 7.5-5.6s6.2 1.9 7.5 5.6"></path></symbol>
+<symbol id="ic-camera" viewBox="0 0 24 24"><path d="M3 8.5A1.5 1.5 0 014.5 7h2.2l1.2-2h8.2l1.2 2h2.2A1.5 1.5 0 0121 8.5v9A1.5 1.5 0 0119.5 19h-15A1.5 1.5 0 013 17.5z"></path><circle cx="12" cy="13" r="3.4"></circle></symbol>
+<symbol id="ic-share" viewBox="0 0 24 24"><path d="M12 15V3M12 3L8.2 6.8M12 3l3.8 3.8"></path><path d="M5 12v7.5A1.5 1.5 0 006.5 21h11a1.5 1.5 0 001.5-1.5V12"></path></symbol>
+<symbol id="ic-download" viewBox="0 0 24 24"><path d="M12 3v12M12 15l-4-4M12 15l4-4M5 20h14"></path></symbol>
+<symbol id="ic-print" viewBox="0 0 24 24"><path d="M7 9V3.8h10V9"></path><rect x="3" y="9" width="18" height="8" rx="2"></rect><path d="M7 14h10v6.2H7z"></path></symbol>
+<symbol id="ic-alert" viewBox="0 0 24 24"><path d="M12 3.6L21 19.5H3z"></path><path d="M12 9.5v4.2M12 16.6v.1"></path></symbol>
+<symbol id="ic-check" viewBox="0 0 24 24"><path d="M5 12.6l4.6 4.6L19 7.4"></path></symbol>
+<symbol id="ic-back" viewBox="0 0 24 24"><path d="M15 4.5L7.5 12l7.5 7.5"></path></symbol>
+<symbol id="ic-fwd" viewBox="0 0 24 24"><path d="M9 4.5l7.5 7.5L9 19.5"></path></symbol>
+<symbol id="ic-chevdown" viewBox="0 0 24 24"><path d="M5.5 9.5L12 16l6.5-6.5"></path></symbol>
+<symbol id="ic-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></symbol>
+<symbol id="ic-pill" viewBox="0 0 24 24"><rect x="2.6" y="8.4" width="18.8" height="7.2" rx="3.6" transform="rotate(-40 12 12)"></rect><path d="M9.2 9.2l5.6 5.6"></path></symbol>
+<symbol id="ic-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M9.6 9.4a2.5 2.5 0 114 2.2c-.9.6-1.6 1-1.6 2M12 16.8v.1"></path></symbol>
+<symbol id="ic-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"></circle><path d="M12 7v5.4l3.3 2"></path></symbol>
+<symbol id="ic-lock" viewBox="0 0 24 24"><rect x="4.6" y="10" width="14.8" height="10.5" rx="2.6"></rect><path d="M8.2 10V7.6a3.8 3.8 0 017.6 0V10"></path></symbol>
+<symbol id="ic-heart" viewBox="0 0 24 24"><path d="M12 20s-7.4-4.4-7.4-9.3A4.2 4.2 0 0112 8.3a4.2 4.2 0 017.4 2.4C19.4 15.6 12 20 12 20z"></path></symbol>
+<symbol id="ic-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.6"></circle><path d="M15.8 15.8L21 21"></path></symbol>
+<symbol id="ic-doc" viewBox="0 0 24 24"><path d="M6 3.6h7.6L19 9v11.4H6z"></path><path d="M13.4 3.6V9H19M9 13h6M9 16.4h4"></path></symbol>
+<symbol id="ic-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"></path></symbol>
+</defs></svg>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="marca-fila">
+      <span class="rombo"></span>
+      <b>Releva<span>by MCD Health</span></b>
+    </div>
+    <p class="eyebrow">Sistema de navegación · propuesta v1 · agosto 2026</p>
+    <div class="hero-grid">
+      <div>
+        <h1>La app no se usa sentado.<br>Se usa <em>parado en un pasillo</em>.</h1>
+        <p class="hero-lede">Releva releva al cuidador de las tres cargas: la médica, la operativa y la emocional. Este documento define cómo se recorre: qué vive en la barra de abajo, cómo se comportan los encabezados y por qué cada decisión está tomada pensando en una mujer de 52 años, con una mano ocupada y la otra persona esperando.</p>
+      </div>
+      <div class="hero-facts">
+        <p class="fact"><b>Qué cambia</b>Barra de pestañas y encabezados completos, sobre las 14 pantallas del prototipo original.</p>
+        <p class="fact"><b>Contra qué se diseñó</b>HIG de Apple vigentes: barra flotante translúcida, accesorio persistente, títulos grandes que colapsan, Dynamic Type.</p>
+        <p class="fact"><b>Qué no cambia</b>El contenido, la voz y las decisiones de producto del prototipo. Sólo se reorganiza cómo se llega a cada cosa.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="proto">
+ <div class="wrap">
+  <div class="sec-head">
+    <h2>Prototipo navegable</h2>
+    <p>Tocá dentro del teléfono, o saltá a cualquier pantalla desde el mapa de la derecha.</p>
+  </div>
+  <div class="stage-grid">
+   <div class="phone-col">
+    <div class="phone">
+     <div class="screen" id="screen" data-fs="normal">
+      <div class="statusbar">
+        <span>10:24</span>
+        <span class="sb-right">
+          <svg viewBox="0 0 18 12"><path d="M1 9h2v3H1zM5 6.5h2V12H5zM9 4h2v8H9zM13 1.5h2V12h-2z"></path></svg>
+          <svg viewBox="0 0 24 12"><rect x="1" y="2" width="18" height="8" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.4"></rect><rect x="3" y="4" width="13" height="4" rx="1"></rect><rect x="20.5" y="4.5" width="2" height="3" rx="1"></rect></svg>
+        </span>
+      </div>
+      <div class="stage">
+
+<!-- ========== MODAL · ALTA ========== -->
+<section class="scr" data-scr="bienvenida" data-dock="no">
+ <div class="scroll"><div class="cuerpo" style="padding-bottom:26px">
+  <div class="welcome">
+    <div class="mark"><svg class="i"><use href="#ic-rombo"></use></svg></div>
+    <h1 style="font-size:2.4em;font-weight:800;letter-spacing:-.04em">Releva</h1>
+    <p class="big muted" style="max-width:24ch">Para los que cuidan a alguien y no saben por dónde empezar.</p>
+    <div class="stack" style="width:100%;margin-top:14px">
+      <button class="btn btn-primary" data-go="onb1">Empezar</button>
+      <button class="btn btn-ghost" data-go="hoy">Ya tengo cuenta</button>
+    </div>
+    <p class="fineprint" style="margin-top:6px">La información tuya y la de tu ser querido es privada. Nadie la ve si vos no la compartís.</p>
+  </div>
+ </div></div>
+</section>
+
+<section class="scr" data-scr="onb1" data-dock="no">
+ <header class="hdr hdr-modal">
+  <div class="navbar"><button class="accion" data-go="bienvenida">Cancelar</button><span class="titulo-modal">Paso 1 de 4</span><span class="crece"></span></div>
+  <div class="progreso"><span class="on"></span><span></span><span></span><span></span></div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <h3 style="font-size:1.5em;letter-spacing:-.03em">¿A quién estás cuidando?</h3>
+  <p class="muted small" style="margin-top:-8px">Con esto alcanza para arrancar. El resto lo completás cuando puedas.</p>
+  <div class="field" style="margin-top:6px"><span class="lbl">Nombre</span><div class="input">Elsa Fernández</div></div>
+  <div class="field"><span class="lbl">Edad</span><div class="input" style="font-variant-numeric:tabular-nums">78 años</div></div>
+  <div class="field"><span class="lbl">Sexo</span><div class="chips"><span class="chip on">Femenino</span><span class="chip">Masculino</span><span class="chip">Otro</span></div></div>
+  <div class="field"><span class="lbl">¿Qué es tuyo?</span><div class="chips"><span class="chip on">Mi mamá</span><span class="chip">Mi papá</span><span class="chip">Mi pareja</span><span class="chip">Otro</span></div></div>
+  <div class="spacer"></div>
+  <button class="btn btn-primary" data-go="onb2" style="margin-top:14px">Seguir</button>
+ </div></div>
+</section>
+
+<section class="scr" data-scr="onb2" data-dock="no">
+ <header class="hdr hdr-modal">
+  <div class="navbar"><button class="atras" data-go="onb1"><svg class="i"><use href="#ic-back"></use></svg>Atrás</button><span class="titulo-modal">Paso 2 de 4</span><span class="crece"></span></div>
+  <div class="progreso"><span class="on"></span><span class="on"></span><span></span><span></span></div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <h3 style="font-size:1.5em;letter-spacing:-.03em">¿Qué le está pasando a Elsa?</h3>
+  <p class="muted small" style="margin-top:-8px">Contalo como se lo contarías a un amigo. No hace falta que uses términos médicos.</p>
+  <div class="input" style="min-height:100px;line-height:1.5;font-weight:500">En junio le encontraron un tumor en la vejiga. Está empezando tratamiento con la oncóloga.</div>
+  <p class="lbl" style="margin-top:4px">Además tiene</p>
+  <div class="chips">
+    <span class="chip on"><svg class="i"><use href="#ic-check"></use></svg>Hipertensión</span>
+    <span class="chip on"><svg class="i"><use href="#ic-check"></use></svg>Diabetes tipo 2</span>
+    <span class="chip">Colesterol alto</span><span class="chip">Artrosis</span><span class="chip">Problemas de riñón</span><span class="chip">Problemas de memoria</span><span class="chip">Otra</span>
+  </div>
+  <div class="spacer"></div>
+  <button class="btn btn-primary" data-go="onb3" style="margin-top:14px">Seguir</button>
+ </div></div>
+</section>
+
+<section class="scr" data-scr="onb3" data-dock="no">
+ <header class="hdr hdr-modal">
+  <div class="navbar"><button class="atras" data-go="onb2"><svg class="i"><use href="#ic-back"></use></svg>Atrás</button><span class="titulo-modal">Paso 3 de 4</span><span class="crece"></span></div>
+  <div class="progreso"><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <h3 style="font-size:1.5em;letter-spacing:-.03em">¿Qué medicación toma?</h3>
+  <p class="muted small" style="margin-top:-8px">No hace falta que la escribas. Sacale una foto a la receta o a las cajas y yo la cargo.</p>
+  <div class="uploader">
+    <svg class="i"><use href="#ic-camera"></use></svg>
+    <p class="big" style="font-weight:800">Sacar foto de la receta</p>
+    <p class="small muted">También sirve una foto de las cajas sobre la mesa</p>
+  </div>
+  <button class="btn btn-quiet">Prefiero escribirlo yo</button>
+  <div class="row" style="gap:8px"><span class="pill pill-ok"><svg class="i" style="width:1em;height:1em;stroke-width:3"><use href="#ic-check"></use></svg>Leí la receta</span><span class="small muted">Revisá que esté bien</span></div>
+  <div class="card"><div class="row"><div class="thumb"><svg class="i"><use href="#ic-pill"></use></svg></div><div class="stack-sm" style="gap:1px"><span class="med-name">Enalapril 5 mg</span><span class="small muted">1 comprimido, mañana y noche</span></div></div></div>
+  <div class="card"><div class="row"><div class="thumb"><svg class="i"><use href="#ic-pill"></use></svg></div><div class="stack-sm" style="gap:1px"><span class="med-name">Metformina 850 mg</span><span class="small muted">1 comprimido con el almuerzo</span></div></div></div>
+  <div class="spacer"></div>
+  <button class="btn btn-primary" data-go="onb4" style="margin-top:14px">Seguir</button>
+ </div></div>
+</section>
+
+<section class="scr" data-scr="onb4" data-dock="no">
+ <header class="hdr hdr-modal">
+  <div class="navbar"><button class="atras" data-go="onb3"><svg class="i"><use href="#ic-back"></use></svg>Atrás</button><span class="titulo-modal">Paso 4 de 4</span><span class="crece"></span></div>
+  <div class="progreso"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <h3 style="font-size:1.5em;letter-spacing:-.03em">¿Es alérgica a algo?</h3>
+  <p class="muted small" style="margin-top:-8px">Este es el dato que más rápido te van a pedir en una guardia.</p>
+  <div class="chips" style="margin-top:4px">
+    <span class="chip on"><svg class="i"><use href="#ic-check"></use></svg>Penicilina</span>
+    <span class="chip">Ibuprofeno / AINEs</span><span class="chip">Iodo (contraste)</span><span class="chip">Aspirina</span><span class="chip">Látex</span><span class="chip">Otra</span>
+  </div>
+  <hr class="hr" style="margin:6px 0">
+  <div class="chips"><span class="chip">No es alérgica a nada</span><span class="chip">No sé</span></div>
+  <div class="aten-card" style="margin-top:4px"><p class="small" style="color:var(--atencion);font-weight:700">Si no sabés, está bien. Te ayudamos a averiguarlo en la próxima consulta.</p></div>
+  <div class="spacer"></div>
+  <button class="btn btn-primary" data-go="listo" style="margin-top:14px">Terminar</button>
+ </div></div>
+</section>
+
+<section class="scr" data-scr="listo" data-dock="no">
+ <div class="scroll"><div class="cuerpo" style="padding-bottom:26px">
+  <div class="welcome">
+    <div class="mark" style="background:var(--hecho-bg);color:var(--hecho)"><svg class="i" style="stroke-width:2.4"><use href="#ic-check"></use></svg></div>
+    <h1 style="font-size:1.9em;font-weight:800;letter-spacing:-.03em">Ya está</h1>
+    <p class="big muted" style="max-width:26ch">Con esto ya podés entrar a una consulta y compartir la historia de Elsa.</p>
+    <div class="card" style="width:100%;text-align:left;margin-top:8px">
+      <div class="row" style="justify-content:space-between"><span class="lbl">Perfil de Elsa</span><span class="pill pill-aten">60% completo</span></div>
+      <div style="height:8px;border-radius:99px;background:var(--linea);margin:12px 0 10px;overflow:hidden"><div style="width:60%;height:100%;background:var(--marca-solida)"></div></div>
+      <p class="small muted">Falta: obra social, estudios anteriores y médicos que la atienden. Te lo voy a ir pidiendo de a poco.</p>
+    </div>
+    <button class="btn btn-primary" data-go="hoy" style="margin-top:8px">Entrar</button>
+  </div>
+ </div></div>
+</section>
+
+<!-- ========== PESTAÑA 1 · HOY ========== -->
+<section class="scr" data-scr="hoy" data-tab="hoy" data-dock="si">
+ <header class="hdr">
+  <div class="navbar">
+    <button class="persona" data-go="perfil"><span class="av">E</span>Elsa<span class="rol">· mamá</span><svg class="i"><use href="#ic-chevdown"></use></svg></button>
+    <span class="crece"></span>
+    <button class="accion accion-urg" data-go="guardia"><svg class="i"><use href="#ic-alert"></use></svg>Guardia</button>
+    <span class="titulo-inline">Hoy</span>
+  </div>
+  <div class="titulo-grande"><h1>Hoy</h1><p>Sábado 23 de agosto</p></div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <div class="hero-card">
+    <span class="lbl">Tu próximo turno · en 3 días</span>
+    <div class="stack-sm">
+      <span style="font-size:1.28em;font-weight:800;line-height:1.2;letter-spacing:-.025em">Dra. Paula Ríos · Oncología</span>
+      <span style="opacity:.88;font-size:.93em;font-weight:600">Martes 26 de agosto, 10:30 h · Hospital Italiano</span>
+    </div>
+    <div class="row" style="gap:8px"><span class="pill" style="background:rgba(255,255,255,.2);color:var(--sobre-marca)">Falta la orden de la TAC</span></div>
+    <button class="btn btn-ghost" data-go="prep">Preparar la consulta</button>
+  </div>
+
+  <div class="card">
+    <div class="row" style="justify-content:space-between;margin-bottom:2px"><span class="lbl">Medicación de hoy</span><span class="small muted" style="font-weight:700">2 de 3</span></div>
+    <div class="med-row done"><span class="check on"><svg class="i"><use href="#ic-check"></use></svg></span><div class="stack-sm" style="gap:0"><span class="med-name">Enalapril 5 mg</span><span class="small muted">8:00 · tomada</span></div></div>
+    <div class="med-row done"><span class="check on"><svg class="i"><use href="#ic-check"></use></svg></span><div class="stack-sm" style="gap:0"><span class="med-name">Metformina 850 mg</span><span class="small muted">13:00 · tomada</span></div></div>
+    <div class="med-row"><span class="check"><svg class="i"><use href="#ic-check"></use></svg></span><div class="stack-sm" style="gap:0"><span class="med-name">Enalapril 5 mg</span><span class="small muted">20:00 · en 4 horas</span></div></div>
+  </div>
+
+  <p class="lbl" style="margin-top:4px">Necesita algo tuyo</p>
+  <button class="aten-card" style="width:100%;text-align:left" data-go="tramite">
+    <div class="row" style="align-items:flex-start;gap:11px">
+      <svg class="i" style="color:var(--atencion);margin-top:2px"><use href="#ic-clock"></use></svg>
+      <div class="stack-sm" style="gap:3px;flex:1">
+        <span style="font-weight:800;font-size:1.02em;letter-spacing:-.02em">Autorización de la TAC</span>
+        <span class="small" style="color:var(--atencion);font-weight:700">Vence el miércoles 27 · quedan 4 días</span>
+        <span class="small muted">OSDE la aprueba por la app. Te dejo el paso a paso.</span>
+      </div>
+      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
+    </div>
+  </button>
+  <button class="card-flat" style="width:100%;text-align:left" data-go="estudios">
+    <div class="row" style="align-items:flex-start;gap:11px">
+      <svg class="i" style="color:var(--tenue);margin-top:2px"><use href="#ic-folder"></use></svg>
+      <div class="stack-sm" style="gap:3px;flex:1">
+        <span style="font-weight:800;font-size:1.02em;letter-spacing:-.02em">Cargar el análisis de sangre</span>
+        <span class="small muted">Lo retiraste el 19/8 y todavía no está en la historia</span>
+      </div>
+      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
+    </div>
+  </button>
+
+  <p class="lbl" style="margin-top:4px">Accesos rápidos</p>
+  <div class="quick">
+    <button data-go="estudios"><svg class="i"><use href="#ic-camera"></use></svg>Cargar un estudio</button>
+    <button data-go="compartir"><svg class="i"><use href="#ic-share"></use></svg>Compartir historia</button>
+    <button data-go="tramites"><svg class="i"><use href="#ic-doc"></use></svg>Ver trámites</button>
+  </div>
+ </div></div>
+</section>
+
+<!-- ========== PESTAÑA 2 · HISTORIA ========== -->
+<section class="scr" data-scr="historia" data-tab="historia" data-dock="si">
+ <header class="hdr">
+  <div class="navbar">
+    <button class="persona" data-go="perfil"><span class="av">E</span>Elsa<span class="rol">· mamá</span><svg class="i"><use href="#ic-chevdown"></use></svg></button>
+    <span class="crece"></span>
+    <button class="accion" data-go="compartir"><svg class="i"><use href="#ic-share"></use></svg>Compartir</button>
+    <span class="titulo-inline">Historia</span>
+  </div>
+  <div class="titulo-grande"><h1>Historia</h1><p>Todo lo de Elsa, en un solo lugar</p></div>
+  <div class="buscar"><svg class="i"><use href="#ic-search"></use></svg>Buscar un estudio, una fecha, un médico</div>
+  <div class="segmentado"><button aria-selected="true">Todo</button><button>Consultas</button><button>Estudios</button><button>Medicación</button></div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <p class="lbl">Agosto 2026</p>
+  <div class="card" style="padding:4px 16px">
+    <button class="lista-item" data-go="resumen">
+      <div class="thumb"><svg class="i"><use href="#ic-mic"></use></svg></div>
+      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Dra. Ríos · Oncología</span><span class="small muted">26 de agosto · 3 indicaciones</span></div>
+      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
+    </button>
+    <button class="lista-item" data-go="estudios">
+      <div class="thumb aten"><svg class="i"><use href="#ic-folder"></use></svg></div>
+      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Laboratorio completo</span><span class="small muted">19 de agosto</span></div>
+      <span class="pill pill-aten">Leyendo</span>
+    </button>
+    <button class="lista-item" data-go="estudios">
+      <div class="thumb"><svg class="i"><use href="#ic-pill"></use></svg></div>
+      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Enalapril: 5 mg → 10 mg</span><span class="small muted">26 de agosto · indicado por la Dra. Ríos</span></div>
+      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
+    </button>
+  </div>
+  <p class="lbl" style="margin-top:6px">Junio 2026</p>
+  <div class="card" style="padding:4px 16px">
+    <button class="lista-item" data-go="estudios">
+      <div class="thumb"><svg class="i"><use href="#ic-folder"></use></svg></div>
+      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">TAC de abdomen</span><span class="small muted">12 de junio · Hospital Italiano</span></div>
+      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
+    </button>
+    <button class="lista-item" data-go="resumen">
+      <div class="thumb"><svg class="i"><use href="#ic-mic"></use></svg></div>
+      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Dr. Sosa · Urología</span><span class="small muted">28 de junio · diagnóstico inicial</span></div>
+      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
+    </button>
+  </div>
+  <button class="btn btn-ghost" data-go="estudios" style="margin-top:6px"><svg class="i"><use href="#ic-plus"></use></svg>Cargar algo nuevo</button>
+ </div></div>
+</section>
+
+<!-- ========== PESTAÑA 3 · TRÁMITES ========== -->
+<section class="scr" data-scr="tramites" data-tab="tramites" data-dock="si">
+ <header class="hdr">
+  <div class="navbar">
+    <button class="persona" data-go="perfil"><span class="av">E</span>Elsa<span class="rol">· mamá</span><svg class="i"><use href="#ic-chevdown"></use></svg></button>
+    <span class="crece"></span>
+    <button class="accion"><svg class="i"><use href="#ic-plus"></use></svg>Nuevo</button>
+    <span class="titulo-inline">Trámites</span>
+  </div>
+  <div class="titulo-grande"><h1>Trámites</h1><p>3 abiertos · 1 vence esta semana</p></div>
+  <div class="segmentado"><button aria-selected="true">Abiertos</button><button>Hechos</button></div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <button class="aten-card" style="width:100%;text-align:left" data-go="tramite">
+    <div class="row" style="align-items:flex-start;gap:11px">
+      <svg class="i" style="color:var(--atencion);margin-top:2px"><use href="#ic-clock"></use></svg>
+      <div class="stack-sm" style="gap:3px;flex:1">
+        <span style="font-weight:800;font-size:1.02em;letter-spacing:-.02em">Autorización de la TAC</span>
+        <span class="small" style="color:var(--atencion);font-weight:700">Vence el miércoles 27 · quedan 4 días</span>
+        <span class="small muted">OSDE · se hace por la app, 4 pasos</span>
+      </div>
+      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
+    </div>
+  </button>
+  <div class="card" style="padding:4px 16px">
+    <button class="lista-item">
+      <div class="thumb"><svg class="i"><use href="#ic-doc"></use></svg></div>
+      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Pedir la orden de la TAC</span><span class="small muted">La firma la Dra. Ríos · antes del 20/9</span></div>
+      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
+    </button>
+    <button class="lista-item">
+      <div class="thumb"><svg class="i"><use href="#ic-today"></use></svg></div>
+      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Turno con el nefrólogo</span><span class="small muted">Dr. Beltrán · dentro de 30 días</span></div>
+      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
+    </button>
+  </div>
+  <p class="lbl" style="margin-top:6px">Hecho esta semana</p>
+  <div class="card" style="padding:4px 16px">
+    <button class="lista-item">
+      <div class="thumb" style="background:var(--hecho-bg);color:var(--hecho)"><svg class="i" style="stroke-width:2.6"><use href="#ic-check"></use></svg></div>
+      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Credencial de OSDE al día</span><span class="small muted">Renovada el 18 de agosto</span></div>
+    </button>
+  </div>
+ </div></div>
+</section>
+
+<!-- ========== PESTAÑA 4 · PERFIL ========== -->
+<section class="scr" data-scr="perfil" data-tab="perfil" data-dock="si">
+ <header class="hdr">
+  <div class="navbar">
+    <span class="crece"></span>
+    <button class="accion">Editar</button>
+    <span class="titulo-inline">Elsa</span>
+  </div>
+  <div class="titulo-grande"><h1>Elsa Fernández</h1><p>78 años · tu mamá · 0+ · OSDE 210</p></div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <div class="card">
+    <div class="row" style="justify-content:space-between"><span class="lbl">Perfil</span><span class="pill pill-aten">60% completo</span></div>
+    <div style="height:8px;border-radius:99px;background:var(--linea);margin:12px 0 10px;overflow:hidden"><div style="width:60%;height:100%;background:var(--marca-solida)"></div></div>
+    <p class="small muted">Falta cargar los estudios anteriores a junio.</p>
+  </div>
+  <p class="lbl" style="margin-top:4px">Quién la cuida</p>
+  <div class="card" style="padding:4px 16px">
+    <div class="lista-item"><span class="av" style="width:2.5em;height:2.5em;font-size:.85em">M</span><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Mariana · vos</span><span class="small muted">Cuidadora principal</span></div></div>
+    <div class="lista-item"><span class="av" style="width:2.5em;height:2.5em;font-size:.85em;background:var(--suave);color:var(--gris)">J</span><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Javier · tu hermano</span><span class="small muted">Puede ver, no editar</span></div><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></div>
+    <button class="lista-item"><div class="thumb"><svg class="i"><use href="#ic-plus"></use></svg></div><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name" style="color:var(--marca-texto)">Invitar a alguien más</span></div></button>
+  </div>
+  <p class="lbl" style="margin-top:4px">Médicos que la atienden</p>
+  <div class="card" style="padding:4px 16px">
+    <button class="lista-item"><div class="thumb"><svg class="i"><use href="#ic-user"></use></svg></div><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Dra. Paula Ríos</span><span class="small muted">Oncología · de cabecera</span></div><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
+    <button class="lista-item"><div class="thumb"><svg class="i"><use href="#ic-user"></use></svg></div><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Dr. Andrés Sosa</span><span class="small muted">Urología</span></div><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
+  </div>
+  <div class="card-flat" style="margin-top:4px">
+    <div class="row"><svg class="i" style="color:var(--gris)"><use href="#ic-lock"></use></svg><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Privacidad y datos</span><span class="small muted">Quién ve qué, y cómo se borra</span></div><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></div>
+  </div>
+ </div></div>
+</section>
+
+<!-- ========== EMPUJADAS ========== -->
+<section class="scr" data-scr="prep" data-tab="hoy" data-dock="si">
+ <header class="hdr">
+  <div class="navbar"><button class="atras" data-go="hoy"><svg class="i"><use href="#ic-back"></use></svg>Hoy</button><span class="crece"></span><span class="titulo-inline">Preparar</span></div>
+  <div class="titulo-grande"><h1>Preparar la consulta</h1><p>Martes 26/8, 10:30 · Dra. Ríos</p></div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <h3 style="font-size:1.25em;letter-spacing:-.025em">Preguntas para llevar</h3>
+  <p class="muted small" style="margin-top:-8px">Armadas con lo que pasó desde la última consulta. Sacá o agregá las que quieras.</p>
+  <div class="card"><div class="row" style="align-items:flex-start"><span class="check on"><svg class="i"><use href="#ic-check"></use></svg></span><p style="font-size:1em;font-weight:600">Elsa viene con náuseas desde el jueves. ¿Es esperable con este tratamiento?</p></div></div>
+  <div class="card"><div class="row" style="align-items:flex-start"><span class="check on"><svg class="i"><use href="#ic-check"></use></svg></span><p style="font-size:1em;font-weight:600">La creatinina dio 1,4 en el análisis del 19/8. ¿Hay que avisarle al nefrólogo?</p></div></div>
+  <div class="card"><div class="row" style="align-items:flex-start"><span class="check"><svg class="i"><use href="#ic-check"></use></svg></span><p style="font-size:1em;font-weight:600">¿Puede seguir tomando Metformina durante el tratamiento?</p></div></div>
+  <button class="btn btn-ghost"><svg class="i"><use href="#ic-plus"></use></svg>Agregar una pregunta mía</button>
+  <hr class="hr">
+  <p class="lbl">Llevá también</p>
+  <div class="card-flat"><div class="row"><div class="thumb aten"><svg class="i"><use href="#ic-folder"></use></svg></div><div class="stack-sm" style="gap:0"><span class="med-name">Análisis de sangre · 19/8</span><span class="small muted">Todavía no lo cargaste</span></div></div></div>
+ </div></div>
+</section>
+
+<section class="scr" data-scr="resumen" data-tab="historia" data-dock="si">
+ <header class="hdr">
+  <div class="navbar"><button class="atras" data-go="historia"><svg class="i"><use href="#ic-back"></use></svg>Historia</button><span class="crece"></span><button class="accion" data-go="compartir"><svg class="i"><use href="#ic-share"></use></svg></button><span class="titulo-inline">Consulta 26/8</span></div>
+  <div class="titulo-grande"><h1>Dra. Ríos</h1><p>Oncología · martes 26 de agosto</p></div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <div class="card-flat" style="background:var(--suave-2);border-style:dashed">
+    <p class="small muted">Estas son <b style="color:var(--tinta)">mis notas</b>, no un informe médico. Leelas y corregí lo que haga falta.</p>
+    <button class="btn btn-ghost btn-sm" style="margin-top:9px">Corregir algo</button>
+  </div>
+  <h3 style="font-size:1.2em;margin-top:4px;letter-spacing:-.025em">Qué te dijo</h3>
+  <div class="card"><p style="font-size:1em;line-height:1.5;font-weight:500">El tratamiento está funcionando y las náuseas son esperables en estas primeras semanas. Quiere ver una TAC de abdomen antes del próximo control para comparar. El riñón le llamó la atención, por eso sube el Enalapril y pide que lo vea el nefrólogo.</p>
+    <button class="btn btn-quiet" style="justify-content:flex-start;padding:0;margin-top:8px"><svg class="i"><use href="#ic-help"></use></svg>Hay algo que no entendí</button></div>
+
+  <h3 style="font-size:1.2em;margin-top:4px;letter-spacing:-.025em">Qué hay que hacer</h3>
+  <div class="card">
+    <div class="med-row" style="align-items:flex-start"><span class="check"><svg class="i"><use href="#ic-check"></use></svg></span>
+      <div class="stack-sm" style="gap:6px"><span class="med-name">Pedir la orden para la TAC de abdomen</span><span class="small muted">Con contraste · la firma la Dra. Ríos</span>
+      <div class="row" style="gap:7px"><button class="btn btn-ghost btn-sm" data-go="tramites">Agendar</button><span class="pill pill-aten">Antes del 20/9</span></div></div></div>
+    <div class="med-row" style="align-items:flex-start"><span class="check"><svg class="i"><use href="#ic-check"></use></svg></span>
+      <div class="stack-sm" style="gap:6px"><span class="med-name">Cambiar Enalapril a 10 mg de noche</span><span class="small muted">Desde mañana · reemplaza los 5 mg</span>
+      <div class="row" style="gap:7px"><button class="btn btn-ghost btn-sm">Actualizar medicación</button></div></div></div>
+    <div class="med-row" style="align-items:flex-start"><span class="check"><svg class="i"><use href="#ic-check"></use></svg></span>
+      <div class="stack-sm" style="gap:6px"><span class="med-name">Sacar turno con el nefrólogo</span><span class="small muted">Dr. Gustavo Beltrán · para dentro de 30 días</span>
+      <div class="row" style="gap:7px"><button class="btn btn-ghost btn-sm" data-go="tramites">Agendar</button></div></div></div>
+  </div>
+
+  <h3 style="font-size:1.2em;margin-top:4px;letter-spacing:-.025em">Para la próxima</h3>
+  <div class="card-flat"><p style="font-size:.95em;font-weight:500" class="muted">Quedó sin responder: <b style="color:var(--tinta)">si puede seguir con la Metformina</b>. Te la guardo para la consulta con el nefrólogo.</p></div>
+  <button class="btn btn-primary" data-go="compartir" style="margin-top:8px"><svg class="i"><use href="#ic-share"></use></svg>Mandarle esto al nefrólogo</button>
+ </div></div>
+</section>
+
+<section class="scr" data-scr="compartir" data-tab="historia" data-dock="si">
+ <header class="hdr">
+  <div class="navbar"><button class="atras" data-go="historia"><svg class="i"><use href="#ic-back"></use></svg>Historia</button><span class="crece"></span><span class="titulo-inline">Compartir</span></div>
+  <div class="titulo-grande"><h1>Compartir historia</h1><p>Elegí qué incluir antes de mandarlo</p></div>
+  <div class="segmentado"><button aria-selected="true">Resumen</button><button>+ Estudios</button><button>Todo</button></div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <div class="doc">
+    <div class="row" style="justify-content:space-between;align-items:flex-start">
+      <div><p class="doc-lbl">Resumen clínico</p><h3 style="margin-top:2px">Elsa Fernández</h3></div>
+      <p class="doc-lbl" style="text-align:right">23/08/2026<br>Releva</p>
+    </div>
+    <div class="doc-rule"></div>
+    <div class="doc-grid"><p><b>Edad</b>78 años</p><p><b>Sexo</b>Femenino</p><p><b>Obra social</b>OSDE 210 · 6188-3921</p><p><b>Grupo sanguíneo</b>0+</p></div>
+    <div class="doc-rule"></div>
+    <p class="doc-alert">Alergias: Penicilina</p>
+    <div class="doc-rule"></div>
+    <p class="doc-lbl">Diagnósticos activos</p>
+    <ul><li>Carcinoma urotelial de vejiga — dx. junio 2026, en tratamiento</li><li>Hipertensión arterial</li><li>Diabetes tipo 2</li></ul>
+    <div class="doc-rule"></div>
+    <p class="doc-lbl">Medicación actual</p>
+    <ul><li>Enalapril 10 mg — 1 comp. noche <i>(modificado 26/08)</i></li><li>Metformina 850 mg — 1 comp. almuerzo</li><li>Ondansetrón 4 mg — a demanda por náuseas</li></ul>
+    <div class="doc-rule"></div>
+    <p class="doc-lbl">Últimos estudios</p>
+    <ul><li>Laboratorio 19/08/2026 — creatinina 1,4 mg/dl · Hb 11,2</li><li>TAC abdomen 12/06/2026 — lesión vesical 22 mm</li></ul>
+    <div class="doc-rule"></div>
+    <p class="doc-lbl">Profesionales que la atienden</p>
+    <ul><li>Dra. P. Ríos — Oncología (última consulta 26/08)</li><li>Dr. A. Sosa — Urología</li><li>Dr. G. Beltrán — Nefrología (turno pendiente)</li></ul>
+    <p class="doc-foot">Documento generado por la cuidadora a cargo (Mariana F., hija) a partir de información cargada por ella y de notas de consulta. No constituye historia clínica oficial ni diagnóstico médico.</p>
+  </div>
+  <div class="quick" style="margin-top:4px">
+    <button><svg class="i"><use href="#ic-share"></use></svg>Compartir</button>
+    <button><svg class="i"><use href="#ic-download"></use></svg>Descargar PDF</button>
+    <button><svg class="i"><use href="#ic-print"></use></svg>Imprimir</button>
+  </div>
+  <p class="fineprint" style="text-align:center;max-width:none">Compartir abre WhatsApp, mail o lo que uses habitualmente.</p>
+ </div></div>
+</section>
+
+<section class="scr" data-scr="estudios" data-tab="historia" data-dock="si">
+ <header class="hdr">
+  <div class="navbar"><button class="atras" data-go="historia"><svg class="i"><use href="#ic-back"></use></svg>Historia</button><span class="crece"></span><span class="titulo-inline">Estudios</span></div>
+  <div class="titulo-grande"><h1>Estudios</h1><p>2 cargados · 1 pendiente</p></div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <div class="uploader">
+    <svg class="i"><use href="#ic-camera"></use></svg>
+    <p class="big" style="font-weight:800">Sacale una foto</p>
+    <p class="small muted" style="max-width:30ch">Análisis, informes, recetas, órdenes. Si son varias hojas, sacá una foto por hoja.</p>
+  </div>
+  <div class="row" style="gap:9px"><button class="btn btn-ghost btn-sm" style="flex:1"><svg class="i"><use href="#ic-folder"></use></svg>Galería</button><button class="btn btn-ghost btn-sm" style="flex:1"><svg class="i"><use href="#ic-download"></use></svg>Subir PDF</button></div>
+  <hr class="hr">
+  <p class="lbl">Cargados</p>
+  <div class="card">
+    <div class="row"><div class="thumb aten"><svg class="i"><use href="#ic-folder"></use></svg></div><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Laboratorio completo</span><span class="small muted">19 de agosto · pedido por la Dra. Ríos</span></div><span class="pill pill-aten">Leyendo</span></div>
+    <hr class="hr" style="margin:11px 0">
+    <p class="small muted">Ya leí <b style="color:var(--tinta)">creatinina 1,4</b> y <b style="color:var(--tinta)">hemoglobina 11,2</b>. Te lo dejo listo para la próxima consulta.</p>
+  </div>
+  <div class="card"><div class="row"><div class="thumb"><svg class="i"><use href="#ic-folder"></use></svg></div><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">TAC de abdomen</span><span class="small muted">12 de junio · Hospital Italiano</span></div><span class="pill pill-ok">Listo</span></div></div>
+  <div class="card-flat"><div class="row"><div class="thumb"><svg class="i"><use href="#ic-print"></use></svg></div><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Orden TAC de control</span><span class="small muted">Pendiente de pedir a la Dra. Ríos</span></div></div></div>
+ </div></div>
+</section>
+
+<section class="scr" data-scr="tramite" data-tab="tramites" data-dock="si">
+ <header class="hdr">
+  <div class="navbar"><button class="atras" data-go="tramites"><svg class="i"><use href="#ic-back"></use></svg>Trámites</button><span class="crece"></span><span class="titulo-inline">Autorización TAC</span></div>
+  <div class="titulo-grande"><h1>Autorización de la TAC</h1><p>OSDE · vence el miércoles 27</p></div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <div class="aten-card"><p style="font-weight:700;color:var(--atencion);font-size:.95em">Quedan 4 días. Si vence, hay que volver a pedir la orden.</p></div>
+  <p class="lbl">Cuatro pasos</p>
+  <div class="card">
+    <div class="med-row"><span class="check on"><svg class="i"><use href="#ic-check"></use></svg></span><div class="stack-sm" style="gap:0"><span class="med-name">Tener la orden firmada</span><span class="small muted">Cargada el 19/8</span></div></div>
+    <div class="med-row"><span class="check on"><svg class="i"><use href="#ic-check"></use></svg></span><div class="stack-sm" style="gap:0"><span class="med-name">Credencial al día</span><span class="small muted">Renovada el 18/8</span></div></div>
+    <div class="med-row"><span class="check"><svg class="i"><use href="#ic-check"></use></svg></span><div class="stack-sm" style="gap:0"><span class="med-name">Subirla a la app de OSDE</span><span class="small muted">Sección «Autorizaciones online»</span></div></div>
+    <div class="med-row"><span class="check"><svg class="i"><use href="#ic-check"></use></svg></span><div class="stack-sm" style="gap:0"><span class="med-name">Guardar el número de autorización</span><span class="small muted">Te lo dan en el momento</span></div></div>
+  </div>
+  <button class="btn btn-primary">Abrir la app de OSDE</button>
+  <button class="btn btn-ghost">Ya lo hice, marcar como listo</button>
+ </div></div>
+</section>
+
+<!-- ========== MODAL · CONSULTA ========== -->
+<section class="scr" data-scr="consentimiento" data-dock="no">
+ <header class="hdr hdr-modal">
+  <div class="navbar"><button class="accion" data-go="hoy">Cancelar</button><span class="titulo-modal">Antes de entrar</span><span class="crece"></span></div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <div class="row" style="gap:13px;margin-top:4px">
+    <div class="mark" style="width:54px;height:54px;border-radius:17px"><svg class="i" style="width:28px;height:28px"><use href="#ic-rombo"></use></svg></div>
+    <p class="big" style="font-weight:800;line-height:1.3;letter-spacing:-.02em">Soy el asistente de Releva.<br>Esto es lo que voy a hacer.</p>
+  </div>
+  <div class="card"><div class="stack" style="gap:15px">
+    <div class="row" style="align-items:flex-start;gap:11px"><svg class="i" style="color:var(--marca-texto);margin-top:2px"><use href="#ic-lock"></use></svg><p style="font-size:.95em;font-weight:500"><b>No guardo el audio.</b> Escucho mientras dura la consulta y después se borra. No queda una grabación en ningún lado.</p></div>
+    <div class="row" style="align-items:flex-start;gap:11px"><svg class="i" style="color:var(--marca-texto);margin-top:2px"><use href="#ic-folder"></use></svg><p style="font-size:.95em;font-weight:500"><b>Anoto lo importante:</b> estudios que pide, cambios de medicación, controles y fechas.</p></div>
+    <div class="row" style="align-items:flex-start;gap:11px"><svg class="i" style="color:var(--marca-texto);margin-top:2px"><use href="#ic-heart"></use></svg><p style="font-size:.95em;font-weight:500"><b>No doy indicaciones médicas.</b> Ordeno y explico lo que dice la doctora. Fui armado junto con médicos.</p></div>
+  </div></div>
+  <div class="aten-card"><p style="font-size:.95em;font-weight:500"><b style="color:var(--atencion)">Avisale a la doctora.</b> Decile que usás una app que toma notas de la consulta. Casi siempre dicen que sí, y evita un mal momento.</p></div>
+  <div class="spacer"></div>
+  <div class="stack" style="margin-top:14px">
+    <button class="btn btn-primary" data-go="consulta">Le avisé, empezar</button>
+    <button class="btn btn-ghost" data-go="resumen">Prefiero anotar yo</button>
+  </div>
+  <p class="fineprint" style="text-align:center;max-width:none">Si anotás vos, después te hago las mismas preguntas para que no se pierda nada.</p>
+ </div></div>
+</section>
+
+<section class="scr" data-scr="consulta" data-dock="no">
+ <header class="hdr hdr-modal">
+  <div class="navbar"><span class="crece"></span><span class="titulo-modal">En consulta</span><span class="pill pill-ok" style="margin-right:4px">Sin grabar audio</span></div>
+ </header>
+ <div class="scroll"><div class="cuerpo" style="gap:16px">
+  <div class="rec-stage">
+    <div class="rec-orb"><svg class="i"><use href="#ic-mic"></use></svg></div>
+    <span class="timer">14:32</span>
+    <p class="small muted" style="text-align:center;max-width:30ch">Estoy escuchando y tomando notas. Guardá el teléfono si querés, sigo igual.</p>
+  </div>
+  <div class="card">
+    <span class="lbl">Tus preguntas</span>
+    <div class="med-row" style="padding:10px 0"><span class="check on"><svg class="i"><use href="#ic-check"></use></svg></span><span style="font-size:.95em;color:var(--tenue);text-decoration:line-through;font-weight:600">Las náuseas desde el jueves</span></div>
+    <div class="med-row" style="padding:10px 0"><span class="check"><svg class="i"><use href="#ic-check"></use></svg></span><span style="font-size:.95em;font-weight:600">La creatinina de 1,4</span></div>
+    <div class="med-row" style="padding:10px 0"><span class="check"><svg class="i"><use href="#ic-check"></use></svg></span><span style="font-size:.95em;font-weight:600">Si puede seguir con Metformina</span></div>
+  </div>
+  <div class="card">
+    <span class="lbl">Anotado hasta ahora</span>
+    <div class="capture"><span class="dot"></span><div class="stack-sm" style="gap:1px"><span style="font-weight:700;font-size:.97em">Pide TAC de abdomen con contraste</span><span class="small muted">Estudio · antes del próximo control</span></div></div>
+    <div class="capture"><span class="dot"></span><div class="stack-sm" style="gap:1px"><span style="font-weight:700;font-size:.97em">Sube Enalapril a 10 mg por la noche</span><span class="small muted">Cambio de medicación</span></div></div>
+    <div class="capture"><span class="dot" style="background:var(--atencion)"></span><div class="stack-sm" style="gap:1px"><span style="font-weight:700;font-size:.97em">Control en 30 días</span><span class="small muted">Turno a sacar</span></div></div>
+  </div>
+  <div class="spacer"></div>
+  <button class="btn btn-primary" data-go="resumen">Terminó la consulta</button>
+  <button class="btn btn-quiet" data-go="hoy">Dejar de escuchar</button>
+ </div></div>
+</section>
+
+<!-- ========== MODAL · GUARDIA ========== -->
+<section class="scr" data-scr="guardia" data-dock="no">
+ <header class="hdr hdr-urg">
+  <div class="navbar"><svg class="i" style="width:1.4em;height:1.4em;stroke-width:2.3"><use href="#ic-alert"></use></svg><h1>Modo guardia</h1><span class="crece"></span><button class="accion" data-go="hoy">Cerrar</button></div>
+  <p>Elsa Fernández · 78 años · 0+ · OSDE 210 · 6188-3921</p>
+ </header>
+ <div class="scroll"><div class="cuerpo" style="padding-top:14px">
+  <div class="urg-card">
+    <p class="lbl" style="color:var(--urgencia)">Alérgica a</p>
+    <p style="color:var(--urgencia);margin-top:4px;font-size:1.62em;font-weight:800;letter-spacing:-.03em">Penicilina</p>
+  </div>
+  <div class="card">
+    <p class="lbl">Toma todos los días</p>
+    <div class="med-row"><div class="stack-sm" style="gap:0"><span class="med-name">Enalapril 10 mg</span><span class="small muted">1 comprimido a la noche</span></div></div>
+    <div class="med-row"><div class="stack-sm" style="gap:0"><span class="med-name">Metformina 850 mg</span><span class="small muted">1 comprimido con el almuerzo</span></div></div>
+    <div class="med-row"><div class="stack-sm" style="gap:0"><span class="med-name">Ondansetrón 4 mg</span><span class="small muted">Sólo si tiene náuseas</span></div></div>
+  </div>
+  <div class="card"><p class="lbl">Tiene</p><p style="font-size:1.02em;line-height:1.45;margin-top:6px;font-weight:600">Cáncer de vejiga en tratamiento oncológico desde junio · Hipertensión · Diabetes tipo 2 · Función renal en control</p></div>
+  <div class="card">
+    <p class="lbl">A quién llamar</p>
+    <div class="med-row"><div class="stack-sm" style="gap:0;flex:1"><span class="med-name">Dra. Paula Ríos</span><span class="small muted">Oncóloga de cabecera</span></div><button class="btn btn-ghost btn-sm">Llamar</button></div>
+    <div class="med-row"><div class="stack-sm" style="gap:0;flex:1"><span class="med-name">Javier, mi hermano</span><span class="small muted">Segundo cuidador</span></div><button class="btn btn-ghost btn-sm">Llamar</button></div>
+  </div>
+  <div class="spacer"></div>
+  <button class="btn btn-urg" data-go="compartir" style="margin-top:14px"><svg class="i"><use href="#ic-share"></use></svg>Pasarle el resumen al médico</button>
+ </div></div>
+</section>
+
+       <!-- DOCK: accesorio + barra de pestañas -->
+       <div class="dock" id="dock">
+         <button class="accesorio" id="accesorio" data-go="consentimiento">
+           <svg class="i"><use href="#ic-mic"></use></svg>
+           <span class="txt">Estoy en una consulta<span class="sub">Releva escucha y toma notas</span></span>
+           <span class="ir"><svg class="i" style="width:1.1em;height:1.1em;stroke-width:2.4"><use href="#ic-fwd"></use></svg></span>
+         </button>
+         <nav class="tabbar" role="tablist" id="tabbar">
+           <button class="tab" role="tab" data-tab="hoy" data-go="hoy"><svg class="i"><use href="#ic-today"></use></svg><span class="et">Hoy</span></button>
+           <button class="tab" role="tab" data-tab="historia" data-go="historia"><svg class="i"><use href="#ic-folder"></use></svg><span class="et">Historia</span></button>
+           <button class="tab" role="tab" data-tab="tramites" data-go="tramites"><svg class="i"><use href="#ic-doc"></use></svg><span class="et">Trámites</span></button>
+           <button class="tab" role="tab" data-tab="perfil" data-go="perfil"><svg class="i"><use href="#ic-user"></use></svg><span class="et">Elsa</span></button>
+         </nav>
+         <div class="indicador"></div>
+       </div>
+
+      </div><!-- /stage -->
+     </div><!-- /screen -->
+    </div><!-- /phone -->
+
+    <div class="controles">
+      <div class="ctrl">
+        <span>Tamaño de texto</span>
+        <div class="seg-demo" id="fsCtrl">
+          <button data-fs="normal" aria-pressed="true">A</button>
+          <button data-fs="grande" aria-pressed="false">A+</button>
+          <button data-fs="max" aria-pressed="false">A++</button>
+        </div>
+      </div>
+      <div class="ctrl">
+        <span>Barra que se achica al scrollear</span>
+        <div class="seg-demo" id="miniCtrl">
+          <button data-mini="off" aria-pressed="true">Off</button>
+          <button data-mini="on" aria-pressed="false">On</button>
+        </div>
+      </div>
+    </div>
+   </div><!-- /phone-col -->
+
+   <div class="notes">
+    <div class="flowmap" id="flowmap"></div>
+    <article class="note" id="note"></article>
+   </div>
+  </div><!-- /stage-grid -->
+ </div>
+</section>
+
+<section class="band">
+ <div class="wrap">
+  <div class="sec-head"><h2>Qué cambió, elemento por elemento</h2><p>Sobre las 14 pantallas del prototipo original.</p></div>
+  <div class="tabla-wrap">
+  <table class="tabla">
+   <thead><tr><th>Elemento</th><th>Antes</th><th>Ahora</th><th>Por qué</th></tr></thead>
+   <tbody>
+    <tr><td>Pestañas</td><td class="antes">Hoy · Historia · Consultas · Elsa</td><td>Hoy · Historia · Trámites · Elsa</td><td>«Consultas» y «Historia» eran el mismo archivo partido en dos. El lugar que quedó libre lo ocupa la carga operativa, que es la que se usa todas las semanas.</td></tr>
+    <tr><td>Destino de cada pestaña</td><td class="antes">Pantallas de detalle (un PDF, un resumen puntual)</td><td>Una raíz de sección por pestaña</td><td>Una pestaña que abre un documento concreto deja de ser navegación y pasa a ser un atajo. Al volver a la pestaña, el usuario espera la sección, no el último papel que miró.</td></tr>
+    <tr><td>Grabar la consulta</td><td class="antes">Un botón más dentro de «Accesos rápidos»</td><td>Accesorio fijo sobre la barra</td><td>Es la acción que define el producto y ocurre fuera de casa, apurado. Enterrada a tres scrolls del home no se encuentra.</td></tr>
+    <tr><td>Encabezados</td><td class="antes">Barra gris de 38 px con ícono</td><td>Título grande que colapsa al scrollear</td><td>El título grande dice dónde estás sin que tengas que leer un ícono, y libera espacio en cuanto empezás a leer.</td></tr>
+    <tr><td>Volver</td><td class="antes">Chevron solo, sin texto</td><td>Chevron + nombre de la pantalla anterior</td><td>Un chevron pelado obliga a recordar de dónde viniste. Con la etiqueta no hay que recordar nada.</td></tr>
+    <tr><td>Acciones de barra</td><td class="antes">Íconos sin etiqueta</td><td>Ícono + palabra, siempre</td><td>Compartir, editar y buscar no comparten un ícono universal. La palabra cuesta 40 px y elimina la adivinanza.</td></tr>
+    <tr><td>Guardia</td><td class="antes">Ícono chico arriba a la derecha, sólo en Hoy</td><td>Pastilla roja etiquetada, en las 4 raíces</td><td>Es la pantalla de mayor valor y menor capacidad cognitiva del usuario. Tiene que estar siempre en el mismo lugar y verse desde lejos.</td></tr>
+    <tr><td>Buscar</td><td class="antes">No existía</td><td>Campo visible en Historia</td><td>A los seis meses de uso la historia tiene 40 entradas. Sin búsqueda, el archivo se vuelve un cajón.</td></tr>
+    <tr><td>Alta y consulta</td><td class="antes">Mismo tipo de pantalla que el resto</td><td>Modales, con Cancelar</td><td>Son tareas cerradas. Presentarlas como modal avisa «esto empieza y termina», y da una salida clara en cualquier momento.</td></tr>
+    <tr><td>Paciente</td><td class="antes">Una pestaña llamada «Elsa»</td><td>Chip de persona en el encabezado + pestaña de perfil</td><td>El chip permite cambiar de persona desde cualquier sección el día que la cuidadora tenga a la mamá y al suegro en la misma cuenta.</td></tr>
+   </tbody>
+  </table>
+  </div>
+ </div>
+</section>
+
+<section class="band">
+ <div class="wrap">
+  <div class="sec-head"><h2>Por qué cada decisión</h2><p>Las guidelines vigentes de Apple como piso, y dónde nos apartamos de ellas a propósito.</p></div>
+  <div class="cols">
+
+    <div class="pcard"><span class="pnum">01 · Barra de pestañas</span><h4>Cuatro, no cinco</h4>
+      <p>Apple admite hasta cinco pestañas en iPhone. Con cuatro, cada objetivo mide 88 px de ancho en vez de 70, y la etiqueta entra completa incluso con el texto agrandado. La quinta pestaña se paga en precisión de dedo, y este usuario apunta peor que el promedio.</p>
+      <p>Descartamos también la pestaña de búsqueda que iOS 26 permite fijar al final de la barra: acá la búsqueda sirve dentro de un solo archivo, y una pestaña dedicada la haría parecer el centro de la app.</p>
+      <span class="hig">HIG · 2–5 pestañas en iPhone</span></div>
+
+    <div class="pcard"><span class="pnum">02 · Accesorio</span><h4>Grabar no es una pestaña</h4>
+      <p>Las pestañas son lugares; grabar una consulta es una acción. Meterla en la barra rompe el modelo y deja al usuario sin saber si «volver» lo saca de la grabación.</p>
+      <p>iOS 26 resuelve exactamente esto con el accesorio inferior: una barra persistente encima de las pestañas, la misma pieza que usa Música para el reproductor. Acompaña en toda la navegación y se transforma en el estado «grabando» sin ocupar una pestaña.</p>
+      <span class="hig">HIG · tab view bottom accessory</span></div>
+
+    <div class="pcard"><span class="pnum">03 · Liquid Glass</span><h4>La barra flota, el contenido pasa por debajo</h4>
+      <p>Barra flotante translúcida con desenfoque, separada de los bordes. Da la sensación de que hay más contenido abajo —cosa que en listas largas es información real— y despega la navegación del contenido, que es justo lo que un usuario poco técnico confunde.</p>
+      <p>El mismo material aparece en el encabezado sólo cuando hay algo scrolleado debajo. Mientras la pantalla está arriba de todo, el encabezado es transparente y no hay ninguna línea de más.</p>
+      <span class="hig">HIG · scroll edge effect</span></div>
+
+    <div class="pcard"><span class="pnum">04 · Minimizar</span><h4>La función más nueva de Apple, apagada</h4>
+      <p>iOS 26 permite que la barra se encoja al scrollear hacia abajo. Es elegante y para este público está mal: la barra cambia de tamaño sola, las etiquetas desaparecen y quedan cuatro íconos sin nombre justo cuando la persona está leyendo algo que le importa.</p>
+      <p>Podés probarlo con el interruptor debajo del teléfono. La ganancia son 14 px de contenido; el costo es que la navegación se mueva sin que nadie la haya tocado.</p>
+      <span class="hig">Nos apartamos a propósito</span></div>
+
+    <div class="pcard"><span class="pnum">05 · Encabezados</span><h4>Tres tipos, y sólo tres</h4>
+      <p><strong>Raíz:</strong> chip de persona, título grande que colapsa, acción a la derecha con texto. <strong>Empujada:</strong> atrás con el nombre de dónde venís, título en línea. <strong>Modal:</strong> Cancelar a la izquierda, título al centro, sin chevron.</p>
+      <p>Que sean tres y siempre iguales es la mitad del trabajo: a la tercera pantalla el usuario ya sabe si está adentro de algo que se cierra o de algo de lo que se vuelve.</p>
+      <span class="hig">HIG · large title / inline / modal</span></div>
+
+    <div class="pcard"><span class="pnum">06 · Color semántico</span><h4>El naranja de marca obligó a rehacer los estados</h4>
+      <p>El prototipo original usaba verde de marca, ámbar para pendientes y rojo para urgencia: tres tonos bien separados. Con el terracota de Releva, ámbar y rojo quedan pegados a la marca y el ojo deja de distinguirlos de un vistazo.</p>
+      <p>Los pendientes pasan a un petróleo frío, que no compite con el naranja y lee como «administrativo». El rojo queda reservado a urgencia clínica —guardia y alergias— y a nada más. Verde, sólo para lo que ya está hecho.</p>
+      <span class="hig">Terracota · petróleo · rojo · verde</span></div>
+
+    <div class="pcard"><span class="pnum">07 · Modal vs. empujar</span><h4>Lo que empieza y termina, se cierra</h4>
+      <p>Alta, consulta y guardia son tareas cerradas: se entra, se hace una cosa, se sale. Van como modal, con Cancelar visible. El resto de la app se recorre empujando pantallas, con la barra de pestañas siempre presente.</p>
+      <p>La consulta además sale distinto de como entró: al terminar, el modal se cierra y la app aterriza en el resumen recién creado, dentro de Historia. La tarea deja algo en su lugar, y el usuario ve dónde quedó.</p>
+      <span class="hig">HIG · modalidad para tareas autocontenidas</span></div>
+
+    <div class="pcard"><span class="pnum">08 · Guardia</span><h4>La pantalla que hay que poder abrir sin pensar</h4>
+      <p>Dentro de la app: pastilla roja etiquetada, en la misma posición en las cuatro raíces. Es la única pieza que rompe la jerarquía visual a propósito.</p>
+      <p>Fuera de la app tiene que existir igual. iOS deja publicarla como control del Centro de Control, como botón de Acción y en la pantalla bloqueada. A las tres de la mañana nadie desbloquea, busca el ícono y toca dos veces.</p>
+      <span class="hig">iOS · Controls API · botón de Acción</span></div>
+
+    <div class="pcard"><span class="pnum">09 · Tacto</span><h4>Nada por debajo de 44 puntos</h4>
+      <p>Botones de 56 px, filas de lista de 46, chips de 46, pestañas de 56. La pastilla de Guardia y el chip de persona también, aunque parezcan decorativos.</p>
+      <p>Todo el prototipo está tipografiado en <code>em</code> sobre la raíz de la pantalla: el interruptor A / A+ / A++ muestra la app al 112 % y al 131 % sin que se rompa un solo bloque. Es la prueba mínima antes de mandar a construir.</p>
+      <span class="hig">HIG · 44×44 pt · Dynamic Type</span></div>
+
+  </div>
+ </div>
+</section>
+
+<section class="band">
+ <div class="wrap">
+  <div class="sec-head"><h2>Qué falta definir para que sea navegable a los 40+</h2><p>Todo lo que este prototipo deja abierto y hay que cerrar antes de construir. Cada punto lleva mi propuesta.</p></div>
+  <div class="qa">
+
+   <div class="qitem"><span class="qmark">01</span><div><h4>Hasta qué tamaño de texto tiene que aguantar</h4>
+    <p>iOS llega a cinco tamaños de accesibilidad por encima del máximo normal. Nadie construye para los cinco. Hay que fijar el límite y escribirlo en el brief, porque define cuántas columnas puede tener una tarjeta y si las etiquetas de las pestañas entran.</p>
+    <div class="resp"><p><b>Mi propuesta:</b> soportar hasta AX3 con el layout intacto, y de AX4 en adelante permitir que la barra de pestañas pase a lista vertical, que es el comportamiento nativo de iOS. Probarlo con usuarias reales, no en el simulador: mucha gente de 55+ tiene el iPhone en tamaño grande y no lo sabe.</p></div></div></div>
+
+   <div class="qitem"><span class="qmark">02</span><div><h4>Los nombres de las pestañas no están validados</h4>
+    <p>«Trámites» e «Historia» son mis apuestas, no un hallazgo. «Historia» puede leerse como el relato de la enfermedad y no como el archivo; «Trámites» puede sonar a burocracia ajena a la app.</p>
+    <div class="resp"><p><b>Mi propuesta:</b> test de cinco segundos con 8 a 10 cuidadoras: mostrar la barra sola y preguntar qué esperan encontrar en cada una. Es barato y es la prueba que más puede cambiar el diseño. Alternativas a probar: «Carpeta» en lugar de Historia, «Pendientes» en lugar de Trámites.</p></div></div></div>
+
+   <div class="qitem"><span class="qmark">03</span><div><h4>Íconos propios o SF Symbols</h4>
+    <p>Los del prototipo son de trazo, dibujados a mano. SF Symbols trae el peso, el escalado con Dynamic Type y la variante rellena para el estado activo, todo gratis, y son los íconos que la usuaria ya reconoce de las otras apps del teléfono.</p>
+    <div class="resp"><p><b>Mi propuesta:</b> SF Symbols para toda la navegación, íconos propios sólo para conceptos que Apple no tiene. Y en la barra, ícono relleno cuando está activo: en este público el color solo no alcanza para marcar dónde estás.</p></div></div></div>
+
+   <div class="qitem"><span class="qmark">04</span><div><h4>Dónde abre la app cada vez</h4>
+    <p>Sin definir. ¿Siempre en Hoy? ¿Retoma donde quedó? ¿Depende de cuánto pasó?</p>
+    <div class="resp"><p><b>Mi propuesta:</b> siempre en Hoy, salvo que vuelva en menos de dos minutos. Retomar donde quedó es cómodo para un usuario experto y desorienta a uno que abre la app tres veces por día para tareas distintas. Que el punto de partida sea siempre el mismo es más valioso que ahorrar un toque.</p></div></div></div>
+
+   <div class="qitem"><span class="qmark">05</span><div><h4>A dónde lleva cada notificación</h4>
+    <p>La app va a mandar recordatorios de medicación, avisos de vencimiento de trámites y avisos de turno. Cada uno tiene que aterrizar en una pantalla concreta y dejar al usuario en un lugar del que sepa salir.</p>
+    <div class="resp"><p><b>Mi propuesta:</b> tabla de <em>deep links</em> antes de escribir la primera notificación: tipo de aviso → pantalla → qué pestaña queda seleccionada → qué pasa al tocar atrás. La regla: una notificación nunca deja al usuario en un modal sin salida ni en una pantalla huérfana de pestaña.</p></div></div></div>
+
+   <div class="qitem"><span class="qmark">06</span><div><h4>Modo guardia fuera de la app</h4>
+    <p>Ya está dicho en el prototipo original y sigue sin resolverse: la pantalla más importante requiere desbloquear el teléfono, encontrar el ícono y tocar dos veces.</p>
+    <div class="resp"><p><b>Mi propuesta:</b> control en el Centro de Control, botón de Acción configurable y widget en la pantalla bloqueada. Falta decidir qué se muestra sin desbloquear: mi voto es alergias, medicación y contacto, que es lo que salva la situación, y dejar el resto detrás del desbloqueo. Es una decisión de privacidad, no de diseño, y necesita dueño.</p></div></div></div>
+
+   <div class="qitem"><span class="qmark">07</span><div><h4>Los estados vacíos de las cuatro pestañas</h4>
+    <p>El prototipo muestra la app llena. El día uno, Historia y Trámites están vacías, y una pantalla vacía sin explicación se lee como una app rota.</p>
+    <div class="resp"><p><b>Mi propuesta:</b> cada estado vacío dice qué va a aparecer ahí, por qué conviene, y trae la acción para llenarlo. Nunca una ilustración sola. Es además el mejor lugar para enseñar la navegación sin un tutorial.</p></div></div></div>
+
+   <div class="qitem"><span class="qmark">08</span><div><h4>Qué gestos existen y cuáles no</h4>
+    <p>Deslizar para volver, deslizar entre pestañas, deslizar para borrar, mantener apretado. Un gesto que la app tiene pero no muestra, para este público directamente no existe; y uno que dispara sin querer, asusta.</p>
+    <div class="resp"><p><b>Mi propuesta:</b> deslizar desde el borde para volver, sí, porque es del sistema y no hay que enseñarlo. Deslizar entre pestañas, no: se activa sin querer al scrollear en diagonal. Borrar siempre con botón visible y confirmación, nunca sólo con gesto.</p></div></div></div>
+
+   <div class="qitem"><span class="qmark">09</span><div><h4>Qué pasa sin señal</h4>
+    <p>Media app se usa en un subsuelo de hospital. Falta decidir qué funciona offline y cómo se avisa.</p>
+    <div class="resp"><p><b>Mi propuesta:</b> guardia, medicación y el resumen para compartir tienen que estar en el teléfono y abrir siempre. Cargar una foto o transcribir puede esperar, con un estado visible de «se manda cuando haya señal» en vez de un error. Un error rojo en un pasillo de hospital es una persona que borra la app.</p></div></div></div>
+
+   <div class="qitem"><span class="qmark">10</span><div><h4>Cuándo aparece el selector de persona</h4>
+    <p>El chip está diseñado para más de un paciente, pero el 90 % va a cuidar a uno solo. Un menú desplegable con un solo elemento es ruido.</p>
+    <div class="resp"><p><b>Mi propuesta:</b> con una sola persona, el chip se muestra sin flecha y no abre nada: es contexto, no control. La flecha y el menú aparecen recién cuando hay dos. Falta definir si el cambio de persona es global o por pestaña; mi voto es global, con confirmación visible al cambiar.</p></div></div></div>
+
+   <div class="qitem"><span class="qmark">11</span><div><h4>Nivel de lectura de toda la interfaz</h4>
+    <p>La app hereda dos vocabularios: el médico y el de la obra social. Ninguno de los dos es el de la usuaria.</p>
+    <div class="resp"><p><b>Mi propuesta:</b> fijar un objetivo explícito —que se entienda en una lectura, sin releer— y una lista de términos prohibidos con su reemplazo: «autorización» → «permiso de la obra social», «indicación» → «lo que hay que hacer». Que quede en el sistema de diseño, no en la cabeza de quien escriba cada pantalla.</p></div></div></div>
+
+   <div class="qitem"><span class="qmark">12</span><div><h4>Confirmaciones: cuáles sí y cuáles no</h4>
+    <p>Sin definir. Confirmar todo entrena a tocar «Aceptar» sin leer, que es peor que no confirmar nada.</p>
+    <div class="resp"><p><b>Mi propuesta:</b> confirmación sólo donde el error no se puede deshacer o toca datos clínicos: borrar un estudio, cambiar una dosis, sacar a alguien de los cuidadores. Todo lo demás, acción directa con «deshacer» durante unos segundos.</p></div></div></div>
+
+   <div class="qitem"><span class="qmark">13</span><div><h4>Cómo se aprende la navegación</h4>
+    <p>La tentación es un tutorial con globitos. En este público suele fallar: se toca «saltar» y se olvida.</p>
+    <div class="resp"><p><b>Mi propuesta:</b> nada de globitos. La navegación se enseña usándola: el alta termina cayendo en Hoy con la barra ya visible, y los estados vacíos cuentan para qué sirve cada pestaña. Si hace falta un tutorial para entender cuatro pestañas, el problema son las pestañas.</p></div></div></div>
+
+   <div class="qitem"><span class="qmark">14</span><div><h4>Manos ocupadas</h4>
+    <p>Toda la navegación asume dos manos libres y vista en la pantalla. Muchas veces no las hay: una mano sostiene a la persona, la otra el teléfono.</p>
+    <div class="resp"><p><b>Mi propuesta:</b> verificar que todo lo urgente —guardia, accesorio de consulta, marcar medicación— caiga en el tercio inferior de la pantalla, alcanzable con el pulgar. En este diseño ya pasa; falta escribirlo como regla para que no se pierda cuando entren pantallas nuevas.</p></div></div></div>
+
+   <div class="qitem"><span class="qmark">15</span><div><h4>Qué medimos para saber si es navegable</h4>
+    <p>Sin métrica, «navegable» es opinión.</p>
+    <div class="resp"><p><b>Mi propuesta:</b> tres números. Toques hasta el modo guardia desde app cerrada (objetivo: 2). Porcentaje de sesiones que tocan más de una pestaña (si es muy bajo, tres pestañas sobran). Y toques de retroceso por sesión, que es el mejor indicador de que alguien se perdió. Los tres se instrumentan antes del beta, no después.</p></div></div></div>
+
+  </div>
+ </div>
+</section>
+
+<section class="band">
+ <div class="wrap">
+  <div class="sec-head"><h2>Seis reglas que ordenan todo el diseño</h2><p>Del prototipo original. Siguen valiendo y ahora tienen quien las haga cumplir.</p></div>
+  <div class="cols">
+    <div class="pcard"><span class="pnum">Una</span><h4>Una decisión por pantalla</h4><p>El cuidador llega saturado. Cada pantalla tiene una sola acción primaria en terracota y todo lo demás en gris. Si hay dos cosas igual de importantes, la pantalla está mal partida.</p></div>
+    <div class="pcard"><span class="pnum">Dos</span><h4>La cámara antes que el teclado</h4><p>Tipear «Enalapril 5 mg, 1 comprimido cada 12 horas» en un celular a los 58 años es la barrera más alta de toda la app. Recetas, análisis y órdenes entran por foto; la app codifica y la persona corrige.</p></div>
+    <div class="pcard"><span class="pnum">Tres</span><h4>Todo lo que escribe el asistente se puede corregir</h4><p>Las notas de consulta aparecen marcadas como notas, no como informe, y siempre con un botón de corregir al lado. La confianza no se pide en un texto legal: se construye dejando ver y tocar el dato.</p></div>
+    <div class="pcard"><span class="pnum">Cuatro</span><h4>Hablar como una persona, no como un sistema</h4><p>«¿Qué le está pasando a Elsa?», no «Antecedentes patológicos». «Falta la orden de la TAC», no «Documentación incompleta». El nombre de la paciente aparece en la interfaz: es la mamá de alguien.</p></div>
+    <div class="pcard"><span class="pnum">Cinco</span><h4>El estado se ve, no se lee</h4><p>Verde es «está hecho», petróleo es «esto necesita algo tuyo», rojo es sólo urgencia clínica. Nada de rojo para vencimientos administrativos: si todo grita, nada se escucha.</p></div>
+    <div class="pcard"><span class="pnum">Seis</span><h4>Grande por defecto</h4><p>Cuerpo de 16 px que escala con el sistema, botones de 56 px de alto, contraste alto y ningún gesto oculto. La app se usa a veces con una mano, en un pasillo, con la otra persona esperando.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="band">
+ <div class="wrap">
+  <div class="sec-head"><h2>Definiciones de producto que siguen abiertas</h2><p>Del prototipo original. No las toca esta propuesta de navegación.</p></div>
+  <div class="qa">
+    <div class="qitem"><span class="qmark">A</span><div><h4>¿Quién es el dueño de la cuenta: el cuidador o el paciente?</h4><p>Todo el prototipo asume que la cuenta es de Mariana y que Elsa es un perfil dentro de ella. Eso permite que una cuidadora tenga a la mamá y al suegro en la misma app, pero abre la pregunta legal de quién consiente el tratamiento de datos de salud de Elsa, sobre todo si Elsa está lúcida. Propuesta: perfil creado por el cuidador con un consentimiento explícito registrado, y opción de invitar al paciente a ver su propio perfil.</p></div></div>
+    <div class="qitem"><span class="qmark">B</span><div><h4>Cuidado compartido entre hermanos</h4><p>En la práctica el cuidado casi nunca es de una sola persona: hay una hija que hace todo y un hermano que aparece los fines de semana. Invitar a un segundo cuidador con permisos de lectura o edición es, probablemente, la feature con mejor relación valor/esfuerzo fuera del MVP. Acá aparece esbozada en la pestaña de perfil.</p></div></div>
+    <div class="qitem"><span class="qmark">C</span><div><h4>¿Qué pasa cuando el médico dice que no?</h4><p>La pantalla de consentimiento asume que el profesional acepta. Falta el camino alternativo: si el médico se niega, el cuidador debería poder pasar en un toque al modo manual y que la app le haga las cuatro preguntas clave al salir del consultorio. Está sugerido en «Prefiero anotar yo», pero ese flujo merece diseño propio.</p></div></div>
+    <div class="qitem"><span class="qmark">D</span><div><h4>El límite exacto del «no doy consejo médico»</h4><p>«Hay algo que no entendí» es el botón más valioso y el más delicado de la app. Explicar qué es la creatinina está bien; decir si 1,4 es preocupante ya es interpretación clínica. Hace falta una regla escrita y testeada con los médicos del equipo sobre dónde corta el asistente, y una respuesta estándar para cuando corta.</p></div></div>
+    <div class="qitem"><span class="qmark">E</span><div><h4>¿El diferencial es clínico o administrativo?</h4><p>Esta propuesta ya toma partido: le da una pestaña propia a los trámites. Una app que resuelve la autorización de OSDE se usa todas las semanas; una que sólo ordena la historia se usa una vez por mes. Si el equipo no comparte esa lectura, la pestaña de Trámites es lo primero que hay que discutir.</p></div></div>
+    <div class="qitem"><span class="qmark">F</span><div><h4>Nada de esto contiene al cuidador</h4><p>El objetivo declarado incluye bajar la ansiedad y dar contención, pero el producto es de gestión pura. Falta decidir si eso se traduce en algo concreto —un chequeo periódico de cómo está el cuidador, información sobre qué esperar, derivación a grupos de apoyo— o si la contención se logra por la vía indirecta de que las cosas estén ordenadas. Opinión: lo segundo alcanza para el MVP, pero conviene decirlo y no dejarlo como un objetivo sin dueño.</p></div></div>
+  </div>
+ </div>
+</section>
+
+<footer><div class="wrap">
+  <p>Releva · un producto de MCD Health. Prototipo de navegación para discusión de equipo — Elsa Fernández, Mariana y los profesionales mencionados son ficticios. No es un producto médico ni una herramienta de diagnóstico.</p>
+</div></footer>
+
+<script>
+const FLOW=[
+ ["Alta · modal",[["bienvenida","Bienvenida"],["onb1","Quién"],["onb2","Qué tiene"],["onb3","Medicación"],["onb4","Alergias"],["listo","Listo"]]],
+ ["Las cuatro pestañas",[["hoy","Hoy"],["historia","Historia"],["tramites","Trámites"],["perfil","Elsa"]]],
+ ["Pantallas empujadas",[["prep","Preparar"],["resumen","Resumen"],["compartir","Compartir"],["estudios","Estudios"],["tramite","Autorización"]]],
+ ["Modales",[["consentimiento","Consentimiento"],["consulta","En consulta"],["guardia","Modo guardia"]]]
+];
+
+const NOTES={
+ bienvenida:{k:"Alta · modal",t:"Sin barra, sin encabezado, sin salida lateral",tags:["Modal","Primer contacto"],body:[
+  "<p>El alta entera es un modal: no hay barra de pestañas ni chevron de atrás. La app todavía no tiene secciones que mostrar, y enseñar una navegación vacía antes de que exista contenido sólo genera preguntas.</p>",
+  "<ul><li>La línea de privacidad está arriba, no enterrada en términos y condiciones. La primera duda de alguien que va a cargar datos oncológicos de su madre es <strong>quién va a ver esto</strong>.</li><li>«Ya tengo cuenta» pesa lo mismo que «Empezar»: quien vuelve es quien ya usa la app en serio.</li></ul>"]},
+ onb1:{k:"Alta · paso 1",t:"Cancelar a la izquierda, nunca un chevron",tags:["Modal","Salida clara"],body:[
+  "<p>El primer paso de un modal lleva <strong>Cancelar</strong>, no «Atrás». La diferencia importa: atrás sugiere que hay algo detrás, cancelar dice que se sale de la tarea. A partir del paso 2 sí aparece «Atrás», porque ahí sí hay un paso anterior.</p>",
+  "<ul><li>La barra de progreso vive en el encabezado, pegada al título «Paso 1 de 4». Prometer el final desde el principio es lo que sostiene un alta hasta el último paso.</li><li>El vínculo («mi mamá») no es un dato administrativo: permite que la app hable de Elsa por su nombre en toda la interfaz.</li></ul>"]},
+ onb2:{k:"Alta · paso 2",t:"Texto libre primero, estructura después",tags:["Lenguaje","Codificación asistida"],body:[
+  "<p>Le pedimos que cuente en sus palabras y los chips hacen el trabajo de codificación clínica. <strong>Escribir «carcinoma urotelial» no es tarea del cuidador.</strong></p>",
+  "<ul><li>Los chips miden 46 px de alto: son objetivos táctiles, no etiquetas. Es el control más tocado del alta y el más fácil de errar con el dedo.</li><li>«Problemas de memoria» en lugar de «deterioro cognitivo»: la palabra que usa la familia, no la del informe.</li></ul>"]},
+ onb3:{k:"Alta · paso 3",t:"La cámara antes que el teclado",tags:["OCR","Fricción"],body:[
+  "<p>Este es el paso donde más gente abandona en cualquier app de salud. La solución no es un formulario mejor: es <strong>no usar formulario</strong>.</p>",
+  "<ul><li>El área de foto ocupa el ancho completo y es lo primero que se ve. «Prefiero escribirlo yo» queda disponible, sin peso visual.</li><li>La dosis se muestra en lenguaje de uso —«1 comprimido, mañana y noche»— y no en notación de receta. Así la cuidadora puede verificar, que es lo único que le pedimos.</li></ul>"]},
+ onb4:{k:"Alta · paso 4",t:"«No sé» es una respuesta válida",tags:["Seguridad del dato"],body:[
+  "<p>Forzar una respuesta en alergias genera datos falsos, y en alergias un dato falso puede matar a alguien. Hay tres salidas: la alergia concreta, «no es alérgica a nada» y <strong>«no sé»</strong>.</p>",
+  "<ul><li>El aviso que sigue usa petróleo, no ámbar ni rojo: es información, no una alarma. Con el terracota de marca, ámbar leería como error.</li><li>Se explicita por qué se pregunta. Cuando el usuario entiende para qué sirve un campo, lo completa mejor.</li></ul>"]},
+ listo:{k:"Alta · cierre",t:"El modal se cierra sobre la barra de pestañas",tags:["Transición","Activación"],body:[
+  "<p>«Entrar» no es un paso más: cierra el modal y descubre la app completa, con la barra de pestañas visible por primera vez. <strong>La navegación aparece en el momento en que ya hay algo que navegar.</strong></p>",
+  "<ul><li>Cortar el perfil en 60 % es deliberado. Seguir pidiendo datos hasta el 100 % convierte el alta en un trámite, que es justo lo que la app promete sacar de encima.</li><li>Lo que falta se nombra y se promete pedir en contexto: la obra social cuando haya que autorizar algo, los médicos cuando haya que compartir.</li></ul>"]},
+
+ hoy:{k:"Pestaña 1 de 4",t:"El home responde «¿qué me estoy olvidando?»",tags:["Raíz","Pantalla clave"],body:[
+  "<p>Encabezado de raíz completo: chip de persona a la izquierda, Guardia a la derecha, título grande abajo. Scrolleá dentro del teléfono y mirá cómo <strong>«Hoy» se achica y pasa al centro de la barra</strong>, y recién ahí aparece el fondo desenfocado.</p>",
+  "<ul><li>Un menú de acciones le pregunta al usuario qué quiere hacer, y el cuidador no llega con una intención clara: llega con la sensación de que algo se le escapa. El home ordena por urgencia, no por función.</li><li>Los pendientes usan petróleo y son tarjetas tocables con chevron, no avisos muertos: llevan al trámite completo.</li><li>Los accesos rápidos quedaron al final y perdieron «Estoy en una consulta», que ahora vive en el accesorio fijo de abajo. Nunca el mismo destino dos veces en la misma pantalla.</li></ul>"]},
+ historia:{k:"Pestaña 2 de 4",t:"El archivo, con buscador a la vista",tags:["Raíz nueva","Búsqueda"],body:[
+  "<p>Pestaña que antes no tenía raíz: «Historia» abría directamente el PDF para compartir y «Consultas» abría un resumen suelto. <strong>Dos pestañas apuntaban a hojas del mismo árbol.</strong> Ahora hay una sola sección con todo lo de Elsa ordenado por fecha.</p>",
+  "<ul><li>El buscador es un campo visible, no una lupa. A los seis meses esto tiene 40 entradas, y una lupa a los 55 años es un ícono que no se toca.</li><li>El segmentado filtra sin cambiar de pantalla. Buscador y segmentado viven en el encabezado y colapsan junto con el título: cuando scrolleás, se van.</li><li>Compartir subió a acción del encabezado. Es la salida natural del archivo, no una pestaña.</li></ul>"]},
+ tramites:{k:"Pestaña 3 de 4",t:"La carga operativa se gana una pestaña",tags:["Raíz nueva","Retención"],body:[
+  "<p>Es la decisión de producto más discutible de esta propuesta y la defiendo: <strong>órdenes, autorizaciones y turnos son lo que se usa todas las semanas</strong>. El resumen de consulta se mira una vez por mes.</p>",
+  "<ul><li>Las tres cargas de la marca quedan con lugar propio: médica en Historia, operativa en Trámites, y la emocional atendida por el hecho de que nada quede colgando en la cabeza de la cuidadora.</li><li>Segmentado Abiertos / Hechos en vez de dos pestañas. Lo hecho se consulta poco, pero ver la lista crecer es lo que hace sentir que la app sirve.</li><li>El contador vive en el subtítulo del título grande: «3 abiertos · 1 vence esta semana» se lee al entrar y desaparece al scrollear.</li></ul>"]},
+ perfil:{k:"Pestaña 4 de 4",t:"La persona, no la configuración",tags:["Raíz","Multi-cuidador"],body:[
+  "<p>La pestaña lleva el nombre de la paciente, no «Ajustes». Es lo que la cuidadora busca cuando quiere ver quién más tiene acceso o qué médico la atiende.</p>",
+  "<ul><li>Es la única raíz sin chip de persona: ya estás mirando a la persona. El título grande es su nombre completo.</li><li>«Quién la cuida» está acá aunque el MVP no lo resuelva: dejar el lugar hecho evita rediseñar la pestaña cuando llegue el segundo cuidador.</li><li>Privacidad es una fila más, no un pie de página escondido. En una app de salud tiene que poder encontrarse sin buscar.</li></ul>"]},
+
+ prep:{k:"Empujada desde Hoy",t:"Atrás dice «Hoy», y por eso no hay que recordar nada",tags:["Push","Botón atrás"],body:[
+  "<p>Primera pantalla empujada: el chevron viene con el nombre de dónde venís. <strong>Un chevron pelado obliga a recordar; con la etiqueta no hay nada que recordar.</strong> La barra de pestañas se queda abajo: seguís dentro de Hoy.</p>",
+  "<ul><li>El título grande también colapsa acá, pero al hacerlo aparece «Preparar» en la barra, no el título entero. El inline se escribe corto a propósito.</li><li>Pantalla que no estaba en el prototipo original: la mitad de la angustia del cuidador es salir del consultorio y darse cuenta de que se olvidó de preguntar algo.</li></ul>"]},
+ resumen:{k:"Empujada desde Historia",t:"El destino de la consulta, dentro del archivo",tags:["Push","Salida de modal"],body:[
+  "<p>Acá aterriza el modal de consulta cuando termina. <strong>La tarea se cierra y deja algo en su lugar</strong>, con la pestaña Historia ya seleccionada y el botón de atrás listo. El usuario ve dónde quedó guardado sin que nadie se lo explique.</p>",
+  "<ul><li>Tres bloques, siempre en el mismo orden: qué te dijo, qué hay que hacer, qué quedó pendiente. Es la estructura mental con la que alguien sale de un consultorio.</li><li>Las indicaciones son tareas con botón de agendar, y agendar cruza a la pestaña Trámites. Es el único salto entre pestañas de toda la app, y es intencional: cierra el circuito entre lo clínico y lo administrativo.</li><li>El aviso de «estas son mis notas, corregilas» va arriba con el botón al lado, no como descargo al pie.</li></ul>"]},
+ compartir:{k:"Empujada desde Historia",t:"Un PDF, porque el consultorio funciona con papel",tags:["Push","Interoperabilidad"],body:[
+  "<p>Se llega desde la acción del encabezado de Historia o desde el resumen. En los dos casos el atrás dice «Historia», nunca «Resumen»: <strong>la etiqueta refleja la sección, no el último toque</strong>, para que el usuario no arme un camino de miguitas en la cabeza.</p>",
+  "<ul><li>El segmentado de arriba controla qué incluye. Mandar 40 páginas de estudios es tan inútil como no mandar nada.</li><li>El documento se lee en menos de un minuto, que es lo que un médico le va a dedicar: alergias primero y en rojo, después diagnósticos, medicación, estudios y quién más la atiende.</li><li>El pie aclara el origen y que no es historia clínica oficial. Protege al equipo y al médico que lo recibe.</li></ul>"]},
+ estudios:{k:"Empujada desde Historia",t:"Cargar es sacar una foto",tags:["Push","Bajo esfuerzo"],body:[
+  "<p>Se llega desde el pendiente del home o desde Historia, y en los dos casos el atrás dice «Historia»: <strong>la pantalla pertenece a una sección, no a quien la abrió</strong>. Es la regla que evita los laberintos.</p>",
+  "<ul><li>El estado «Leyendo» es honesto: la app admite que tarda y que trabaja. Mostrar después qué valores extrajo convierte un archivo muerto en información.</li><li>Las órdenes pendientes viven acá también: para el cuidador, la orden que todavía no tiene y el estudio que ya hizo son el mismo trámite en distinto momento.</li></ul>"]},
+ tramite:{k:"Empujada desde Trámites",t:"Un trámite es una lista de pasos, no un recordatorio",tags:["Push","Carga operativa"],body:[
+  "<p>La diferencia entre una app que avisa y una que ayuda. El aviso dice «vence el miércoles»; esto dice <strong>cuáles de los cuatro pasos ya están y cuál sigue</strong>.</p>",
+  "<ul><li>Los pasos hechos se marcan con verde: es lo único para lo que se usa el verde en toda la app.</li><li>«Abrir la app de OSDE» es un salto fuera de Releva y está bien que lo sea. Pelear contra la obra social no es el trabajo del MVP; guiar por él, sí.</li></ul>"]},
+
+ consentimiento:{k:"Modal · consulta",t:"El modal empieza acá, y se nota",tags:["Modal","Ética"],body:[
+  "<p>Se abre desde el accesorio fijo. Al abrirse <strong>desaparecen la barra de pestañas y el accesorio</strong>: la app entera se reduce a esta tarea. Ese vaciado es la señal de que empezó algo distinto.</p>",
+  "<ul><li>Cancelar arriba a la izquierda, siempre visible. En una pantalla que pide permiso para escuchar, la salida no puede estar escondida.</li><li>El audio no se guarda, y se dice en la primera línea.</li><li>«Avisale a la doctora» pone al cuidador en posición de pedir permiso, y eso lo protege a él. Grabar a un profesional sin avisarle es la forma más rápida de romper el vínculo que la app dice querer cuidar.</li></ul>"]},
+ consulta:{k:"Modal · consulta",t:"Una pantalla para mirar de reojo",tags:["Modal","Momento de uso"],body:[
+  "<p>Sin barra de pestañas, sin atrás, sin nada que tocar por error. Durante la consulta el cuidador no debería estar mirando la pantalla: debería estar mirando al médico y a su mamá.</p>",
+  "<ul><li>El único elemento del encabezado es «Sin grabar audio», fijo, para que el médico lo vea si mira el teléfono.</li><li>El indicador de escucha es grande y ambiguo a propósito: confirma que funciona sin exhibir un botón rojo de grabación frente al profesional.</li><li>«Terminó la consulta» cierra el modal y lleva al resumen dentro de Historia. «Dejar de escuchar» vuelve a Hoy sin guardar nada. Dos salidas, dos destinos distintos y explícitos.</li></ul>"]},
+ guardia:{k:"Modal · urgencia",t:"La pantalla que hace que no borren la app",tags:["Modal","Alto valor"],body:[
+  "<p>Tres de la mañana, la mamá descompensada, la guardia pregunta qué toma y a qué es alérgica. <strong>Máximo valor de la app, mínima capacidad cognitiva del usuario.</strong></p>",
+  "<ul><li>Único encabezado inmersivo de toda la app: rojo sólido, con los datos de obra social en la propia barra, que es lo primero que pide administración mientras el médico espera.</li><li>Jerarquía invertida: alergias en cuerpo enorme, después medicación con dosis, después diagnósticos. Es el orden en que lo pregunta un médico de guardia.</li><li>Es la única pantalla donde el rojo es legítimo. Por eso los vencimientos de trámites son petróleo: para que este rojo signifique algo.</li><li>Falta lo más importante y está en la lista de pendientes: poder abrirla <em>sin desbloquear el teléfono</em>.</li></ul>"]}
+};
+
+const stage=document.querySelector(".stage"),
+      screen=document.getElementById("screen"),
+      tabbar=document.getElementById("tabbar"),
+      noteEl=document.getElementById("note"),
+      mapEl=document.getElementById("flowmap");
+
+FLOW.forEach(([g,items])=>{
+  const d=document.createElement("div"); d.className="flowgroup";
+  d.innerHTML='<span class="gk">'+g+'</span><div class="flowbtns">'+
+    items.map(([id,l])=>'<button class="navbtn" data-go="'+id+'">'+l+'</button>').join("")+'</div>';
+  mapEl.appendChild(d);
+});
+
+function go(id){
+  const t=document.querySelector('.scr[data-scr="'+id+'"]'); if(!t) return;
+  document.querySelectorAll(".scr").forEach(s=>{
+    s.classList.toggle("is-on",s===t);
+    if(s!==t){s.classList.remove("colapsado"); const sc=s.querySelector(".scroll"); if(sc) sc.scrollTop=0;}
+  });
+  t.classList.remove("colapsado");
+  const sc=t.querySelector(".scroll"); if(sc) sc.scrollTop=0;
+  stage.dataset.dock=t.dataset.dock||"no";
+  stage.classList.remove("bajando");
+  const tab=t.dataset.tab||"";
+  tabbar.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",String(b.dataset.tab===tab)));
+  document.querySelectorAll(".navbtn").forEach(b=>b.classList.toggle("is-active",b.dataset.go===id));
+  const n=NOTES[id];
+  if(n){
+    noteEl.innerHTML='<span class="kicker">'+n.k+'</span><h3>'+n.t+'</h3>'+n.body.join("")+
+      '<div class="tagrow">'+n.tags.map((x,i)=>'<span class="tag'+(i===0?" new":"")+'">'+x+'</span>').join("")+'</div>';
+  }
+}
+
+document.querySelectorAll(".scroll").forEach(sc=>{
+  let ultimo=0;
+  sc.addEventListener("scroll",()=>{
+    const y=sc.scrollTop, scr=sc.closest(".scr");
+    if(scr) scr.classList.toggle("colapsado", y>10);
+    if(y>56 && y>ultimo+4) stage.classList.add("bajando");
+    else if(y<ultimo-4 || y<40) stage.classList.remove("bajando");
+    ultimo=y;
+  },{passive:true});
+});
+
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-go]"); if(b){ go(b.dataset.go); return; }
+  const seg=e.target.closest(".segmentado button");
+  if(seg){ seg.parentElement.querySelectorAll("button").forEach(x=>x.setAttribute("aria-selected",String(x===seg))); }
+});
+
+document.getElementById("fsCtrl").addEventListener("click",e=>{
+  const b=e.target.closest("button[data-fs]"); if(!b) return;
+  screen.dataset.fs=b.dataset.fs;
+  b.parentElement.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));
+});
+document.getElementById("miniCtrl").addEventListener("click",e=>{
+  const b=e.target.closest("button[data-mini]"); if(!b) return;
+  screen.classList.toggle("permite-mini",b.dataset.mini==="on");
+  b.parentElement.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));
+});
+
+go("hoy");
+</script>
