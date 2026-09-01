@@ -261,6 +261,7 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 .rueda .pad{display:block;height:46px;scroll-snap-align:none}
 .reloj .sep{position:relative;z-index:1;font-size:18.2px;font-weight:600;color:var(--tinta)}
 .editable{outline:none}
+.editable[data-ph]:empty:before{content:attr(data-ph);color:var(--gris);font-weight:400}
 .editable:focus{box-shadow:inset 0 0 0 2px var(--marca);border-radius:12px}
 .opcion{display:flex;align-items:center;gap:13px;width:100%;text-align:left;padding:13px 4px}
 .opcion+.opcion{border-top:1px solid var(--linea-tenue)}
@@ -996,36 +997,16 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
 </section>
 
 
-<section class="scr" data-scr="nota-nueva" data-dock="no">
- <header class="hdr hdr-marca">
-  <div class="fila-hdr">
-   <button class="cuad" data-go="consultas-prox"><svg class="i"><use href="#ic-x"></use></svg></button>
-   <div class="tx"><b>Nueva nota</b><span>Para la próxima consulta</span></div>
-  </div>
- </header>
- <div class="scroll"><div class="cuerpo">
-  <div class="card-flat" style="background:var(--suave-2)">
-   <p class="small muted">Para la consulta del <b style="color:var(--tinta)">viernes 4 con la Dra. Ríos</b>. Va a aparecer sola ese día.</p>
-  </div>
-  <div class="field"><span class="lbl">¿Qué es?</span>
-   <div class="chips">
-     <span class="chip on" data-nota="pregunta"><svg class="i"><use href="#ic-check"></use></svg>Una pregunta</span>
-     <span class="chip" data-nota="sintoma">Algo que le pasó</span>
-     <span class="chip" data-nota="llevar">Llevar algo</span>
-   </div>
-  </div>
-  <div class="field"><span class="lbl">Escribilo con tus palabras</span>
-   <div class="input" style="min-height:118px;line-height:1.5;font-weight:400">Duerme mucho de día desde que empezó el tratamiento. ¿Es normal?</div>
-  </div>
-  <div class="card-flat">
-   <div class="row" style="align-items:flex-start;gap:11px">
-    <svg class="i" style="color:var(--gris);margin-top:2px"><use href="#ic-luz"></use></svg>
-    <p class="small muted" style="flex:1">No hace falta que quede prolija. El día de la consulta te la muestro tal cual la escribiste.</p>
-   </div>
-  </div>
-  <div class="spacer"></div>
+<section class="scr hoja" data-scr="nota-nueva" data-dock="no">
+ <div class="hoja-panel">
+  <div class="hoja-tirador"></div>
+  <h2>Nueva nota</h2>
+  <p class="small muted" style="padding:0 6px 12px">Para la consulta con <b style="color:var(--tinta)" id="notaPara">—</b>. Va a aparecer sola ese día.</p>
+  <div class="input editable" id="notaTexto" contenteditable="true" spellcheck="false" data-ph="Escribí lo que quieras preguntar o contar" style="min-height:120px;line-height:1.5;font-weight:400"></div>
+  <p class="fineprint" style="max-width:none;padding:8px 6px 0">No hace falta que quede prolija. Ese día te la muestro tal cual la escribiste.</p>
   <button class="btn btn-primary" style="margin-top:14px" data-go="consultas-prox" data-nota-nueva="1">Guardar la nota</button>
- </div></div>
+  <button class="btn btn-ghost" style="margin-top:9px" data-go="consultas-prox">Cancelar</button>
+ </div>
 </section>
 
 <section class="scr" data-scr="elsa-editar" data-tab="perfil" data-dock="si">
@@ -1269,6 +1250,11 @@ function go(id){
   }
   if(id==="cons-cuando" && modoAlta==="adhoc"){ crearAdHoc(); id="consentimiento"; }
   if(id==="cons-cuando") requestAnimationFrame(colocarRuedas);
+  if(id==="nota-nueva"){
+    const dst=$("notaPara");
+    if(dst) dst.textContent = E.consulta ? E.consulta.quien+" · "+E.consulta.fecha : "la próxima consulta";
+    requestAnimationFrame(()=>{const c=$("notaTexto"); if(c) c.focus();});
+  }
   const t=document.querySelector('.scr[data-scr="'+id+'"]'); if(!t) return;
   document.querySelectorAll(".scr").forEach(s=>{
     s.classList.toggle("is-on",s===t);
@@ -1504,12 +1490,13 @@ function agregarEstudio(origen){
   ultimo=()=>{E.estudios.splice(E.estudios.indexOf(x),1);};
   render(); mostrarToast("Lo estoy leyendo, te aviso");
 }
-const ETIQ={pregunta:["Pregunta tuya","pill-marca"],sintoma:["Síntoma que anotaste","pill-aten"],llevar:["Para llevar","pill-marca"]};
-let tipoNota="pregunta";
 function agregarNota(){
-  const [et,cls]=ETIQ[tipoNota]||ETIQ.pregunta;
-  const x={t:"Duerme mucho de día desde que empezó el tratamiento. ¿Es normal?", et:et+" · hoy", cls:cls};
+  const campo=$("notaTexto");
+  const txt=(campo.textContent||"").trim();
+  if(!txt) return;
+  const x={t:txt, et:"Anotada hoy", cls:"pill-marca"};
   E.notas.unshift(x);
+  campo.textContent="";
   ultimo=()=>{E.notas.splice(E.notas.indexOf(x),1);};
   render(); mostrarToast("Guardada para la consulta");
 }
@@ -1642,6 +1629,17 @@ document.addEventListener("click",e=>{
     });
     return;
   }
+  const hc=e.target.closest("[data-hecho]");
+  if(hc){
+    const x=E.pendientes.find(y=>y.t===hc.dataset.hecho);
+    if(x){
+      const pos=E.pendientes.indexOf(x);
+      E.pendientes.splice(pos,1);
+      ultimo=()=>{E.pendientes.splice(pos,0,x);};
+      render(); mostrarToast("Hecho");
+    }
+    return;
+  }
   const b=e.target.closest("[data-go]");
   if(b){
     if(b.dataset.res){ const [q,e2,f2]=b.dataset.res.split("|"); abrirResumen(q,e2,f2); }
@@ -1681,28 +1679,6 @@ document.addEventListener("click",e=>{
     if(b.dataset.agendar) agendarConsulta();
     if(b.dataset.notaNueva) agregarNota();
     if(b.dataset.nuevoEstudio) agregarEstudio(b.dataset.nuevoEstudio);
-    return;
-  }
-  const hc=e.target.closest("[data-hecho]");
-  if(hc){
-    const x=E.pendientes.find(y=>y.t===hc.dataset.hecho);
-    if(x){
-      const pos=E.pendientes.indexOf(x);
-      E.pendientes.splice(pos,1);
-      ultimo=()=>{E.pendientes.splice(pos,0,x);};
-      render(); mostrarToast("Hecho");
-    }
-    return;
-  }
-  const nt=e.target.closest("[data-nota]");
-  if(nt){
-    tipoNota=nt.dataset.nota;
-    nt.parentElement.querySelectorAll("[data-nota]").forEach(x=>{
-      const on=x===nt; x.classList.toggle("on",on);
-      const tic=x.querySelector("svg");
-      if(on && !tic) x.insertAdjacentHTML("afterbegin",'<svg class="i"><use href="#ic-check"></use></svg>');
-      if(!on && tic) tic.remove();
-    });
     return;
   }
   const seg=e.target.closest(".segmentado button");
