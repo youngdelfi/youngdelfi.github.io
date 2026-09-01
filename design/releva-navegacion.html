@@ -11,6 +11,7 @@
   --papel:#F4F2F0; --tarjeta:#FFFFFF; --suave:#EFEAE5; --suave-2:#F7F4F1;
   --linea:#E2DBD3; --linea-tenue:#EDE8E3;
   --tinta:#16130F; --gris:#6E6459; --tenue:#8B8179;
+  --terracota:#B3593F;
   --marca:#E98047;
   --marca-solida:#E98047;
   --marca-texto:#E98047;
@@ -31,6 +32,7 @@
     --papel:#100E0C; --tarjeta:#1A1714; --suave:#241F1B; --suave-2:#1E1A17;
     --linea:#2F2925; --linea-tenue:#272220;
     --tinta:#F2EDE7; --gris:#A79C92; --tenue:#7E736A;
+    --terracota:#C2664A;
     --marca:#E98047; --marca-solida:#E98047; --marca-texto:#E98047;
     --marca-suave:#36231A; --sobre-marca:#FFFFFF;
     --hecho:#6FB68C; --hecho-bg:#15251D;
@@ -46,6 +48,7 @@
   --papel:#100E0C; --tarjeta:#1A1714; --suave:#241F1B; --suave-2:#1E1A17;
   --linea:#2F2925; --linea-tenue:#272220;
   --tinta:#F2EDE7; --gris:#A79C92; --tenue:#7E736A;
+  --terracota:#C2664A;
   --marca:#E98047; --marca-solida:#E98047; --marca-texto:#E98047;
   --marca-suave:#36231A; --sobre-marca:#FFFFFF;
   --hecho:#6FB68C; --hecho-bg:#15251D;
@@ -77,6 +80,18 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 .screen{position:relative;height:800px;border-radius:38px;overflow:hidden;background:var(--papel);
   display:flex;flex-direction:column;font-family:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,sans-serif;
   color:var(--tinta);font-size:14.6px}
+.screen[data-sb="naranja"] .statusbar{background:var(--terracota);color:#FFFFFF}
+.screen[data-sb="rojo"] .statusbar{background:var(--urgencia);color:var(--sobre-urgencia)}
+.hdr.hdr-raiz{background:var(--terracota);color:#FFFFFF;padding:2px 16px 16px;
+  position:relative;z-index:14;box-shadow:0 6px 18px -5px rgba(70,32,16,.38)}
+.hdr.hdr-raiz .fila-r{display:flex;align-items:center;gap:10px;min-height:46px}
+.hdr.hdr-raiz h1{font-size:25px;font-weight:800;letter-spacing:-.035em;line-height:1.1;display:flex;align-items:center;gap:10px}
+.hdr.hdr-raiz .sub-r{font-size:13.2px;font-weight:600;opacity:.94;margin-top:5px}
+.hdr.hdr-raiz::after{display:none}
+.scr.colapsado .hdr.hdr-raiz{background:var(--terracota);backdrop-filter:none;-webkit-backdrop-filter:none}
+.hdr.hdr-raiz .accion-urg{background:#FFFFFF;border-color:transparent;color:var(--urgencia)}
+.hdr.hdr-raiz .rombo-h1{background:#FFFFFF}
+.hdr.hdr-raiz .rombo-h1::after{background:var(--terracota)}
 .statusbar{flex:none;height:44px;display:flex;align-items:center;justify-content:space-between;
   padding:0 26px 0 30px;font-size:12.7px;font-weight:700;font-variant-numeric:tabular-nums;z-index:20;background:var(--papel)}
 .sb-right{display:flex;align-items:center;gap:5px}
@@ -133,12 +148,12 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 .hdr-modal .titulo-modal{position:absolute;left:0;right:0;top:2px;height:52px;line-height:52px;text-align:center;
   font-size:14.1px;font-weight:800;letter-spacing:-.02em;pointer-events:none;padding:0 100px;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.hdr-marca{background:var(--marca-solida);color:#FFFFFF;padding:0 16px 15px}
+.hdr.hdr-marca{background:var(--terracota);color:#FFFFFF;padding:0 16px 15px}
 .hdr-marca::after{display:none}
-.scr.colapsado .hdr-marca{background:var(--marca-solida);backdrop-filter:none;-webkit-backdrop-filter:none}
+.scr.colapsado .hdr.hdr-marca{background:var(--terracota);backdrop-filter:none;-webkit-backdrop-filter:none}
 .hdr-marca{display:block;padding:10px 16px 16px}
 .hdr-marca .fila-hdr{display:flex;align-items:center;gap:14px}
-.hdr-marca .cuad{width:54px;height:54px;border-radius:999px;background:#FFFFFF;color:var(--marca-solida);display:grid;place-items:center;flex:none}
+.hdr-marca .cuad{width:54px;height:54px;border-radius:999px;background:#FFFFFF;color:var(--terracota);display:grid;place-items:center;flex:none}
 .hdr-marca .cuad .i{width:26px;height:26px;stroke-width:2.9}
 .hdr-marca .cuad:active{transform:scale(.95)}
 .hdr-marca .tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
@@ -163,7 +178,7 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
    2 · CUERPO
    ============================================================ */
 .scroll{flex:1;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
-.cuerpo{padding:2px 18px 26px;display:flex;flex-direction:column;gap:14px;min-height:100%}
+.cuerpo{padding:18px 18px 26px;display:flex;flex-direction:column;gap:14px;min-height:100%}
 .scr[data-dock="si"] .cuerpo{padding-bottom:calc(var(--dock) + 14px)}
 /* ============================================================
    3 · BARRA DE PESTAÑAS FLOTANTE + BOTÓN AGREGAR
@@ -299,7 +314,7 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;
   font-size:11.4px;font-weight:700;line-height:1.25;text-align:center;box-shadow:var(--sombra-sm);min-height:82px}
 .quick .i{width:22px;height:22px;color:var(--marca-texto);stroke-width:2}
-.hero-card{background:var(--marca-solida);color:var(--sobre-marca);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:14px}
+.hero-card{background:var(--terracota);color:#FFFFFF;border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:14px}
 .hero-card .lbl{color:var(--sobre-marca);opacity:.8}
 .hero-card .btn-ghost{background:rgba(255,255,255,.26);border:1.5px solid rgba(255,255,255,.9);color:#FFFFFF}
 :root[data-theme="dark"] .hero-card .btn-ghost,:root:not([data-theme="light"]) .hero-card .btn-ghost{background:rgba(255,255,255,.26);border:1.5px solid rgba(255,255,255,.9);color:#FFFFFF}
@@ -554,14 +569,12 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
 </section>
 
 <section class="scr" data-scr="consultas" data-tab="consultas" data-dock="si" data-fab="Nueva consulta|cons-quien">
- <header class="hdr">
-  <div class="navbar"><h1 class="hdr-titulo">Consultas</h1><span class="crece"></span>
-    <button class="accion accion-urg" data-go="guardia"><svg class="i"><use href="#ic-alert"></use></svg>Guardia</button>
-  </div>
-  <p class="hdr-sub" id="consSub">Todavía no hay ninguna</p>
-  <div class="buscar" id="consBuscar" style="display:none"><svg class="i"><use href="#ic-search"></use></svg><span>Buscar un médico, una fecha, algo que dijeron</span></div>
+ <header class="hdr hdr-raiz">
+  <div class="fila-r"><h1>Consultas</h1><span class="crece"></span></div>
+  <p class="sub-r" id="consSub"></p>
  </header>
  <div class="scroll"><div class="cuerpo">
+  <div class="buscar" id="consBuscar" style="display:none;margin:0 0 4px"><svg class="i"><use href="#ic-search"></use></svg><span>Buscar un médico, una fecha, algo que dijeron</span></div>
   <div class="vacio" id="consVacio">
    <svg class="i"><use href="#ic-mic"></use></svg>
    <b>Acá van las consultas</b>
@@ -569,7 +582,6 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
    <button class="btn btn-primary btn-sm" style="margin-top:4px" data-go="cons-quien">Agendar la primera</button>
   </div>
   <div id="consProxWrap" style="display:none">
-   <p class="lbl">La que viene</p>
    <div class="card" style="padding:4px 16px;border:1.5px solid var(--marca)" id="listaProximas"></div>
   </div>
   <div id="consAntWrap" style="display:none">
@@ -604,17 +616,15 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
 </section>
 
 <section class="scr" data-scr="estudios" data-tab="estudios" data-dock="si" data-fab="Nuevo estudio|est-origen">
- <header class="hdr">
-  <div class="navbar"><h1 class="hdr-titulo">Estudios</h1><span class="crece"></span>
-    <button class="accion accion-urg" data-go="guardia"><svg class="i"><use href="#ic-alert"></use></svg>Guardia</button>
-  </div>
-  <p class="hdr-sub" id="estSub" style="display:none"></p>
-  <div id="estFiltros" style="display:none">
-   <div class="buscar"><svg class="i"><use href="#ic-search"></use></svg><span>Buscá «creatinina», «TAC», una fecha…</span></div>
-   <div class="filtros"><button class="filtro" aria-pressed="true">Todos</button><button class="filtro">Laboratorio</button><button class="filtro">Imágenes</button><button class="filtro">Recetas</button><button class="filtro">Por fecha</button></div>
-  </div>
+ <header class="hdr hdr-raiz">
+  <div class="fila-r"><h1>Estudios</h1><span class="crece"></span></div>
+  <p class="sub-r" id="estSub"></p>
  </header>
  <div class="scroll"><div class="cuerpo">
+  <div id="estFiltros" style="display:none">
+   <div class="buscar" style="margin:0 0 8px"><svg class="i"><use href="#ic-search"></use></svg><span>Buscá «creatinina», «TAC», una fecha…</span></div>
+   <div class="filtros" style="padding:0 0 8px"><button class="filtro" aria-pressed="true">Todos</button><button class="filtro">Laboratorio</button><button class="filtro">Imágenes</button><button class="filtro">Recetas</button><button class="filtro">Por fecha</button></div>
+  </div>
   <div id="estVacio">
    <p style="font-size:17.3px;font-weight:800;letter-spacing:-.03em;line-height:1.3">Acá van los estudios de Elsa.</p>
    <p class="muted" style="font-size:13.7px;margin:6px 0 14px;font-weight:600">Sacales una foto y leo los valores por vos.</p>
@@ -650,11 +660,9 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
 
 
 <section class="scr" data-scr="perfil" data-tab="perfil" data-dock="si">
- <header class="hdr">
-  <div class="navbar"><h1 class="hdr-titulo">Elsa Fernández</h1><span class="crece"></span>
-    <button class="accion accion-urg" data-go="guardia"><svg class="i"><use href="#ic-alert"></use></svg>Guardia</button>
-    </div>
-  <p class="hdr-sub">78 años · tu mamá · 0+ · OSDE 210</p>
+ <header class="hdr hdr-raiz">
+  <div class="fila-r"><h1>Elsa Fernández</h1><span class="crece"></span></div>
+  <p class="sub-r" id="perfilSub">78 años · tu mamá · 0+ · OSDE 210</p>
  </header>
  <div class="scroll"><div class="cuerpo">
   <div class="card" style="padding:4px 16px">
@@ -1242,6 +1250,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
 </div>
 <script>
 const stage=document.querySelector(".stage"),
+      screen=document.getElementById("screen"),
       tabbar=document.getElementById("tabbar"),
       toast=document.getElementById("toast"),
       fab=document.getElementById("fab"),
@@ -1257,6 +1266,10 @@ function go(id){
   });
   t.classList.remove("colapsado");
   const sc=t.querySelector(".scroll"); if(sc) sc.scrollTop=0;
+  const cab=t.querySelector(".hdr");
+  screen.dataset.sb = cab ? (cab.classList.contains("hdr-urg") ? "rojo"
+                          : (cab.classList.contains("hdr-marca")||cab.classList.contains("hdr-raiz")) ? "naranja" : "claro")
+                          : "claro";
   stage.dataset.dock=t.dataset.dock||"no";
   stage.classList.toggle("sin-bar", id==="consulta");
   stage.classList.remove("bajando");
