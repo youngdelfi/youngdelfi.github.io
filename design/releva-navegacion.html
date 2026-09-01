@@ -13,10 +13,10 @@
   --tinta:#16130F; --gris:#6E6459; --tenue:#8B8179;
 
   --marca:#E98047;
-  --marca-solida:#C05216;
-  --marca-texto:#A8460F;
-  --marca-suave:#FBEADF;
-  --sobre-marca:#FFFFFF;
+  --marca-solida:#E98047;
+  --marca-texto:#E98047;
+  --marca-suave:#FDF0E7;
+  --sobre-marca:#2A1206;
 
   --hecho:#2F7A55; --hecho-bg:#E4F0E9;
   --atencion:#1C5A63; --atencion-bg:#E2EEEF; --atencion-linea:#C5DCDF;
@@ -35,7 +35,7 @@
     --papel:#100E0C; --tarjeta:#1A1714; --suave:#241F1B; --suave-2:#1E1A17;
     --linea:#2F2925; --linea-tenue:#272220;
     --tinta:#F2EDE7; --gris:#A79C92; --tenue:#7E736A;
-    --marca:#F09A6A; --marca-solida:#E98047; --marca-texto:#F3A278;
+    --marca:#E98047; --marca-solida:#E98047; --marca-texto:#E98047;
     --marca-suave:#36231A; --sobre-marca:#2A1206;
     --hecho:#6FB68C; --hecho-bg:#15251D;
     --atencion:#7FC4CC; --atencion-bg:#12262A; --atencion-linea:#1F3E43;
@@ -50,7 +50,7 @@
   --papel:#100E0C; --tarjeta:#1A1714; --suave:#241F1B; --suave-2:#1E1A17;
   --linea:#2F2925; --linea-tenue:#272220;
   --tinta:#F2EDE7; --gris:#A79C92; --tenue:#7E736A;
-  --marca:#F09A6A; --marca-solida:#E98047; --marca-texto:#F3A278;
+  --marca:#E98047; --marca-solida:#E98047; --marca-texto:#E98047;
   --marca-suave:#36231A; --sobre-marca:#2A1206;
   --hecho:#6FB68C; --hecho-bg:#15251D;
   --atencion:#7FC4CC; --atencion-bg:#12262A; --atencion-linea:#1F3E43;
@@ -127,26 +127,26 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 
 .navbar{display:flex;align-items:center;gap:8px;min-height:48px;padding:2px 14px 0}
 .navbar .titulo-inline{position:absolute;left:0;right:0;top:2px;height:48px;line-height:48px;text-align:center;
-  font-size:16.5px;font-weight:800;letter-spacing:-.02em;pointer-events:none;
+  font-size:15.5px;font-weight:800;letter-spacing:-.02em;pointer-events:none;
   opacity:0;transform:translateY(5px);transition:opacity .16s ease,transform .16s ease;
   padding:0 118px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .scr.colapsado .navbar .titulo-inline{opacity:1;transform:none}
 .crece{flex:1}
 
 .atras{display:flex;align-items:center;gap:1px;color:var(--marca-texto);font-weight:700;
-  font-size:16.5px;letter-spacing:-.015em;padding:8px 8px 8px 2px;margin-left:-2px;min-height:44px}
+  font-size:15.5px;letter-spacing:-.015em;padding:8px 8px 8px 2px;margin-left:-2px;min-height:44px}
 .atras .i{width:21px;height:21px;stroke-width:2.4}
 .atras:hover{opacity:.72}
 
 .accion{display:inline-flex;align-items:center;gap:6px;color:var(--marca-texto);font-weight:700;
-  font-size:15.5px;letter-spacing:-.01em;padding:8px 10px;min-height:44px;border-radius:12px}
+  font-size:14.5px;letter-spacing:-.01em;padding:8px 10px;min-height:44px;border-radius:12px}
 .accion:hover{background:var(--suave)}
 .accion .i{width:18px;height:18px;stroke-width:2.1}
 .accion-urg{color:var(--urgencia);background:var(--urgencia-bg);border:1.5px solid var(--urgencia-linea);
   padding:7px 13px;border-radius:999px;font-weight:800}
 
 .persona{display:inline-flex;align-items:center;gap:8px;background:var(--suave);border-radius:999px;
-  padding:6px 12px 6px 6px;font-weight:700;font-size:15px;letter-spacing:-.01em;min-height:44px}
+  padding:6px 12px 6px 6px;font-weight:700;font-size:14px;letter-spacing:-.01em;min-height:44px}
 .persona:hover{background:var(--linea-tenue)}
 .av{width:30px;height:30px;border-radius:999px;background:var(--marca-solida);color:var(--sobre-marca);
   display:grid;place-items:center;font-size:13px;font-weight:800;flex:none}
@@ -155,15 +155,15 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 
 .titulo-grande{overflow:hidden;max-height:132px;opacity:1;transition:max-height .24s ease,opacity .16s ease;padding:2px 18px 6px}
 .scr.colapsado .titulo-grande{max-height:0;opacity:0;padding-bottom:0}
-.titulo-grande h1{font-size:33px;letter-spacing:-.042em;font-weight:800;line-height:1.08}
-.titulo-grande p{margin-top:3px;font-size:14.5px;font-weight:600;color:var(--gris)}
+.titulo-grande h1{font-size:29px;letter-spacing:-.04em;font-weight:800;line-height:1.08}
+.titulo-grande p{margin-top:3px;font-size:13.5px;font-weight:600;color:var(--gris)}
 
 .buscar{margin:2px 18px 10px;display:flex;align-items:center;gap:9px;min-height:48px;
-  background:var(--suave);border-radius:14px;padding:0 14px;color:var(--gris);font-size:16px;font-weight:600}
+  background:var(--suave);border-radius:14px;padding:0 14px;color:var(--gris);font-size:15px;font-weight:600}
 .buscar .i{width:18px;height:18px;stroke-width:2.2;flex:none}
 .buscar span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .segmentado{margin:0 18px 10px;display:flex;gap:3px;background:var(--suave);border-radius:13px;padding:4px}
-.segmentado button{flex:1;font-weight:700;font-size:15px;letter-spacing:-.01em;color:var(--gris);
+.segmentado button{flex:1;font-weight:700;font-size:14px;letter-spacing:-.01em;color:var(--gris);
   padding:10px 4px;border-radius:10px;min-height:44px}
 .segmentado button[aria-selected="true"]{background:var(--tarjeta);color:var(--tinta);box-shadow:0 1px 3px rgba(0,0,0,.14)}
 .filtros{display:flex;gap:7px;padding:0 18px 10px;overflow-x:auto;scrollbar-width:none}
@@ -174,7 +174,7 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 
 .hdr-modal .navbar{min-height:52px}
 .hdr-modal .titulo-modal{position:absolute;left:0;right:0;top:2px;height:52px;line-height:52px;text-align:center;
-  font-size:16.5px;font-weight:800;letter-spacing:-.02em;pointer-events:none;padding:0 100px;
+  font-size:15.5px;font-weight:800;letter-spacing:-.02em;pointer-events:none;padding:0 100px;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .hdr-urg{background:var(--urgencia);color:var(--sobre-urgencia);padding:6px 16px 16px}
 .hdr-urg .navbar{padding:0;min-height:48px}
@@ -203,7 +203,7 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
   box-shadow:var(--sombra-dock);border:1px solid color-mix(in srgb, var(--linea) 55%, transparent);
   transition:padding .22s ease}
 .tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
-  min-height:56px;border-radius:19px;color:var(--gris);font-size:11px;font-weight:700;padding:6px 2px;
+  min-height:54px;border-radius:19px;color:var(--gris);font-size:10.5px;font-weight:700;padding:6px 2px;
   transition:background .16s ease,color .16s ease}
 .tab .i{width:25px;height:25px;stroke-width:1.9}
 .tab .et{transition:max-height .2s ease,opacity .15s ease;max-height:2em;overflow:hidden}
@@ -211,17 +211,26 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 .tab[aria-selected="true"] .i{stroke-width:2.4}
 .tab:not([aria-selected="true"]):hover{background:var(--suave)}
 
-.fab{flex:none;width:60px;height:60px;border-radius:22px;background:var(--marca-solida);color:var(--sobre-marca);
-  display:grid;place-items:center;margin:0 4px;box-shadow:0 6px 18px -6px rgba(150,70,20,.55);
+.fab{position:absolute;right:16px;bottom:calc(100% + 12px);display:none;align-items:center;gap:8px;
+  height:56px;padding:0 20px;border-radius:20px;background:var(--marca-solida);color:var(--sobre-marca);
+  font-size:15.5px;font-weight:800;letter-spacing:-.02em;pointer-events:auto;
+  box-shadow:0 8px 22px -6px rgba(160,80,30,.5),0 2px 6px rgba(60,30,10,.18);
   transition:transform .16s ease,filter .16s ease}
-.fab .i{width:30px;height:30px;stroke-width:2.6}
-.fab:hover{filter:brightness(1.06)}
-.fab:active{transform:scale(.94)}
+.tabbar-wrap{position:relative}
+.stage[data-fab="si"] .fab{display:flex}
+.fab .i{width:24px;height:24px;stroke-width:2.6}
+.fab:hover{filter:brightness(1.05)}
+.fab:active{transform:scale(.95)}
+.marca-titulo{display:flex;align-items:center;gap:10px}
+.rombo-h1{width:26px;height:26px;background:var(--marca);border-radius:6px;transform:rotate(45deg);display:grid;place-items:center;flex:none}
+.rombo-h1::after{content:"";width:9px;height:9px;background:var(--papel);border-radius:2px}
+.rombo-mini{width:15px;height:15px;background:var(--marca);border-radius:4px;transform:rotate(45deg);display:inline-grid;place-items:center;margin-right:8px;vertical-align:-2px}
+.rombo-mini::after{content:"";width:5px;height:5px;background:var(--papel);border-radius:1px}
 
 .screen.permite-mini .stage.bajando .tabbar{padding:3px 6px}
 .screen.permite-mini .stage.bajando .tab{min-height:42px}
 .screen.permite-mini .stage.bajando .tab .et{max-height:0;opacity:0}
-.screen.permite-mini .stage.bajando .fab{width:48px;height:48px;border-radius:17px}
+.screen.permite-mini .stage.bajando .fab{height:46px;padding:0 16px}
 .indicador{width:132px;height:5px;border-radius:99px;background:var(--tinta);opacity:.28;margin:9px auto 2px}
 
 /* hoja inferior (sheet) del botón Agregar */
@@ -243,23 +252,23 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
    ============================================================ */
 .card{background:var(--tarjeta);border:1px solid var(--linea-tenue);border-radius:var(--r);padding:16px;box-shadow:var(--sombra-sm)}
 .card-flat{background:var(--tarjeta);border:1px solid var(--linea-tenue);border-radius:var(--r);padding:16px}
-.lbl{font-family:"Plus Jakarta Sans",sans-serif;font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;font-weight:800;color:var(--tenue)}
-.muted{color:var(--gris)} .small{font-size:13.5px} .big{font-size:17.5px}
+.lbl{font-family:"Plus Jakarta Sans",sans-serif;font-size:11px;letter-spacing:.11em;text-transform:uppercase;font-weight:800;color:var(--tenue)}
+.muted{color:var(--gris)} .small{font-size:13px} .big{font-size:16.5px}
 .stack{display:flex;flex-direction:column;gap:12px}
 .stack-sm{display:flex;flex-direction:column;gap:6px}
 .row{display:flex;align-items:center;gap:12px}
 .hr{height:1px;background:var(--linea-tenue);border:0;margin:2px 0}
 .spacer{flex:1}
 .btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;min-height:56px;padding:0 18px;
-  border-radius:16px;font-size:17px;font-weight:800;letter-spacing:-.02em;border:1.5px solid transparent;text-align:center}
+  border-radius:16px;font-size:16px;font-weight:800;letter-spacing:-.02em;border:1.5px solid transparent;text-align:center}
 .btn-primary{background:var(--marca-solida);color:var(--sobre-marca)}
 .btn-ghost{background:var(--tarjeta);color:var(--tinta);border-color:var(--linea)}
-.btn-quiet{background:transparent;color:var(--marca-texto);min-height:48px;font-size:15.5px}
+.btn-quiet{background:transparent;color:var(--marca-texto);min-height:48px;font-size:14.5px}
 .btn-urg{background:var(--urgencia);color:var(--sobre-urgencia)}
 .btn-sm{min-height:46px;font-size:15px;border-radius:13px;width:auto;padding:0 16px}
 .btn .i{width:20px;height:20px;stroke-width:2.1}
 .chip{display:inline-flex;align-items:center;gap:7px;padding:11px 15px;min-height:46px;border-radius:999px;
-  border:1.5px solid var(--linea);background:var(--tarjeta);font-size:15px;font-weight:600}
+  border:1.5px solid var(--linea);background:var(--tarjeta);font-size:14.5px;font-weight:600}
 .chip.on{background:var(--marca-suave);border-color:var(--marca);color:var(--marca-texto);font-weight:800}
 .chip .i{width:16px;height:16px;stroke-width:3}
 .chips{display:flex;flex-wrap:wrap;gap:9px}
@@ -269,14 +278,14 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 .pill-marca{background:var(--marca-suave);color:var(--marca-texto)}
 .field{display:flex;flex-direction:column;gap:7px}
 .field .lbl{color:var(--gris);letter-spacing:.02em;text-transform:none;font-size:14px;font-weight:700}
-.input{min-height:56px;border-radius:14px;border:1.5px solid var(--linea);background:var(--tarjeta);padding:15px;font-size:17px;font-weight:600}
+.input{min-height:56px;border-radius:14px;border:1.5px solid var(--linea);background:var(--tarjeta);padding:15px;font-size:16px;font-weight:600}
 .check{width:30px;height:30px;border-radius:10px;border:2.2px solid var(--linea);flex:none;display:grid;place-items:center;color:transparent}
 .check.on{background:var(--hecho);border-color:var(--hecho);color:#fff}
 .check .i{width:18px;height:18px;stroke-width:3}
 .med-row{display:flex;align-items:center;gap:13px;padding:12px 0}
 .med-row+.med-row{border-top:1px solid var(--linea-tenue)}
 .med-row.done .med-name{text-decoration:line-through;color:var(--tenue)}
-.med-name{font-size:16.5px;font-weight:700;letter-spacing:-.015em}
+.med-name{font-size:15.5px;font-weight:700;letter-spacing:-.015em}
 .hero-card{background:var(--marca-solida);color:var(--sobre-marca);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:14px}
 .hero-card .lbl{color:var(--sobre-marca);opacity:.8}
 .hero-card .btn-ghost{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.32);color:var(--sobre-marca)}
@@ -426,9 +435,9 @@ footer{padding:40px 0 64px;color:var(--tenue);font-size:13.5px;border-top:1px so
         <p class="hero-lede">Releva releva al cuidador de las tres cargas: la médica, la operativa y la emocional. Este documento define cómo se recorre: cuatro pestañas, un botón para agregar todo, y una Home que sabe qué mostrar cuando todavía no hay nada. Diseñado para una mujer de 52 años, con una mano ocupada y la otra persona esperando.</p>
       </div>
       <div class="hero-facts">
-        <p class="fact"><b>Las pestañas</b>Hoy · Consultas · Estudios · Elsa. La historia clínica vive dentro del perfil de Elsa; los trámites, dentro de Hoy.</p>
-        <p class="fact"><b>El botón central</b>Un solo «Agregar» para turno, estudio, consulta, pendiente y nota. Es la única acción en la barra, y es a propósito.</p>
-        <p class="fact"><b>Tres estados de Home</b>Con turno, sin turno y día uno. Están las tres en el prototipo, se cambian desde el mapa de la derecha.</p>
+        <p class="fact"><b>Las pestañas</b>Inicio · Consultas · Estudios · Elsa. La historia clínica vive dentro del perfil de Elsa; los pendientes, dentro de Inicio.</p>
+        <p class="fact"><b>El FAB</b>Flotante sobre la barra, contextual: «Nueva consulta» en Consultas, «Nuevo estudio» en Estudios. Los pendientes se agregan al final de su propia lista.</p>
+        <p class="fact"><b>Tres estados de Inicio</b>Con consulta, sin consulta y día uno. Están los tres en el prototipo, se cambian desde el mapa de la derecha.</p>
       </div>
     </div>
   </div>
@@ -449,7 +458,6 @@ footer{padding:40px 0 64px;color:var(--tenue);font-size:13.5px;border-top:1px so
         </span>
       </div>
       <div class="stage">
-
 <!-- ===== ALTA (modal) ===== -->
 <section class="scr" data-scr="bienvenida" data-dock="no">
  <div class="scroll"><div class="cuerpo" style="padding-bottom:26px">
@@ -516,20 +524,18 @@ footer{padding:40px 0 64px;color:var(--tenue);font-size:13.5px;border-top:1px so
  </div></div>
 </section>
 
-<!-- ===== HOY · con turno ===== -->
+<!-- ===== INICIO · con turno ===== -->
 <section class="scr" data-scr="hoy" data-tab="hoy" data-dock="si">
  <header class="hdr">
-  <div class="navbar">
-    <button class="persona" data-go="perfil"><span class="av">E</span>Elsa<span class="rol">· mamá</span><svg class="i"><use href="#ic-chevdown"></use></svg></button>
-    <span class="crece"></span>
+  <div class="navbar"><span class="crece"></span>
     <button class="accion accion-urg" data-go="guardia"><svg class="i"><use href="#ic-alert"></use></svg>Guardia</button>
-    <span class="titulo-inline">Hoy</span>
+    <span class="titulo-inline"><span class="rombo-mini"></span>Releva</span>
   </div>
-  <div class="titulo-grande"><h1>Hoy</h1><p>Martes 1 de septiembre</p></div>
+  <div class="titulo-grande"><h1 class="marca-titulo"><span class="rombo-h1"></span>Releva</h1><p>Martes 1 de septiembre</p></div>
  </header>
  <div class="scroll"><div class="cuerpo">
   <div class="hero-card">
-    <span class="lbl">Tu próximo turno · en 3 días</span>
+    <span class="lbl">Tu próxima consulta · en 3 días</span>
     <div class="stack-sm">
       <span style="font-size:21px;font-weight:800;line-height:1.2;letter-spacing:-.025em">Dra. Paula Ríos · Oncología</span>
       <span style="opacity:.9;font-size:15px;font-weight:600">Viernes 4 de septiembre, 10:30 h · Hospital Italiano</span>
@@ -537,7 +543,13 @@ footer{padding:40px 0 64px;color:var(--tenue);font-size:13.5px;border-top:1px so
     <button class="btn btn-ghost" data-go="consultas-prox">Preparar la consulta · 3 notas</button>
   </div>
 
-  <p class="lbl" style="margin-top:4px">Necesita algo tuyo</p>
+  <div class="quick">
+    <button data-go="consentimiento"><svg class="i"><use href="#ic-mic"></use></svg>Grabar una consulta</button>
+    <button data-go="estudios"><svg class="i"><use href="#ic-camera"></use></svg>Cargar un estudio</button>
+    <button data-go="compartir"><svg class="i"><use href="#ic-share"></use></svg>Compartir historia</button>
+  </div>
+
+  <p class="lbl" style="margin-top:4px">Pendientes</p>
   <button class="aten-card" style="width:100%;text-align:left" data-go="tramite">
     <div class="row" style="align-items:flex-start;gap:11px">
       <svg class="i" style="color:var(--atencion);margin-top:2px"><use href="#ic-clock"></use></svg>
@@ -549,56 +561,53 @@ footer{padding:40px 0 64px;color:var(--tenue);font-size:13.5px;border-top:1px so
       <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
     </div>
   </button>
-  <button class="card-flat" style="width:100%;text-align:left" data-go="tramites">
-    <div class="row" style="align-items:flex-start;gap:11px">
-      <svg class="i" style="color:var(--tenue);margin-top:2px"><use href="#ic-doc"></use></svg>
-      <div class="stack-sm" style="gap:3px;flex:1">
-        <span style="font-weight:800;font-size:16.5px;letter-spacing:-.02em">2 pendientes más</span>
-        <span class="small muted">Orden de la TAC · turno con el nefrólogo</span>
-      </div>
-      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
-    </div>
-  </button>
-
-  <p class="lbl" style="margin-top:4px">Lo último</p>
   <div class="card" style="padding:4px 16px">
-    <button class="lista-item" data-go="resumen">
-      <div class="thumb"><svg class="i"><use href="#ic-mic"></use></svg></div>
-      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Dra. Ríos · Oncología</span><span class="small muted">26 de agosto · 3 indicaciones</span></div>
+    <button class="lista-item">
+      <div class="thumb"><svg class="i"><use href="#ic-doc"></use></svg></div>
+      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Pedir la orden de la TAC</span><span class="small muted">La firma la Dra. Ríos · antes del 20/9</span></div>
       <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
     </button>
-    <button class="lista-item" data-go="estudio">
-      <div class="thumb ok"><svg class="i"><use href="#ic-folder"></use></svg></div>
-      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Laboratorio completo</span><span class="small muted">19 de agosto · ya lo leí</span></div>
+    <button class="lista-item">
+      <div class="thumb"><svg class="i"><use href="#ic-today"></use></svg></div>
+      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Turno con el nefrólogo</span><span class="small muted">Dr. Beltrán · dentro de 30 días</span></div>
       <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
+    </button>
+    <button class="lista-item">
+      <div class="thumb" style="background:var(--marca-suave)"><svg class="i" style="stroke-width:2.4"><use href="#ic-plus"></use></svg></div>
+      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name" style="color:var(--marca-texto)">Agregar un pendiente</span><span class="small muted">Una orden, una autorización, un trámite</span></div>
     </button>
   </div>
+  <p class="fineprint" style="text-align:center;max-width:none">Lo que marcás como hecho desaparece de acá y queda en la historia de Elsa.</p>
  </div></div>
 </section>
 
-<!-- ===== HOY · sin próximo turno ===== -->
+<!-- ===== INICIO · sin próxima consulta ===== -->
 <section class="scr" data-scr="hoy-sinturno" data-tab="hoy" data-dock="si">
  <header class="hdr">
-  <div class="navbar">
-    <button class="persona" data-go="perfil"><span class="av">E</span>Elsa<span class="rol">· mamá</span><svg class="i"><use href="#ic-chevdown"></use></svg></button>
-    <span class="crece"></span>
+  <div class="navbar"><span class="crece"></span>
     <button class="accion accion-urg" data-go="guardia"><svg class="i"><use href="#ic-alert"></use></svg>Guardia</button>
-    <span class="titulo-inline">Hoy</span>
+    <span class="titulo-inline"><span class="rombo-mini"></span>Releva</span>
   </div>
-  <div class="titulo-grande"><h1>Hoy</h1><p>Martes 1 de septiembre</p></div>
+  <div class="titulo-grande"><h1 class="marca-titulo"><span class="rombo-h1"></span>Releva</h1><p>Martes 1 de septiembre</p></div>
  </header>
  <div class="scroll"><div class="cuerpo">
   <div class="card" style="border-style:dashed;border-width:1.5px;border-color:var(--linea)">
-    <span class="lbl">Próximo turno</span>
-    <p style="font-size:19px;font-weight:800;letter-spacing:-.025em;margin-top:6px">No hay ninguno agendado</p>
+    <span class="lbl">Próxima consulta</span>
+    <p style="font-size:19px;font-weight:800;letter-spacing:-.025em;margin-top:6px">No hay ninguna agendada</p>
     <div class="row" style="align-items:flex-start;gap:10px;margin-top:10px;padding:11px 12px;background:var(--suave-2);border-radius:12px">
       <svg class="i" style="color:var(--marca-texto);margin-top:1px;width:19px;height:19px"><use href="#ic-luz"></use></svg>
-      <p class="small muted" style="flex:1">La Dra. Ríos pidió control <b style="color:var(--tinta)">cada 30 días</b>. El último fue el 26 de agosto, así que tocaría a fines de septiembre.</p>
+      <p class="small muted" style="flex:1">La Dra. Ríos pidió control <b style="color:var(--tinta)">cada 30 días</b>. La última fue el 26 de agosto, así que tocaría a fines de septiembre.</p>
     </div>
-    <button class="btn btn-primary" style="margin-top:12px" data-go="agregar">Agendar un turno</button>
+    <button class="btn btn-primary" style="margin-top:12px" data-go="consultas">Agendar una consulta</button>
   </div>
 
-  <p class="lbl" style="margin-top:4px">Necesita algo tuyo</p>
+  <div class="quick">
+    <button data-go="consentimiento"><svg class="i"><use href="#ic-mic"></use></svg>Grabar una consulta</button>
+    <button data-go="estudios"><svg class="i"><use href="#ic-camera"></use></svg>Cargar un estudio</button>
+    <button data-go="compartir"><svg class="i"><use href="#ic-share"></use></svg>Compartir historia</button>
+  </div>
+
+  <p class="lbl" style="margin-top:4px">Pendientes</p>
   <button class="aten-card" style="width:100%;text-align:left" data-go="tramite">
     <div class="row" style="align-items:flex-start;gap:11px">
       <svg class="i" style="color:var(--atencion);margin-top:2px"><use href="#ic-clock"></use></svg>
@@ -609,38 +618,31 @@ footer{padding:40px 0 64px;color:var(--tenue);font-size:13.5px;border-top:1px so
       <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
     </div>
   </button>
-
-  <p class="lbl" style="margin-top:4px">Lo último</p>
   <div class="card" style="padding:4px 16px">
-    <button class="lista-item" data-go="resumen">
-      <div class="thumb"><svg class="i"><use href="#ic-mic"></use></svg></div>
-      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Dra. Ríos · Oncología</span><span class="small muted">26 de agosto · 3 indicaciones</span></div>
-      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
+    <button class="lista-item">
+      <div class="thumb" style="background:var(--marca-suave)"><svg class="i" style="stroke-width:2.4"><use href="#ic-plus"></use></svg></div>
+      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name" style="color:var(--marca-texto)">Agregar un pendiente</span></div>
     </button>
   </div>
  </div></div>
 </section>
 
-<!-- ===== HOY · día uno ===== -->
+<!-- ===== INICIO · día uno ===== -->
 <section class="scr" data-scr="hoy-vacia" data-tab="hoy" data-dock="si">
  <header class="hdr">
-  <div class="navbar">
-    <button class="persona" data-go="perfil"><span class="av">E</span>Elsa<span class="rol">· mamá</span><svg class="i"><use href="#ic-chevdown"></use></svg></button>
-    <span class="crece"></span>
+  <div class="navbar"><span class="crece"></span>
     <button class="accion accion-urg" data-go="guardia"><svg class="i"><use href="#ic-alert"></use></svg>Guardia</button>
-    <span class="titulo-inline">Hoy</span>
+    <span class="titulo-inline"><span class="rombo-mini"></span>Releva</span>
   </div>
-  <div class="titulo-grande"><h1>Hola, Mariana</h1><p>Martes 1 de septiembre</p></div>
+  <div class="titulo-grande"><h1 class="marca-titulo"><span class="rombo-h1"></span>Releva</h1><p>Hola, Mariana · martes 1 de septiembre</p></div>
  </header>
  <div class="scroll"><div class="cuerpo">
   <div class="card" style="padding:20px 18px">
-    <p style="font-size:20px;font-weight:800;letter-spacing:-.03em;line-height:1.25">Empecemos por el próximo turno de Elsa.</p>
+    <p style="font-size:20px;font-weight:800;letter-spacing:-.03em;line-height:1.25">Empecemos por la próxima consulta de Elsa.</p>
     <p class="muted" style="font-size:15.5px;margin-top:8px;line-height:1.5">Con la fecha alcanza. Desde ahí te voy a ir avisando qué preparar, qué llevar y qué preguntar.</p>
-    <button class="btn btn-primary" style="margin-top:16px" data-go="agregar">Agendar un turno</button>
+    <button class="btn btn-primary" style="margin-top:16px" data-go="consultas">Agendar una consulta</button>
   </div>
-
-  <button class="btn btn-quiet" style="justify-content:flex-start;padding:4px 2px" data-go="agregar">¿Todavía no tenés turno? Cargá un estudio o una receta</button>
-
+  <button class="btn btn-quiet" style="justify-content:flex-start;padding:4px 2px" data-go="estudios">¿Todavía no tenés turno? Cargá un estudio o una receta</button>
   <div class="row" style="align-items:flex-start;gap:11px;padding:14px 15px;background:var(--suave-2);border-radius:var(--r);margin-top:auto">
     <svg class="i" style="color:var(--urgencia);margin-top:1px"><use href="#ic-alert"></use></svg>
     <div class="stack-sm" style="gap:2px;flex:1">
@@ -651,21 +653,29 @@ footer{padding:40px 0 64px;color:var(--tenue);font-size:13.5px;border-top:1px so
  </div></div>
 </section>
 
-<!-- ===== CONSULTAS · anteriores ===== -->
-<section class="scr" data-scr="consultas" data-tab="consultas" data-dock="si">
+<!-- ===== CONSULTAS ===== -->
+<section class="scr" data-scr="consultas" data-tab="consultas" data-dock="si" data-fab="Nueva consulta|consultas-prox">
  <header class="hdr">
-  <div class="navbar">
-    <button class="persona" data-go="perfil"><span class="av">E</span>Elsa<span class="rol">· mamá</span><svg class="i"><use href="#ic-chevdown"></use></svg></button>
-    <span class="crece"></span>
+  <div class="navbar"><span class="crece"></span>
+    <button class="accion accion-urg" data-go="guardia"><svg class="i"><use href="#ic-alert"></use></svg>Guardia</button>
     <span class="titulo-inline">Consultas</span>
   </div>
-  <div class="titulo-grande"><h1>Consultas</h1><p>6 grabadas · 3 notas para la próxima</p></div>
-  <div class="segmentado"><button aria-selected="true">Anteriores</button><button data-go="consultas-prox">Para la próxima</button></div>
+  <div class="titulo-grande"><h1>Consultas</h1><p>1 agendada · 6 anteriores</p></div>
+  <div class="buscar"><svg class="i"><use href="#ic-search"></use></svg><span>Buscar un médico, una fecha, algo que dijeron</span></div>
  </header>
  <div class="scroll"><div class="cuerpo">
-  <button class="btn btn-primary" data-go="consentimiento"><svg class="i"><use href="#ic-mic"></use></svg>Grabar una consulta</button>
-  <div class="buscar" style="margin:2px 0 4px"><svg class="i"><use href="#ic-search"></use></svg><span>Buscar en lo que dijeron los médicos</span></div>
-  <p class="lbl">Agosto 2026</p>
+  <div class="card" style="padding:4px 16px;border:1.5px solid var(--marca)">
+    <button class="lista-item" data-go="consultas-prox">
+      <div class="thumb" style="background:var(--marca-suave)"><svg class="i"><use href="#ic-today"></use></svg></div>
+      <div class="stack-sm" style="gap:2px;flex:1">
+        <span class="med-name">Dra. Ríos · Oncología</span>
+        <span class="small" style="color:var(--marca-texto);font-weight:700">Viernes 4 de septiembre, 10:30 · en 3 días</span>
+        <span class="small muted">3 notas listas para preguntar</span>
+      </div>
+      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
+    </button>
+  </div>
+  <p class="lbl" style="margin-top:6px">Agosto 2026</p>
   <div class="card" style="padding:4px 16px">
     <button class="lista-item" data-go="resumen">
       <div class="thumb"><svg class="i"><use href="#ic-mic"></use></svg></div>
@@ -691,22 +701,24 @@ footer{padding:40px 0 64px;color:var(--tenue);font-size:13.5px;border-top:1px so
       <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
     </button>
   </div>
+  <p class="lbl" style="margin-top:6px">Junio 2026</p>
+  <div class="card" style="padding:4px 16px">
+    <button class="lista-item" data-go="resumen">
+      <div class="thumb"><svg class="i"><use href="#ic-mic"></use></svg></div>
+      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Dra. Ríos · Oncología</span><span class="small muted">19 de junio · primera consulta</span></div>
+      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
+    </button>
+  </div>
  </div></div>
 </section>
 
-<!-- ===== CONSULTAS · para la próxima ===== -->
 <section class="scr" data-scr="consultas-prox" data-tab="consultas" data-dock="si">
  <header class="hdr">
-  <div class="navbar">
-    <button class="persona" data-go="perfil"><span class="av">E</span>Elsa<span class="rol">· mamá</span><svg class="i"><use href="#ic-chevdown"></use></svg></button>
-    <span class="crece"></span>
-    <span class="titulo-inline">Para la próxima</span>
-  </div>
-  <div class="titulo-grande"><h1>Consultas</h1><p>Viernes 4/9, 10:30 · Dra. Ríos</p></div>
-  <div class="segmentado"><button data-go="consultas">Anteriores</button><button aria-selected="true">Para la próxima</button></div>
+  <div class="navbar"><button class="atras" data-go="consultas"><svg class="i"><use href="#ic-back"></use></svg>Consultas</button><span class="crece"></span><span class="titulo-inline">Próxima consulta</span></div>
+  <div class="titulo-grande"><h1>Dra. Ríos</h1><p>Viernes 4 de septiembre, 10:30 · en 3 días</p></div>
  </header>
  <div class="scroll"><div class="cuerpo">
-  <p class="lbl">Lo que armé yo</p>
+  <p class="lbl">Para preguntar</p>
   <div class="card"><div class="row" style="align-items:flex-start"><span class="check on"><svg class="i"><use href="#ic-check"></use></svg></span>
     <div class="stack-sm" style="gap:3px"><p style="font-size:16px;font-weight:600">Elsa viene con náuseas desde el jueves. ¿Es esperable con este tratamiento?</p>
     <span class="pill pill-marca">De lo que anotaste el 28/8</span></div></div></div>
@@ -716,19 +728,19 @@ footer{padding:40px 0 64px;color:var(--tenue);font-size:13.5px;border-top:1px so
   <div class="card"><div class="row" style="align-items:flex-start"><span class="check on"><svg class="i"><use href="#ic-check"></use></svg></span>
     <div class="stack-sm" style="gap:3px"><p style="font-size:16px;font-weight:600">¿Puede seguir tomando Metformina durante el tratamiento?</p>
     <span class="pill pill-aten">Quedó sin responder el 26/8</span></div></div></div>
-  <button class="btn btn-ghost" data-go="agregar"><svg class="i"><use href="#ic-plus"></use></svg>Agregar una nota o pregunta</button>
+  <button class="btn btn-ghost"><svg class="i"><use href="#ic-plus"></use></svg>Agregar una nota o pregunta</button>
   <hr class="hr">
   <p class="lbl">Llevá también</p>
   <div class="card-flat"><div class="row"><div class="thumb ok"><svg class="i"><use href="#ic-folder"></use></svg></div><div class="stack-sm" style="gap:0"><span class="med-name">Laboratorio · 19/8</span><span class="small muted">Ya está cargado</span></div></div></div>
+  <button class="btn btn-primary" data-go="consentimiento" style="margin-top:4px"><svg class="i"><use href="#ic-mic"></use></svg>Estoy entrando a la consulta</button>
  </div></div>
 </section>
 
 <!-- ===== ESTUDIOS ===== -->
-<section class="scr" data-scr="estudios" data-tab="estudios" data-dock="si">
+<section class="scr" data-scr="estudios" data-tab="estudios" data-dock="si" data-fab="Nuevo estudio|estudio">
  <header class="hdr">
-  <div class="navbar">
-    <button class="persona" data-go="perfil"><span class="av">E</span>Elsa<span class="rol">· mamá</span><svg class="i"><use href="#ic-chevdown"></use></svg></button>
-    <span class="crece"></span>
+  <div class="navbar"><span class="crece"></span>
+    <button class="accion accion-urg" data-go="guardia"><svg class="i"><use href="#ic-alert"></use></svg>Guardia</button>
     <span class="titulo-inline">Estudios</span>
   </div>
   <div class="titulo-grande"><h1>Estudios</h1><p>9 cargados · desde junio 2026</p></div>
@@ -736,11 +748,6 @@ footer{padding:40px 0 64px;color:var(--tenue);font-size:13.5px;border-top:1px so
   <div class="filtros"><button class="filtro" aria-pressed="true">Todos</button><button class="filtro">Laboratorio</button><button class="filtro">Imágenes</button><button class="filtro">Recetas</button><button class="filtro">Por fecha</button></div>
  </header>
  <div class="scroll"><div class="cuerpo">
-  <button class="uploader" data-go="agregar" style="width:100%">
-    <svg class="i"><use href="#ic-camera"></use></svg>
-    <p class="big" style="font-weight:800">Sacale una foto</p>
-    <p class="small muted" style="max-width:30ch">Análisis, informes, recetas, órdenes. Si son varias hojas, una foto por hoja.</p>
-  </button>
   <p class="lbl">Agosto 2026</p>
   <div class="card" style="padding:4px 16px">
     <button class="lista-item" data-go="estudio">
@@ -766,14 +773,22 @@ footer{padding:40px 0 64px;color:var(--tenue);font-size:13.5px;border-top:1px so
       <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Ecografía vesical</span><span class="small muted">2 de junio</span></div>
       <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
     </button>
+    <button class="lista-item" data-go="estudio">
+      <div class="thumb"><svg class="i"><use href="#ic-folder"></use></svg></div>
+      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Análisis de orina</span><span class="small muted">2 de junio</span></div>
+      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
+    </button>
   </div>
  </div></div>
 </section>
 
-<!-- ===== PERFIL ===== -->
+<!-- ===== ELSA ===== -->
 <section class="scr" data-scr="perfil" data-tab="perfil" data-dock="si">
  <header class="hdr">
-  <div class="navbar"><span class="crece"></span><button class="accion">Editar</button><span class="titulo-inline">Elsa</span></div>
+  <div class="navbar"><span class="crece"></span>
+    <button class="accion accion-urg" data-go="guardia"><svg class="i"><use href="#ic-alert"></use></svg>Guardia</button>
+    <span class="titulo-inline">Elsa Fernández</span>
+  </div>
   <div class="titulo-grande"><h1>Elsa Fernández</h1><p>78 años · tu mamá · 0+ · OSDE 210</p></div>
  </header>
  <div class="scroll"><div class="cuerpo">
@@ -793,12 +808,17 @@ footer{padding:40px 0 64px;color:var(--tenue);font-size:13.5px;border-top:1px so
       <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Compartir la historia</span><span class="small muted">PDF para otro médico</span></div>
       <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
     </button>
+    <button class="lista-item">
+      <div class="thumb"><svg class="i"><use href="#ic-user"></use></svg></div>
+      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Editar sus datos</span><span class="small muted">Nombre, edad, obra social, alergias</span></div>
+      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
+    </button>
   </div>
   <p class="lbl" style="margin-top:4px">Quién la cuida</p>
   <div class="card" style="padding:4px 16px">
     <div class="lista-item"><span class="av" style="width:44px;height:44px;font-size:16px">M</span><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Mariana · vos</span><span class="small muted">Cuidadora principal</span></div></div>
     <button class="lista-item"><span class="av" style="width:44px;height:44px;font-size:16px;background:var(--suave);color:var(--gris)">J</span><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Javier · tu hermano</span><span class="small muted">Puede ver, no editar</span></div><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
-    <button class="lista-item"><div class="thumb"><svg class="i"><use href="#ic-plus"></use></svg></div><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name" style="color:var(--marca-texto)">Invitar a alguien más</span></div></button>
+    <button class="lista-item"><div class="thumb" style="background:var(--marca-suave)"><svg class="i" style="stroke-width:2.4"><use href="#ic-plus"></use></svg></div><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name" style="color:var(--marca-texto)">Invitar a alguien más</span></div></button>
   </div>
   <p class="lbl" style="margin-top:4px">Médicos que la atienden</p>
   <div class="card" style="padding:4px 16px">
@@ -809,43 +829,10 @@ footer{padding:40px 0 64px;color:var(--tenue);font-size:13.5px;border-top:1px so
  </div></div>
 </section>
 
-<!-- ===== EMPUJADAS DESDE HOY ===== -->
-<section class="scr" data-scr="tramites" data-tab="hoy" data-dock="si">
- <header class="hdr">
-  <div class="navbar"><button class="atras" data-go="hoy"><svg class="i"><use href="#ic-back"></use></svg>Hoy</button><span class="crece"></span><span class="titulo-inline">Pendientes</span></div>
-  <div class="titulo-grande"><h1>Pendientes</h1><p>3 abiertos · 1 vence esta semana</p></div>
- </header>
- <div class="scroll"><div class="cuerpo">
-  <button class="aten-card" style="width:100%;text-align:left" data-go="tramite">
-    <div class="row" style="align-items:flex-start;gap:11px">
-      <svg class="i" style="color:var(--atencion);margin-top:2px"><use href="#ic-clock"></use></svg>
-      <div class="stack-sm" style="gap:3px;flex:1">
-        <span style="font-weight:800;font-size:16.5px;letter-spacing:-.02em">Autorización de la TAC</span>
-        <span class="small" style="color:var(--atencion);font-weight:700">Vence el miércoles 3 · quedan 2 días</span>
-        <span class="small muted">OSDE · se hace por la app, 4 pasos</span>
-      </div>
-      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
-    </div>
-  </button>
-  <div class="card" style="padding:4px 16px">
-    <button class="lista-item">
-      <div class="thumb"><svg class="i"><use href="#ic-doc"></use></svg></div>
-      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Pedir la orden de la TAC</span><span class="small muted">La firma la Dra. Ríos · antes del 20/9</span></div>
-      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
-    </button>
-    <button class="lista-item">
-      <div class="thumb"><svg class="i"><use href="#ic-today"></use></svg></div>
-      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Turno con el nefrólogo</span><span class="small muted">Dr. Beltrán · dentro de 30 días</span></div>
-      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
-    </button>
-  </div>
-  <p class="fineprint" style="text-align:center;max-width:none;margin-top:6px">Lo que marcás como hecho desaparece de acá. Queda registrado en la historia de Elsa.</p>
- </div></div>
-</section>
-
+<!-- ===== EMPUJADAS ===== -->
 <section class="scr" data-scr="tramite" data-tab="hoy" data-dock="si">
  <header class="hdr">
-  <div class="navbar"><button class="atras" data-go="tramites"><svg class="i"><use href="#ic-back"></use></svg>Pendientes</button><span class="crece"></span><span class="titulo-inline">Autorización TAC</span></div>
+  <div class="navbar"><button class="atras" data-go="hoy"><svg class="i"><use href="#ic-back"></use></svg>Inicio</button><span class="crece"></span><span class="titulo-inline">Autorización TAC</span></div>
   <div class="titulo-grande"><h1>Autorización de la TAC</h1><p>OSDE · vence el miércoles 3</p></div>
  </header>
  <div class="scroll"><div class="cuerpo">
@@ -862,7 +849,6 @@ footer{padding:40px 0 64px;color:var(--tenue);font-size:13.5px;border-top:1px so
  </div></div>
 </section>
 
-<!-- ===== EMPUJADAS DESDE CONSULTAS ===== -->
 <section class="scr" data-scr="resumen" data-tab="consultas" data-dock="si">
  <header class="hdr">
   <div class="navbar"><button class="atras" data-go="consultas"><svg class="i"><use href="#ic-back"></use></svg>Consultas</button><span class="crece"></span><button class="accion" data-go="compartir"><svg class="i"><use href="#ic-share"></use></svg></button><span class="titulo-inline">Consulta 26/8</span></div>
@@ -876,25 +862,21 @@ footer{padding:40px 0 64px;color:var(--tenue);font-size:13.5px;border-top:1px so
   <h3 style="font-size:19px;margin-top:4px;letter-spacing:-.025em">Qué te dijo</h3>
   <div class="card"><p style="font-size:16px;line-height:1.5;font-weight:500">El tratamiento está funcionando y las náuseas son esperables en estas primeras semanas. Quiere ver una TAC de abdomen antes del próximo control para comparar. El riñón le llamó la atención, por eso sube el Enalapril y pide que lo vea el nefrólogo.</p>
     <button class="btn btn-quiet" style="justify-content:flex-start;padding:0;margin-top:8px"><svg class="i"><use href="#ic-help"></use></svg>Hay algo que no entendí</button></div>
-
   <h3 style="font-size:19px;margin-top:4px;letter-spacing:-.025em">Qué hay que hacer</h3>
   <div class="card">
     <div class="med-row" style="align-items:flex-start"><span class="check"><svg class="i"><use href="#ic-check"></use></svg></span>
       <div class="stack-sm" style="gap:6px"><span class="med-name">Pedir la orden para la TAC de abdomen</span><span class="small muted">Con contraste · la firma la Dra. Ríos</span>
-      <div class="row" style="gap:7px"><button class="btn btn-ghost btn-sm" data-go="tramites">Ver pendiente</button><span class="pill pill-aten">Antes del 20/9</span></div></div></div>
+      <div class="row" style="gap:7px"><button class="btn btn-ghost btn-sm" data-go="tramite">Ver pendiente</button><span class="pill pill-aten">Antes del 20/9</span></div></div></div>
     <div class="med-row" style="align-items:flex-start"><span class="check on"><svg class="i"><use href="#ic-check"></use></svg></span>
       <div class="stack-sm" style="gap:6px"><span class="med-name">Cambiar Enalapril a 10 mg de noche</span><span class="small muted">Actualizado en la medicación de Elsa</span></div></div>
     <div class="med-row" style="align-items:flex-start"><span class="check"><svg class="i"><use href="#ic-check"></use></svg></span>
-      <div class="stack-sm" style="gap:6px"><span class="med-name">Sacar turno con el nefrólogo</span><span class="small muted">Dr. Gustavo Beltrán · dentro de 30 días</span>
-      <div class="row" style="gap:7px"><button class="btn btn-ghost btn-sm" data-go="tramites">Ver pendiente</button></div></div></div>
+      <div class="stack-sm" style="gap:6px"><span class="med-name">Sacar turno con el nefrólogo</span><span class="small muted">Dr. Gustavo Beltrán · dentro de 30 días</span></div></div>
   </div>
-
   <h3 style="font-size:19px;margin-top:4px;letter-spacing:-.025em">Quedó sin responder</h3>
   <div class="card-flat"><div class="row" style="align-items:flex-start;gap:11px">
     <svg class="i" style="color:var(--atencion);margin-top:2px"><use href="#ic-help"></use></svg>
     <div class="stack-sm" style="gap:6px;flex:1"><p style="font-size:15.5px;font-weight:600">Si puede seguir con la Metformina.</p>
     <button class="btn btn-ghost btn-sm" data-go="consultas-prox">Ya la guardé para la próxima</button></div></div></div>
-
   <hr class="hr">
   <p class="lbl">Otras consultas con la Dra. Ríos</p>
   <div class="card" style="padding:4px 16px">
@@ -904,7 +886,6 @@ footer{padding:40px 0 64px;color:var(--tenue);font-size:13.5px;border-top:1px so
  </div></div>
 </section>
 
-<!-- ===== EMPUJADA DESDE ESTUDIOS ===== -->
 <section class="scr" data-scr="estudio" data-tab="estudios" data-dock="si">
  <header class="hdr">
   <div class="navbar"><button class="atras" data-go="estudios"><svg class="i"><use href="#ic-back"></use></svg>Estudios</button><span class="crece"></span><button class="accion" data-go="compartir"><svg class="i"><use href="#ic-share"></use></svg></button><span class="titulo-inline">Laboratorio 19/8</span></div>
@@ -934,7 +915,6 @@ footer{padding:40px 0 64px;color:var(--tenue);font-size:13.5px;border-top:1px so
  </div></div>
 </section>
 
-<!-- ===== EMPUJADAS DESDE PERFIL ===== -->
 <section class="scr" data-scr="historia" data-tab="perfil" data-dock="si">
  <header class="hdr">
   <div class="navbar"><button class="atras" data-go="perfil"><svg class="i"><use href="#ic-back"></use></svg>Elsa</button><span class="crece"></span><button class="accion" data-go="compartir"><svg class="i"><use href="#ic-share"></use></svg>Compartir</button><span class="titulo-inline">Historia clínica</span></div>
@@ -959,7 +939,7 @@ footer{padding:40px 0 64px;color:var(--tenue);font-size:13.5px;border-top:1px so
 
 <section class="scr" data-scr="medicacion" data-tab="perfil" data-dock="si">
  <header class="hdr">
-  <div class="navbar"><button class="atras" data-go="perfil"><svg class="i"><use href="#ic-back"></use></svg>Elsa</button><span class="crece"></span><button class="accion" data-go="agregar"><svg class="i"><use href="#ic-plus"></use></svg></button><span class="titulo-inline">Medicación</span></div>
+  <div class="navbar"><button class="atras" data-go="perfil"><svg class="i"><use href="#ic-back"></use></svg>Elsa</button><span class="crece"></span><button class="accion"><svg class="i"><use href="#ic-plus"></use></svg></button><span class="titulo-inline">Medicación</span></div>
   <div class="titulo-grande"><h1>Medicación</h1><p>3 activas</p></div>
  </header>
  <div class="scroll"><div class="cuerpo">
@@ -974,7 +954,7 @@ footer{padding:40px 0 64px;color:var(--tenue);font-size:13.5px;border-top:1px so
     <button class="btn btn-ghost btn-sm" style="margin-top:6px">Prender recordatorios</button></div></div></div>
   <p class="lbl" style="margin-top:4px">Dejó de tomar</p>
   <div class="card" style="padding:4px 16px">
-    <div class="lista-item"><div class="thumb"><svg class="i"><use href="#ic-pill"></use></svg></div><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name antes" style="text-decoration:line-through">Enalapril 5 mg</span><span class="small muted">Hasta el 26 de agosto</span></div></div>
+    <div class="lista-item"><div class="thumb"><svg class="i"><use href="#ic-pill"></use></svg></div><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name" style="text-decoration:line-through;color:var(--tenue)">Enalapril 5 mg</span><span class="small muted">Hasta el 26 de agosto</span></div></div>
   </div>
  </div></div>
 </section>
@@ -1017,7 +997,7 @@ footer{padding:40px 0 64px;color:var(--tenue);font-size:13.5px;border-top:1px so
  </div></div>
 </section>
 
-<!-- ===== MODAL · GRABAR CONSULTA ===== -->
+<!-- ===== MODALES ===== -->
 <section class="scr" data-scr="consentimiento" data-dock="no">
  <header class="hdr hdr-modal"><div class="navbar"><button class="accion" data-go="consultas">Cancelar</button><span class="titulo-modal">Antes de entrar</span><span class="crece"></span></div></header>
  <div class="scroll"><div class="cuerpo">
@@ -1036,7 +1016,6 @@ footer{padding:40px 0 64px;color:var(--tenue);font-size:13.5px;border-top:1px so
     <button class="btn btn-primary" data-go="consulta">Le avisé, empezar</button>
     <button class="btn btn-ghost" data-go="resumen">Prefiero anotar yo</button>
   </div>
-  <p class="fineprint" style="text-align:center;max-width:none">Si anotás vos, después te hago las mismas preguntas para que no se pierda nada.</p>
  </div></div>
 </section>
 
@@ -1066,7 +1045,6 @@ footer{padding:40px 0 64px;color:var(--tenue);font-size:13.5px;border-top:1px so
  </div></div>
 </section>
 
-<!-- ===== MODAL · GUARDIA ===== -->
 <section class="scr" data-scr="guardia" data-dock="no">
  <header class="hdr hdr-urg">
   <div class="navbar"><svg class="i" style="width:24px;height:24px;stroke-width:2.3"><use href="#ic-alert"></use></svg><h1>Modo guardia</h1><span class="crece"></span><button class="accion" data-go="hoy">Cerrar</button></div>
@@ -1091,28 +1069,16 @@ footer{padding:40px 0 64px;color:var(--tenue);font-size:13.5px;border-top:1px so
  </div></div>
 </section>
 
-<!-- ===== HOJA · AGREGAR ===== -->
-<section class="scr hoja" data-scr="agregar" data-dock="no">
- <div class="hoja-panel">
-  <div class="hoja-tirador"></div>
-  <h2>Agregar</h2>
-  <button class="hoja-op" data-go="hoy"><div class="thumb"><svg class="i"><use href="#ic-today"></use></svg></div><span><b>Un turno</b><span>Consulta, estudio o control con fecha</span></span></button>
-  <button class="hoja-op" data-go="estudios"><div class="thumb"><svg class="i"><use href="#ic-camera"></use></svg></div><span><b>Un estudio</b><span>Sacale una foto o subí un PDF</span></span></button>
-  <button class="hoja-op" data-go="consentimiento"><div class="thumb"><svg class="i"><use href="#ic-mic"></use></svg></div><span><b>Grabar una consulta</b><span>Releva escucha y toma notas</span></span></button>
-  <button class="hoja-op" data-go="tramites"><div class="thumb"><svg class="i"><use href="#ic-doc"></use></svg></div><span><b>Un pendiente</b><span>Una orden, una autorización, un trámite</span></span></button>
-  <button class="hoja-op" data-go="consultas-prox"><div class="thumb"><svg class="i"><use href="#ic-nota"></use></svg></div><span><b>Una nota o pregunta</b><span>Para llevar a la próxima consulta</span></span></button>
-  <button class="btn btn-ghost" style="margin-top:12px" data-go="hoy">Cancelar</button>
- </div>
-</section>
-
        <div class="dock" id="dock">
+         <div class="tabbar-wrap">
+         <button class="fab" id="fab" data-go="consultas-prox"><svg class="i"><use href="#ic-plus"></use></svg><span id="fabEt">Nueva consulta</span></button>
          <nav class="tabbar" role="tablist" id="tabbar">
-           <button class="tab" role="tab" data-tab="hoy" data-go="hoy"><svg class="i"><use href="#ic-today"></use></svg><span class="et">Hoy</span></button>
+           <button class="tab" role="tab" data-tab="hoy" data-go="hoy"><svg class="i"><use href="#ic-today"></use></svg><span class="et">Inicio</span></button>
            <button class="tab" role="tab" data-tab="consultas" data-go="consultas"><svg class="i"><use href="#ic-mic"></use></svg><span class="et">Consultas</span></button>
-           <button class="fab" id="fab" data-go="agregar" aria-label="Agregar"><svg class="i"><use href="#ic-plus"></use></svg></button>
            <button class="tab" role="tab" data-tab="estudios" data-go="estudios"><svg class="i"><use href="#ic-folder"></use></svg><span class="et">Estudios</span></button>
            <button class="tab" role="tab" data-tab="perfil" data-go="perfil"><svg class="i"><use href="#ic-user"></use></svg><span class="et">Elsa</span></button>
          </nav>
+         </div>
          <div class="indicador"></div>
        </div>
 
@@ -1141,41 +1107,42 @@ footer{padding:40px 0 64px;color:var(--tenue);font-size:13.5px;border-top:1px so
 
 <section class="band">
  <div class="wrap">
-  <div class="sec-head"><h2>La Home cuando no hay nada</h2><p>Las tres preguntas que abriste, resueltas como pantallas y no como texto. Están en el prototipo.</p></div>
+  <div class="sec-head"><h2>El Inicio cuando no hay nada</h2><p>Las tres preguntas que abriste, resueltas como pantallas y no como texto. Están en el prototipo.</p></div>
   <div class="cols">
-    <div class="pcard"><span class="pnum">Estado 1 · con turno</span><h4>El turno manda</h4>
-      <p>Tarjeta naranja arriba, con la fecha y un solo botón: preparar. Debajo, lo que necesita algo tuyo, y al final lo último que pasó.</p>
+    <div class="pcard"><span class="pnum">Estado 1 · con consulta</span><h4>La consulta manda, después los accesos</h4>
+      <p>Tarjeta naranja arriba, con la fecha y un botón: preparar. Debajo, los tres accesos rápidos —grabar, cargar un estudio, compartir— y al final los pendientes, que cierran con «Agregar un pendiente» como última fila.</p>
       <p>La medicación se fue de acá. Era una lista de tres casilleros que se repetía todos los días y empujaba hacia abajo lo único que cambia. Vive en el perfil de Elsa, con los recordatorios apagados por defecto.</p></div>
 
-    <div class="pcard"><span class="pnum">Estado 2 · sin turno</span><h4>Un hueco no es una pantalla vacía</h4>
-      <p>Cuando no hay turno, la tarjeta no desaparece: cambia de contenido. Dice que no hay ninguno agendado y usa lo que la app ya sabe — «la Dra. Ríos pidió control cada 30 días, el último fue el 26 de agosto» — para que la ausencia sea accionable.</p>
-      <p>Es la diferencia entre una app que espera y una que acompaña. El resto de la Home no cambia: los pendientes y lo último siguen ahí.</p></div>
+    <div class="pcard"><span class="pnum">Estado 2 · sin consulta</span><h4>Un hueco no es una pantalla vacía</h4>
+      <p>Cuando no hay próxima consulta, la tarjeta no desaparece: cambia de contenido. Dice que no hay ninguna agendada y usa lo que la app ya sabe — «la Dra. Ríos pidió control cada 30 días, la última fue el 26 de agosto» — para que la ausencia sea accionable.</p>
+      <p>Es la diferencia entre una app que espera y una que acompaña. El resto no cambia: los accesos rápidos y los pendientes siguen ahí.</p></div>
 
     <div class="pcard"><span class="pnum">Estado 3 · día uno</span><h4>Una sola cosa, no una lista de tareas</h4>
       <p>La tentación es una checklist de activación: cargá la medicación, los estudios, los médicos, la obra social. Eso convierte el día uno en deberes, y a alguien que acaba de recibir un diagnóstico en la familia lo expulsa.</p>
-      <p>Le pedimos <strong>una</strong> cosa: la fecha del próximo turno. Es de bajo esfuerzo, enciende toda la Home y desbloquea el diferencial de la app. Debajo, una escapatoria en texto plano para quien no tiene turno. Y una tercera línea que no pide nada: le avisa que Guardia ya funciona con lo que cargó en el alta. Termina el día uno habiendo dado algo, no habiendo pedido.</p>
-      <span class="hig">Cero barras de progreso en Home</span></div>
+      <p>Le pedimos <strong>una</strong> cosa: agendar la próxima consulta. Es de bajo esfuerzo, enciende todo el Inicio y desbloquea el diferencial de la app. Debajo, una escapatoria en texto plano para quien no tiene turno. Y una tercera línea que no pide nada: le avisa que Guardia ya funciona con lo que cargó en el alta. Termina el día uno habiendo dado algo, no habiendo pedido.</p>
+      <span class="hig">Cero barras de progreso en Inicio</span></div>
   </div>
  </div>
 </section>
 
 <section class="band">
  <div class="wrap">
-  <div class="sec-head"><h2>Qué cambió en esta versión</h2><p>Sobre la v1 de la navegación.</p></div>
+  <div class="sec-head"><h2>Qué cambió en esta versión</h2><p>Sobre la versión anterior de la navegación.</p></div>
   <div class="tabla-wrap">
   <table class="tabla">
    <thead><tr><th>Elemento</th><th>Antes</th><th>Ahora</th><th>Por qué</th></tr></thead>
    <tbody>
-    <tr><td>Pestañas</td><td class="antes">Hoy · Historia · Trámites · Elsa</td><td>Hoy · Consultas · Estudios · Elsa</td><td>Las dos cosas que se hacen seguido —grabar una consulta y cargar un estudio— pasan a ser lugares. La historia y los trámites eran destinos de consulta, no de uso diario.</td></tr>
-    <tr><td>Agregar</td><td class="antes">No existía como acción global</td><td>Botón central en la barra</td><td>Cinco cosas distintas se agregan desde un solo lugar. Quien sale de una consulta no piensa «esto es un trámite»: piensa «tengo que anotar esto».</td></tr>
-    <tr><td>Grabar consulta</td><td class="antes">Banner fijo sobre la barra</td><td>Botón dentro de la pestaña Consultas + opción en Agregar</td><td>El banner ocupaba 66 px permanentes en todas las pantallas para una acción que ocurre una vez por mes. La pestaña le da lugar propio y, de paso, el historial.</td></tr>
-    <tr><td>Historia clínica</td><td class="antes">Pestaña propia</td><td>Primera fila del perfil de Elsa</td><td>Es la ficha de una persona, no una sección de la app. Ponerla adentro de Elsa la vuelve más fácil de encontrar, no menos: se busca pensando en ella.</td></tr>
-    <tr><td>Trámites</td><td class="antes">Pestaña propia con Abiertos / Hechos</td><td>Bloque en Home, empuja a la lista</td><td>Los pendientes se miran cuando ya estás en Home viendo qué falta. Y lo hecho no se consulta: se marca y desaparece.</td></tr>
-    <tr><td>Estudios</td><td class="antes">Pantalla dentro de Historia</td><td>Pestaña con buscador dentro del contenido</td><td>Buscar «creatinina» y que caiga en la página 2 del laboratorio del 19/8 es lo que convierte un cajón de fotos en un archivo.</td></tr>
-    <tr><td>Notas de consulta</td><td class="antes">Un resumen suelto, sin lista</td><td>Lista completa + «Otras consultas» en el pie de cada una</td><td>Comparar lo que dijo la misma médica hace dos meses es el uso real. Se navega por lista, por buscador y desde la nota misma.</td></tr>
-    <tr><td>Tus propias notas</td><td class="antes">Sólo preguntas autogeneradas</td><td>Segmento «Para la próxima» en Consultas</td><td>Lo que se te ocurre un martes a la noche tiene que tener dónde caer, y aparecer solo el día del turno.</td></tr>
-    <tr><td>Medicación</td><td class="antes">Bloque diario en Home</td><td>Sección del perfil de Elsa</td><td>Tres casilleros repetidos todos los días empujaban abajo lo único que cambiaba.</td></tr>
-    <tr><td>Tamaño de texto</td><td class="antes">Control A / A+ / A++ en la demo</td><td>Un solo tamaño</td><td>Se sacó de la demo. El soporte de Dynamic Type sigue siendo un requisito de construcción, no una función que se muestre.</td></tr>
+    <tr><td>Pestañas</td><td class="antes">Hoy · Consultas · Estudios · Elsa</td><td>Inicio · Consultas · Estudios · Elsa</td><td>«Inicio» dice qué es sin depender del día. Su encabezado lleva la marca y el logo: es la portada, no una sección más.</td></tr>
+    <tr><td>Chip de persona</td><td class="antes">«Elsa · mamá» en todos los encabezados</td><td>Fuera</td><td>Repetía en cada pantalla un dato que no cambia nunca, y le robaba el lugar al título. Ahora cada encabezado dice qué estás mirando.</td></tr>
+    <tr><td>Botón agregar</td><td class="antes">Central, dentro de la barra</td><td>FAB flotante, contextual</td><td>Uno por pantalla y con el nombre de lo que agrega: «Nueva consulta», «Nuevo estudio». Se lee sin adivinar, a cambio de tapar la última fila de la lista.</td></tr>
+    <tr><td>Hoja «Agregar»</td><td class="antes">Cinco opciones en un menú</td><td>Fuera</td><td>Con un FAB por sección, la pregunta «¿qué querés agregar?» ya está contestada por dónde estás parado.</td></tr>
+    <tr><td>Pendientes</td><td class="antes">Pantalla aparte con su lista</td><td>En Inicio, con «Agregar» como última fila</td><td>Se miran cuando ya estás viendo qué falta, y se agregan sin salir de la lista.</td></tr>
+    <tr><td>Accesos rápidos</td><td class="antes">Al final de todo</td><td>Debajo de la próxima consulta</td><td>Grabar, cargar un estudio y compartir son las tres cosas que se hacen entrando a la app. Estaban a tres scrolls.</td></tr>
+    <tr><td>Consultas</td><td class="antes">Segmentos Anteriores / Para la próxima</td><td>Una sola cronología</td><td>Un segmento parte en dos algo que es una línea de tiempo. La próxima va arriba, marcada, y se entra a ella para prepararla o grabarla.</td></tr>
+    <tr><td>Estudios</td><td class="antes">Zona de foto ocupando media pantalla</td><td>Lista limpia + FAB</td><td>Cargar tiene botón fijo abajo; la pantalla queda para lo que hay.</td></tr>
+    <tr><td>Editar en Elsa</td><td class="antes">Acción del encabezado</td><td>Fila dentro de la lista</td><td>Deja a Guardia como la única acción de barra en las cuatro pestañas, siempre en el mismo lugar.</td></tr>
+    <tr><td>Naranja</td><td class="antes">#E98047 de marca, #C05216 en botones</td><td>#E98047 en todo</td><td>Decisión tuya. Los rellenos ahora llevan texto oscuro para seguir siendo legibles con ese naranja exacto.</td></tr>
+    <tr><td>Tipografía</td><td class="antes">Cuerpo 16 / títulos 33</td><td>Cuerpo 15 / títulos 29</td><td>Escala general más chica, manteniendo los objetivos táctiles en 44 px o más.</td></tr>
    </tbody>
   </table>
   </div>
@@ -1187,19 +1154,18 @@ footer{padding:40px 0 64px;color:var(--tenue);font-size:13.5px;border-top:1px so
   <div class="sec-head"><h2>Por qué cada decisión</h2><p>Las guidelines vigentes de Apple como piso, y dónde nos apartamos de ellas a propósito.</p></div>
   <div class="cols">
 
-    <div class="pcard"><span class="pnum">01 · Botón agregar</span><h4>Sí, un botón central. Y no es un FAB</h4>
-      <p>Preguntaste FAB o botón central. <strong>Central, dentro de la barra.</strong> Un FAB flotante es lenguaje de Android: se apoya sobre el contenido, tapa la última fila de cualquier lista y no tiene lugar fijo. El botón central comparte la barra, nunca tapa nada y siempre está en el mismo píxel.</p>
-      <p>Y sobre todo: es el punto más alcanzable de la pantalla con una mano. Lo que se agrega se agrega apurado, en un pasillo, saliendo de un consultorio.</p>
-      <span class="hig">Nos apartamos: la barra lleva una acción</span></div>
+    <div class="pcard"><span class="pnum">01 · Botón agregar</span><h4>FAB flotante, y uno por pantalla</h4>
+      <p>La versión anterior lo tenía en el medio de la barra. Ahora flota sobre ella, a la derecha, y <strong>cambia según dónde estés</strong>: «Nueva consulta» en Consultas, «Nuevo estudio» en Estudios. En Inicio y en Elsa no aparece.</p>
+      <p>La ventaja es que se lee sin adivinar: dice qué agrega antes de tocarlo, que para este público vale más que un «+» universal. El costo es real y hay que asumirlo: tapa la esquina inferior derecha de la lista. Por eso las listas terminan con espacio de sobra.</p>
+      <span class="hig">FAB extendido, con etiqueta siempre</span></div>
 
-    <div class="pcard"><span class="pnum">02 · Una entrada, cinco cosas</span><h4>La hoja pregunta qué, no dónde</h4>
-      <p>Turno, estudio, consulta, pendiente y nota se agregan desde el mismo botón. La alternativa —un «+» en el encabezado de cada sección— obliga a saber primero en qué sección va la cosa. Ese es justamente el trabajo que la app tiene que hacer por la usuaria.</p>
-      <p>Después de agregar, la app aterriza en la sección donde quedó guardado. Así se aprende la estructura sin que nadie la explique.</p>
-      <span class="hig">HIG · sheet con detent</span></div>
+    <div class="pcard"><span class="pnum">02 · Dónde se agrega cada cosa</span><h4>La sección ya contesta la pregunta</h4>
+      <p>Con un FAB por sección desaparece el menú de «¿qué querés agregar?». Estás en Consultas: agregás una consulta. Estás en Estudios: agregás un estudio.</p>
+      <p>Los pendientes son la excepción y no tienen FAB: se agregan como <strong>última fila de su propia lista</strong>, en Inicio. Cuando ya estás mirando una lista de tres cosas, la cuarta se agrega ahí, no en un botón que flota aparte.</p></div>
 
     <div class="pcard"><span class="pnum">03 · Cuatro pestañas</span><h4>Dos de uso diario, dos de consulta</h4>
-      <p>Hoy y Consultas son las que se abren seguido. Estudios se usa cuando llega un papel. Elsa se usa cuando hay que mirar o compartir algo de ella.</p>
-      <p>Con el botón central en el medio, la barra tiene cinco objetivos de 44 px reales y una asimetría que ayuda: las dos de la izquierda son «lo que pasa», las dos de la derecha son «lo que hay guardado».</p>
+      <p>Inicio y Consultas son las que se abren seguido. Estudios se usa cuando llega un papel. Elsa, cuando hay que mirar o compartir algo de ella.</p>
+      <p>Sin el botón en el medio, las cuatro etiquetas quedan parejas y cada objetivo mide 88 px. La barra vuelve a ser sólo navegación, que es lo que dice el HIG.</p>
       <span class="hig">HIG · 2–5 pestañas en iPhone</span></div>
 
     <div class="pcard"><span class="pnum">04 · La historia en el perfil</span><h4>Es la ficha de una persona</h4>
@@ -1215,13 +1181,13 @@ footer{padding:40px 0 64px;color:var(--tenue);font-size:13.5px;border-top:1px so
       <p>El segmento «Para la próxima» es donde caen tus propias notas y preguntas, mezcladas con las que la app arma sola a partir de un valor raro o de algo que quedó sin responder. Cada una dice de dónde salió.</p></div>
 
     <div class="pcard"><span class="pnum">07 · Encabezados</span><h4>Tres tipos, y sólo tres</h4>
-      <p><strong>Raíz:</strong> chip de persona, título grande que colapsa, acción a la derecha con texto. <strong>Empujada:</strong> atrás con el nombre de dónde venís. <strong>Modal:</strong> Cancelar a la izquierda, sin chevron.</p>
+      <p><strong>Raíz:</strong> título grande que colapsa y Guardia como única acción. <strong>Empujada:</strong> atrás con el nombre de dónde venís. <strong>Modal:</strong> Cancelar a la izquierda, sin chevron. El chip de «Elsa · mamá» se fue: repetía en cada pantalla un dato que no cambia y le robaba el lugar al título.</p>
       <p>Que sean tres y siempre iguales es la mitad del trabajo: a la tercera pantalla ya se sabe si estás adentro de algo que se cierra o de algo de lo que se vuelve.</p>
       <span class="hig">HIG · large title / inline / modal</span></div>
 
     <div class="pcard"><span class="pnum">08 · Color semántico</span><h4>El naranja obligó a rehacer los estados</h4>
       <p>Con <code>#E98047</code> de marca, el ámbar y el rojo de estado quedan pegados al naranja y el ojo deja de distinguirlos de un vistazo.</p>
-      <p>Los pendientes usan un petróleo frío, que no compite y lee como «administrativo». El rojo queda reservado a urgencia clínica —guardia y alergias— y a nada más. El verde, sólo para lo que ya está hecho. El naranja sólido de los botones es una versión más oscura del de marca, porque el original no da contraste suficiente con texto blanco.</p>
+      <p>Los pendientes usan un petróleo frío, que no compite y lee como «administrativo». El rojo queda reservado a urgencia clínica —guardia y alergias— y a nada más. El verde, sólo para lo que ya está hecho.</p><p>El naranja es <code>#E98047</code> exacto en todos lados, sin variantes. Como con texto blanco da 2,9:1, los rellenos naranjas llevan <strong>texto oscuro</strong>, que da 6,4:1 y pasa AA. El punto a resolver está abajo, en los pendientes.</p>
       <span class="hig">Naranja · petróleo · rojo · verde</span></div>
 
     <div class="pcard"><span class="pnum">09 · Minimizar</span><h4>La función más nueva de Apple, apagada</h4>
@@ -1238,11 +1204,15 @@ footer{padding:40px 0 64px;color:var(--tenue);font-size:13.5px;border-top:1px so
   <div class="sec-head"><h2>Qué falta definir para que sea navegable a los 40+</h2><p>Lo que este prototipo deja abierto. Cada punto lleva mi propuesta.</p></div>
   <div class="qa">
 
-   <div class="qitem"><span class="qmark">01</span><div><h4>Qué agrega el botón central, en orden</h4>
-    <p>Hoy la hoja lista cinco cosas en un orden que inventé. El orden importa: la primera opción se va a llevar la mayoría de los toques.</p>
-    <div class="resp"><p><b>Mi propuesta:</b> ordenar por frecuencia real una vez que haya datos, y mientras tanto dejar «Un turno» primero porque es lo que enciende la Home. Discutir si conviene que la hoja se adapte al contexto —en Estudios, «Un estudio» primero— o si el orden fijo vale más que la optimización.</p></div></div></div>
+   <div class="qitem"><span class="qmark">01</span><div><h4>El naranja exacto no alcanza para texto chico</h4>
+    <p><code>#E98047</code> sobre fondo claro da 2,9:1 de contraste. WCAG pide 4,5:1 para texto normal. Los rellenos ya están resueltos —texto oscuro sobre naranja da 6,4:1— pero los <em>textos</em> en naranja (el botón «Atrás», «Compartir», los enlaces suaves) quedan por debajo del mínimo, y este es justo el público que peor lee un texto de bajo contraste.</p>
+    <div class="resp"><p><b>Mi propuesta:</b> mantener <code>#E98047</code> en todo lo que es superficie —rellenos, íconos, bordes, el logo— y habilitar un solo tono más oscuro del mismo naranja, reservado a texto sobre fondo claro. Es la práctica normal de un sistema de diseño: un color de marca y su versión accesible para tipografía. Si la decisión es un único hex sin excepciones, entonces los enlaces tienen que dejar de ser naranjas y pasar a texto oscuro subrayado.</p></div></div></div>
 
-   <div class="qitem"><span class="qmark">02</span><div><h4>Hasta qué tamaño de texto tiene que aguantar</h4>
+    <div class="qitem"><span class="qmark">01b</span><div><h4>El FAB tapa la esquina de la lista</h4>
+    <p>Es el costo conocido del patrón. En Consultas y Estudios queda encima del último elemento cuando la lista está scrolleada hasta abajo.</p>
+    <div class="resp"><p><b>Mi propuesta:</b> espacio muerto al final de cada lista, ya está en el prototipo, y que el FAB se encoja a sólo el ícono al scrollear hacia abajo. Falta decidir si se encoge o no: encogerlo recupera espacio pero pierde la etiqueta, que es justamente lo que lo hacía legible.</p></div></div></div>
+
+    <div class="qitem"><span class="qmark">02</span><div><h4>Hasta qué tamaño de texto tiene que aguantar</h4>
     <p>iOS llega a cinco tamaños de accesibilidad por encima del máximo normal. Nadie construye para los cinco, pero hay que fijar el límite: define cuántas columnas puede tener una tarjeta y si las etiquetas de las pestañas entran.</p>
     <div class="resp"><p><b>Mi propuesta:</b> soportar hasta AX3 con el layout intacto, y de AX4 en adelante permitir que la barra pase a lista vertical, que es el comportamiento nativo de iOS. Probarlo con usuarias reales: mucha gente de 55+ tiene el iPhone en tamaño grande y no lo sabe.</p></div></div></div>
 
@@ -1326,90 +1296,84 @@ footer{padding:40px 0 64px;color:var(--tenue);font-size:13.5px;border-top:1px so
 <script>
 const FLOW=[
  ["Alta · modal",[["bienvenida","Bienvenida"],["onb1","Quién"],["onb2","Qué tiene"],["onb3","Alergias"]]],
- ["Home · tres estados",[["hoy","Con turno"],["hoy-sinturno","Sin turno"],["hoy-vacia","Día uno"]]],
- ["Las cuatro pestañas",[["hoy","Hoy"],["consultas","Consultas"],["estudios","Estudios"],["perfil","Elsa"]]],
- ["Botón agregar",[["agregar","Hoja Agregar"]]],
- ["Empujadas",[["tramites","Pendientes"],["tramite","Un pendiente"],["consultas-prox","Para la próxima"],["resumen","Notas de una consulta"],["estudio","Un estudio"],["historia","Historia clínica"],["medicacion","Medicación"],["compartir","Compartir"]]],
+ ["Inicio · tres estados",[["hoy","Con consulta"],["hoy-sinturno","Sin consulta"],["hoy-vacia","Día uno"]]],
+ ["Las cuatro pestañas",[["hoy","Inicio"],["consultas","Consultas"],["estudios","Estudios"],["perfil","Elsa"]]],
+ ["Empujadas",[["consultas-prox","Próxima consulta"],["resumen","Notas de una consulta"],["estudio","Un estudio"],["tramite","Un pendiente"],["historia","Historia clínica"],["medicacion","Medicación"],["compartir","Compartir"]]],
  ["Modales",[["consentimiento","Consentimiento"],["consulta","Grabando"],["guardia","Modo guardia"]]]
 ];
 
 const NOTES={
  bienvenida:{k:"Alta · modal",t:"Sin barra, sin encabezado, sin salida lateral",tags:["Modal","Primer contacto"],body:[
   "<p>El alta entera es un modal: no hay barra de pestañas ni chevron de atrás. La app todavía no tiene secciones que mostrar, y enseñar una navegación vacía antes de que exista contenido sólo genera preguntas.</p>",
-  "<ul><li>La línea de privacidad está arriba, no enterrada en términos y condiciones. La primera duda de alguien que va a cargar datos oncológicos de su madre es <strong>quién va a ver esto</strong>.</li><li>El alta bajó de cuatro pasos a tres: la medicación salió de acá y se carga después, desde el botón central, cuando hay una receta en la mano.</li></ul>"]},
+  "<ul><li>La línea de privacidad está arriba, no enterrada en términos y condiciones.</li><li>Tres pasos: quién, qué le pasa, alergias. La medicación se carga después, con una receta en la mano.</li></ul>"]},
  onb1:{k:"Alta · paso 1",t:"Cancelar a la izquierda, nunca un chevron",tags:["Modal","Salida clara"],body:[
-  "<p>El primer paso de un modal lleva <strong>Cancelar</strong>, no «Atrás». Atrás sugiere que hay algo detrás; cancelar dice que se sale de la tarea. A partir del paso 2 sí aparece «Atrás».</p>",
-  "<ul><li>La barra de progreso vive en el encabezado, pegada a «Paso 1 de 3». Prometer el final desde el principio es lo que sostiene un alta.</li><li>El vínculo («mi mamá») permite que la app hable de Elsa por su nombre en toda la interfaz, y es lo que hace que la cuarta pestaña se llame «Elsa» y no «Paciente».</li></ul>"]},
+  "<p>El primer paso de un modal lleva <strong>Cancelar</strong>, no «Atrás». Atrás sugiere que hay algo detrás; cancelar dice que se sale de la tarea.</p>",
+  "<ul><li>La barra de progreso vive en el encabezado, pegada a «Paso 1 de 3».</li><li>El vínculo («mi mamá») es lo que hace que la cuarta pestaña se llame «Elsa» y no «Paciente».</li></ul>"]},
  onb2:{k:"Alta · paso 2",t:"Texto libre primero, estructura después",tags:["Lenguaje","Codificación asistida"],body:[
   "<p>Le pedimos que cuente en sus palabras y los chips hacen el trabajo de codificación clínica. <strong>Escribir «carcinoma urotelial» no es tarea del cuidador.</strong></p>",
-  "<ul><li>Los chips miden 46 px de alto: son objetivos táctiles, no etiquetas.</li><li>«Problemas de memoria» en lugar de «deterioro cognitivo»: la palabra que usa la familia, no la del informe.</li></ul>"]},
+  "<ul><li>Los chips miden 46 px de alto: son objetivos táctiles, no etiquetas.</li><li>«Problemas de memoria» en lugar de «deterioro cognitivo»: la palabra de la familia, no la del informe.</li></ul>"]},
  onb3:{k:"Alta · paso 3",t:"Termina cargando lo que salva una noche",tags:["Seguridad del dato","Cierre"],body:[
-  "<p>Forzar una respuesta en alergias genera datos falsos, y en alergias un dato falso puede matar a alguien. Hay tres salidas: la alergia concreta, «no es alérgica a nada» y <strong>«no sé»</strong>.</p>",
-  "<ul><li>«Terminar» cierra el modal y descubre la app completa, con la barra visible por primera vez. La navegación aparece cuando ya hay algo que navegar.</li><li>Cae en la Home del día uno, que le devuelve algo antes de pedirle nada más: Guardia ya funciona con este dato.</li></ul>"]},
+  "<p>Forzar una respuesta en alergias genera datos falsos, y ahí un dato falso puede matar a alguien. Tres salidas: la alergia concreta, «no es alérgica a nada» y <strong>«no sé»</strong>.</p>",
+  "<ul><li>«Terminar» cierra el modal y descubre la app completa, con la barra visible por primera vez.</li><li>Cae en el Inicio del día uno, que le devuelve algo antes de pedirle nada más.</li></ul>"]},
 
- hoy:{k:"Home · estado 1",t:"El turno manda, y la medicación se fue",tags:["Raíz","Pantalla clave"],body:[
-  "<p>Encabezado de raíz completo: chip de persona a la izquierda, Guardia a la derecha, título grande abajo. Scrolleá dentro del teléfono y mirá cómo <strong>«Hoy» se achica y pasa al centro de la barra</strong>, y recién ahí aparece el fondo desenfocado.</p>",
-  "<ul><li>Tres bloques y nada más: el próximo turno, lo que necesita algo tuyo, y lo último que pasó. Ordenados por urgencia, no por función.</li><li><strong>La medicación salió de acá.</strong> Eran tres casilleros que se repetían todos los días y empujaban abajo lo único que cambia. Vive en el perfil de Elsa, con los recordatorios apagados por defecto.</li><li>Los pendientes usan petróleo y son tarjetas tocables con chevron: llevan al trámite completo, con sus cuatro pasos.</li><li>El botón del turno dice «Preparar la consulta · 3 notas». El contador es lo que hace que se toque.</li></ul>"]},
- "hoy-sinturno":{k:"Home · estado 2",t:"Un hueco no es una pantalla vacía",tags:["Estado vacío","Cambio propuesto"],body:[
-  "<p>Cuando no hay próximo turno, la tarjeta no desaparece: <strong>cambia de contenido y de color</strong>. Pasa de naranja sólido a un borde punteado, que es la señal visual de «acá falta algo» sin que sea un error.</p>",
-  "<ul><li>Lo importante es la línea del medio: «la Dra. Ríos pidió control cada 30 días, el último fue el 26 de agosto, tocaría a fines de septiembre». La app ya sabía eso — estaba en las notas de la consulta — y lo usa para que la ausencia sea accionable.</li><li>Es la diferencia entre una app que espera y una que acompaña. Un estado vacío que sólo dice «no hay turnos» le devuelve el trabajo a la usuaria.</li><li>El resto de la Home no cambia. Pendientes y «lo último» siguen ahí: no hay turno, pero la app sigue teniendo cosas que decir.</li></ul>"]},
- "hoy-vacia":{k:"Home · estado 3",t:"Una sola cosa, no una lista de tareas",tags:["Día uno","Activación"],body:[
-  "<p>La tentación de todo equipo de producto es una checklist de activación: cargá la medicación, los estudios, los médicos, la obra social, completá el perfil al 100 %. <strong>Eso convierte el día uno en deberes</strong>, y a alguien que acaba de recibir un diagnóstico en la familia lo expulsa.</p>",
-  "<ul><li>Le pedimos <strong>una</strong> cosa: la fecha del próximo turno. Es de bajísimo esfuerzo, enciende toda la Home y desbloquea «Preparar la consulta», que es el diferencial de la app.</li><li>Debajo, una escapatoria en texto plano, sin peso visual, para quien todavía no tiene turno.</li><li>Y una tercera línea que no pide nada: le avisa que <strong>Guardia ya funciona</strong> con la alergia que cargó en el alta. El día uno termina habiéndole dado algo, no habiéndole pedido.</li><li>El saludo cambia a «Hola, Mariana». Es el único día en que la app le habla a ella y no a la agenda.</li><li>Cero barras de progreso. La de completitud del perfil vive en Elsa, donde se va a buscar, no en Home, donde se ve sin querer.</li></ul>"]},
+ hoy:{k:"Pestaña 1 · Inicio",t:"Releva arriba, y los accesos rápidos donde se ven",tags:["Raíz","Cambio propuesto"],body:[
+  "<p>El chip de «Elsa · mamá» se fue de todos los encabezados. Cada pantalla ahora se llama como lo que muestra, e Inicio lleva <strong>la marca y el logo</strong>: es la portada de la app, no una sección más.</p>",
+  "<ul><li>Orden nuevo: próxima consulta, accesos rápidos, pendientes. Los accesos subieron justo debajo del turno, que era donde se los buscaba.</li><li>Los pendientes cierran con <strong>«Agregar un pendiente» como última fila de la lista</strong>. Agregar donde ya estás mirando la lista es más barato que abrir un menú.</li><li>Guardia queda arriba a la derecha, en la misma posición en las cuatro pestañas. Es la única acción del encabezado.</li><li>Scrolleá: el título grande se achica y «Releva» con su rombo pasa al centro de la barra.</li></ul>"]},
+ "hoy-sinturno":{k:"Inicio · sin consulta",t:"Un hueco no es una pantalla vacía",tags:["Estado vacío","Respuesta directa"],body:[
+  "<p>Cuando no hay próxima consulta, la tarjeta no desaparece: <strong>cambia de contenido y de color</strong>. Pasa de naranja sólido a borde punteado, que dice «acá falta algo» sin ser un error.</p>",
+  "<ul><li>Lo importante es la línea del medio: «la Dra. Ríos pidió control cada 30 días, la última fue el 26 de agosto». Eso estaba en las notas de la consulta y sirve para que la ausencia sea accionable.</li><li>Los accesos rápidos y los pendientes siguen ahí: no hay consulta, pero la app sigue teniendo cosas que decir.</li></ul>"]},
+ "hoy-vacia":{k:"Inicio · día uno",t:"Una sola cosa, no una lista de tareas",tags:["Día uno","Respuesta directa"],body:[
+  "<p>La tentación es una checklist de activación: cargá la medicación, los estudios, los médicos, completá el perfil. <strong>Eso convierte el día uno en deberes</strong> y expulsa a alguien que acaba de recibir un diagnóstico en la familia.</p>",
+  "<ul><li>Le pedimos <strong>una</strong> cosa: agendar la próxima consulta. Bajo esfuerzo, enciende todo el Inicio y desbloquea la preparación.</li><li>Debajo, una escapatoria en texto plano, sin peso visual, para quien no tiene turno.</li><li>Y una línea que no pide nada: le avisa que <strong>Guardia ya funciona</strong> con la alergia del alta. El día uno termina habiéndole dado algo.</li><li>Cero barras de progreso. La de completitud vive en Elsa, donde se va a buscar.</li></ul>"]},
 
- consultas:{k:"Pestaña 2 de 4",t:"Grabar y leer, en el mismo lugar",tags:["Raíz nueva","Cambio propuesto"],body:[
-  "<p>El banner fijo «Estoy en una consulta» ocupaba 66 px permanentes en todas las pantallas para una acción que pasa una vez por mes. <strong>Se fue.</strong> Grabar ahora es el botón principal de su propia pestaña, y también una opción del botón central.</p>",
-  "<ul><li>Abajo, el historial completo agrupado por mes. Es la respuesta a «cómo navego las notas de todas las consultas»: lista cronológica, y buscador sobre lo que dijeron los médicos.</li><li>Cada fila dice cuántas indicaciones dejó y si quedó algo sin responder. Eso es lo que hace decidir cuál abrir.</li><li>El ícono cambia según cómo se registró: micrófono si la grabó Releva, nota si la escribiste vos. Las dos valen igual.</li></ul>"]},
- "consultas-prox":{k:"Pestaña 2 · segmento",t:"Donde caen tus propias notas",tags:["Respuesta directa","Alto valor"],body:[
-  "<p>Este es el segundo segmento de Consultas y responde tu pregunta: <strong>dónde agregar tus propias notas para consultas futuras</strong>. Lo que se te ocurre un martes a la noche cae acá y aparece solo el día del turno.</p>",
-  "<ul><li>Se llega de tres formas: desde el botón del turno en Home, desde el segmento, y desde el botón central eligiendo «Una nota o pregunta».</li><li>Cada nota dice de dónde salió: «de lo que anotaste el 28/8», «del laboratorio del 19/8», «quedó sin responder el 26/8». Mezcla lo que escribiste vos con lo que la app juntó sola, sin que parezca magia.</li><li>El subtítulo del encabezado muestra el turno al que apuntan estas notas. Sin eso, la lista es una pila de papeles sueltos.</li></ul>"]},
- estudios:{k:"Pestaña 3 de 4",t:"El buscador entra adentro de los estudios",tags:["Raíz nueva","Búsqueda"],body:[
-  "<p>Pedías buscar rápido un término dentro de un estudio. El buscador de acá <strong>no busca títulos de archivo: busca valores</strong>. Escribís «creatinina» y cae en 1,4 mg/dl, fuera de rango, página 2 de 3 del laboratorio del 19/8.</p>",
-  "<ul><li>Eso exige leer cada estudio al cargarlo, no al buscarlo. La app ya lo hace, y el estado «Leyendo» es honesto sobre el tiempo que tarda.</li><li>Los filtros de al lado cubren el otro modo de buscar, el de «era el análisis de agosto»: por tipo y por fecha.</li><li>La zona de foto está arriba de todo y es lo primero que se ve. Cargar es sacar una foto, no llenar un formulario.</li></ul>"]},
- perfil:{k:"Pestaña 4 de 4",t:"La historia clínica vive acá",tags:["Raíz","Cambio propuesto"],body:[
-  "<p>La historia dejó de ser pestaña y pasó a ser la primera fila del perfil de Elsa. <strong>Es la ficha de una persona, no una sección de la app.</strong></p>",
-  "<ul><li>Adentro de Elsa la jerarquía queda clara: Elsa tiene una historia, una medicación y unos médicos. Como pestaña competía con Estudios y con Consultas, que son partes de la misma historia.</li><li>Se encuentra más fácil, no menos: se llega pensando en ella, que es como piensa una cuidadora.</li><li>Es la única raíz sin chip de persona — ya estás mirando a la persona — y el título grande es su nombre completo.</li><li>«Quién la cuida» está acá aunque el MVP no lo resuelva: dejar el lugar hecho evita rediseñar la pestaña cuando llegue el segundo cuidador.</li></ul>"]},
+ consultas:{k:"Pestaña 2 · Consultas",t:"Una sola lista, con la próxima arriba",tags:["Cronología","Respuesta directa"],body:[
+  "<p>Sin segmentos. <strong>Todas las consultas en la misma pantalla</strong>, en orden cronológico, y la que viene como primera fila —marcada con el borde naranja y los días que faltan.</p>",
+  "<ul><li>Tocar la próxima te mete adentro de ella: ahí se prepara o se graba. Tocar cualquiera de las anteriores abre sus notas.</li><li>Las anteriores dicen cuántas indicaciones dejaron y si quedó algo sin responder: eso es lo que hace decidir cuál abrir.</li><li>El ícono cambia según cómo se registró: micrófono si la grabó Releva, nota si la escribiste vos. Las dos valen igual.</li><li>El buscador va en el encabezado y busca sobre lo que dijeron los médicos, no sólo sobre los títulos.</li><li>El FAB de abajo agrega una consulta nueva, que es agendar un turno.</li></ul>"]},
+ "consultas-prox":{k:"Empujada desde Consultas",t:"Entrás a la consulta que viene",tags:["Push","Preparar o grabar"],body:[
+  "<p>Es la próxima consulta abierta, con nombre y fecha como título. Dos cosas se pueden hacer acá: <strong>prepararla</strong> —las notas y preguntas para llevar— y <strong>grabarla</strong>, con el botón al final.</p>",
+  "<ul><li>Cada nota dice de dónde salió: «de lo que anotaste el 28/8», «del laboratorio del 19/8», «quedó sin responder el 26/8». Mezcla lo tuyo con lo que la app juntó sola, sin que parezca magia.</li><li>«Agregar una nota o pregunta» es lo que hace que sirva un martes a la noche: lo que se te ocurre cae acá y aparece el día del turno.</li><li>El atrás dice «Consultas». La pantalla pertenece a una sección, no a quien la abrió.</li></ul>"]},
+ estudios:{k:"Pestaña 3 · Estudios",t:"Cronología, y el buscador entra adentro",tags:["Cronología","Búsqueda"],body:[
+  "<p>Lista por fecha, agrupada por mes, y cada uno se abre. El buscador <strong>no busca títulos de archivo: busca valores</strong>. Escribís «creatinina» y cae en 1,4 mg/dl, fuera de rango, página 2 de 3 del laboratorio del 19/8.</p>",
+  "<ul><li>Eso exige leer cada estudio al cargarlo, no al buscarlo. La app ya lo hace, y el estado «Leyendo» es honesto sobre lo que tarda.</li><li>Los filtros cubren el otro modo de buscar, el de «era el análisis de agosto»: por tipo y por fecha.</li><li>El FAB agrega un estudio nuevo. La zona grande de foto salió de la lista: ocupaba la mitad de la pantalla para algo que ahora tiene un botón fijo abajo.</li></ul>"]},
+ perfil:{k:"Pestaña 4 · Elsa",t:"La historia clínica vive acá",tags:["Raíz","Cambio propuesto"],body:[
+  "<p>La historia dejó de ser pestaña y es la primera fila del perfil. <strong>Es la ficha de una persona, no una sección de la app.</strong></p>",
+  "<ul><li>Adentro de Elsa la jerarquía queda clara: tiene una historia, una medicación y unos médicos. Como pestaña competía con Estudios y Consultas, que son partes de la misma historia.</li><li>«Editar sus datos» bajó del encabezado a una fila, para que Guardia sea la única acción de barra en las cuatro pestañas.</li><li>Sin FAB: acá no se agrega, se consulta.</li></ul>"]},
 
- agregar:{k:"Botón central",t:"Sí, un botón central. Y no es un FAB",tags:["Respuesta directa","Nos apartamos del HIG"],body:[
-  "<p>Preguntaste FAB o botón central. <strong>Central, dentro de la barra.</strong> Un FAB flotante es lenguaje de Android: se apoya sobre el contenido, tapa la última fila de cualquier lista y no tiene lugar fijo. El botón central comparte la barra, nunca tapa nada y siempre está en el mismo píxel.</p>",
-  "<ul><li>Es el punto más alcanzable de la pantalla con una mano, y lo que se agrega se agrega apurado, saliendo de un consultorio.</li><li>Cinco cosas desde una sola entrada. La alternativa —un «+» en el encabezado de cada sección— obliga a saber primero en qué sección va la cosa, que es justo el trabajo que la app tiene que hacer por la usuaria.</li><li>Apple dice que la barra es para navegar, no para actuar. Nos apartamos a propósito, igual que con la barra que se achica: es una decisión, no un descuido.</li><li>La hoja se abre sobre la pantalla oscurecida, con tirador arriba y Cancelar abajo. Dos formas de salir sin tocar nada peligroso.</li></ul>"]},
-
- tramites:{k:"Empujada desde Hoy",t:"Los pendientes salieron de la barra",tags:["Push","Cambio propuesto"],body:[
-  "<p>Ya no son pestaña. Se llega desde el bloque «Necesita algo tuyo» de la Home, que es donde se miran de verdad: cuando ya estás en Home viendo qué falta.</p>",
-  "<ul><li><strong>Sólo pendientes.</strong> Sacamos el segmento «Hechos»: lo hecho no se consulta, se marca y desaparece. La línea del pie aclara que igual queda registrado en la historia de Elsa, para que marcar no dé miedo.</li><li>Se agregan desde el botón central, opción «Un pendiente».</li><li>El atrás dice «Hoy». La pantalla pertenece a una sección, no a quien la abrió.</li></ul>"]},
- tramite:{k:"Empujada desde Pendientes",t:"Un trámite es una lista de pasos",tags:["Push","Carga operativa"],body:[
+ tramite:{k:"Empujada desde Inicio",t:"Un trámite es una lista de pasos",tags:["Push","Carga operativa"],body:[
   "<p>La diferencia entre una app que avisa y una que ayuda. El aviso dice «vence el miércoles»; esto dice <strong>cuáles de los cuatro pasos ya están y cuál sigue</strong>.</p>",
-  "<ul><li>Los pasos hechos se marcan con verde: es lo único para lo que se usa el verde en toda la app.</li><li>«Abrir la app de OSDE» es un salto fuera de Releva y está bien que lo sea. Pelear contra la obra social no es el trabajo del MVP; guiar por él, sí.</li></ul>"]},
- resumen:{k:"Empujada desde Consultas",t:"Tres caminos hacia otra consulta",tags:["Push","Respuesta directa"],body:[
-  "<p>Acá aterriza el modal de grabación cuando termina. <strong>La tarea se cierra y deja algo en su lugar</strong>, con la pestaña Consultas ya seleccionada y el atrás listo.</p>",
-  "<ul><li>Al pie está «Otras consultas con la Dra. Ríos»: el gesto real es «¿qué me había dicho la última vez?», y no debería obligar a volver a la lista y buscar.</li><li>Cuatro bloques en orden fijo: qué te dijo, qué hay que hacer, qué quedó sin responder, otras consultas. Es la estructura mental con la que alguien sale de un consultorio.</li><li>Las indicaciones cruzan a Pendientes; lo que quedó sin responder cruza a «Para la próxima». Los dos saltos son intencionales y están etiquetados.</li><li>El aviso de «estas son mis notas, corregilas» va arriba con el botón al lado, no como descargo al pie.</li></ul>"]},
+  "<ul><li>Los pendientes ya no tienen pestaña: se ven en Inicio, que es donde se los busca, y se agregan al final de esa misma lista.</li><li>Los pasos hechos se marcan en verde: es lo único para lo que se usa el verde en toda la app.</li><li>«Abrir la app de OSDE» es un salto afuera y está bien que lo sea. Pelear contra la obra social no es el trabajo del MVP; guiar por él, sí.</li></ul>"]},
+ resumen:{k:"Empujada desde Consultas",t:"Tres caminos hacia otra consulta",tags:["Push","Notas"],body:[
+  "<p>Acá aterriza el modal de grabación cuando termina. <strong>La tarea se cierra y deja algo en su lugar</strong>, con la pestaña Consultas ya seleccionada.</p>",
+  "<ul><li>Al pie está «Otras consultas con la Dra. Ríos»: el gesto real es «¿qué me había dicho la última vez?», y no debería obligar a volver a la lista.</li><li>Cuatro bloques en orden fijo: qué te dijo, qué hay que hacer, qué quedó sin responder, otras consultas. Es la estructura mental con la que alguien sale de un consultorio.</li><li>Las indicaciones cruzan a los pendientes de Inicio; lo que quedó sin responder cruza a la próxima consulta.</li></ul>"]},
  estudio:{k:"Empujada desde Estudios",t:"El resultado de buscar dentro",tags:["Push","Búsqueda"],body:[
   "<p>Así se ve buscar «creatinina» y caer adentro de un estudio: el valor, si está fuera de rango, y <strong>en qué página del PDF está</strong>. Sin eso, un archivo cargado es una foto que nadie vuelve a abrir.</p>",
-  "<ul><li>El buscador se queda en el encabezado con el término escrito. Al colapsar, el título en línea dice «Laboratorio 19/8», no el término: seguís sabiendo dónde estás.</li><li>Abajo, el resto de los valores leídos con su estado. «Ver los 14 valores» evita listar todo de entrada.</li><li>Las fotos originales quedan accesibles y sin recortar. La app interpreta, pero nunca reemplaza el papel.</li><li>«Qué significa la creatinina» es la misma puerta que «Hay algo que no entendí», y tiene el mismo límite: explica el término, no interpreta el valor.</li></ul>"]},
+  "<ul><li>El buscador se queda en el encabezado con el término escrito. Al colapsar, el título en línea dice «Laboratorio 19/8»: seguís sabiendo dónde estás.</li><li>Las fotos originales quedan accesibles y sin recortar. La app interpreta, pero nunca reemplaza el papel.</li><li>«Qué significa la creatinina» explica el término, no interpreta el valor. Ese límite necesita quedar escrito.</li></ul>"]},
  historia:{k:"Empujada desde Elsa",t:"La ficha, no una pestaña",tags:["Push","Cambio propuesto"],body:[
   "<p>Alergias arriba y en rojo, después diagnósticos, después la línea de tiempo. Es el orden en que un médico lee una historia.</p>",
-  "<ul><li>La línea de tiempo mezcla consultas y estudios y cruza a los dos lados. Es el único lugar donde todo aparece junto en orden cronológico.</li><li>Compartir está en el encabezado, con la palabra. Es la salida natural de la historia.</li><li>El atrás dice «Elsa», que es de donde se viene y donde vive.</li></ul>"]},
+  "<ul><li>La línea de tiempo mezcla consultas y estudios y cruza a los dos lados. Es el único lugar donde todo aparece junto en orden cronológico.</li><li>Compartir está en el encabezado, con la palabra al lado del ícono.</li></ul>"]},
  medicacion:{k:"Empujada desde Elsa",t:"Donde fue a parar la medicación",tags:["Push","Cambio propuesto"],body:[
-  "<p>Salió de la Home y quedó acá. <strong>Los recordatorios están apagados por defecto</strong> y se prenden a mano: no le vamos a mandar tres notificaciones diarias a alguien que no las pidió.</p>",
-  "<ul><li>Cada cambio queda marcado con la fecha y con quién lo indicó. «Cambió 26/8» conecta con la consulta donde se decidió.</li><li>«Dejó de tomar» existe y es importante: en una guardia preguntan qué toma <em>y</em> qué dejó de tomar.</li><li>Se agrega desde el «+» del encabezado o desde el botón central, sacándole una foto a la receta.</li></ul>"]},
+  "<p>Salió del Inicio y quedó acá. <strong>Los recordatorios están apagados por defecto</strong>: no le vamos a mandar tres notificaciones diarias a alguien que no las pidió.</p>",
+  "<ul><li>Cada cambio queda marcado con la fecha y quién lo indicó. «Cambió 26/8» conecta con la consulta donde se decidió.</li><li>«Dejó de tomar» existe y es importante: en una guardia preguntan qué toma <em>y</em> qué dejó de tomar.</li></ul>"]},
  compartir:{k:"Empujada desde Elsa",t:"Un PDF, porque el consultorio funciona con papel",tags:["Push","Interoperabilidad"],body:[
-  "<p>Se llega desde el perfil de Elsa, desde la historia o desde el ícono de compartir de cualquier consulta o estudio. En todos los casos el atrás dice «Elsa»: <strong>la etiqueta refleja la sección, no el último toque</strong>.</p>",
-  "<ul><li>El segmentado controla qué incluye. Mandar 40 páginas de estudios es tan inútil como no mandar nada.</li><li>El documento se lee en menos de un minuto, que es lo que un médico le va a dedicar: alergias primero y en rojo, después diagnósticos, medicación, estudios y quién más la atiende.</li><li>Descargar e imprimir bajaron a íconos al lado del botón principal: se usan poco, pero tienen que existir.</li></ul>"]},
+  "<p>Se llega desde el perfil, desde la historia o desde el ícono de compartir de cualquier consulta o estudio. En todos los casos el atrás dice «Elsa»: <strong>la etiqueta refleja la sección, no el último toque</strong>.</p>",
+  "<ul><li>El segmentado controla qué incluye. Mandar 40 páginas de estudios es tan inútil como no mandar nada.</li><li>El documento se lee en menos de un minuto: alergias primero y en rojo, después diagnósticos, medicación, estudios y quién más la atiende.</li></ul>"]},
 
  consentimiento:{k:"Modal · consulta",t:"El modal empieza acá, y se nota",tags:["Modal","Ética"],body:[
-  "<p>Se abre desde el botón de Consultas o desde el botón central. Al abrirse <strong>desaparecen la barra y el botón de agregar</strong>: la app entera se reduce a esta tarea. Ese vaciado es la señal de que empezó algo distinto.</p>",
+  "<p>Se abre desde la próxima consulta o desde el acceso rápido del Inicio. Al abrirse <strong>desaparecen la barra y el FAB</strong>: la app entera se reduce a esta tarea.</p>",
   "<ul><li>Cancelar arriba a la izquierda, siempre visible. En una pantalla que pide permiso para escuchar, la salida no puede estar escondida.</li><li>El audio no se guarda, y se dice en la primera línea.</li><li>«Avisale a la doctora» pone al cuidador en posición de pedir permiso, y eso lo protege a él.</li></ul>"]},
  consulta:{k:"Modal · consulta",t:"Una pantalla para mirar de reojo",tags:["Modal","Momento de uso"],body:[
-  "<p>Sin barra, sin atrás, sin nada que tocar por error. Durante la consulta el cuidador no debería estar mirando la pantalla: debería estar mirando al médico y a su mamá.</p>",
-  "<ul><li>El único elemento del encabezado es «Sin grabar audio», fijo, para que el médico lo vea si mira el teléfono.</li><li>El indicador de escucha es grande y ambiguo a propósito: confirma que funciona sin exhibir un botón rojo de grabación frente al profesional.</li><li>«Terminó la consulta» cierra el modal y lleva a las notas, dentro de Consultas. «Dejar de escuchar» vuelve a la lista sin guardar. Dos salidas, dos destinos explícitos.</li></ul>"]},
+  "<p>Sin barra, sin atrás, sin nada que tocar por error. Durante la consulta el cuidador debería estar mirando al médico y a su mamá, no la pantalla.</p>",
+  "<ul><li>El único elemento del encabezado es «Sin grabar audio», fijo, para que el médico lo vea si mira el teléfono.</li><li>«Terminó la consulta» cierra el modal y lleva a las notas, dentro de Consultas. «Dejar de escuchar» vuelve a la lista sin guardar.</li></ul>"]},
  guardia:{k:"Modal · urgencia",t:"La pantalla que hace que no borren la app",tags:["Modal","Alto valor"],body:[
   "<p>Tres de la mañana, la mamá descompensada, la guardia pregunta qué toma y a qué es alérgica. <strong>Máximo valor de la app, mínima capacidad cognitiva del usuario.</strong></p>",
-  "<ul><li>Único encabezado inmersivo de toda la app: rojo sólido, con los datos de obra social en la propia barra, que es lo primero que pide administración mientras el médico espera.</li><li>Jerarquía invertida: alergias en cuerpo enorme, después medicación con dosis, después diagnósticos. Es el orden en que lo pregunta un médico de guardia.</li><li>Es la única pantalla donde el rojo es legítimo. Por eso los vencimientos de pendientes son petróleo: para que este rojo signifique algo.</li><li>La pastilla roja está en la misma posición en las tres Homes, incluida la del día uno. Falta lo más importante y está en la lista de pendientes: poder abrirla <em>sin desbloquear el teléfono</em>.</li></ul>"]}
+  "<ul><li>Único encabezado inmersivo: rojo sólido, con obra social y afiliado en la propia barra, que es lo primero que pide administración.</li><li>Jerarquía invertida: alergias en cuerpo enorme, después medicación con dosis, después diagnósticos.</li><li>Es la única pantalla donde el rojo es legítimo. Por eso los pendientes son petróleo: para que este rojo signifique algo.</li><li>Falta lo más importante, y está en la lista de pendientes: poder abrirla <em>sin desbloquear el teléfono</em>.</li></ul>"]}
 };
 
 const stage=document.querySelector(".stage"),
       screen=document.getElementById("screen"),
       tabbar=document.getElementById("tabbar"),
+      fab=document.getElementById("fab"),
+      fabEt=document.getElementById("fabEt"),
       noteEl=document.getElementById("note"),
       mapEl=document.getElementById("flowmap");
 
@@ -1430,6 +1394,11 @@ function go(id){
   const sc=t.querySelector(".scroll"); if(sc) sc.scrollTop=0;
   stage.dataset.dock=t.dataset.dock||"no";
   stage.classList.remove("bajando");
+  const f=t.dataset.fab;
+  if(f && t.dataset.dock==="si"){
+    const [et,destino]=f.split("|");
+    fabEt.textContent=et; fab.dataset.go=destino; stage.dataset.fab="si";
+  } else { stage.dataset.fab="no"; }
   const tab=t.dataset.tab||"";
   tabbar.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",String(b.dataset.tab===tab)));
   document.querySelectorAll(".navbtn").forEach(b=>b.classList.toggle("is-active",b.dataset.go===id));
