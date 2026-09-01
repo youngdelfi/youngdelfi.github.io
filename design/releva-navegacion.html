@@ -226,7 +226,7 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 .rueda i{display:block;height:40px;line-height:40px;scroll-snap-align:center;font-style:normal;
   font-size:18.2px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--tenue);transition:color .12s ease}
 .rueda i.sel{color:var(--tinta);font-weight:800}
-.rueda .pad{height:46px;scroll-snap-align:none}
+.rueda .pad{display:block;height:46px;scroll-snap-align:none}
 .reloj .sep{position:relative;z-index:1;font-size:18.2px;font-weight:800;color:var(--tinta)}
 .editable{outline:none}
 .editable:focus{box-shadow:inset 0 0 0 2px var(--marca);border-radius:12px}
@@ -439,252 +439,138 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   <div class="navbar"><h1 class="hdr-titulo"><span class="rombo-h1"></span>Releva</h1><span class="crece"></span>
     <button class="accion accion-urg" data-go="guardia"><svg class="i"><use href="#ic-alert"></use></svg>Guardia</button>
   </div>
-  <p class="hdr-sub">Martes 1 de septiembre</p>
+  <p class="hdr-sub" id="homeSub">Hola, Mariana · martes 1 de septiembre</p>
  </header>
  <div class="scroll"><div class="cuerpo">
-  <div class="hero-card">
-    <span class="lbl">Tu próxima consulta · en 3 días</span>
-    <div class="stack-sm">
-      <span style="font-size:19.1px;font-weight:800;line-height:1.2;letter-spacing:-.025em">Dra. Paula Ríos · Oncología</span>
-      <span style="opacity:.9;font-size:13.7px;font-weight:600">Viernes 4 de septiembre, 10:30 h · Hospital Italiano</span>
-    </div>
-    <button class="btn btn-ghost" data-go="consultas-prox">Preparar la consulta · 3 notas</button>
-  </div>
-  <div class="quick">
-    <button data-go="consentimiento"><svg class="i"><use href="#ic-mic"></use></svg>Grabar una consulta</button>
-    <button data-go="est-origen"><svg class="i"><use href="#ic-camera"></use></svg>Cargar un estudio</button>
-    <button data-go="compartir"><svg class="i"><use href="#ic-share"></use></svg>Compartir historia</button>
-  </div>
-  <p class="lbl" style="margin-top:4px">Pendientes</p>
-  <button class="aten-card" style="width:100%;text-align:left" data-go="tramite">
-    <div class="row" style="align-items:flex-start;gap:11px">
-      <svg class="i" style="color:var(--atencion);margin-top:2px"><use href="#ic-clock"></use></svg>
-      <div class="stack-sm" style="gap:3px;flex:1">
-        <span style="font-weight:800;font-size:15px;letter-spacing:-.02em">Autorización de la TAC</span>
-        <span class="small" style="color:var(--atencion);font-weight:700">Vence el miércoles 3 · quedan 2 días</span>
-        <span class="small muted">OSDE · se hace por la app, 4 pasos</span>
-      </div>
-      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
-    </div>
-  </button>
-  <div class="card" style="padding:4px 16px" id="listaPendientes">
-    <button class="lista-item">
-      <div class="thumb"><svg class="i"><use href="#ic-doc"></use></svg></div>
-      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Pedir la orden de la TAC</span><span class="small muted">La firma la Dra. Ríos · antes del 20/9</span></div>
-      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
-    </button>
-    <button class="lista-item">
-      <div class="thumb"><svg class="i"><use href="#ic-today"></use></svg></div>
-      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Turno con el nefrólogo</span><span class="small muted">Dr. Beltrán · dentro de 30 días</span></div>
-      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
-    </button>
-    <button class="lista-item" data-go="pend-tipo">
-      <div class="thumb" style="background:var(--marca-suave)"><svg class="i" style="stroke-width:2.4"><use href="#ic-plus"></use></svg></div>
-      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name" style="color:var(--marca-texto)">Agregar un pendiente</span><span class="small muted">Una orden, una autorización, un trámite</span></div>
-    </button>
-  </div>
-  <p class="fineprint" style="text-align:center;max-width:none">Lo que marcás como hecho desaparece de acá y queda en la historia de Elsa.</p>
- </div></div>
-</section>
-<!-- ===== INICIO · sin próxima consulta ===== -->
-<section class="scr" data-scr="hoy-sinturno" data-tab="hoy" data-dock="si">
- <header class="hdr">
-  <div class="navbar"><h1 class="hdr-titulo"><span class="rombo-h1"></span>Releva</h1><span class="crece"></span>
-    <button class="accion accion-urg" data-go="guardia"><svg class="i"><use href="#ic-alert"></use></svg>Guardia</button>
-  </div>
-  <p class="hdr-sub">Martes 1 de septiembre</p>
- </header>
- <div class="scroll"><div class="cuerpo">
-  <div class="card" style="border-style:dashed;border-width:1.5px;border-color:var(--linea)">
-    <span class="lbl">Próxima consulta</span>
-    <p style="font-size:17.3px;font-weight:800;letter-spacing:-.025em;margin-top:6px">No hay ninguna agendada</p>
-    <div class="row" style="align-items:flex-start;gap:10px;margin-top:10px;padding:11px 12px;background:var(--suave-2);border-radius:12px">
-      <svg class="i" style="color:var(--marca-texto);margin-top:1px;width:19px;height:19px"><use href="#ic-luz"></use></svg>
-      <p class="small muted" style="flex:1">La Dra. Ríos pidió control <b style="color:var(--tinta)">cada 30 días</b>. La última fue el 26 de agosto, así que tocaría a fines de septiembre.</p>
-    </div>
-    <button class="btn btn-primary" style="margin-top:12px" data-go="cons-quien">Agendar una consulta</button>
-  </div>
-  <div class="quick">
-    <button data-go="consentimiento"><svg class="i"><use href="#ic-mic"></use></svg>Grabar una consulta</button>
-    <button data-go="est-origen"><svg class="i"><use href="#ic-camera"></use></svg>Cargar un estudio</button>
-    <button data-go="compartir"><svg class="i"><use href="#ic-share"></use></svg>Compartir historia</button>
-  </div>
-  <p class="lbl" style="margin-top:4px">Pendientes</p>
-  <button class="aten-card" style="width:100%;text-align:left" data-go="tramite">
-    <div class="row" style="align-items:flex-start;gap:11px">
-      <svg class="i" style="color:var(--atencion);margin-top:2px"><use href="#ic-clock"></use></svg>
-      <div class="stack-sm" style="gap:3px;flex:1">
-        <span style="font-weight:800;font-size:15px;letter-spacing:-.02em">Autorización de la TAC</span>
-        <span class="small" style="color:var(--atencion);font-weight:700">Vence el miércoles 3 · quedan 2 días</span>
-      </div>
-      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
-    </div>
-  </button>
-  <div class="card" style="padding:4px 16px">
-    <button class="lista-item" data-go="pend-tipo">
-      <div class="thumb" style="background:var(--marca-suave)"><svg class="i" style="stroke-width:2.4"><use href="#ic-plus"></use></svg></div>
-      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name" style="color:var(--marca-texto)">Agregar un pendiente</span></div>
-    </button>
-  </div>
- </div></div>
-</section>
-<!-- ===== INICIO · día uno ===== -->
-<section class="scr" data-scr="hoy-vacia" data-tab="hoy" data-dock="si">
- <header class="hdr">
-  <div class="navbar"><h1 class="hdr-titulo"><span class="rombo-h1"></span>Releva</h1><span class="crece"></span>
-    <button class="accion accion-urg" data-go="guardia"><svg class="i"><use href="#ic-alert"></use></svg>Guardia</button>
-  </div>
-  <p class="hdr-sub">Hola, Mariana · martes 1 de septiembre</p>
- </header>
- <div class="scroll"><div class="cuerpo">
-  <div class="card" style="padding:20px 18px">
+
+  <div id="bDiaUno">
+   <div class="card" style="padding:20px 18px">
     <p style="font-size:18.2px;font-weight:800;letter-spacing:-.03em;line-height:1.25">Empecemos por la próxima consulta de Elsa.</p>
     <p class="muted" style="font-size:14.1px;margin-top:8px;line-height:1.5">Con la fecha alcanza. Desde ahí te voy a ir avisando qué preparar, qué llevar y qué preguntar.</p>
     <button class="btn btn-primary" style="margin-top:16px" data-go="cons-quien">Agendar una consulta</button>
-  </div>
-  <button class="btn btn-quiet" style="justify-content:flex-start;padding:4px 2px" data-go="est-origen">¿Todavía no tenés turno? Cargá un estudio o una receta</button>
-  <div class="row" style="align-items:flex-start;gap:11px;padding:14px 15px;background:var(--suave-2);border-radius:var(--r);margin-top:auto">
+   </div>
+   <button class="btn btn-quiet" style="justify-content:flex-start;padding:10px 2px 4px" data-go="est-origen">¿Todavía no tenés turno? Cargá un estudio o una receta</button>
+   <div class="row" style="align-items:flex-start;gap:11px;padding:14px 15px;background:var(--suave-2);border-radius:var(--r);margin-top:8px">
     <svg class="i" style="color:var(--urgencia);margin-top:1px"><use href="#ic-alert"></use></svg>
     <div class="stack-sm" style="gap:2px;flex:1">
       <span style="font-weight:800;font-size:14.1px;letter-spacing:-.02em">Guardia ya está lista</span>
       <span class="small muted">Cargaste la alergia a penicilina. Con eso, el botón rojo de arriba ya sirve en una emergencia.</span>
     </div>
+   </div>
   </div>
+
+  <div class="card" id="bSinConsulta" style="border-style:dashed;border-width:1.5px;border-color:var(--linea);display:none">
+    <span class="lbl">Próxima consulta</span>
+    <p style="font-size:17.3px;font-weight:800;letter-spacing:-.025em;margin-top:6px">No hay ninguna agendada</p>
+    <button class="btn btn-primary" style="margin-top:12px" data-go="cons-quien">Agendar una consulta</button>
+  </div>
+
+  <div class="hero-card" id="bConsulta" style="display:none">
+    <span class="lbl" id="hcCuando">Tu próxima consulta</span>
+    <div class="stack-sm">
+      <span style="font-size:19.1px;font-weight:800;line-height:1.2;letter-spacing:-.025em" id="hcQuien">—</span>
+      <span style="opacity:.9;font-size:13.7px;font-weight:600" id="hcDonde">—</span>
+    </div>
+    <button class="btn btn-ghost" data-go="consultas-prox" id="hcBoton">Preparar la consulta</button>
+  </div>
+
+  <div class="quick" id="bAccesos" style="display:none">
+    <button data-go="consentimiento"><svg class="i"><use href="#ic-mic"></use></svg>Grabar una consulta</button>
+    <button data-go="est-origen"><svg class="i"><use href="#ic-camera"></use></svg>Cargar un estudio</button>
+    <button data-go="compartir"><svg class="i"><use href="#ic-share"></use></svg>Compartir historia</button>
+  </div>
+
+  <div id="bPendientes" style="display:none">
+   <p class="lbl" style="margin-top:4px">Pendientes</p>
+   <div class="card" style="padding:4px 16px" id="listaPendientes">
+    <button class="lista-item" data-go="pend-tipo" id="filaAgregarPend">
+      <div class="thumb" style="background:var(--marca-suave)"><svg class="i" style="stroke-width:2.4"><use href="#ic-plus"></use></svg></div>
+      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name" style="color:var(--marca-texto)">Agregar un pendiente</span><span class="small muted">Una orden, una autorización, un trámite</span></div>
+    </button>
+   </div>
+  </div>
+
+  <div id="bUltimo" style="display:none">
+   <p class="lbl" style="margin-top:4px">Lo último</p>
+   <div class="card" style="padding:4px 16px" id="listaUltimo"></div>
+  </div>
+
  </div></div>
 </section>
-<!-- ===== CONSULTAS ===== -->
+
 <section class="scr" data-scr="consultas" data-tab="consultas" data-dock="si" data-fab="Nueva consulta|cons-quien">
  <header class="hdr">
   <div class="navbar"><h1 class="hdr-titulo">Consultas</h1><span class="crece"></span>
     <button class="accion accion-urg" data-go="guardia"><svg class="i"><use href="#ic-alert"></use></svg>Guardia</button>
-    </div>
-  <p class="hdr-sub">1 agendada · 6 anteriores</p>
-  <div class="buscar"><svg class="i"><use href="#ic-search"></use></svg><span>Buscar un médico, una fecha, algo que dijeron</span></div>
+  </div>
+  <p class="hdr-sub" id="consSub">Todavía no hay ninguna</p>
+  <div class="buscar" id="consBuscar" style="display:none"><svg class="i"><use href="#ic-search"></use></svg><span>Buscar un médico, una fecha, algo que dijeron</span></div>
  </header>
  <div class="scroll"><div class="cuerpo">
-  <div class="card" style="padding:4px 16px;border:1.5px solid var(--marca)" id="listaProximas">
-    <button class="lista-item" data-go="consultas-prox">
-      <div class="thumb" style="background:var(--marca-suave)"><svg class="i"><use href="#ic-today"></use></svg></div>
-      <div class="stack-sm" style="gap:2px;flex:1">
-        <span class="med-name">Dra. Ríos · Oncología</span>
-        <span class="small" style="color:var(--marca-texto);font-weight:700">Viernes 4 de septiembre, 10:30 · en 3 días</span>
-        <span class="small muted">3 notas listas para preguntar</span>
-      </div>
-      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
-    </button>
+  <div class="vacio" id="consVacio">
+   <svg class="i"><use href="#ic-mic"></use></svg>
+   <b>Acá van las consultas</b>
+   <p>Cuando agendes una, la vas a poder preparar y grabar desde acá. Después te quedan las notas de lo que dijo cada médico.</p>
+   <button class="btn btn-primary btn-sm" style="margin-top:4px" data-go="cons-quien">Agendar la primera</button>
   </div>
-  <p class="lbl" style="margin-top:6px">Agosto 2026</p>
-  <div class="card" style="padding:4px 16px">
-    <button class="lista-item" data-go="resumen">
-      <div class="thumb"><svg class="i"><use href="#ic-mic"></use></svg></div>
-      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Dra. Ríos · Oncología</span><span class="small muted">26 de agosto · 3 indicaciones · 1 sin responder</span></div>
-      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
-    </button>
-    <button class="lista-item" data-go="resumen">
-      <div class="thumb"><svg class="i"><use href="#ic-nota"></use></svg></div>
-      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Dr. Sosa · Urología</span><span class="small muted">7 de agosto · anotada por vos</span></div>
-      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
-    </button>
+  <div id="consProxWrap" style="display:none">
+   <p class="lbl">La que viene</p>
+   <div class="card" style="padding:4px 16px;border:1.5px solid var(--marca)" id="listaProximas"></div>
   </div>
-  <p class="lbl" style="margin-top:6px">Julio 2026</p>
-  <div class="card" style="padding:4px 16px">
-    <button class="lista-item" data-go="resumen">
-      <div class="thumb"><svg class="i"><use href="#ic-mic"></use></svg></div>
-      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Dra. Ríos · Oncología</span><span class="small muted">24 de julio · inicio del tratamiento</span></div>
-      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
-    </button>
-    <button class="lista-item" data-go="resumen">
-      <div class="thumb"><svg class="i"><use href="#ic-mic"></use></svg></div>
-      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Dr. Sosa · Urología</span><span class="small muted">3 de julio</span></div>
-      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
-    </button>
-  </div>
-  <p class="lbl" style="margin-top:6px">Junio 2026</p>
-  <div class="card" style="padding:4px 16px">
-    <button class="lista-item" data-go="resumen">
-      <div class="thumb"><svg class="i"><use href="#ic-mic"></use></svg></div>
-      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Dra. Ríos · Oncología</span><span class="small muted">19 de junio · primera consulta</span></div>
-      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
-    </button>
+  <div id="consAntWrap" style="display:none">
+   <p class="lbl" style="margin-top:6px">Anteriores</p>
+   <div class="card" style="padding:4px 16px" id="listaAnteriores"></div>
   </div>
  </div></div>
 </section>
+
 <section class="scr" data-scr="consultas-prox" data-tab="consultas" data-dock="si">
  <header class="hdr">
-  <div class="navbar"><button class="atras" data-go="consultas"><svg class="i"><use href="#ic-back"></use></svg>Consultas</button><span class="crece"></span><span class="hdr-titulo-c">Dra. Ríos</span></div>
-  <p class="hdr-sub">Viernes 4 de septiembre, 10:30 · en 3 días</p>
+  <div class="navbar"><button class="atras" data-go="consultas"><svg class="i"><use href="#ic-back"></use></svg>Consultas</button><span class="crece"></span><span class="hdr-titulo-c">Próxima consulta</span></div>
+  <p class="hdr-sub" id="proxSub">—</p>
  </header>
  <div class="scroll"><div class="cuerpo">
   <p class="lbl">Para preguntar</p>
-  <div class="stack" id="listaNotas">
-  <div class="card"><div class="row" style="align-items:flex-start"><span class="check on"><svg class="i"><use href="#ic-check"></use></svg></span>
-    <div class="stack-sm" style="gap:3px"><p style="font-size:14.6px;font-weight:600">Elsa viene con náuseas desde el jueves. ¿Es esperable con este tratamiento?</p>
-    <span class="pill pill-marca">De lo que anotaste el 28/8</span></div></div></div>
-  <div class="card"><div class="row" style="align-items:flex-start"><span class="check on"><svg class="i"><use href="#ic-check"></use></svg></span>
-    <div class="stack-sm" style="gap:3px"><p style="font-size:14.6px;font-weight:600">La creatinina dio 1,4 en el análisis del 19/8. ¿Hay que avisarle al nefrólogo?</p>
-    <span class="pill pill-marca">Del laboratorio del 19/8</span></div></div></div>
-  <div class="card"><div class="row" style="align-items:flex-start"><span class="check on"><svg class="i"><use href="#ic-check"></use></svg></span>
-    <div class="stack-sm" style="gap:3px"><p style="font-size:14.6px;font-weight:600">¿Puede seguir tomando Metformina durante el tratamiento?</p>
-    <span class="pill pill-aten">Quedó sin responder el 26/8</span></div></div></div>
+  <div class="stack" id="listaNotas"></div>
+  <div class="vacio" id="notasVacio" style="padding:20px 14px">
+   <b style="font-size:14.6px">Todavía no anotaste nada</b>
+   <p>Lo que se te ocurra entre hoy y el día de la consulta, guardalo acá. Ese día te lo muestro todo junto.</p>
   </div>
   <button class="btn btn-ghost" data-go="nota-nueva"><svg class="i"><use href="#ic-plus"></use></svg>Agregar una nota o pregunta</button>
-  <hr class="hr">
-  <p class="lbl">Llevá también</p>
-  <div class="card" style="padding:4px 16px">
-   <button class="lista-item" data-go="estudio" data-origen="consultas-prox|Preparar">
-    <div class="thumb ok"><svg class="i"><use href="#ic-folder"></use></svg></div>
-    <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Laboratorio · 19 de agosto</span><span class="small muted">Creatinina 1,4 · fuera de rango</span></div>
-    <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
-   </button>
+  <div id="proxEstudios" style="display:none">
+   <hr class="hr">
+   <p class="lbl">Llevá también</p>
+   <div class="card" style="padding:4px 16px" id="listaProxEstudios"></div>
   </div>
   <button class="btn btn-primary" data-go="consentimiento" style="margin-top:4px"><svg class="i"><use href="#ic-mic"></use></svg>Estoy entrando a la consulta</button>
  </div></div>
 </section>
-<!-- ===== ESTUDIOS ===== -->
+
 <section class="scr" data-scr="estudios" data-tab="estudios" data-dock="si" data-fab="Nuevo estudio|est-origen">
  <header class="hdr">
   <div class="navbar"><h1 class="hdr-titulo">Estudios</h1><span class="crece"></span>
     <button class="accion accion-urg" data-go="guardia"><svg class="i"><use href="#ic-alert"></use></svg>Guardia</button>
-    </div>
-  <p class="hdr-sub">9 cargados · desde junio 2026</p>
-  <div class="buscar"><svg class="i"><use href="#ic-search"></use></svg><span>Buscá «creatinina», «TAC», una fecha…</span></div>
-  <div class="filtros"><button class="filtro" aria-pressed="true">Todos</button><button class="filtro">Laboratorio</button><button class="filtro">Imágenes</button><button class="filtro">Recetas</button><button class="filtro">Por fecha</button></div>
+  </div>
+  <p class="hdr-sub" id="estSub">Todavía no hay ninguno</p>
+  <div id="estFiltros" style="display:none">
+   <div class="buscar"><svg class="i"><use href="#ic-search"></use></svg><span>Buscá «creatinina», «TAC», una fecha…</span></div>
+   <div class="filtros"><button class="filtro" aria-pressed="true">Todos</button><button class="filtro">Laboratorio</button><button class="filtro">Imágenes</button><button class="filtro">Recetas</button><button class="filtro">Por fecha</button></div>
+  </div>
  </header>
  <div class="scroll"><div class="cuerpo">
-  <p class="lbl">Agosto 2026</p>
-  <div class="card" style="padding:4px 16px" id="listaEstudios">
-    <button class="lista-item" data-go="estudio" data-origen="estudios|Estudios">
-      <div class="thumb ok"><svg class="i"><use href="#ic-folder"></use></svg></div>
-      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Laboratorio completo</span><span class="small muted">19 de agosto · 14 valores leídos</span></div>
-      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
-    </button>
-    <button class="lista-item" data-go="estudio" data-origen="estudios|Estudios">
-      <div class="thumb"><svg class="i"><use href="#ic-print"></use></svg></div>
-      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Receta · Enalapril 10 mg</span><span class="small muted">26 de agosto · Dra. Ríos</span></div>
-      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
-    </button>
+  <div class="vacio" id="estVacio">
+   <svg class="i"><use href="#ic-camera"></use></svg>
+   <b>Acá van los estudios</b>
+   <p>Análisis, informes, recetas y órdenes. Les sacás una foto y yo leo los valores, así después los encontrás buscando.</p>
+   <button class="btn btn-primary btn-sm" style="margin-top:4px" data-go="est-origen">Cargar el primero</button>
   </div>
-  <p class="lbl" style="margin-top:6px">Junio 2026</p>
-  <div class="card" style="padding:4px 16px">
-    <button class="lista-item" data-go="estudio" data-origen="estudios|Estudios">
-      <div class="thumb"><svg class="i"><use href="#ic-folder"></use></svg></div>
-      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">TAC de abdomen</span><span class="small muted">12 de junio · Hospital Italiano</span></div>
-      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
-    </button>
-    <button class="lista-item" data-go="estudio" data-origen="estudios|Estudios">
-      <div class="thumb"><svg class="i"><use href="#ic-folder"></use></svg></div>
-      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Ecografía vesical</span><span class="small muted">2 de junio</span></div>
-      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
-    </button>
-    <button class="lista-item" data-go="estudio" data-origen="estudios|Estudios">
-      <div class="thumb"><svg class="i"><use href="#ic-folder"></use></svg></div>
-      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Análisis de orina</span><span class="small muted">2 de junio</span></div>
-      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
-    </button>
+  <div id="estWrap" style="display:none">
+   <div class="card" style="padding:4px 16px" id="listaEstudios"></div>
   </div>
  </div></div>
 </section>
-<!-- ===== ELSA ===== -->
+
+
 <section class="scr" data-scr="perfil" data-tab="perfil" data-dock="si">
  <header class="hdr">
   <div class="navbar"><h1 class="hdr-titulo">Elsa Fernández</h1><span class="crece"></span>
@@ -722,10 +608,8 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
     <button class="lista-item"><div class="thumb" style="background:var(--marca-suave)"><svg class="i" style="stroke-width:2.4"><use href="#ic-plus"></use></svg></div><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name" style="color:var(--marca-texto)">Invitar a alguien más</span></div></button>
   </div>
   <p class="lbl" style="margin-top:4px">Médicos que la atienden</p>
-  <div class="card" style="padding:4px 16px" id="listaMedicos">
-    <button class="lista-item"><div class="thumb"><svg class="i"><use href="#ic-user"></use></svg></div><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Dra. Paula Ríos</span><span class="small muted">Oncología · de cabecera</span></div><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
-    <button class="lista-item"><div class="thumb"><svg class="i"><use href="#ic-user"></use></svg></div><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Dr. Andrés Sosa</span><span class="small muted">Urología</span></div><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
-  </div>
+  <div class="card" style="padding:4px 16px" id="listaMedicos"></div>
+  <p class="small muted" id="medVacio" style="margin-top:-6px">Los vas a ir agregando a medida que agendes consultas.</p>
   <div class="card-flat" style="margin-top:4px"><div class="row"><svg class="i" style="color:var(--gris)"><use href="#ic-lock"></use></svg><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Privacidad y datos</span><span class="small muted">Quién ve qué, y cómo se borra</span></div><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></div></div>
  </div></div>
 </section>
@@ -1036,16 +920,10 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
 <section class="scr" data-scr="cons-quien" data-dock="no">
  <header class="hdr hdr-modal"><div class="navbar"><button class="accion" data-go="consultas">Cancelar</button><span class="titulo-modal">Nueva consulta</span><span class="crece"></span></div></header>
  <div class="scroll"><div class="cuerpo">
-  <h3 style="font-size:20px;letter-spacing:-.03em">¿Con quién es?</h3>
-  <p class="muted small" style="margin-top:-8px">Estos son los médicos que atienden a Elsa.</p>
-  <p class="lbl" style="margin-top:4px">Lo tenías pendiente</p>
-  <div class="card" style="padding:2px 14px;border:1.5px solid var(--marca)">
-   <button class="opcion" data-go="cons-cuando" data-medico="beltran"><div class="thumb" style="background:var(--marca-suave)"><svg class="i"><use href="#ic-user"></use></svg></div><span><b>Dr. Gustavo Beltrán</b><span>Nefrología · la Dra. Ríos lo pidió el 26/8</span></span><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
-  </div>
-  <p class="lbl" style="margin-top:6px">Sus médicos</p>
+  <h3 style="font-size:18.2px;letter-spacing:-.03em">¿Con quién es?</h3>
+  <p class="muted small" style="margin-top:-8px">Los médicos que ya atienden a Elsa.</p>
+  <div class="card" style="padding:2px 14px" id="listaElegirMedico"></div>
   <div class="card" style="padding:2px 14px">
-   <button class="opcion" data-go="cons-cuando" data-medico="rios"><div class="thumb"><svg class="i"><use href="#ic-user"></use></svg></div><span><b>Dra. Paula Ríos</b><span>Oncología · de cabecera</span></span><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
-   <button class="opcion" data-go="cons-cuando" data-medico="sosa"><div class="thumb"><svg class="i"><use href="#ic-user"></use></svg></div><span><b>Dr. Andrés Sosa</b><span>Urología</span></span><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
    <button class="opcion" data-go="cons-medico-nuevo"><div class="thumb" style="background:var(--marca-suave)"><svg class="i" style="stroke-width:2.4"><use href="#ic-plus"></use></svg></div><span><b>Otro médico</b><span>Lo agrego a la lista de Elsa</span></span><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
   </div>
  </div></div>
@@ -1056,16 +934,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
  <div class="scroll"><div class="cuerpo">
   <div class="field"><span class="lbl">Nombre</span><div class="input editable" id="medNombre" contenteditable="true" spellcheck="false">Laura</div></div>
   <div class="field"><span class="lbl">Apellido</span><div class="input editable" id="medApellido" contenteditable="true" spellcheck="false">Giménez</div></div>
-  <div class="field"><span class="lbl">Especialidad</span>
-   <div class="chips" id="chipsEsp">
-     <span class="chip" data-esp="Clínica médica">Clínica médica</span>
-     <span class="chip on" data-esp="Nefrología"><svg class="i"><use href="#ic-check"></use></svg>Nefrología</span>
-     <span class="chip" data-esp="Cardiología">Cardiología</span>
-     <span class="chip" data-esp="Neurología">Neurología</span>
-     <span class="chip" data-esp="Traumatología">Traumatología</span>
-     <span class="chip" data-esp="Otra">Otra</span>
-   </div>
-  </div>
+  <div class="field"><span class="lbl">Especialidad</span><div class="input editable" id="medEsp" contenteditable="true" spellcheck="false">Nefrología</div></div>
   <div class="card-flat">
    <div class="row" style="align-items:flex-start;gap:11px">
     <svg class="i" style="color:var(--gris);margin-top:2px"><use href="#ic-user"></use></svg>
@@ -1154,6 +1023,8 @@ const stage=document.querySelector(".stage"),
       fab=document.getElementById("fab"),
       fabEt=document.getElementById("fabEt");
 function go(id){
+  if(id==="cons-quien" && E.medicos.length===0) id="cons-medico-nuevo";
+  if(id==="cons-cuando") requestAnimationFrame(colocarRuedas);
   const t=document.querySelector('.scr[data-scr="'+id+'"]'); if(!t) return;
   document.querySelectorAll(".scr").forEach(s=>{
     s.classList.toggle("is-on",s===t);
@@ -1183,34 +1054,164 @@ document.querySelectorAll(".scroll").forEach(sc=>{
     ultimo=y;
   },{passive:true});
 });
-let relojToast=null, agregado=null;
+let relojToast=null;
+const E={consulta:null, pendientes:[], estudios:[], notas:[], anteriores:[], medicos:[]};
+const $=id=>document.getElementById(id);
+const ver=(el,on)=>{ if(el) el.style.display = on ? "" : "none"; };
+
 function mostrarToast(txt){
-  toast.querySelector(".txt").textContent=txt||"Listo, lo agregué";
+  toast.querySelector(".txt").textContent=txt||"Listo";
   toast.classList.add("ver");
   clearTimeout(relojToast);
   relojToast=setTimeout(()=>toast.classList.remove("ver"),6000);
 }
-function agregarPendiente(){
-  const lista=document.getElementById("listaPendientes"); if(!lista) return;
-  if(agregado) agregado.remove();
-  const fila=document.createElement("button");
-  fila.className="lista-item nuevo-item";
-  fila.innerHTML='<div class="thumb aten"><svg class="i"><use href="#ic-lock"></use></svg></div>'+
-    '<div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Autorizar la ecografía de control</span>'+
-    '<span class="small muted">Esta semana · 4 pasos · de la consulta del 26/8</span></div>'+
-    '<span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>';
-  lista.insertBefore(fila, lista.firstElementChild);
-  agregado=fila;
-  mostrarToast("Listo, lo agregué");
-}
-const MEDICOS={
-  beltran:["Dr. Gustavo Beltrán","Nefrología","Lista. También saqué el pendiente."],
-  rios:["Dra. Paula Ríos","Oncología","Listo, la agendé"],
-  sosa:["Dr. Andrés Sosa","Urología","Listo, la agendé"],
-  nuevo:["Laura Giménez","Nefrología","Listo, la agendé"]
-};
-let medicoElegido="beltran", espElegida="Nefrología";
 
+function fila(html,extra){
+  const b=document.createElement("button");
+  b.className="lista-item nuevo-item"+(extra?" "+extra:"");
+  b.innerHTML=html; return b;
+}
+const chev='<span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>';
+
+function render(){
+  const hayAlgo = E.consulta || E.pendientes.length || E.estudios.length;
+  /* ---- Inicio ---- */
+  ver($("bDiaUno"), !hayAlgo);
+  ver($("bAccesos"), hayAlgo);
+  ver($("bPendientes"), hayAlgo);
+  ver($("bConsulta"), !!E.consulta);
+  ver($("bSinConsulta"), hayAlgo && !E.consulta);
+  $("homeSub").textContent = hayAlgo ? "Martes 1 de septiembre" : "Hola, Mariana · martes 1 de septiembre";
+  if(E.consulta){
+    $("hcCuando").textContent="Tu próxima consulta";
+    $("hcQuien").textContent=E.consulta.quien+" · "+E.consulta.esp;
+    $("hcDonde").textContent=E.consulta.fecha+", "+E.consulta.cuando+" · "+E.consulta.donde;
+    $("hcBoton").textContent = E.notas.length ? "Preparar la consulta · "+E.notas.length+(E.notas.length===1?" nota":" notas") : "Preparar la consulta";
+  }
+  const lp=$("listaPendientes"), agr=$("filaAgregarPend");
+  [...lp.children].forEach(n=>{ if(n!==agr) n.remove(); });
+  E.pendientes.forEach(x=>lp.insertBefore(fila(
+    '<div class="thumb aten"><svg class="i"><use href="#ic-'+(x.icono||"doc")+'"></use></svg></div>'+
+    '<div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">'+x.t+'</span><span class="small muted">'+x.d+'</span></div>'+chev), agr));
+  const ult=E.estudios.slice(0,2);
+  ver($("bUltimo"), ult.length>0);
+  $("listaUltimo").innerHTML="";
+  ult.forEach(x=>$("listaUltimo").appendChild(fila(
+    '<div class="thumb aten"><svg class="i"><use href="#ic-folder"></use></svg></div>'+
+    '<div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">'+x.t+'</span><span class="small muted">'+x.d+'</span></div>'+
+    '<span class="pill pill-aten">Leyendo</span>')));
+
+  /* ---- Consultas ---- */
+  const hayCons = !!E.consulta || E.anteriores.length>0;
+  ver($("consVacio"), !hayCons);
+  ver($("consBuscar"), hayCons);
+  ver($("consProxWrap"), !!E.consulta);
+  ver($("consAntWrap"), E.anteriores.length>0);
+  $("consSub").textContent = hayCons
+    ? (E.consulta?"1 agendada":"") + (E.consulta&&E.anteriores.length?" · ":"") + (E.anteriores.length?E.anteriores.length+" anterior"+(E.anteriores.length>1?"es":""):"")
+    : "Todavía no hay ninguna";
+  $("listaProximas").innerHTML="";
+  if(E.consulta){
+    const f=fila('<div class="thumb" style="background:var(--marca-suave)"><svg class="i"><use href="#ic-today"></use></svg></div>'+
+      '<div class="stack-sm" style="gap:2px;flex:1"><span class="med-name">'+E.consulta.quien+' · '+E.consulta.esp+'</span>'+
+      '<span class="small" style="color:var(--marca-texto);font-weight:700">'+E.consulta.fecha+', '+E.consulta.cuando+'</span>'+
+      '<span class="small muted">'+(E.notas.length?E.notas.length+" nota"+(E.notas.length>1?"s":"")+" lista"+(E.notas.length>1?"s":""):"Sin notas todavía")+'</span></div>'+chev);
+    f.dataset.go="consultas-prox";
+    $("listaProximas").appendChild(f);
+  }
+
+  /* ---- Estudios ---- */
+  ver($("estVacio"), E.estudios.length===0);
+  ver($("estWrap"), E.estudios.length>0);
+  ver($("estFiltros"), E.estudios.length>0);
+  $("estSub").textContent = E.estudios.length ? E.estudios.length+" cargado"+(E.estudios.length>1?"s":"") : "Todavía no hay ninguno";
+  $("listaEstudios").innerHTML="";
+  E.estudios.forEach(x=>{
+    const f=fila('<div class="thumb aten"><svg class="i"><use href="#ic-folder"></use></svg></div>'+
+      '<div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">'+x.t+'</span><span class="small muted">'+x.d+'</span></div>'+
+      '<span class="pill pill-aten">Leyendo</span>');
+    f.dataset.go="estudio"; f.dataset.origen="estudios|Estudios";
+    $("listaEstudios").appendChild(f);
+  });
+
+  /* ---- Preparar ---- */
+  if(E.consulta) $("proxSub").textContent=E.consulta.quien+" · "+E.consulta.fecha+", "+E.consulta.cuando;
+  ver($("notasVacio"), E.notas.length===0);
+  $("listaNotas").innerHTML="";
+  E.notas.forEach(n=>{
+    const d=document.createElement("div"); d.className="card nuevo-item";
+    d.innerHTML='<div class="row" style="align-items:flex-start"><span class="check on"><svg class="i"><use href="#ic-check"></use></svg></span>'+
+      '<div class="stack-sm" style="gap:3px"><p style="font-size:14.6px;font-weight:600">'+n.t+'</p>'+
+      '<span class="pill '+n.cls+'">'+n.et+'</span></div></div>';
+    $("listaNotas").appendChild(d);
+  });
+  ver($("proxEstudios"), E.estudios.length>0);
+  $("listaProxEstudios").innerHTML="";
+  E.estudios.forEach(x=>{
+    const f=fila('<div class="thumb aten"><svg class="i"><use href="#ic-folder"></use></svg></div>'+
+      '<div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">'+x.t+'</span><span class="small muted">'+x.d+'</span></div>'+chev);
+    f.dataset.go="estudio"; f.dataset.origen="consultas-prox|Preparar";
+    $("listaProxEstudios").appendChild(f);
+  });
+
+  /* ---- elegir médico ---- */
+  const le=$("listaElegirMedico");
+  if(le){
+    le.innerHTML="";
+    E.medicos.forEach(m=>{
+      const b=document.createElement("button");
+      b.className="opcion"; b.dataset.go="cons-cuando"; b.dataset.medico=m.n;
+      b.innerHTML='<div class="thumb"><svg class="i"><use href="#ic-user"></use></svg></div>'+
+        '<span><b>'+m.n+'</b><span>'+m.e+'</span></span>'+chev;
+      le.appendChild(b);
+    });
+    ver(le, E.medicos.length>0);
+    ver(le.previousElementSibling, E.medicos.length>0);
+  }
+
+  /* ---- Elsa ---- */
+  const lm=$("listaMedicos");
+  if(lm){
+    lm.innerHTML="";
+    E.medicos.forEach(m=>lm.appendChild(fila(
+      '<div class="thumb"><svg class="i"><use href="#ic-user"></use></svg></div>'+
+      '<div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">'+m.n+'</span><span class="small muted">'+m.e+'</span></div>'+chev)));
+    ver(lm, E.medicos.length>0);
+    ver($("medVacio"), E.medicos.length===0);
+  }
+}
+
+/* --- altas --- */
+let ultimo=null;
+function deshacer(){
+  if(!ultimo) return;
+  ultimo(); ultimo=null;
+  toast.classList.remove("ver"); clearTimeout(relojToast);
+  render();
+}
+document.getElementById("deshacer").addEventListener("click",deshacer);
+
+function agregarPendiente(){
+  const x={t:"Autorizar la ecografía de control", d:"Esta semana · de la consulta del 26/8", icono:"lock"};
+  E.pendientes.unshift(x);
+  ultimo=()=>{E.pendientes.splice(E.pendientes.indexOf(x),1);};
+  render(); mostrarToast("Listo, lo agregué");
+}
+function agregarEstudio(origen){
+  const x={t:"Estudio sin nombre", d:"1 de septiembre · desde "+origen};
+  E.estudios.unshift(x);
+  ultimo=()=>{E.estudios.splice(E.estudios.indexOf(x),1);};
+  render(); mostrarToast("Lo estoy leyendo, te aviso");
+}
+const ETIQ={pregunta:["Pregunta tuya","pill-marca"],sintoma:["Síntoma que anotaste","pill-aten"],llevar:["Para llevar","pill-marca"]};
+let tipoNota="pregunta";
+function agregarNota(){
+  const [et,cls]=ETIQ[tipoNota]||ETIQ.pregunta;
+  const x={t:"Duerme mucho de día desde que empezó el tratamiento. ¿Es normal?", et:et+" · hoy", cls:cls};
+  E.notas.unshift(x);
+  ultimo=()=>{E.notas.splice(E.notas.indexOf(x),1);};
+  render(); mostrarToast("Guardada para la consulta");
+}
 /* rueda de hora */
 function armarRueda(el,desde,hasta,paso,inicial){
   el.innerHTML='<span class="pad"></span>'+
@@ -1231,37 +1232,44 @@ function armarRueda(el,desde,hasta,paso,inicial){
   };
   el.addEventListener("scroll",()=>{clearTimeout(el._t); el._t=setTimeout(marcar,110);},{passive:true});
   el.addEventListener("scrollend",marcar);
-  el.scrollTop=((inicial-desde)/paso)*40;
-  requestAnimationFrame(marcar);
+  el._colocar=()=>{
+    if(!el._listo){ el.scrollTop=((inicial-desde)/paso)*40; el._listo=true; }
+    marcar();
+  };
 }
-const ruedaH=document.getElementById("ruedaH"), ruedaM=document.getElementById("ruedaM");
+const ruedaH=$("ruedaH"), ruedaM=$("ruedaM");
 armarRueda(ruedaH,6,20,1,11); armarRueda(ruedaM,0,55,5,30);
+function colocarRuedas(){ ruedaH._colocar(); ruedaM._colocar(); }
 const horaElegida=()=>String(ruedaH.dataset.valor??11)+":"+String(ruedaM.dataset.valor??30).padStart(2,"0");
 
+let medicoElegido=null;
 function guardarMedico(){
-  const nom=(document.getElementById("medNombre").textContent||"").trim();
-  const ape=(document.getElementById("medApellido").textContent||"").trim();
-  MEDICOS.nuevo=[(nom+" "+ape).trim()||"Médico nuevo", espElegida, "Listo. Y lo guardé en los médicos de Elsa."];
-  const lista=document.getElementById("listaMedicos");
-  if(lista && !lista.querySelector(".nuevo-medico")){
-    const fila=document.createElement("button");
-    fila.className="lista-item nuevo-medico";
-    fila.innerHTML='<div class="thumb"><svg class="i"><use href="#ic-user"></use></svg></div>'+
-      '<div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">'+MEDICOS.nuevo[0]+'</span>'+
-      '<span class="small muted">'+espElegida+'</span></div>'+
-      '<span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>';
-    lista.appendChild(fila);
-  }
+  const nom=($("medNombre").textContent||"").trim();
+  const ape=($("medApellido").textContent||"").trim();
+  const esp=($("medEsp").textContent||"").trim()||"Sin especialidad";
+  medicoElegido={n:(nom+" "+ape).trim()||"Médico nuevo", e:esp, nuevo:true};
+  $("consMedico").textContent=medicoElegido.n;
+  $("consEsp").textContent=medicoElegido.e;
 }
+function agendarConsulta(){
+  const m=medicoElegido||{n:"Médico",e:""};
+  const previa=E.consulta, eraNuevo=m.nuevo && !E.medicos.some(x=>x.n===m.n);
+  E.consulta={quien:m.n, esp:m.e, fecha:"Lunes 28 de septiembre", cuando:horaElegida(), donde:"Hospital Italiano"};
+  if(eraNuevo) E.medicos.push({n:m.n,e:m.e});
+  ultimo=()=>{ E.consulta=previa; if(eraNuevo) E.medicos.pop(); };
+  render();
+  mostrarToast(eraNuevo ? "Agendada. Y lo guardé en los médicos de Elsa." : "Listo, la agendé");
+}
+
 /* grabación en segundo plano */
-let grabando=false, seg=872, relojGrab=null;
+let grabando=false, seg=0, relojGrab=null;
 const fmt=v=>Math.floor(v/60)+":"+String(v%60).padStart(2,"0");
 function pintarTimer(){
-  const a=document.getElementById("timerGrande"), b=document.getElementById("timerChico");
+  const a=$("timerGrande"), b=$("timerChico");
   if(a) a.textContent=fmt(seg); if(b) b.textContent=fmt(seg);
 }
 function empezarGrabacion(){
-  grabando=true; stage.classList.add("grabando");
+  grabando=true; seg=0; stage.classList.add("grabando");
   clearInterval(relojGrab);
   relojGrab=setInterval(()=>{seg++; pintarTimer();},1000);
   pintarTimer();
@@ -1269,65 +1277,28 @@ function empezarGrabacion(){
 function terminarGrabacion(){
   grabando=false; stage.classList.remove("grabando");
   clearInterval(relojGrab); relojGrab=null;
+  if(E.consulta){
+    E.anteriores.unshift({q:E.consulta.quien});
+    const ant=$("listaAnteriores");
+    if(ant){
+      const f=fila('<div class="thumb"><svg class="i"><use href="#ic-mic"></use></svg></div>'+
+        '<div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">'+E.consulta.quien+' · '+E.consulta.esp+'</span>'+
+        '<span class="small muted">Hoy · 3 indicaciones</span></div>'+chev);
+      f.dataset.go="resumen"; ant.insertBefore(f, ant.firstChild);
+    }
+    E.consulta=null; E.notas.length=0;
+  }
+  render();
 }
 
-/* el estudio recuerda de dónde se abrió */
 function origenEstudio(valor){
-  const b=document.getElementById("atrasEstudio"); if(!b) return;
+  const b=$("atrasEstudio"); if(!b) return;
   const [destino,etiqueta]=(valor||"estudios|Estudios").split("|");
   b.dataset.go=destino;
   b.innerHTML='<svg class="i"><use href="#ic-back"></use></svg>'+etiqueta;
   const scr=document.querySelector('.scr[data-scr="estudio"]');
   if(scr) scr.dataset.tab = destino==="estudios" ? "estudios" : (destino==="consulta" ? "" : "consultas");
 }
-
-let tipoNota="pregunta";
-const ETIQ={pregunta:["Pregunta tuya","pill-marca"],sintoma:["Síntoma que anotaste","pill-aten"],llevar:["Para llevar","pill-marca"]};
-function agregarNota(){
-  const lista=document.getElementById("listaNotas"); if(!lista) return;
-  if(agregado) agregado.remove();
-  const [et,cls]=ETIQ[tipoNota]||ETIQ.pregunta;
-  const tarjeta=document.createElement("div");
-  tarjeta.className="card nuevo-item";
-  tarjeta.innerHTML='<div class="row" style="align-items:flex-start"><span class="check on"><svg class="i"><use href="#ic-check"></use></svg></span>'+
-    '<div class="stack-sm" style="gap:3px"><p style="font-size:14.6px;font-weight:600">Duerme mucho de día desde que empezó el tratamiento. ¿Es normal?</p>'+
-    '<span class="pill '+cls+'">'+et+' · hoy</span></div></div>';
-  lista.insertBefore(tarjeta, lista.firstElementChild);
-  agregado=tarjeta;
-  mostrarToast("Guardada para el viernes");
-}
-function agendarConsulta(){
-  const lista=document.getElementById("listaProximas"); if(!lista) return;
-  if(agregado) agregado.remove();
-  const [nom,esp,msg]=MEDICOS[medicoElegido]||MEDICOS.otro;
-  const fila=document.createElement("button");
-  fila.className="lista-item nuevo-item";
-  fila.innerHTML='<div class="thumb" style="background:var(--marca-suave)"><svg class="i"><use href="#ic-today"></use></svg></div>'+
-    '<div class="stack-sm" style="gap:2px;flex:1"><span class="med-name">'+nom+' · '+esp+'</span>'+
-    '<span class="small" style="color:var(--marca-texto);font-weight:700">Lunes 28 de septiembre, '+horaElegida()+'</span>'+
-    '<span class="small muted">Hospital Italiano · con recordatorio</span></div>'+
-    '<span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>';
-  lista.appendChild(fila);
-  agregado=fila;
-  mostrarToast(msg);
-}
-function agregarEstudio(origen){
-  const lista=document.getElementById("listaEstudios"); if(!lista) return;
-  if(agregado) agregado.remove();
-  const fila=document.createElement("button");
-  fila.className="lista-item nuevo-item";
-  fila.innerHTML='<div class="thumb aten"><svg class="i"><use href="#ic-folder"></use></svg></div>'+
-    '<div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Estudio sin nombre</span>'+
-    '<span class="small muted">1 de septiembre · desde '+origen+'</span></div>'+
-    '<span class="pill pill-aten">Leyendo</span>';
-  lista.insertBefore(fila, lista.firstElementChild);
-  agregado=fila;
-  mostrarToast("Lo estoy leyendo, te aviso");
-}
-document.getElementById("deshacer").addEventListener("click",()=>{
-  if(agregado){agregado.remove(); agregado=null;}
-  toast.classList.remove("ver"); clearTimeout(relojToast);
-});
 
 document.addEventListener("click",e=>{
   const b=e.target.closest("[data-go]");
@@ -1336,28 +1307,15 @@ document.addEventListener("click",e=>{
     if(b.dataset.go==="consulta" && !grabando) empezarGrabacion();
     if(b.dataset.terminar) terminarGrabacion();
     if(b.dataset.medico==="nuevo") guardarMedico();
-    if(b.dataset.medico){
-      medicoElegido=b.dataset.medico;
-      const m=MEDICOS[medicoElegido]||MEDICOS.otro;
-      document.getElementById("consMedico").textContent=m[0];
-      document.getElementById("consEsp").textContent=m[1];
+    else if(b.dataset.medico){
+      const m=E.medicos.find(x=>x.n===b.dataset.medico);
+      if(m){ medicoElegido={n:m.n,e:m.e}; $("consMedico").textContent=m.n; $("consEsp").textContent=m.e; }
     }
     go(b.dataset.go);
     if(b.dataset.agregar) agregarPendiente();
     if(b.dataset.agendar) agendarConsulta();
     if(b.dataset.notaNueva) agregarNota();
     if(b.dataset.nuevoEstudio) agregarEstudio(b.dataset.nuevoEstudio);
-    return;
-  }
-  const ep=e.target.closest("[data-esp]");
-  if(ep){
-    espElegida=ep.dataset.esp;
-    ep.parentElement.querySelectorAll("[data-esp]").forEach(x=>{
-      const on=x===ep; x.classList.toggle("on",on);
-      const tic=x.querySelector("svg");
-      if(on && !tic) x.insertAdjacentHTML("afterbegin",'<svg class="i"><use href="#ic-check"></use></svg>');
-      if(!on && tic) tic.remove();
-    });
     return;
   }
   const nt=e.target.closest("[data-nota]");
@@ -1378,5 +1336,6 @@ document.addEventListener("click",e=>{
   const ch=e.target.closest(".chip, .check");
   if(ch && ch.classList.contains("check")) ch.classList.toggle("on");
 });
+render();
 go("hoy");
 </script>
