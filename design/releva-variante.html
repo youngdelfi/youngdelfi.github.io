@@ -1,0 +1,1755 @@
+<title>Releva Variante</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* ============================================================
+   RELEVA · sistema de navegación · v2
+   Naranja de marca: #E98047
+   ============================================================ */
+:root{
+  --papel:#F4F2F0; --tarjeta:#FFFFFF; --suave:#EFEAE5; --suave-2:#F7F4F1;
+  --linea:#E2DBD3; --linea-tenue:#EDE8E3;
+  --tinta:#16130F; --gris:#6E6459; --tenue:#8B8179;
+  --terracota:#E98147; --terracota-glifo:#B24C0E;
+  --marca:#E98047;
+  --marca-solida:#E98047;
+  --marca-texto:#E98047;
+  --marca-suave:#FDF0E7;
+  --sobre-marca:#FFFFFF;
+  --hecho:#2F7A55; --hecho-bg:#E4F0E9;
+  --atencion:#1C5A63; --atencion-bg:#E2EEEF; --atencion-linea:#C5DCDF;
+  --urgencia:#B02418; --urgencia-bg:#FAE7E4; --urgencia-linea:#F0CFC9; --sobre-urgencia:#FFFFFF;
+  --pag-fondo:#EDEAE6; --pag-panel:#FBFAF9; --pag-texto:#211D18;
+  --pag-gris:#665D53; --pag-linea:#DCD5CC;
+  --sombra-sm:0 1px 2px rgba(40,26,12,.05), 0 2px 6px rgba(40,26,12,.045);
+  --sombra-lg:0 26px 64px -20px rgba(35,20,8,.32), 0 4px 14px rgba(35,20,8,.10);
+  --sombra-dock:0 -1px 0 rgba(255,255,255,.55) inset, 0 10px 30px -8px rgba(40,24,10,.28), 0 2px 8px rgba(40,24,10,.10);
+  --r:16px; --dock:112px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --papel:#100E0C; --tarjeta:#1A1714; --suave:#241F1B; --suave-2:#1E1A17;
+    --linea:#2F2925; --linea-tenue:#272220;
+    --tinta:#F2EDE7; --gris:#A79C92; --tenue:#7E736A;
+    --terracota:#E98147; --terracota-glifo:#8F3C0B;
+    --marca:#E98047; --marca-solida:#E98047; --marca-texto:#E98047;
+    --marca-suave:#36231A; --sobre-marca:#FFFFFF;
+    --hecho:#6FB68C; --hecho-bg:#15251D;
+    --atencion:#7FC4CC; --atencion-bg:#12262A; --atencion-linea:#1F3E43;
+    --urgencia:#F08A7C; --urgencia-bg:#2E1512; --urgencia-linea:#4A231D; --sobre-urgencia:#1A0806;
+    --pag-fondo:#151210; --pag-panel:#1D1917; --pag-texto:#EDE7E0; --pag-gris:#A79C92; --pag-linea:#2D2724;
+    --sombra-sm:0 1px 2px rgba(0,0,0,.45);
+    --sombra-lg:0 26px 64px -20px rgba(0,0,0,.7), 0 4px 14px rgba(0,0,0,.45);
+    --sombra-dock:0 -1px 0 rgba(255,255,255,.06) inset, 0 12px 34px -10px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --papel:#100E0C; --tarjeta:#1A1714; --suave:#241F1B; --suave-2:#1E1A17;
+  --linea:#2F2925; --linea-tenue:#272220;
+  --tinta:#F2EDE7; --gris:#A79C92; --tenue:#7E736A;
+  --terracota:#E98147; --terracota-glifo:#8F3C0B;
+  --marca:#E98047; --marca-solida:#E98047; --marca-texto:#E98047;
+  --marca-suave:#36231A; --sobre-marca:#FFFFFF;
+  --hecho:#6FB68C; --hecho-bg:#15251D;
+  --atencion:#7FC4CC; --atencion-bg:#12262A; --atencion-linea:#1F3E43;
+  --urgencia:#F08A7C; --urgencia-bg:#2E1512; --urgencia-linea:#4A231D; --sobre-urgencia:#1A0806;
+  --pag-fondo:#151210; --pag-panel:#1D1917; --pag-texto:#EDE7E0; --pag-gris:#A79C92; --pag-linea:#2D2724;
+  --sombra-sm:0 1px 2px rgba(0,0,0,.45);
+  --sombra-lg:0 26px 64px -20px rgba(0,0,0,.7), 0 4px 14px rgba(0,0,0,.45);
+  --sombra-dock:0 -1px 0 rgba(255,255,255,.06) inset, 0 12px 34px -10px rgba(0,0,0,.7);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--pag-fondo); color:var(--pag-texto);
+  font-family:"Instrument Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:14.6px; line-height:1.55; -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{margin:0; text-wrap:balance; line-height:1.15; font-weight:600}
+p{margin:0}
+button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
+:focus-visible{outline:2.5px solid var(--marca-solida); outline-offset:3px; border-radius:7px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+.sprite{display:none}
+.i{width:22px;height:22px;flex:none;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+/* ============================================================
+   TELÉFONO
+   ============================================================ */
+.phone{width:392px;background:#0A0806;border-radius:48px;padding:11px;box-shadow:var(--sombra-lg);border:1px solid rgba(255,255,255,.07)}
+.screen{position:relative;height:800px;border-radius:38px;overflow:hidden;background:var(--papel);
+  display:flex;flex-direction:column;font-family:"Instrument Sans",-apple-system,BlinkMacSystemFont,sans-serif;
+  color:var(--tinta);font-size:14.6px}
+.screen[data-sb="naranja"] .statusbar{background:var(--terracota);color:#FFFFFF}
+.screen[data-sb="rojo"] .statusbar{background:var(--urgencia);color:var(--sobre-urgencia)}
+.hdr.hdr-raiz{background:var(--terracota);color:#FFFFFF;padding:2px 16px 16px;
+  position:relative;z-index:14;box-shadow:0 6px 18px -5px rgba(70,32,16,.38)}
+.hdr.hdr-raiz .fila-r{display:flex;align-items:center;gap:10px;min-height:46px}
+.hdr.hdr-raiz h1{font-size:25px;font-weight:600;letter-spacing:-.035em;line-height:1.1;display:flex;align-items:center;gap:10px}
+.hdr.hdr-raiz .sub-r{font-size:13.2px;font-weight:500;opacity:.94;margin-top:5px}
+.hdr.hdr-raiz::after{display:none}
+.scr.colapsado .hdr.hdr-raiz{background:var(--terracota);backdrop-filter:none;-webkit-backdrop-filter:none}
+.hdr.hdr-raiz .accion-urg{background:#FFFFFF;border-color:transparent;color:var(--urgencia)}
+.hdr.hdr-raiz .rombo-h1{background:#FFFFFF}
+.hdr.hdr-raiz .rombo-h1::after{background:var(--terracota)}
+.statusbar{flex:none;height:44px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 26px 0 30px;font-size:12.7px;font-weight:600;font-variant-numeric:tabular-nums;z-index:20;background:var(--papel)}
+.sb-right{display:flex;align-items:center;gap:5px}
+.sb-right svg{width:16px;height:12px;fill:currentColor;stroke:none}
+.stage{position:relative;flex:1;min-height:0}
+.scr{position:absolute;inset:0;display:none;flex-direction:column}
+.scr.is-on{display:flex}
+/* ============================================================
+   1 · ENCABEZADOS
+   ============================================================ */
+.hdr{flex:none;position:relative;z-index:12;background:transparent;transition:background .2s ease}
+.hdr::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--linea);opacity:0;transition:opacity .2s ease}
+.scr.colapsado .hdr{background:color-mix(in srgb, var(--papel) 78%, transparent);
+  backdrop-filter:saturate(180%) blur(20px); -webkit-backdrop-filter:saturate(180%) blur(20px)}
+.scr.colapsado .hdr::after{opacity:1}
+.navbar{display:flex;align-items:center;gap:8px;min-height:50px;padding:0 16px}
+.crece{flex:1}
+.atras{display:flex;align-items:center;gap:1px;color:var(--marca-texto);font-weight:600;
+  font-size:14.1px;letter-spacing:-.015em;padding:8px 8px 8px 2px;margin-left:-2px;min-height:44px}
+.atras .i{width:21px;height:21px;stroke-width:2.4}
+.atras:hover{opacity:.72}
+.accion{display:inline-flex;align-items:center;gap:6px;color:var(--marca-texto);font-weight:600;
+  font-size:13.2px;letter-spacing:-.01em;padding:8px 10px;min-height:44px;border-radius:12px}
+.accion:hover{background:var(--suave)}
+.accion .i{width:18px;height:18px;stroke-width:2.1}
+.accion-urg{color:var(--urgencia);background:var(--urgencia-bg);border:1.5px solid var(--urgencia-linea);
+  padding:7px 13px;border-radius:999px;font-weight:600}
+.persona{display:inline-flex;align-items:center;gap:8px;background:var(--suave);border-radius:999px;
+  padding:6px 12px 6px 6px;font-weight:600;font-size:12.7px;letter-spacing:-.01em;min-height:44px}
+.persona:hover{background:var(--linea-tenue)}
+.av{width:30px;height:30px;border-radius:999px;background:var(--marca-solida);color:var(--sobre-marca);
+  display:grid;place-items:center;font-size:11.8px;font-weight:600;flex:none}
+.persona .rol{color:var(--gris);font-weight:500}
+.persona .i{width:15px;height:15px;color:var(--gris);stroke-width:2.4}
+.hdr-titulo{display:flex;align-items:center;gap:9px;font-size:18.2px;font-weight:600;letter-spacing:-.032em;line-height:1.1}
+.hdr-titulo-c{position:absolute;left:0;right:0;top:0;height:50px;line-height:50px;text-align:center;
+  font-size:15px;font-weight:600;letter-spacing:-.02em;pointer-events:none;padding:0 104px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hdr-sub{padding:0 16px 9px;margin-top:-2px;font-size:12.7px;font-weight:500;color:var(--gris)}
+.buscar{margin:2px 18px 10px;display:flex;align-items:center;gap:9px;min-height:48px;
+  background:var(--suave);border-radius:14px;padding:0 14px;color:var(--gris);font-size:13.7px;font-weight:500}
+.buscar .i{width:18px;height:18px;stroke-width:2.2;flex:none}
+.buscar span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.segmentado{margin:0 18px 10px;display:flex;gap:3px;background:var(--suave);border-radius:13px;padding:4px}
+.segmentado button{flex:1;font-weight:600;font-size:12.7px;letter-spacing:-.01em;color:var(--gris);
+  padding:10px 4px;border-radius:10px;min-height:44px}
+.segmentado button[aria-selected="true"]{background:var(--tarjeta);color:var(--tinta);box-shadow:0 1px 3px rgba(0,0,0,.14)}
+.filtros{display:flex;gap:7px;padding:0 18px 10px;overflow-x:auto;scrollbar-width:none}
+.filtros::-webkit-scrollbar{display:none}
+.filtro{flex:none;padding:8px 14px;min-height:40px;border-radius:999px;border:1.5px solid var(--linea);
+  background:var(--tarjeta);font-size:13.2px;font-weight:600;color:var(--gris);white-space:nowrap}
+.filtro[aria-pressed="true"]{background:var(--marca-suave);border-color:var(--marca);color:var(--marca-texto)}
+.hdr-modal .navbar{min-height:52px}
+.hdr-modal .titulo-modal{position:absolute;left:0;right:0;top:2px;height:52px;line-height:52px;text-align:center;
+  font-size:14.1px;font-weight:600;letter-spacing:-.02em;pointer-events:none;padding:0 100px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hdr.hdr-marca{background:var(--terracota);color:#FFFFFF;padding:0 16px 15px}
+.hdr-marca::after{display:none}
+.scr.colapsado .hdr.hdr-marca{background:var(--terracota);backdrop-filter:none;-webkit-backdrop-filter:none}
+.hdr-marca{display:block;padding:10px 16px 16px}
+.hdr-marca .fila-hdr{display:flex;align-items:center;gap:14px}
+.hdr-marca .cuad{width:54px;height:54px;border-radius:999px;background:#FFFFFF;color:var(--terracota-glifo);display:grid;place-items:center;flex:none}
+.hdr-marca .cuad .i{width:26px;height:26px;stroke-width:2.9}
+.hdr-marca .cuad:active{transform:scale(.95)}
+.hdr-marca .tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.hdr-marca .tx .ojal{display:block;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;
+  letter-spacing:.13em;text-transform:uppercase;font-weight:500;opacity:.82;margin-bottom:2px}
+.hdr-marca .tx b{font-size:19.1px;font-weight:600;letter-spacing:-.03em;line-height:1.2}
+.hdr-marca .tx span{font-size:13.7px;opacity:.94;font-weight:500}
+.hdr-marca .navbar{padding:0;min-height:50px}
+.hdr-marca .atras,.hdr-marca .accion{color:#FFFFFF}
+.hdr-marca .accion:hover{background:rgba(255,255,255,.16)}
+.hdr-marca h1{font-size:19.1px;font-weight:600;letter-spacing:-.03em;line-height:1.15}
+.hdr-marca p{font-size:13.2px;opacity:.92;margin-top:3px;font-weight:500}
+.hdr-urg{background:var(--urgencia);color:var(--sobre-urgencia);padding:6px 16px 16px}
+.hdr-urg .navbar{padding:0;min-height:48px}
+.hdr-urg .accion{color:var(--sobre-urgencia);background:rgba(255,255,255,.16);border-radius:999px;padding:8px 14px}
+.hdr-urg h1{font-size:21.8px;font-weight:600;letter-spacing:-.03em}
+.hdr-urg p{font-size:12.7px;opacity:.92;margin-top:3px}
+.progreso{flex:none;display:flex;gap:5px;padding:4px 18px 12px}
+.progreso span{height:5px;flex:1;border-radius:99px;background:var(--linea)}
+.progreso span.on{background:var(--marca-solida)}
+/* ============================================================
+   2 · CUERPO
+   ============================================================ */
+.scroll{flex:1;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+.cuerpo{padding:18px 18px 26px;display:flex;flex-direction:column;gap:14px;min-height:100%}
+.scr[data-dock="si"] .cuerpo{padding-bottom:calc(var(--dock) + 14px)}
+/* ============================================================
+   3 · BARRA DE PESTAÑAS FLOTANTE + BOTÓN AGREGAR
+   ============================================================ */
+.dock{position:absolute;left:0;right:0;bottom:0;z-index:15;padding:0 12px 10px;pointer-events:none;display:none}
+.stage[data-dock="si"] .dock{display:block}
+.tabbar{pointer-events:auto;display:flex;align-items:center;gap:2px;padding:7px 6px;border-radius:26px;
+  background:color-mix(in srgb, var(--tarjeta) 76%, transparent);
+  backdrop-filter:saturate(200%) blur(26px); -webkit-backdrop-filter:saturate(200%) blur(26px);
+  box-shadow:var(--sombra-dock);border:1px solid color-mix(in srgb, var(--linea) 55%, transparent);
+  transition:padding .22s ease}
+.tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+  min-height:54px;border-radius:19px;color:var(--gris);font-size:10px;font-weight:600;padding:6px 2px;
+  transition:background .16s ease,color .16s ease}
+.tab .i{width:25px;height:25px;stroke-width:1.9}
+.tab .et{transition:max-height .2s ease,opacity .15s ease;max-height:2em;overflow:hidden}
+.tab[aria-selected="true"]{color:var(--marca-texto);background:var(--marca-suave)}
+.tab[aria-selected="true"] .i{stroke-width:2.4}
+.tab:not([aria-selected="true"]):hover{background:var(--suave)}
+.fab{position:absolute;right:16px;bottom:calc(100% + 12px);display:none;align-items:center;gap:8px;
+  height:56px;padding:0 20px;border-radius:20px;background:var(--marca-solida);color:#FFFFFF;
+  font-size:14.1px;font-weight:600;letter-spacing:-.02em;pointer-events:auto;
+  box-shadow:0 8px 22px -6px rgba(160,80,30,.5),0 2px 6px rgba(60,30,10,.18);
+  transition:transform .16s ease,filter .16s ease}
+.tabbar-wrap{position:relative}
+.stage[data-fab="si"] .fab{display:flex}
+.fab .i{width:24px;height:24px;stroke-width:2.6}
+.fab:hover{filter:brightness(1.05)}
+.fab:active{transform:scale(.95)}
+.marca-titulo{display:flex;align-items:center;gap:10px}
+.rombo-h1{width:21px;height:21px;background:var(--marca);border-radius:6px;transform:rotate(45deg);display:grid;place-items:center;flex:none}
+.rombo-h1::after{content:"";width:7px;height:7px;background:var(--papel);border-radius:2px}
+.screen.permite-mini .stage.bajando .tabbar{padding:3px 6px}
+.screen.permite-mini .stage.bajando .tab{min-height:42px}
+.screen.permite-mini .stage.bajando .tab .et{max-height:0;opacity:0}
+.screen.permite-mini .stage.bajando .fab{height:46px;padding:0 16px}
+.indicador{width:132px;height:5px;border-radius:99px;background:var(--tinta);opacity:.28;margin:9px auto 2px}
+.cuad-borde{background:transparent!important;color:#FFFFFF!important;box-shadow:inset 0 0 0 2px rgba(255,255,255,.55);width:44px!important;height:44px!important}
+.cuad-borde .i{width:21px!important;height:21px!important}
+.alta-punteada{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;
+  margin-top:10px;padding:13px 10px;border-radius:14px;border:1.5px dashed var(--linea);
+  color:var(--marca-texto);font-size:14.1px;font-weight:600;letter-spacing:-.02em}
+.alta-punteada .i{width:19px;height:19px;stroke-width:2.5}
+.alta-punteada:active{background:var(--suave-2)}
+.nota-fila{display:flex;align-items:flex-start;gap:12px;width:100%;text-align:left}
+.nota-tx{font-size:14.6px;font-weight:500;line-height:1.4;padding-top:2px}
+.nota-tx.hecha{color:var(--tenue);text-decoration:line-through}
+.par-acciones{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:9px}
+.par-acciones .btn{margin:0;padding:13px 8px;font-size:13.7px;gap:7px}
+.par-acciones .btn .i{width:19px;height:19px}
+/* hoja inferior (sheet) del botón Agregar */
+.scr.hoja{background:rgba(20,12,6,.42);justify-content:flex-end}
+.hoja-panel{background:var(--tarjeta);border-radius:26px 26px 0 0;padding:10px 14px 16px;max-height:90%;overflow-y:auto;
+  box-shadow:0 -12px 40px -10px rgba(30,16,6,.4);animation:sube .22s ease}
+@keyframes sube{from{transform:translateY(26px);opacity:.4}to{transform:none;opacity:1}}
+.hoja-tirador{width:40px;height:5px;border-radius:99px;background:var(--linea);margin:2px auto 12px}
+.hoja-panel h2{font-size:20px;font-weight:600;letter-spacing:-.03em;padding:0 6px 8px}
+.hoja-op{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:13px 6px;border-radius:14px}
+.hoja-op+.hoja-op{border-top:1px solid var(--linea-tenue)}
+.hoja-op:hover{background:var(--suave-2)}
+.hoja-op .thumb{width:48px;height:48px}
+.toast{position:absolute;left:12px;right:12px;bottom:calc(var(--dock) - 8px);z-index:30;
+  display:none;align-items:center;gap:12px;padding:13px 14px;border-radius:16px;
+  background:var(--tinta);color:var(--papel);box-shadow:0 10px 30px -8px rgba(0,0,0,.45);
+  animation:sube .22s ease}
+.toast.ver{display:flex}
+.toast .txt{flex:1;font-size:14.1px;font-weight:600;letter-spacing:-.01em}
+.toast button{color:var(--marca);font-weight:600;font-size:14.1px;padding:8px 4px;min-height:44px}
+.toast .i{width:20px;height:20px;color:var(--hecho);stroke-width:2.6}
+.rec-bar{position:absolute;top:0;left:0;right:0;height:34px;z-index:26;display:none;align-items:center;gap:9px;
+  padding:0 16px;background:var(--hecho);color:#FFFFFF;font-size:12.7px;font-weight:600;letter-spacing:-.01em}
+.stage.grabando .rec-bar{display:flex}
+.stage.grabando.sin-bar .rec-bar{display:none}
+.stage.grabando.sin-bar .scr{top:0}
+.stage.grabando .scr{top:34px}
+.rec-bar .luz{width:9px;height:9px;border-radius:99px;background:currentColor;animation:latir 1.6s ease-in-out infinite;flex:none}
+.rec-bar .vol{margin-left:auto;color:currentColor;font-weight:600;font-size:12.7px;text-decoration:underline;padding:6px 0}
+@keyframes latir{0%,100%{opacity:1}50%{opacity:.28}}
+.tab{position:relative}
+.tab .punto{position:absolute;top:6px;left:calc(50% + 8px);width:9px;height:9px;border-radius:99px;
+  background:var(--hecho);box-shadow:0 0 0 2px var(--tarjeta);display:none}
+.stage.grabando .tab[data-tab="consultas"] .punto{display:block}
+.reloj{position:relative;display:flex;justify-content:center;align-items:center;gap:2px;
+  background:var(--suave);border-radius:14px;padding:6px 0;overflow:hidden}
+.reloj::after{content:"";position:absolute;left:14px;right:14px;top:50%;height:40px;transform:translateY(-50%);
+  border-radius:10px;background:var(--tarjeta);box-shadow:0 1px 3px rgba(0,0,0,.12);z-index:0}
+.rueda{position:relative;z-index:1;height:132px;width:66px;overflow-y:auto;scroll-snap-type:y mandatory;
+  scrollbar-width:none;text-align:center;-webkit-overflow-scrolling:touch}
+.rueda::-webkit-scrollbar{display:none}
+.rueda i{display:block;height:40px;line-height:40px;scroll-snap-align:center;font-style:normal;
+  font-size:18.2px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--tenue);transition:color .12s ease}
+.rueda i.sel{color:var(--tinta);font-weight:600}
+.rueda .pad{display:block;height:46px;scroll-snap-align:none}
+.reloj .sep{position:relative;z-index:1;font-size:18.2px;font-weight:600;color:var(--tinta)}
+.editable{outline:none}
+.editable[data-ph]:empty:before{content:attr(data-ph);color:var(--gris);font-weight:400}
+.editable:focus{box-shadow:inset 0 0 0 2px var(--marca);border-radius:12px}
+.opcion{display:flex;align-items:center;gap:13px;width:100%;text-align:left;padding:13px 4px}
+.opcion+.opcion{border-top:1px solid var(--linea-tenue)}
+.opcion b{display:block;font-size:14.6px;font-weight:600;letter-spacing:-.02em}
+.opcion span{display:block;font-size:12.7px;color:var(--gris);font-weight:400}
+.nuevo-item{animation:aparece .3s ease}
+@keyframes aparece{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.hoja-op b{display:block;font-size:15.5px;font-weight:600;letter-spacing:-.02em}
+.hoja-op span{display:block;font-size:12.3px;color:var(--gris);font-weight:400}
+/* ============================================================
+   4 · ÁTOMOS
+   ============================================================ */
+.card{background:var(--tarjeta);border:1px solid var(--linea-tenue);border-radius:var(--r);padding:16px;box-shadow:var(--sombra-sm)}
+.card-flat{background:var(--tarjeta);border:1px solid var(--linea-tenue);border-radius:var(--r);padding:16px}
+.lbl{font-family:"Instrument Sans",ui-sans-serif,sans-serif;font-size:10px;letter-spacing:.11em;text-transform:uppercase;font-weight:600;color:var(--tenue)}
+.muted{color:var(--gris)} .small{font-size:11.8px} .big{font-size:15px}
+.stack{display:flex;flex-direction:column;gap:12px}
+.stack-sm{display:flex;flex-direction:column;gap:6px}
+.row{display:flex;align-items:center;gap:12px}
+.hr{height:1px;background:var(--linea-tenue);border:0;margin:2px 0}
+.spacer{flex:1}
+.btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;min-height:56px;padding:0 18px;
+  border-radius:16px;font-size:14.6px;font-weight:600;letter-spacing:-.02em;border:1.5px solid transparent;text-align:center}
+.btn-primary{background:var(--marca-solida);color:var(--sobre-marca)}
+.btn-ghost{background:var(--tarjeta);color:var(--tinta);border-color:var(--linea)}
+.btn-quiet{background:transparent;color:var(--marca-texto);min-height:48px;font-size:13.2px}
+.btn-urg{background:var(--urgencia);color:var(--sobre-urgencia)}
+.btn-sm{min-height:46px;font-size:13.7px;border-radius:13px;width:auto;padding:0 16px}
+.btn .i{width:20px;height:20px;stroke-width:2.1}
+.chip{display:inline-flex;align-items:center;gap:7px;padding:11px 15px;min-height:46px;border-radius:999px;
+  border:1.5px solid var(--linea);background:var(--tarjeta);font-size:13.2px;font-weight:500}
+.chip.on{background:var(--marca-suave);border-color:var(--marca);color:var(--marca-texto);font-weight:600}
+.chip .i{width:16px;height:16px;stroke-width:3}
+.chips{display:flex;flex-wrap:wrap;gap:9px}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:11.4px;font-weight:600;padding:5px 11px;border-radius:999px}
+.pill-aten{background:var(--atencion-bg);color:var(--atencion);border:1px solid var(--atencion-linea)}
+.pill-ok{background:var(--hecho-bg);color:var(--hecho)}
+.pill-marca{background:var(--marca-suave);color:var(--marca-texto)}
+.field{display:flex;flex-direction:column;gap:7px}
+.field .lbl{color:var(--gris);letter-spacing:.02em;text-transform:none;font-size:12.7px;font-weight:600}
+.input{min-height:56px;border-radius:14px;border:1.5px solid var(--linea);background:var(--tarjeta);padding:15px;font-size:14.6px;font-weight:500}
+.check{width:30px;height:30px;border-radius:10px;border:2.2px solid var(--linea);flex:none;display:grid;place-items:center;color:transparent}
+.check.on{background:var(--hecho);border-color:var(--hecho);color:#fff}
+.check .i{width:18px;height:18px;stroke-width:3}
+.med-row{display:flex;align-items:center;gap:13px;padding:12px 0}
+.med-row+.med-row{border-top:1px solid var(--linea-tenue)}
+.med-row.done .med-name{text-decoration:line-through;color:var(--tenue)}
+.med-name{font-size:14.1px;font-weight:600;letter-spacing:-.015em}
+.quick{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.quick button{background:var(--tarjeta);border:1px solid var(--linea-tenue);border-radius:14px;padding:13px 6px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;
+  font-size:11.4px;font-weight:600;line-height:1.25;text-align:center;box-shadow:var(--sombra-sm);min-height:82px}
+.quick .i{width:22px;height:22px;color:var(--marca-texto);stroke-width:2}
+.hero-card{background:var(--terracota);color:#FFFFFF;border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:14px}
+.hero-card .lbl{color:var(--sobre-marca);opacity:.8}
+.hero-card .btn-ghost{background:var(--papel);border:1.5px solid var(--papel);color:var(--tinta)}
+:root[data-theme="dark"] .hero-card .btn-ghost,:root:not([data-theme="light"]) .hero-card .btn-ghost{background:var(--papel);border:1.5px solid var(--papel);color:var(--tinta)}
+.aten-card{background:var(--atencion-bg);border:1px solid var(--atencion-linea);border-radius:var(--r);padding:15px 16px}
+.urg-card{background:var(--urgencia-bg);border:1px solid var(--urgencia-linea);border-radius:var(--r);padding:15px 16px}
+.lista-item{display:flex;align-items:center;gap:13px;padding:14px 0;width:100%;text-align:left}
+.lista-item+.lista-item{border-top:1px solid var(--linea-tenue)}
+.thumb{width:46px;height:46px;border-radius:12px;background:var(--suave);display:grid;place-items:center;color:var(--marca-texto);flex:none}
+.thumb.aten{background:var(--atencion-bg);color:var(--atencion)}
+.thumb.ok{background:var(--hecho-bg);color:var(--hecho)}
+.chev{color:var(--tenue);flex:none}
+.chev .i{width:17px;height:17px;stroke-width:2.4}
+.welcome{flex:1;display:flex;flex-direction:column;justify-content:center;gap:16px;padding:0 26px 40px;text-align:center;align-items:center}
+.mark{width:78px;height:78px;border-radius:26px;background:var(--marca-solida);color:var(--sobre-marca);display:grid;place-items:center}
+.mark .i{width:42px;height:42px;stroke-width:1.6}
+.fineprint{font-size:12.3px;color:var(--gris);line-height:1.5;max-width:34ch}
+.rec-stage{display:flex;flex-direction:column;align-items:center;gap:16px;padding:12px 0 4px}
+.rec-orb{width:118px;height:118px;border-radius:50%;background:var(--marca-suave);display:grid;place-items:center;color:var(--marca-texto);position:relative}
+.rec-orb::after{content:"";position:absolute;inset:-14px;border-radius:50%;border:2.5px solid var(--marca);opacity:.32;animation:pulso 2.4s ease-out infinite}
+@keyframes pulso{0%{transform:scale(.86);opacity:.45}100%{transform:scale(1.14);opacity:0}}
+@media (prefers-reduced-motion:reduce){.rec-orb::after{animation:none;opacity:.25}}
+.rec-orb .i{width:46px;height:46px}
+.timer{font-size:30.9px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.capture{display:flex;gap:11px;align-items:flex-start;padding:11px 0}
+.capture+.capture{border-top:1px solid var(--linea-tenue)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--marca-solida);margin-top:8px;flex:none}
+.uploader{border:2.5px dashed var(--linea);border-radius:20px;padding:24px 18px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;background:var(--suave-2)}
+.uploader .i{width:34px;height:34px;color:var(--marca-texto)}
+.marca-hit{background:var(--marca-suave);border-radius:6px;padding:1px 4px;font-weight:600;color:var(--marca-texto)}
+.borrar{width:44px;height:44px;border-radius:12px;background:var(--urgencia-bg);color:var(--urgencia);display:grid;place-items:center;flex:none;border:1px solid var(--urgencia-linea)}
+.borrar .i{width:19px;height:19px;stroke-width:2.2}
+.rol-chip{display:inline-flex;align-items:center;gap:7px;padding:12px 15px;min-height:52px;border-radius:14px;border:1.5px solid var(--linea);background:var(--tarjeta);font-size:14.5px;font-weight:600;width:100%;text-align:left}
+.rol-chip.on{background:var(--marca-suave);border-color:var(--marca);color:var(--marca-texto)}
+.rol-chip .i{width:17px;height:17px;stroke-width:3;flex:none}
+.rol-chip small{display:block;font-size:12.7px;font-weight:400;color:var(--gris);margin-top:2px}
+.rol-chip.on small{color:var(--marca-texto);opacity:.85}
+.fantasma{display:flex;align-items:center;gap:13px;width:100%;text-align:left;padding:14px 15px;min-height:70px;
+  border:2px dashed var(--linea);border-radius:var(--r);background:transparent;transition:border-color .15s ease,background .15s ease}
+.fantasma:hover{border-color:var(--marca);background:var(--suave-2)}
+.fantasma .ft{width:44px;height:44px;border-radius:12px;background:var(--suave);color:var(--tenue);display:grid;place-items:center;flex:none}
+.fantasma .ft .i{width:21px;height:21px}
+.fantasma .tx{flex:1;display:flex;flex-direction:column;gap:3px}
+.fantasma b{font-size:15px;font-weight:600;color:var(--gris);letter-spacing:-.02em}
+.fantasma .raya{height:7px;border-radius:99px;background:var(--linea-tenue);width:60%}
+.fantasma .mas{width:32px;height:32px;border-radius:999px;background:var(--marca-suave);color:var(--marca-texto);display:grid;place-items:center;flex:none}
+.fantasma .mas .i{width:17px;height:17px;stroke-width:2.8}
+.ilus{position:relative;display:inline-grid;place-items:center;width:74px;height:74px;border-radius:24px;background:var(--marca-suave);color:var(--marca)}
+.ilus>.i{width:38px;height:38px;stroke-width:1.7}
+.ilus .badge{position:absolute;width:30px;height:30px;border-radius:999px;background:var(--marca);color:#fff;display:grid;place-items:center;border:3px solid var(--tarjeta);font-style:normal}
+.ilus .badge .i{width:15px;height:15px;stroke-width:2.2}
+.ilus .b1{top:-9px;right:-11px}
+.ilus .b2{bottom:-9px;left:-11px}
+.vacio{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:26px 14px;
+  border:1.5px dashed var(--linea);border-radius:20px;background:var(--suave-2)}
+.vacio .i{width:32px;height:32px;color:var(--tenue)}
+.ilus-notas{width:150px;height:auto;margin-bottom:2px;overflow:visible}
+.vacio b{font-size:15.5px;font-weight:600;letter-spacing:-.02em}
+.vacio p{font-size:12.7px;color:var(--gris);max-width:30ch}
+.doc{background:#FFF;color:#1A1512;border-radius:10px;padding:20px 18px;box-shadow:0 10px 28px -12px rgba(40,25,10,.45),0 0 0 1px rgba(40,25,10,.1);font-size:11.4px;line-height:1.5}
+.doc h3{font-size:13.7px;color:#241A14;letter-spacing:-.02em}
+.doc .doc-lbl{font-size:10px;letter-spacing:.13em;text-transform:uppercase;font-weight:600;color:#8A7B6E}
+.doc .doc-rule{height:1px;background:#E6DED6;margin:11px 0}
+.doc-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px 14px}
+.doc-grid b{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#8A7B6E;font-weight:600}
+.doc-alert{background:#FAE7E4;border:1px solid #EEC9C3;color:#8E2019;border-radius:7px;padding:8px 10px;font-weight:600}
+.doc ul{margin:6px 0 0;padding-left:16px}.doc li{margin-bottom:3px}
+.doc-foot{font-size:10px;color:#8A7B6E;margin-top:12px;line-height:1.45}
+/* la página es sólo el teléfono */
+body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
+@media (max-width:440px){
+  body{padding:0}
+  .phone{width:100%;max-width:392px;padding:8px;border-radius:36px}
+  .screen{border-radius:30px;height:100vh;max-height:780px}
+}
+</style>
+<svg class="sprite" aria-hidden="true"><defs>
+<symbol id="ic-rombo" viewBox="0 0 24 24"><rect x="5.4" y="5.4" width="13.2" height="13.2" rx="2.4" transform="rotate(45 12 12)"></rect><rect x="10.1" y="10.1" width="3.8" height="3.8" rx="1" transform="rotate(45 12 12)" fill="currentColor" stroke="none"></rect></symbol>
+<symbol id="ic-today" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3.4"></rect><path d="M3 10h18M8 3v4M16 3v4"></path><circle cx="12" cy="15.5" r="1.7" fill="currentColor" stroke="none"></circle></symbol>
+<symbol id="ic-folder" viewBox="0 0 24 24"><path d="M4 6.5A1.5 1.5 0 015.5 5h3.6c.5 0 1 .24 1.3.65l1 1.35h7.1A1.5 1.5 0 0120 8.5v9A1.5 1.5 0 0118.5 19h-13A1.5 1.5 0 014 17.5z"></path><path d="M8 12.5h8M8 15.5h5"></path></symbol>
+<symbol id="ic-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5.5 11.5a6.5 6.5 0 0013 0M12 18v3"></path></symbol>
+<symbol id="ic-user" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.8"></circle><path d="M4.5 20c1.3-3.7 4.1-5.6 7.5-5.6s6.2 1.9 7.5 5.6"></path></symbol>
+<symbol id="ic-camera" viewBox="0 0 24 24"><path d="M3 8.5A1.5 1.5 0 014.5 7h2.2l1.2-2h8.2l1.2 2h2.2A1.5 1.5 0 0121 8.5v9A1.5 1.5 0 0119.5 19h-15A1.5 1.5 0 013 17.5z"></path><circle cx="12" cy="13" r="3.4"></circle></symbol>
+<symbol id="ic-share" viewBox="0 0 24 24"><path d="M12 15V3M12 3L8.2 6.8M12 3l3.8 3.8"></path><path d="M5 12v7.5A1.5 1.5 0 006.5 21h11a1.5 1.5 0 001.5-1.5V12"></path></symbol>
+<symbol id="ic-download" viewBox="0 0 24 24"><path d="M12 3v12M12 15l-4-4M12 15l4-4M5 20h14"></path></symbol>
+<symbol id="ic-print" viewBox="0 0 24 24"><path d="M7 9V3.8h10V9"></path><rect x="3" y="9" width="18" height="8" rx="2"></rect><path d="M7 14h10v6.2H7z"></path></symbol>
+<symbol id="ic-alert" viewBox="0 0 24 24"><path d="M12 3.6L21 19.5H3z"></path><path d="M12 9.5v4.2M12 16.6v.1"></path></symbol>
+<symbol id="ic-check" viewBox="0 0 24 24"><path d="M5 12.6l4.6 4.6L19 7.4"></path></symbol>
+<symbol id="ic-back" viewBox="0 0 24 24"><path d="M15 4.5L7.5 12l7.5 7.5"></path></symbol>
+<symbol id="ic-fwd" viewBox="0 0 24 24"><path d="M9 4.5l7.5 7.5L9 19.5"></path></symbol>
+<symbol id="ic-chevdown" viewBox="0 0 24 24"><path d="M5.5 9.5L12 16l6.5-6.5"></path></symbol>
+<symbol id="ic-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></symbol>
+<symbol id="ic-pill" viewBox="0 0 24 24"><rect x="2.6" y="8.4" width="18.8" height="7.2" rx="3.6" transform="rotate(-40 12 12)"></rect><path d="M9.2 9.2l5.6 5.6"></path></symbol>
+<symbol id="ic-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M9.6 9.4a2.5 2.5 0 114 2.2c-.9.6-1.6 1-1.6 2M12 16.8v.1"></path></symbol>
+<symbol id="ic-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"></circle><path d="M12 7v5.4l3.3 2"></path></symbol>
+<symbol id="ic-lock" viewBox="0 0 24 24"><rect x="4.6" y="10" width="14.8" height="10.5" rx="2.6"></rect><path d="M8.2 10V7.6a3.8 3.8 0 017.6 0V10"></path></symbol>
+<symbol id="ic-heart" viewBox="0 0 24 24"><path d="M12 20s-7.4-4.4-7.4-9.3A4.2 4.2 0 0112 8.3a4.2 4.2 0 017.4 2.4C19.4 15.6 12 20 12 20z"></path></symbol>
+<symbol id="ic-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.6"></circle><path d="M15.8 15.8L21 21"></path></symbol>
+<symbol id="ic-doc" viewBox="0 0 24 24"><path d="M6 3.6h7.6L19 9v11.4H6z"></path><path d="M13.4 3.6V9H19M9 13h6M9 16.4h4"></path></symbol>
+<symbol id="ic-nota" viewBox="0 0 24 24"><path d="M4.5 5.5h15v10.6l-4.4 4.4H4.5z"></path><path d="M19.5 16.1h-4.4v4.4M8 9.4h8M8 12.6h5"></path></symbol>
+<symbol id="ic-lista" viewBox="0 0 24 24"><path d="M9 6.5h11M9 12h11M9 17.5h11M4.4 6.5h.1M4.4 12h.1M4.4 17.5h.1"></path></symbol>
+<symbol id="ic-luz" viewBox="0 0 24 24"><path d="M12 3a6 6 0 00-3.4 10.9c.6.5.9 1.1.9 1.8v.3h5v-.3c0-.7.3-1.3.9-1.8A6 6 0 0012 3z"></path><path d="M9.5 19h5M10.5 21.5h3"></path></symbol>
+<symbol id="ic-campana" viewBox="0 0 24 24"><path d="M18 16.5V11a6 6 0 10-12 0v5.5L4.4 19h15.2z"></path><path d="M10 21.2h4"></path></symbol>
+<symbol id="ic-globo" viewBox="0 0 24 24"><path d="M20.5 12.4c0 3.9-3.8 7-8.5 7-1 0-2-.15-2.9-.4L4 20.5l1.3-3.6A6.6 6.6 0 013.5 12.4c0-3.9 3.8-7 8.5-7s8.5 3.1 8.5 7z"></path><path d="M9.7 10.4a2.4 2.4 0 013.8 2.1c-.85.6-1.5 1-1.5 1.9M12 16.6v.1"></path></symbol>
+<symbol id="ic-x" viewBox="0 0 24 24"><path d="M6.2 6.2l11.6 11.6M17.8 6.2L6.2 17.8"></path></symbol>
+</defs></svg>
+<div class="phone">
+ <div class="screen" id="screen">
+  <div class="statusbar">
+    <span>10:24</span>
+    <span class="sb-right">
+      <svg viewBox="0 0 18 12"><path d="M1 9h2v3H1zM5 6.5h2V12H5zM9 4h2v8H9zM13 1.5h2V12h-2z"></path></svg>
+      <svg viewBox="0 0 24 12"><rect x="1" y="2" width="18" height="8" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.4"></rect><rect x="3" y="4" width="13" height="4" rx="1"></rect><rect x="20.5" y="4.5" width="2" height="3" rx="1"></rect></svg>
+    </span>
+  </div>
+  <div class="stage">
+<!-- ===== ALTA (modal) ===== -->
+<section class="scr" data-scr="bienvenida" data-dock="no">
+ <div class="scroll"><div class="cuerpo" style="padding-bottom:26px">
+  <div class="welcome">
+    <div class="mark"><svg class="i"><use href="#ic-rombo"></use></svg></div>
+    <h1 style="font-size:34.6px;font-weight:600;letter-spacing:-.04em">Releva</h1>
+    <p class="big muted" style="max-width:24ch">Para los que cuidan a alguien y no saben por dónde empezar.</p>
+    <div class="stack" style="width:100%;margin-top:14px">
+      <button class="btn btn-primary" data-go="onb1">Empezar</button>
+      <button class="btn btn-ghost" data-go="hoy">Ya tengo cuenta</button>
+    </div>
+    <p class="fineprint" style="margin-top:6px">La información tuya y la de tu ser querido es privada. Nadie la ve si vos no la compartís.</p>
+  </div>
+ </div></div>
+</section>
+<section class="scr" data-scr="onb1" data-dock="no">
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+   <button class="cuad" data-go="bienvenida"><svg class="i"><use href="#ic-x"></use></svg></button>
+   <div class="tx"><b>Alta de Elsa</b><span>Paso 1 · a quién cuidás</span></div>
+  </div>
+  <div class="progreso" style="padding:12px 0 0"><span class="on"></span><span></span><span></span></div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <h3 style="font-size:21.8px;letter-spacing:-.03em">¿A quién estás cuidando?</h3>
+  <p class="muted small" style="margin-top:-8px">Con esto alcanza para arrancar. El resto lo completás cuando puedas.</p>
+  <div class="field" style="margin-top:6px"><span class="lbl">Nombre</span><div class="input">Elsa Fernández</div></div>
+  <div class="field"><span class="lbl">Edad</span><div class="input" style="font-variant-numeric:tabular-nums">78 años</div></div>
+  <div class="field"><span class="lbl">¿Qué es tuyo?</span><div class="chips"><span class="chip on">Mi mamá</span><span class="chip">Mi papá</span><span class="chip">Mi pareja</span><span class="chip">Otro</span></div></div>
+  <div class="spacer"></div>
+  <button class="btn btn-primary" data-go="onb2" style="margin-top:14px">Seguir</button>
+ </div></div>
+</section>
+<section class="scr" data-scr="onb2" data-dock="no">
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+   <button class="cuad" data-go="onb1"><svg class="i"><use href="#ic-back"></use></svg></button>
+   <div class="tx"><b>Alta de Elsa</b><span>Paso 2 · qué le pasa</span></div>
+  </div>
+  <div class="progreso" style="padding:12px 0 0"><span class="on"></span><span class="on"></span><span></span></div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <h3 style="font-size:21.8px;letter-spacing:-.03em">¿Qué le está pasando a Elsa?</h3>
+  <p class="muted small" style="margin-top:-8px">Contalo como se lo contarías a un amigo. No hace falta que uses términos médicos.</p>
+  <div class="input" style="min-height:100px;line-height:1.5;font-weight:400">En junio le encontraron un tumor en la vejiga. Está empezando tratamiento con la oncóloga.</div>
+  <p class="lbl" style="margin-top:4px">Además tiene</p>
+  <div class="chips">
+    <span class="chip on"><svg class="i"><use href="#ic-check"></use></svg>Hipertensión</span>
+    <span class="chip on"><svg class="i"><use href="#ic-check"></use></svg>Diabetes tipo 2</span>
+    <span class="chip">Colesterol alto</span><span class="chip">Artrosis</span><span class="chip">Problemas de riñón</span><span class="chip">Problemas de memoria</span>
+  </div>
+  <div class="spacer"></div>
+  <button class="btn btn-primary" data-go="onb3" style="margin-top:14px">Seguir</button>
+ </div></div>
+</section>
+<section class="scr" data-scr="onb3" data-dock="no">
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+   <button class="cuad" data-go="onb2"><svg class="i"><use href="#ic-back"></use></svg></button>
+   <div class="tx"><b>Alta de Elsa</b><span>Paso 3 · alergias</span></div>
+  </div>
+  <div class="progreso" style="padding:12px 0 0"><span class="on"></span><span class="on"></span><span class="on"></span></div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <h3 style="font-size:21.8px;letter-spacing:-.03em">¿Es alérgica a algo?</h3>
+  <p class="muted small" style="margin-top:-8px">Este es el dato que más rápido te van a pedir en una guardia.</p>
+  <div class="chips" style="margin-top:4px">
+    <span class="chip on"><svg class="i"><use href="#ic-check"></use></svg>Penicilina</span>
+    <span class="chip">Ibuprofeno / AINEs</span><span class="chip">Iodo (contraste)</span><span class="chip">Aspirina</span><span class="chip">Látex</span>
+  </div>
+  <hr class="hr" style="margin:6px 0">
+  <div class="chips"><span class="chip">No es alérgica a nada</span><span class="chip">No sé</span></div>
+  <div class="aten-card" style="margin-top:4px"><p class="small" style="color:var(--atencion);font-weight:600">Si no sabés, está bien. Te ayudamos a averiguarlo en la próxima consulta.</p></div>
+  <div class="spacer"></div>
+  <button class="btn btn-primary" data-go="hoy" data-reset="1" style="margin-top:14px">Terminar</button>
+ </div></div>
+</section>
+<!-- ===== INICIO · con turno ===== -->
+<section class="scr" data-scr="hoy" data-tab="hoy" data-dock="si">
+ <header class="hdr">
+  <div class="navbar"><h1 class="hdr-titulo"><span class="rombo-h1"></span>Releva</h1><span class="crece"></span>
+    <button class="accion accion-urg" data-go="guardia"><svg class="i"><use href="#ic-alert"></use></svg>Guardia</button>
+  </div>
+  <p class="hdr-sub" id="homeSub">Hola, Mariana · martes 1 de septiembre</p>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+
+  <div id="bDiaUno">
+   <div class="card" style="padding:24px 18px 20px;text-align:center">
+    <span class="ilus">
+      <svg class="i"><use href="#ic-today"></use></svg>
+      <i class="badge b1"><svg class="i"><use href="#ic-campana"></use></svg></i>
+      <i class="badge b2"><svg class="i"><use href="#ic-globo"></use></svg></i>
+    </span>
+    <p style="font-size:18.2px;font-weight:600;letter-spacing:-.03em;line-height:1.25;margin-top:16px">¿Cuál es el próximo turno de Elsa?</p>
+    <button class="btn btn-primary" style="margin-top:16px" data-go="cons-cuando">Agregar turno</button>
+   </div>
+  </div>
+
+  <div class="card" id="bSinConsulta" style="border-style:dashed;border-width:1.5px;border-color:var(--linea);display:none">
+    <span class="lbl">Próxima consulta</span>
+    <p style="font-size:17.3px;font-weight:600;letter-spacing:-.025em;margin-top:6px">No hay ningún turno agendado</p>
+    <button class="btn btn-primary" style="margin-top:12px" data-go="cons-cuando">Agregar turno</button>
+  </div>
+
+  <div class="hero-card" id="bConsulta" style="display:none">
+    <span class="lbl" id="hcCuando">Tu próxima consulta</span>
+    <div class="stack-sm">
+      <span style="font-size:19.1px;font-weight:600;line-height:1.2;letter-spacing:-.025em" id="hcQuien">—</span>
+      <span style="opacity:.9;font-size:13.7px;font-weight:500" id="hcDonde">—</span>
+    </div>
+    <button class="btn btn-ghost" data-go="consultas-prox" id="hcBoton">Preparar la consulta</button>
+  </div>
+
+  <div class="quick" id="bAccesos">
+    <button data-go="consentimiento" data-asignar="despues"><svg class="i"><use href="#ic-mic"></use></svg>Grabar una consulta</button>
+    <button data-go="est-origen"><svg class="i"><use href="#ic-camera"></use></svg>Cargar un estudio</button>
+    <button data-go="compartir"><svg class="i"><use href="#ic-share"></use></svg>Compartir historia</button>
+  </div>
+
+  <div id="bPendientes" style="display:none">
+   <p class="lbl" style="margin-top:4px">Pendientes</p>
+   <div class="card" style="padding:4px 16px" id="listaPendientes">
+    <button class="lista-item" data-go="pend-tipo" id="filaAgregarPend">
+      <div class="thumb" style="background:var(--marca-suave)"><svg class="i" style="stroke-width:2.4"><use href="#ic-plus"></use></svg></div>
+      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name" style="color:var(--marca-texto)">Agregar un pendiente</span><span class="small muted">Una orden, una autorización, un trámite</span></div>
+    </button>
+   </div>
+  </div>
+
+  <div id="bUltimo" style="display:none">
+   <p class="lbl" style="margin-top:4px">Lo último</p>
+   <div class="card" style="padding:4px 16px" id="listaUltimo"></div>
+  </div>
+
+ </div></div>
+</section>
+
+<section class="scr" data-scr="consultas" data-tab="consultas" data-dock="si" data-fab="Nuevo turno|cons-cuando|ic-today">
+ <header class="hdr hdr-raiz">
+  <div class="fila-r"><h1>Consultas</h1><span class="crece"></span></div>
+  <p class="sub-r" id="consSub"></p>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <div class="buscar" id="consBuscar" style="display:none;margin:0 0 4px"><svg class="i"><use href="#ic-search"></use></svg><span>Buscar un médico, una fecha, algo que dijeron</span></div>
+  <div class="vacio" id="consVacio">
+   <svg class="i"><use href="#ic-mic"></use></svg>
+   <b>Acá van las consultas</b>
+   <p>Cuando agendes una, la vas a poder preparar y grabar desde acá. Después te quedan las notas de lo que dijo cada médico.</p>
+  </div>
+  <div id="consProxWrap" style="display:none">
+   <div class="card" style="padding:4px 16px;border:1.5px solid var(--marca)" id="listaProximas"></div>
+   <div class="par-acciones">
+    <button class="btn btn-ghost" data-go="consultas-prox"><svg class="i"><use href="#ic-nota"></use></svg>Preparar consulta</button>
+    <button class="btn btn-ghost" data-go="consentimiento" data-asignar="agendada"><svg class="i"><use href="#ic-mic"></use></svg>Iniciar grabación</button>
+   </div>
+  </div>
+  <div id="consAntWrap" style="display:none">
+   <p class="lbl" style="margin-top:6px">Anteriores</p>
+   <div class="card" style="padding:4px 16px" id="listaAnteriores"></div>
+  </div>
+ </div></div>
+</section>
+
+<section class="scr" data-scr="consultas-prox" data-tab="consultas" data-dock="si" data-fab="Nueva nota|nota-nueva|ic-plus">
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+  <button class="cuad" data-go="consultas"><svg class="i"><use href="#ic-back"></use></svg></button>
+  <div class="tx"><span class="ojal">Consultas</span><b id="proxQuien">—</b><span id="proxSub">—</span></div>
+  </div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <p class="lbl">Notas para la consulta</p>
+  <div class="stack" id="listaNotas"></div>
+  <div class="vacio" id="notasVacio" style="padding:30px 14px 26px">
+   <svg class="ilus-notas" viewBox="0 0 132 108" aria-hidden="true">
+    <rect x="14" y="12" width="72" height="88" rx="11" fill="var(--tarjeta)" stroke="var(--linea)" stroke-width="2.5"/>
+    <rect x="27" y="30" width="46" height="5" rx="2.5" fill="var(--linea)"/>
+    <rect x="27" y="44" width="34" height="5" rx="2.5" fill="var(--linea)"/>
+    <rect x="27" y="58" width="42" height="5" rx="2.5" fill="var(--linea)"/>
+    <rect x="27" y="72" width="26" height="5" rx="2.5" fill="var(--linea)"/>
+    <g transform="translate(66 44)">
+     <path d="M8 0h44a10 10 0 0 1 10 10v26a10 10 0 0 1-10 10H26l-13 12 2-12H8A10 10 0 0 1-2 36V10A10 10 0 0 1 8 0Z"
+       fill="var(--marca-suave)" stroke="var(--marca)" stroke-width="2.5" stroke-linejoin="round"/>
+     <text x="30" y="33" text-anchor="middle" font-size="27" font-weight="700" fill="var(--marca-texto)"
+       font-family="Instrument Sans, system-ui, sans-serif">?</text>
+    </g>
+   </svg>
+   <b style="font-size:15.5px">Todavía no anotaste nada</b>
+   <p>Lo que se te ocurra entre hoy y el día de la consulta, guardalo acá. Ese día te lo muestro todo junto.</p>
+  </div>
+ </div></div>
+</section>
+
+<section class="scr" data-scr="estudios" data-tab="estudios" data-dock="si" data-fab="Nuevo estudio|est-origen|ic-camera">
+ <header class="hdr hdr-raiz">
+  <div class="fila-r"><h1>Estudios</h1><span class="crece"></span></div>
+  <p class="sub-r" id="estSub"></p>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <div id="estFiltros" style="display:none">
+   <div class="buscar" style="margin:0 0 8px"><svg class="i"><use href="#ic-search"></use></svg><span>Buscá «creatinina», «TAC», una fecha…</span></div>
+   <div class="filtros" style="padding:0 0 8px"><button class="filtro" aria-pressed="true">Todos</button><button class="filtro">Laboratorio</button><button class="filtro">Imágenes</button><button class="filtro">Recetas</button><button class="filtro">Por fecha</button></div>
+  </div>
+  <div id="estVacio">
+   <p style="font-size:17.3px;font-weight:600;letter-spacing:-.03em;line-height:1.3">Acá van los estudios de Elsa.</p>
+   <p class="muted" style="font-size:13.7px;margin:6px 0 14px;font-weight:500">Sacales una foto y leo los valores por vos.</p>
+   <div class="stack">
+    <button class="fantasma" data-go="est-origen">
+      <span class="ft"><svg class="i"><use href="#ic-folder"></use></svg></span>
+      <span class="tx"><b>Un laboratorio</b><span class="raya"></span></span>
+      <span class="mas"><svg class="i"><use href="#ic-plus"></use></svg></span>
+    </button>
+    <button class="fantasma" data-go="est-origen">
+      <span class="ft"><svg class="i"><use href="#ic-folder"></use></svg></span>
+      <span class="tx"><b>Una ecografía</b><span class="raya" style="width:45%"></span></span>
+      <span class="mas"><svg class="i"><use href="#ic-plus"></use></svg></span>
+    </button>
+    <button class="fantasma" data-go="est-origen">
+      <span class="ft"><svg class="i"><use href="#ic-folder"></use></svg></span>
+      <span class="tx"><b>Una radiografía o TAC</b><span class="raya" style="width:52%"></span></span>
+      <span class="mas"><svg class="i"><use href="#ic-plus"></use></svg></span>
+    </button>
+    <button class="fantasma" data-go="est-origen">
+      <span class="ft"><svg class="i"><use href="#ic-print"></use></svg></span>
+      <span class="tx"><b>Una receta</b><span class="raya" style="width:38%"></span></span>
+      <span class="mas"><svg class="i"><use href="#ic-plus"></use></svg></span>
+    </button>
+   </div>
+  </div>
+  <div id="estWrap" style="display:none">
+   <div class="card" style="padding:4px 16px" id="listaEstudios"></div>
+  </div>
+ </div></div>
+</section>
+
+
+<section class="scr" data-scr="perfil" data-tab="perfil" data-dock="si">
+ <header class="hdr hdr-raiz">
+  <div class="fila-r"><h1>Elsa Fernández</h1><span class="crece"></span></div>
+  <p class="sub-r" id="perfilSub">78 años · tu mamá · 0+ · OSDE 210</p>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <div class="card" style="padding:4px 16px">
+    <button class="lista-item" data-go="historia">
+      <div class="thumb"><svg class="i"><use href="#ic-lista"></use></svg></div>
+      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Historia clínica</span><span class="small muted">Diagnósticos, antecedentes, todo junto</span></div>
+      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
+    </button>
+    <button class="lista-item" data-go="medicacion">
+      <div class="thumb"><svg class="i"><use href="#ic-pill"></use></svg></div>
+      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Medicación</span><span class="small muted">3 activas · Enalapril cambió el 26/8</span></div>
+      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
+    </button>
+    <button class="lista-item" data-go="compartir">
+      <div class="thumb"><svg class="i"><use href="#ic-share"></use></svg></div>
+      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Compartir la historia</span><span class="small muted">PDF para otro médico</span></div>
+      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
+    </button>
+    <button class="lista-item" data-go="elsa-editar">
+      <div class="thumb"><svg class="i"><use href="#ic-user"></use></svg></div>
+      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Editar sus datos</span><span class="small muted">Nombre, edad, obra social, alergias</span></div>
+      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
+    </button>
+  </div>
+  <p class="lbl" style="margin-top:4px">Quién la cuida</p>
+  <div class="card" style="padding:4px 16px" id="listaCuidadores">
+    <div class="lista-item"><span class="av" style="width:44px;height:44px;font-size:14.6px">M</span><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Mariana · vos</span><span class="small muted">Cuidadora principal</span></div></div>
+    <button class="lista-item" data-go="cuidador-editar"><span class="av" style="width:44px;height:44px;font-size:14.6px;background:var(--suave);color:var(--gris)">J</span><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Javier · tu hermano</span><span class="small muted">Puede ver, no editar</span></div><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
+    <button class="lista-item" id="filaInvitar" data-go="invitar"><div class="thumb" style="background:var(--marca-suave)"><svg class="i" style="stroke-width:2.4"><use href="#ic-plus"></use></svg></div><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name" style="color:var(--marca-texto)">Invitar a alguien más</span><span class="small muted">Para que te ayude con Elsa</span></div></button>
+  </div>
+  <p class="lbl" style="margin-top:4px">Médicos que la atienden</p>
+  <div class="card" style="padding:4px 16px" id="listaMedicos"></div>
+  <p class="small muted" id="medVacio" style="margin-top:-6px">Los vas a ir agregando a medida que agendes consultas.</p>
+  <div class="card-flat" style="margin-top:4px"><div class="row"><svg class="i" style="color:var(--gris)"><use href="#ic-lock"></use></svg><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Privacidad y datos</span><span class="small muted">Quién ve qué, y cómo se borra</span></div><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></div></div>
+  <hr class="hr" style="margin:10px 0">
+  <button class="btn btn-ghost" data-go="bienvenida"><svg class="i"><use href="#ic-rombo"></use></svg>Ver el alta desde el principio</button>
+  <p class="fineprint" style="text-align:center;max-width:none">Vuelve a empezar con la app vacía.</p>
+ </div></div>
+</section>
+<!-- ===== EMPUJADAS ===== -->
+<section class="scr" data-scr="resumen" data-tab="consultas" data-dock="si">
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+  <button class="cuad" data-go="consultas"><svg class="i"><use href="#ic-back"></use></svg></button>
+  <div class="tx"><span class="ojal">Consultas</span><b id="resQuien">—</b><span id="resSub">—</span></div>
+  <button class="cuad cuad-borde" data-go="compartir" aria-label="Compartir estas notas"><svg class="i"><use href="#ic-share"></use></svg></button>
+  </div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <div class="aten-card" id="resSinAsignar" style="display:none">
+    <div class="row" style="align-items:flex-start;gap:11px">
+     <svg class="i" style="color:var(--atencion);margin-top:2px"><use href="#ic-help"></use></svg>
+     <div class="stack-sm" style="gap:6px;flex:1">
+      <span style="font-weight:600;font-size:14.6px;letter-spacing:-.02em">¿De qué consulta fue?</span>
+      <span class="small muted">Grabaste sin elegirla. Decime a cuál pertenece y la guardo ahí.</span>
+      <button class="btn btn-ghost btn-sm" style="margin-top:4px" data-go="grab-asignar">Asignarla ahora</button>
+     </div>
+    </div>
+  </div>
+  <h3 style="font-size:17.3px;letter-spacing:-.025em">Qué te dijo</h3>
+  <div class="card"><p style="font-size:14.6px;line-height:1.5;font-weight:400">El tratamiento está funcionando y las náuseas son esperables en estas primeras semanas. Quiere ver una TAC de abdomen antes del próximo control para comparar. El riñón le llamó la atención, por eso sube el Enalapril y pide que lo vea el nefrólogo.</p>
+    <button class="btn btn-quiet" style="justify-content:flex-start;padding:0;margin-top:8px"><svg class="i"><use href="#ic-help"></use></svg>Hay algo que no entendí</button></div>
+  <h3 style="font-size:17.3px;margin-top:4px;letter-spacing:-.025em">Qué hay que hacer</h3>
+  <div class="card">
+    <div class="med-row" style="align-items:flex-start"><span class="check"><svg class="i"><use href="#ic-check"></use></svg></span>
+      <div class="stack-sm" style="gap:6px"><span class="med-name">Pedir la orden para la TAC de abdomen</span><span class="small muted">Con contraste · la firma la Dra. Ríos</span>
+      <div class="row" style="gap:7px"><span class="pill pill-aten">Antes del 20/9</span></div></div></div>
+    <div class="med-row" style="align-items:flex-start"><span class="check on"><svg class="i"><use href="#ic-check"></use></svg></span>
+      <div class="stack-sm" style="gap:6px"><span class="med-name">Cambiar Enalapril a 10 mg de noche</span><span class="small muted">Actualizado en la medicación de Elsa</span></div></div>
+    <div class="med-row" style="align-items:flex-start"><span class="check"><svg class="i"><use href="#ic-check"></use></svg></span>
+      <div class="stack-sm" style="gap:6px"><span class="med-name">Sacar turno con el nefrólogo</span><span class="small muted">Dr. Gustavo Beltrán · dentro de 30 días</span></div></div>
+    <button class="alta-punteada" data-go="pend-tipo">
+      <svg class="i"><use href="#ic-plus"></use></svg>Agregar un pendiente</button>
+  </div>
+  <h3 style="font-size:17.3px;margin-top:4px;letter-spacing:-.025em">Notas para la consulta</h3>
+  <div class="card" id="cardNotasRes">
+    <div id="listaNotasRes"></div>
+    <button class="alta-punteada" data-go="nota-nueva"><svg class="i"><use href="#ic-plus"></use></svg>Nueva nota</button>
+  </div>
+  <hr class="hr">
+  <p class="lbl">Otras consultas con la Dra. Ríos</p>
+  <div class="card" style="padding:4px 16px">
+    <button class="lista-item" data-go="consultas"><div class="thumb"><svg class="i"><use href="#ic-mic"></use></svg></div><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">24 de julio</span><span class="small muted">Inicio del tratamiento</span></div><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
+    <button class="lista-item" data-go="consultas"><div class="thumb"><svg class="i"><use href="#ic-mic"></use></svg></div><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">19 de junio</span><span class="small muted">Primera consulta</span></div><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
+  </div>
+ </div></div>
+</section>
+<section class="scr" data-scr="estudio" data-tab="estudios" data-dock="si">
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+  <button class="cuad" id="atrasEstudio" data-go="estudios"><svg class="i"><use href="#ic-back"></use></svg></button>
+  <div class="tx"><span class="ojal" id="estOjal">Estudios</span><b id="estQuien">—</b><span id="estSubDet">—</span></div>
+  </div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <div class="buscar" style="margin:0"><svg class="i"><use href="#ic-search"></use></svg><span>creatinina</span></div>
+  <div class="card">
+    <span class="lbl">1 resultado dentro de este estudio</span>
+    <div class="med-row" style="align-items:flex-start">
+      <div class="stack-sm" style="gap:3px;flex:1">
+        <span class="med-name"><span class="marca-hit">Creatinina</span> · 1,4 mg/dl</span>
+        <span class="small" style="color:var(--atencion);font-weight:600">Por encima del rango (0,6 – 1,1)</span>
+        <span class="small muted">Página 2 de 3 · sección «Función renal»</span>
+      </div>
+    </div>
+  </div>
+  <p class="lbl" style="margin-top:4px">Todo lo que leí</p>
+  <div class="card">
+    <div class="med-row"><div class="stack-sm" style="gap:0;flex:1"><span class="med-name">Hemoglobina</span><span class="small muted">11,2 g/dl</span></div><span class="pill pill-aten">Baja</span></div>
+    <div class="med-row"><div class="stack-sm" style="gap:0;flex:1"><span class="med-name">Glucemia</span><span class="small muted">118 mg/dl</span></div><span class="pill pill-ok">En rango</span></div>
+    <div class="med-row"><div class="stack-sm" style="gap:0;flex:1"><span class="med-name">Urea</span><span class="small muted">48 mg/dl</span></div><span class="pill pill-ok">En rango</span></div>
+    <button class="btn btn-quiet" style="justify-content:flex-start;padding:8px 0 0">Ver los 14 valores</button>
+  </div>
+  <div class="card-flat"><div class="row"><div class="thumb"><svg class="i"><use href="#ic-camera"></use></svg></div><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">3 fotos originales</span><span class="small muted">Como las sacaste, sin recortar</span></div><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></div></div>
+  <button class="btn btn-quiet" style="justify-content:flex-start;padding:0"><svg class="i"><use href="#ic-help"></use></svg>Qué significa la creatinina</button>
+  <button class="btn btn-ghost"><svg class="i"><use href="#ic-share"></use></svg>Compartir este estudio</button>
+ </div></div>
+</section>
+<section class="scr" data-scr="historia" data-tab="perfil" data-dock="si">
+ <header class="hdr">
+  <div class="navbar"><button class="atras" data-go="perfil"><svg class="i"><use href="#ic-back"></use></svg>Elsa</button><span class="crece"></span><span class="hdr-titulo-c">Historia clínica</span><button class="accion" data-go="compartir"><svg class="i"><use href="#ic-share"></use></svg>Compartir</button></div>
+  <p class="hdr-sub">Desde junio 2026</p>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <div class="urg-card"><p class="lbl" style="color:var(--urgencia)">Alergias</p><p style="color:var(--urgencia);font-size:18.2px;font-weight:600;margin-top:4px;letter-spacing:-.02em">Penicilina</p></div>
+  <p class="lbl" style="margin-top:4px">Diagnósticos activos</p>
+  <div class="card">
+    <div class="med-row"><div class="stack-sm" style="gap:0"><span class="med-name">Carcinoma urotelial de vejiga</span><span class="small muted">Junio 2026 · en tratamiento</span></div></div>
+    <div class="med-row"><div class="stack-sm" style="gap:0"><span class="med-name">Hipertensión arterial</span><span class="small muted">Desde 2019</span></div></div>
+    <div class="med-row"><div class="stack-sm" style="gap:0"><span class="med-name">Diabetes tipo 2</span><span class="small muted">Desde 2015</span></div></div>
+  </div>
+  <p class="lbl" style="margin-top:4px">Línea de tiempo</p>
+  <div class="card" style="padding:4px 16px">
+    <button class="lista-item" data-go="resumen"><div class="thumb"><svg class="i"><use href="#ic-mic"></use></svg></div><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Sube Enalapril a 10 mg</span><span class="small muted">26 de agosto · Dra. Ríos</span></div><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
+    <button class="lista-item" data-go="estudio" data-origen="estudios|Estudios"><div class="thumb ok"><svg class="i"><use href="#ic-folder"></use></svg></div><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Laboratorio completo</span><span class="small muted">19 de agosto</span></div><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
+    <button class="lista-item" data-go="estudio" data-origen="estudios|Estudios"><div class="thumb"><svg class="i"><use href="#ic-folder"></use></svg></div><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Diagnóstico inicial</span><span class="small muted">12 de junio · TAC de abdomen</span></div><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
+  </div>
+ </div></div>
+</section>
+<section class="scr" data-scr="medicacion" data-tab="perfil" data-dock="si">
+ <header class="hdr">
+  <div class="navbar"><button class="atras" data-go="perfil"><svg class="i"><use href="#ic-back"></use></svg>Elsa</button><span class="crece"></span><span class="hdr-titulo-c">Medicación</span><button class="accion"><svg class="i"><use href="#ic-plus"></use></svg></button></div>
+  <p class="hdr-sub">3 activas</p>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <div class="card">
+    <div class="med-row"><div class="thumb"><svg class="i"><use href="#ic-pill"></use></svg></div><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Enalapril 10 mg</span><span class="small muted">1 comprimido a la noche</span></div><span class="pill pill-marca">Cambió 26/8</span></div>
+    <div class="med-row"><div class="thumb"><svg class="i"><use href="#ic-pill"></use></svg></div><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Metformina 850 mg</span><span class="small muted">1 comprimido con el almuerzo</span></div></div>
+    <div class="med-row"><div class="thumb"><svg class="i"><use href="#ic-pill"></use></svg></div><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Ondansetrón 4 mg</span><span class="small muted">Sólo si tiene náuseas</span></div></div>
+  </div>
+  <div class="card-flat"><div class="row" style="align-items:flex-start;gap:11px">
+    <svg class="i" style="color:var(--gris);margin-top:2px"><use href="#ic-clock"></use></svg>
+    <div class="stack-sm" style="gap:3px;flex:1"><span class="med-name">Recordatorios de toma</span><span class="small muted">Apagados. Si los prendés, te aviso a las horas de cada toma.</span>
+    <button class="btn btn-ghost btn-sm" style="margin-top:6px">Prender recordatorios</button></div></div></div>
+  <p class="lbl" style="margin-top:4px">Dejó de tomar</p>
+  <div class="card" style="padding:4px 16px">
+    <div class="lista-item"><div class="thumb"><svg class="i"><use href="#ic-pill"></use></svg></div><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name" style="text-decoration:line-through;color:var(--tenue)">Enalapril 5 mg</span><span class="small muted">Hasta el 26 de agosto</span></div></div>
+  </div>
+ </div></div>
+</section>
+<section class="scr" data-scr="compartir" data-tab="perfil" data-dock="si">
+ <header class="hdr">
+  <div class="navbar"><button class="atras" data-go="perfil"><svg class="i"><use href="#ic-back"></use></svg>Elsa</button><span class="crece"></span><span class="hdr-titulo-c">Compartir historia</span></div>
+  <p class="hdr-sub">Elegí qué incluir antes de mandarlo</p>
+  <div class="segmentado"><button aria-selected="true">Resumen</button><button>+ Estudios</button><button>Todo</button></div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <div class="doc">
+    <div class="row" style="justify-content:space-between;align-items:flex-start">
+      <div><p class="doc-lbl">Resumen clínico</p><h3 style="margin-top:2px">Elsa Fernández</h3></div>
+      <p class="doc-lbl" style="text-align:right">01/09/2026<br>Releva</p>
+    </div>
+    <div class="doc-rule"></div>
+    <div class="doc-grid"><p><b>Edad</b>78 años</p><p><b>Sexo</b>Femenino</p><p><b>Obra social</b>OSDE 210 · 6188-3921</p><p><b>Grupo sanguíneo</b>0+</p></div>
+    <div class="doc-rule"></div>
+    <p class="doc-alert">Alergias: Penicilina</p>
+    <div class="doc-rule"></div>
+    <p class="doc-lbl">Diagnósticos activos</p>
+    <ul><li>Carcinoma urotelial de vejiga — dx. junio 2026, en tratamiento</li><li>Hipertensión arterial</li><li>Diabetes tipo 2</li></ul>
+    <div class="doc-rule"></div>
+    <p class="doc-lbl">Medicación actual</p>
+    <ul><li>Enalapril 10 mg — 1 comp. noche <i>(modificado 26/08)</i></li><li>Metformina 850 mg — 1 comp. almuerzo</li><li>Ondansetrón 4 mg — a demanda por náuseas</li></ul>
+    <div class="doc-rule"></div>
+    <p class="doc-lbl">Últimos estudios</p>
+    <ul><li>Laboratorio 19/08/2026 — creatinina 1,4 mg/dl · Hb 11,2</li><li>TAC abdomen 12/06/2026 — lesión vesical 22 mm</li></ul>
+    <div class="doc-rule"></div>
+    <p class="doc-lbl">Profesionales que la atienden</p>
+    <ul><li>Dra. P. Ríos — Oncología (última consulta 26/08)</li><li>Dr. A. Sosa — Urología</li><li>Dr. G. Beltrán — Nefrología (turno pendiente)</li></ul>
+    <p class="doc-foot">Documento generado por la cuidadora a cargo (Mariana F., hija) a partir de información cargada por ella y de notas de consulta. No constituye historia clínica oficial ni diagnóstico médico.</p>
+  </div>
+  <div class="row" style="gap:9px">
+    <button class="btn btn-primary" style="flex:1"><svg class="i"><use href="#ic-share"></use></svg>Compartir</button>
+    <button class="btn btn-ghost btn-sm" style="min-height:56px"><svg class="i"><use href="#ic-download"></use></svg></button>
+    <button class="btn btn-ghost btn-sm" style="min-height:56px"><svg class="i"><use href="#ic-print"></use></svg></button>
+  </div>
+ </div></div>
+</section>
+<!-- ===== MODALES ===== -->
+<section class="scr" data-scr="consentimiento" data-dock="no">
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+   <button class="cuad" id="cerrarConsent" data-go="hoy"><svg class="i"><use href="#ic-x"></use></svg></button>
+   <div class="tx"><b>Antes de entrar</b><span>Mostrale esto al médico</span></div>
+  </div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <div class="row" style="gap:13px;margin-top:4px">
+    <div class="mark" style="width:54px;height:54px;border-radius:17px"><svg class="i" style="width:28px;height:28px"><use href="#ic-rombo"></use></svg></div>
+    <p class="big" style="font-weight:600;line-height:1.3;letter-spacing:-.02em">Soy el asistente de Releva.<br>Esto es lo que voy a hacer.</p>
+  </div>
+  <div class="card"><div class="stack" style="gap:15px">
+    <div class="row" style="align-items:flex-start;gap:11px"><svg class="i" style="color:var(--marca-texto);margin-top:2px"><use href="#ic-lock"></use></svg><p style="font-size:14.1px;font-weight:400"><b>No guardo el audio.</b> Escucho mientras dura la consulta y después se borra. No queda una grabación en ningún lado.</p></div>
+    <div class="row" style="align-items:flex-start;gap:11px"><svg class="i" style="color:var(--marca-texto);margin-top:2px"><use href="#ic-nota"></use></svg><p style="font-size:14.1px;font-weight:400"><b>Anoto lo importante:</b> estudios que pide, cambios de medicación, controles y fechas.</p></div>
+    <div class="row" style="align-items:flex-start;gap:11px"><svg class="i" style="color:var(--marca-texto);margin-top:2px"><use href="#ic-heart"></use></svg><p style="font-size:14.1px;font-weight:400"><b>No doy indicaciones médicas.</b> Ordeno y explico lo que dice la doctora. Fui armado junto con médicos.</p></div>
+  </div></div>
+  <div class="aten-card"><p style="font-size:14.1px;font-weight:400"><b style="color:var(--atencion)">Avisale a la doctora.</b> Decile que usás una app que toma notas de la consulta. Casi siempre dicen que sí, y evita un mal momento.</p></div>
+  <div class="spacer"></div>
+  <div class="stack" style="margin-top:14px">
+    <button class="btn btn-primary" data-go="consulta">Le avisé, empezar</button>
+    <button class="btn btn-ghost" data-go="resumen">Prefiero anotar yo</button>
+  </div>
+ </div></div>
+</section>
+<section class="scr" data-scr="consulta" data-dock="no">
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+   <button class="cuad" data-go="hoy" data-minimizar="1"><svg class="i"><use href="#ic-chevdown"></use></svg></button>
+   <div class="tx"><b>En consulta</b><span>Escuchando, sin grabar audio</span></div>
+  </div>
+ </header>
+ <div class="scroll"><div class="cuerpo" style="gap:16px">
+  <div class="rec-stage">
+    <div class="rec-orb"><svg class="i"><use href="#ic-mic"></use></svg></div>
+    <span class="timer" id="timerGrande">14:32</span>
+    <p class="small muted" style="text-align:center;max-width:30ch">Estoy escuchando y tomando notas. Guardá el teléfono si querés, sigo igual.</p>
+  </div>
+  <div class="card" id="consNotasCard" style="display:none">
+    <span class="lbl">Notas para la consulta</span>
+    <div id="notasEnConsulta"></div>
+  </div>
+  <div class="card" style="padding:4px 16px">
+    <button class="lista-item" data-go="estudio" data-origen="consulta|En consulta">
+      <div class="thumb ok"><svg class="i"><use href="#ic-folder"></use></svg></div>
+      <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Laboratorio · 19 de agosto</span><span class="small muted">Abrilo si te lo pide</span></div>
+      <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
+    </button>
+  </div>
+  <div class="card">
+    <span class="lbl">Anotado hasta ahora</span>
+    <div class="capture"><span class="dot"></span><div class="stack-sm" style="gap:1px"><span style="font-weight:600;font-size:14.1px">Pide TAC de abdomen con contraste</span><span class="small muted">Estudio · antes del próximo control</span></div></div>
+    <div class="capture"><span class="dot"></span><div class="stack-sm" style="gap:1px"><span style="font-weight:600;font-size:14.1px">Sube Enalapril a 10 mg por la noche</span><span class="small muted">Cambio de medicación</span></div></div>
+    <div class="capture"><span class="dot" style="background:var(--atencion)"></span><div class="stack-sm" style="gap:1px"><span style="font-weight:600;font-size:14.1px">Control en 30 días</span><span class="small muted">Turno a sacar</span></div></div>
+  </div>
+  <div class="spacer"></div>
+  <button class="btn btn-primary" data-go="resumen" data-terminar="1">Terminó la consulta</button>
+  <button class="btn btn-quiet" data-go="consultas" data-terminar="1">Dejar de escuchar</button>
+ </div></div>
+</section>
+<section class="scr" data-scr="guardia" data-dock="no">
+ <header class="hdr hdr-urg">
+  <div class="navbar"><svg class="i" style="width:24px;height:24px;stroke-width:2.3"><use href="#ic-alert"></use></svg><h1>Modo guardia</h1><span class="crece"></span><button class="accion" data-go="hoy">Cerrar</button></div>
+  <p>Elsa Fernández · 78 años · 0+ · OSDE 210 · 6188-3921</p>
+ </header>
+ <div class="scroll"><div class="cuerpo" style="padding-top:14px">
+  <div class="urg-card"><p class="lbl" style="color:var(--urgencia)">Alérgica a</p><p style="color:var(--urgencia);margin-top:4px;font-size:24.6px;font-weight:600;letter-spacing:-.03em">Penicilina</p></div>
+  <div class="card">
+    <p class="lbl">Toma todos los días</p>
+    <div class="med-row"><div class="stack-sm" style="gap:0"><span class="med-name">Enalapril 10 mg</span><span class="small muted">1 comprimido a la noche</span></div></div>
+    <div class="med-row"><div class="stack-sm" style="gap:0"><span class="med-name">Metformina 850 mg</span><span class="small muted">1 comprimido con el almuerzo</span></div></div>
+    <div class="med-row"><div class="stack-sm" style="gap:0"><span class="med-name">Ondansetrón 4 mg</span><span class="small muted">Sólo si tiene náuseas</span></div></div>
+  </div>
+  <div class="card"><p class="lbl">Tiene</p><p style="font-size:15px;line-height:1.45;margin-top:6px;font-weight:500">Cáncer de vejiga en tratamiento oncológico desde junio · Hipertensión · Diabetes tipo 2 · Función renal en control</p></div>
+  <div class="card">
+    <p class="lbl">A quién llamar</p>
+    <div class="med-row"><div class="stack-sm" style="gap:0;flex:1"><span class="med-name">Dra. Paula Ríos</span><span class="small muted">Oncóloga de cabecera</span></div><button class="btn btn-ghost btn-sm">Llamar</button></div>
+    <div class="med-row"><div class="stack-sm" style="gap:0;flex:1"><span class="med-name">Javier, mi hermano</span><span class="small muted">Segundo cuidador</span></div><button class="btn btn-ghost btn-sm">Llamar</button></div>
+  </div>
+  <div class="spacer"></div>
+  <button class="btn btn-urg" data-go="compartir" style="margin-top:14px"><svg class="i"><use href="#ic-share"></use></svg>Pasarle el resumen al médico</button>
+ </div></div>
+</section>
+
+<section class="scr" data-scr="pend-tipo" data-dock="no">
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+   <button class="cuad" data-go="hoy"><svg class="i"><use href="#ic-x"></use></svg></button>
+   <div class="tx"><b>Nuevo pendiente</b><span>¿Qué tenés que hacer?</span></div>
+  </div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <h3 style="font-size:20px;letter-spacing:-.03em">¿Qué tenés que hacer?</h3>
+  <p class="muted small" style="margin-top:-8px">Elegí lo más parecido. Después lo podés cambiar.</p>
+  <div class="card" style="padding:2px 14px;margin-top:4px">
+   <button class="opcion" data-go="pend-form"><div class="thumb"><svg class="i"><use href="#ic-doc"></use></svg></div><span><b>Pedir una orden médica</b><span>Para un estudio o una práctica</span></span><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
+   <button class="opcion" data-go="pend-form"><div class="thumb aten"><svg class="i"><use href="#ic-lock"></use></svg></div><span><b>Autorizar un estudio</b><span>El permiso de la obra social</span></span><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
+   <button class="opcion" data-go="pend-form"><div class="thumb"><svg class="i"><use href="#ic-today"></use></svg></div><span><b>Sacar un turno</b><span>Con un médico o para un estudio</span></span><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
+   <button class="opcion" data-go="pend-form"><div class="thumb"><svg class="i"><use href="#ic-pill"></use></svg></div><span><b>Comprar o retirar medicación</b><span>Farmacia, droguería, receta</span></span><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
+   <button class="opcion" data-go="pend-form"><div class="thumb"><svg class="i"><use href="#ic-nota"></use></svg></div><span><b>Otra cosa</b><span>Escribilo con tus palabras</span></span><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
+  </div>
+ </div></div>
+</section>
+
+<section class="scr" data-scr="pend-form" data-dock="no">
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+   <button class="cuad" data-go="pend-tipo"><svg class="i"><use href="#ic-back"></use></svg></button>
+   <div class="tx"><b>Nuevo pendiente</b><span>Los detalles</span></div>
+  </div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <div class="field"><span class="lbl">¿Qué hay que hacer?</span><div class="input">Autorizar la ecografía de control</div></div>
+  <div class="field"><span class="lbl">¿Para cuándo?</span>
+   <div class="chips">
+     <span class="chip on"><svg class="i"><use href="#ic-check"></use></svg>Esta semana</span>
+     <span class="chip">El mes que viene</span><span class="chip">Elegir fecha</span><span class="chip">Sin fecha</span>
+   </div>
+  </div>
+  <div class="field"><span class="lbl">¿De dónde salió? · opcional</span>
+   <div class="card" style="padding:2px 14px">
+    <button class="lista-item" style="padding:11px 0"><div class="thumb"><svg class="i"><use href="#ic-mic"></use></svg></div><div class="stack-sm" style="gap:0;flex:1"><span class="med-name">Dra. Ríos · 26 de agosto</span><span class="small muted">Última consulta</span></div><span class="check on"><svg class="i"><use href="#ic-check"></use></svg></span></button>
+    <button class="lista-item" style="padding:11px 0"><div class="stack-sm" style="gap:0;flex:1;padding-left:2px"><span class="med-name">De ninguna</span></div><span class="check"><svg class="i"><use href="#ic-check"></use></svg></span></button>
+   </div>
+  </div>
+  <div class="spacer"></div>
+  <button class="btn btn-primary" style="margin-top:14px" data-go="hoy" data-agregar="1">Agregar el pendiente</button>
+  <p class="fineprint" style="text-align:center;max-width:none">Lo vas a ver en Inicio, abajo de Pendientes.</p>
+ </div></div>
+</section>
+
+
+<section class="scr hoja" data-scr="nota-nueva" data-dock="no">
+ <div class="hoja-panel">
+  <div class="hoja-tirador"></div>
+  <h2>Nueva nota</h2>
+  <p class="small muted" style="padding:0 6px 12px">Para la consulta con <b style="color:var(--tinta)" id="notaPara">—</b>. Va a aparecer sola ese día.</p>
+  <div class="input editable" id="notaTexto" contenteditable="true" spellcheck="false" data-ph="Escribí lo que quieras preguntar o contar" style="min-height:120px;line-height:1.5;font-weight:400"></div>
+  <button class="btn btn-primary" style="margin-top:14px" data-go="consultas-prox" data-nota-nueva="1">Guardar la nota</button>
+  <button class="btn btn-ghost" style="margin-top:9px" data-go="consultas-prox">Cancelar</button>
+ </div>
+</section>
+
+<section class="scr" data-scr="elsa-editar" data-tab="perfil" data-dock="si">
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+  <button class="cuad" data-go="perfil"><svg class="i"><use href="#ic-back"></use></svg></button>
+  <div class="tx"><span class="ojal">Elsa</span><b>Datos de Elsa</b><span>Los que ve un médico de guardia</span></div>
+  </div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <div class="field"><span class="lbl">Nombre y apellido</span><div class="input editable" contenteditable="true" spellcheck="false">Elsa Fernández</div></div>
+  <div class="field"><span class="lbl">Edad</span><div class="input editable" contenteditable="true" spellcheck="false">78</div></div>
+  <div class="field"><span class="lbl">Qué es tuyo</span><div class="chips">
+    <span class="chip on"><svg class="i"><use href="#ic-check"></use></svg>Mi mamá</span><span class="chip">Mi papá</span><span class="chip">Mi pareja</span><span class="chip">Otro</span></div></div>
+  <div class="field"><span class="lbl">Obra social y afiliado</span><div class="input editable" contenteditable="true" spellcheck="false">OSDE 210 · 6188-3921</div></div>
+  <div class="field"><span class="lbl">Grupo sanguíneo</span><div class="input editable" contenteditable="true" spellcheck="false">0+</div></div>
+  <div class="urg-card">
+   <p class="lbl" style="color:var(--urgencia)">Alergias</p>
+   <p class="small muted" style="margin:4px 0 10px">Es lo primero que preguntan en una guardia.</p>
+   <div class="chips">
+     <span class="chip on"><svg class="i"><use href="#ic-check"></use></svg>Penicilina</span>
+     <span class="chip">Ibuprofeno</span><span class="chip">Iodo</span><span class="chip">Aspirina</span><span class="chip">Látex</span>
+   </div>
+  </div>
+  <button class="btn btn-primary" style="margin-top:6px" data-go="perfil" data-aviso="Datos actualizados">Guardar</button>
+ </div></div>
+</section>
+
+<section class="scr" data-scr="cuidador-editar" data-tab="perfil" data-dock="si">
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+  <button class="cuad" data-go="perfil"><svg class="i"><use href="#ic-back"></use></svg></button>
+  <div class="tx"><span class="ojal">Elsa · quién la cuida</span><b>Javier</b><span>Tu hermano · cuidador</span></div>
+  </div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <div class="field"><span class="lbl">Nombre</span><div class="input editable" contenteditable="true" spellcheck="false">Javier</div></div>
+  <div class="field"><span class="lbl">Qué es tuyo</span><div class="input editable" contenteditable="true" spellcheck="false">Mi hermano</div></div>
+  <p class="lbl" style="margin-top:4px">Qué puede hacer</p>
+  <div class="stack" style="gap:9px">
+   <button class="rol-chip on" data-rol="ver"><svg class="i"><use href="#ic-check"></use></svg><span>Ver todo<small>La historia, los estudios y las notas. No puede cambiar nada.</small></span></button>
+   <button class="rol-chip" data-rol="editar"><span>Ver y editar<small>Puede cargar estudios, agendar y marcar pendientes.</small></span></button>
+   <button class="rol-chip" data-rol="guardia"><span>Sólo modo guardia<small>Alergias, medicación y a quién llamar. Nada más.</small></span></button>
+  </div>
+  <div class="spacer"></div>
+  <button class="btn btn-primary" style="margin-top:14px" data-go="perfil" data-aviso="Permisos actualizados">Guardar</button>
+  <button class="btn btn-ghost" style="color:var(--urgencia);border-color:var(--urgencia-linea)" data-go="perfil" data-aviso="Javier ya no tiene acceso">Sacarle el acceso</button>
+  <p class="fineprint" style="text-align:center;max-width:none">Deja de ver todo al instante. Lo que ya cargó queda.</p>
+ </div></div>
+</section>
+
+<section class="scr" data-scr="invitar" data-tab="perfil" data-dock="si">
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+  <button class="cuad" data-go="perfil"><svg class="i"><use href="#ic-back"></use></svg></button>
+  <div class="tx"><span class="ojal">Elsa · quién la cuida</span><b>Invitar a alguien</b><span>Para que te ayude con Elsa</span></div>
+  </div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <div class="field"><span class="lbl">¿Cómo se llama?</span><div class="input editable" id="invNombre" contenteditable="true" spellcheck="false">Laura</div></div>
+  <div class="field"><span class="lbl">¿Qué es tuyo?</span><div class="input editable" contenteditable="true" spellcheck="false">Mi hermana</div></div>
+  <p class="lbl" style="margin-top:4px">Qué va a poder hacer</p>
+  <div class="stack" style="gap:9px">
+   <button class="rol-chip on" data-rol="ver"><svg class="i"><use href="#ic-check"></use></svg><span>Ver todo<small>Lo más común. Después lo podés cambiar.</small></span></button>
+   <button class="rol-chip" data-rol="editar"><span>Ver y editar<small>Si también va a cargar cosas y agendar.</small></span></button>
+   <button class="rol-chip" data-rol="guardia"><span>Sólo modo guardia<small>Para alguien que sólo tiene que saber lo urgente.</small></span></button>
+  </div>
+  <div class="card-flat" style="margin-top:4px">
+   <div class="row" style="align-items:flex-start;gap:11px">
+    <svg class="i" style="color:var(--gris);margin-top:2px"><use href="#ic-lock"></use></svg>
+    <p class="small muted" style="flex:1">Le va a llegar un link por WhatsApp. Hasta que no lo abra, no ve nada de Elsa.</p>
+   </div>
+  </div>
+  <div class="spacer"></div>
+  <button class="btn btn-primary" style="margin-top:14px" data-go="perfil" data-invitar="1"><svg class="i"><use href="#ic-share"></use></svg>Mandar la invitación</button>
+ </div></div>
+</section>
+
+<section class="scr" data-scr="grab-asignar" data-dock="no">
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+   <button class="cuad" data-go="resumen"><svg class="i"><use href="#ic-x"></use></svg></button>
+   <div class="tx"><b>¿De qué consulta fue?</b><span>Para saber dónde guardarla</span></div>
+  </div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <div id="asignarExistentes">
+   <p class="lbl">Consultas que ya tenías</p>
+   <div class="card" style="padding:2px 14px" id="listaAsignar"></div>
+  </div>
+  <div class="field" id="campoNombre"><span class="lbl" id="lblNombreGrab">Ponele un nombre</span>
+   <div class="input editable" id="nombreGrab" contenteditable="true" spellcheck="false" data-ph="Control con la Dra. Ríos"></div>
+  </div>
+  <div class="spacer"></div>
+  <button class="btn btn-primary" style="margin-top:14px" data-go="resumen" data-nombrar="1">Guardar con este nombre</button>
+ </div></div>
+</section>
+
+<section class="scr" data-scr="cons-quien" data-dock="no">
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+   <button class="cuad" id="atrasQuien" data-go="cons-cuando"><svg class="i"><use href="#ic-back"></use></svg></button>
+   <div class="tx"><b>Nuevo turno</b><span>¿Con quién es?</span></div>
+  </div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <div class="card-flat" style="background:var(--suave-2)" id="resumenCuando">
+   <div class="row"><div class="thumb"><svg class="i"><use href="#ic-today"></use></svg></div>
+    <div class="stack-sm" style="gap:0;flex:1"><span class="med-name" id="cuandoDia">Lunes 28 de septiembre</span><span class="small muted" id="cuandoDonde">14:30 · Hospital Italiano</span></div>
+    <button class="accion" data-go="cons-cuando">Cambiar</button></div>
+  </div>
+  <p class="muted small">Los médicos que ya atienden a Elsa.</p>
+  <div class="card" style="padding:2px 14px" id="listaElegirMedico"></div>
+  <div class="card" style="padding:2px 14px">
+   <button class="opcion" data-go="cons-medico-nuevo"><div class="thumb" style="background:var(--marca-suave)"><svg class="i" style="stroke-width:2.4"><use href="#ic-plus"></use></svg></div><span><b>Otro médico</b><span>Lo agrego a la lista de Elsa</span></span><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
+  </div>
+ </div></div>
+</section>
+
+<section class="scr" data-scr="cons-medico-nuevo" data-dock="no">
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+   <button class="cuad" id="atrasMedico" data-go="cons-quien"><svg class="i"><use href="#ic-back"></use></svg></button>
+   <div class="tx"><b>Nuevo médico</b><span>Se guarda en los médicos de Elsa</span></div>
+  </div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <div class="field"><span class="lbl">Nombre</span><div class="input editable" id="medNombre" contenteditable="true" spellcheck="false">Laura</div></div>
+  <div class="field"><span class="lbl">Apellido</span><div class="input editable" id="medApellido" contenteditable="true" spellcheck="false">Giménez</div></div>
+  <div class="field"><span class="lbl">Especialidad</span><div class="input editable" id="medEsp" contenteditable="true" spellcheck="false">Nefrología</div></div>
+  <div class="spacer"></div>
+  <button class="btn btn-primary" id="btnMedicoNuevo" style="margin-top:14px" data-go="consultas" data-medico="nuevo" data-agendar="1">Agregar el turno</button>
+ </div></div>
+</section>
+
+<section class="scr" data-scr="cons-cuando" data-dock="no">
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+   <button class="cuad" id="cerrarCuando" data-go="consultas"><svg class="i"><use href="#ic-x"></use></svg></button>
+   <div class="tx"><b>Nuevo turno</b><span>Cuándo y dónde</span></div>
+  </div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <div class="field"><span class="lbl">¿Qué día?</span><div class="input">Lunes 28 de septiembre</div></div>
+  <div class="field"><span class="lbl">¿A qué hora?</span>
+   <div class="reloj">
+     <div class="rueda" id="ruedaH" data-paso="1"></div>
+     <span class="sep">:</span>
+     <div class="rueda" id="ruedaM" data-paso="5"></div>
+   </div>
+  </div>
+  <div class="field"><span class="lbl">¿Dónde?</span><div class="input">Hospital Italiano</div></div>
+  <div class="spacer"></div>
+  <button class="btn btn-primary" style="margin-top:14px" data-go="cons-quien">Seguir</button>
+ </div></div>
+</section>
+
+<section class="scr hoja" data-scr="est-origen" data-dock="no">
+ <div class="hoja-panel">
+  <div class="hoja-tirador"></div>
+  <h2>Nuevo estudio</h2>
+  <p class="small muted" style="padding:0 6px 8px">Análisis, informes, recetas u órdenes. Si son varias hojas, sacá una foto por hoja.</p>
+  <button class="hoja-op" data-go="estudios" data-nuevo-estudio="Foto"><div class="thumb"><svg class="i"><use href="#ic-camera"></use></svg></div><span><b>Sacar una foto</b><span>Abre la cámara ahora</span></span></button>
+  <button class="hoja-op" data-go="estudios" data-nuevo-estudio="Galería"><div class="thumb"><svg class="i"><use href="#ic-folder"></use></svg></div><span><b>Elegir de la galería</b><span>Fotos que ya tenés en el teléfono</span></span></button>
+  <button class="hoja-op" data-go="estudios" data-nuevo-estudio="PDF"><div class="thumb"><svg class="i"><use href="#ic-download"></use></svg></div><span><b>Subir un PDF</b><span>El que te manda el laboratorio por mail</span></span></button>
+  <button class="btn btn-ghost" style="margin-top:12px" data-go="estudios">Cancelar</button>
+ </div>
+</section>
+
+       <button class="rec-bar" id="recBar" data-go="consulta">
+         <span class="luz"></span>En consulta
+         <span class="vol">Volver</span>
+       </button>
+       <div class="toast" id="toast">
+         <svg class="i"><use href="#ic-check"></use></svg>
+         <span class="txt">Listo, lo agregué</span>
+         <button id="deshacer">Deshacer</button>
+       </div>
+       <div class="dock" id="dock">
+         <div class="tabbar-wrap">
+         <button class="fab" id="fab" data-go="consultas-prox"><svg class="i"><use href="#ic-today" id="fabIco"></use></svg><span id="fabEt">Nueva consulta</span></button>
+         <nav class="tabbar" role="tablist" id="tabbar">
+           <button class="tab" role="tab" data-tab="hoy" data-go="hoy"><svg class="i"><use href="#ic-today"></use></svg><span class="et">Inicio</span></button>
+           <button class="tab" role="tab" data-tab="consultas" data-go="consultas"><span class="punto"></span><svg class="i"><use href="#ic-mic"></use></svg><span class="et">Consultas</span></button>
+           <button class="tab" role="tab" data-tab="estudios" data-go="estudios"><svg class="i"><use href="#ic-folder"></use></svg><span class="et">Estudios</span></button>
+           <button class="tab" role="tab" data-tab="perfil" data-go="perfil"><svg class="i"><use href="#ic-user"></use></svg><span class="et">Elsa</span></button>
+         </nav>
+         </div>
+         <div class="indicador"></div>
+       </div>
+  </div>
+ </div>
+</div>
+<script>
+const stage=document.querySelector(".stage"),
+      screen=document.getElementById("screen"),
+      tabbar=document.getElementById("tabbar"),
+      toast=document.getElementById("toast"),
+      fab=document.getElementById("fab"),
+      fabEt=document.getElementById("fabEt");
+function go(id){
+  if(id==="cons-quien" && E.medicos.length===0){
+    const act=document.querySelector(".scr.is-on");
+    id = (act && act.dataset.scr==="cons-medico-nuevo") ? origenAlta : "cons-medico-nuevo";
+  }
+  if(id==="cons-medico-nuevo"){
+    const bm=$("atrasMedico");
+    if(bm) bm.dataset.go = E.medicos.length===0 ? (modoAlta==="adhoc" ? "grab-asignar" : "cons-cuando") : "cons-quien";
+  }
+  if(id==="cons-quien"){
+    const rc=$("resumenCuando");
+    if(rc){
+      ver(rc, modoAlta!=="adhoc");
+      $("cuandoDia").textContent="Lunes 28 de septiembre";
+      $("cuandoDonde").textContent=horaElegida()+" · Hospital Italiano";
+    }
+    const aq=$("atrasQuien");
+    if(aq) aq.dataset.go = modoAlta==="adhoc" ? "grab-asignar" : "cons-cuando";
+  }
+  if(id==="cons-cuando"){
+    const cc=$("cerrarCuando");
+    if(cc) cc.dataset.go = origenAlta;
+    requestAnimationFrame(colocarRuedas);
+  }
+  if(id==="nota-nueva"){
+    const act=document.querySelector(".scr.is-on");
+    origenNota = (act && act.dataset.scr==="resumen") ? "resumen" : "consultas-prox";
+    destinoNota = origenNota==="resumen" ? "r" : "n";
+    document.querySelectorAll('[data-scr="nota-nueva"] [data-go]').forEach(x=>x.dataset.go=origenNota);
+    const dst=$("notaPara");
+    if(dst) dst.textContent = destinoNota==="r" ? "esta consulta"
+      : (E.consulta ? E.consulta.quien+" · "+E.consulta.fecha : "la próxima consulta");
+    requestAnimationFrame(()=>{const c=$("notaTexto"); if(c) c.focus();});
+  }
+  if(id==="consentimiento"){
+    const cs=$("cerrarConsent"); if(cs) cs.dataset.go=origenGrab;
+  }
+  const t=document.querySelector('.scr[data-scr="'+id+'"]'); if(!t) return;
+  document.querySelectorAll(".scr").forEach(s=>{
+    s.classList.toggle("is-on",s===t);
+    if(s!==t){s.classList.remove("colapsado"); const sc=s.querySelector(".scroll"); if(sc) sc.scrollTop=0;}
+  });
+  t.classList.remove("colapsado");
+  const sc=t.querySelector(".scroll"); if(sc) sc.scrollTop=0;
+  const cab=t.querySelector(".hdr");
+  screen.dataset.sb = cab ? (cab.classList.contains("hdr-urg") ? "rojo"
+                          : (cab.classList.contains("hdr-marca")||cab.classList.contains("hdr-raiz")) ? "naranja" : "claro")
+                          : "claro";
+  stage.dataset.dock=t.dataset.dock||"no";
+  stage.classList.toggle("sin-bar", id==="consulta");
+  stage.classList.remove("bajando");
+  const f=t.dataset.fab;
+  if(f && t.dataset.dock==="si"){
+    const [et,destino,ico]=f.split("|");
+    fabEt.textContent=et; fab.dataset.go=destino;
+    fab.querySelector("use").setAttribute("href","#"+(ico||"ic-plus"));
+    stage.dataset.fab="si";
+  } else { stage.dataset.fab="no"; }
+  if(!["hoy","estudios","consultas","consultas-prox","perfil"].includes(id)){ toast.classList.remove("ver"); }
+  const tab=t.dataset.tab||"";
+  tabbar.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",String(b.dataset.tab===tab)));
+}
+document.querySelectorAll(".scroll").forEach(sc=>{
+  let ultimo=0;
+  sc.addEventListener("scroll",()=>{
+    const y=sc.scrollTop, scr=sc.closest(".scr");
+    if(scr) scr.classList.toggle("colapsado", y>10);
+    if(y>56 && y>ultimo+4) stage.classList.add("bajando");
+    else if(y<ultimo-4 || y<40) stage.classList.remove("bajando");
+    ultimo=y;
+  },{passive:true});
+});
+let relojToast=null;
+const E={consulta:null, notasRes:[], pendientes:[], estudios:[], notas:[], anteriores:[], medicos:[], cuidadores:[]};
+const $=id=>document.getElementById(id);
+const ver=(el,on)=>{ if(el) el.style.display = on ? "" : "none"; };
+
+function mostrarToast(txt){
+  toast.querySelector(".txt").textContent=txt||"Listo";
+  toast.classList.add("ver");
+  clearTimeout(relojToast);
+  relojToast=setTimeout(()=>toast.classList.remove("ver"),6000);
+}
+
+function fila(html,extra){
+  const b=document.createElement("button");
+  b.className="lista-item nuevo-item"+(extra?" "+extra:"");
+  b.innerHTML=html; return b;
+}
+const chev='<span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>';
+function filaNota(n,i,lista){
+  return '<button class="nota-fila" data-nota-hecha="'+(lista||"n")+":"+i+'">'+
+    '<span class="check'+(n.hecha?" on":"")+'"><svg class="i"><use href="#ic-check"></use></svg></span>'+
+    '<span class="nota-tx'+(n.hecha?" hecha":"")+'">'+n.t+'</span></button>';
+}
+
+function render(){
+  const hayAlgo = E.consulta || E.pendientes.length || E.estudios.length;
+  /* ---- Inicio ---- */
+  ver($("bDiaUno"), !hayAlgo);
+  ver($("bAccesos"), true);
+  ver($("bPendientes"), hayAlgo);
+  ver($("bConsulta"), !!E.consulta);
+  ver($("bSinConsulta"), hayAlgo && !E.consulta);
+  $("homeSub").textContent = hayAlgo ? "Martes 1 de septiembre" : "Hola, Mariana · martes 1 de septiembre";
+  if(E.consulta){
+    $("hcCuando").textContent="Tu próxima consulta";
+    $("hcQuien").textContent=E.consulta.quien+" · "+E.consulta.esp;
+    $("hcDonde").textContent=E.consulta.fecha+", "+E.consulta.cuando+" · "+E.consulta.donde;
+    $("hcBoton").textContent = E.notas.length ? "Preparar la consulta · "+E.notas.length+(E.notas.length===1?" nota":" notas") : "Preparar la consulta";
+  }
+  const lp=$("listaPendientes"), agr=$("filaAgregarPend");
+  [...lp.children].forEach(n=>{ if(n!==agr) n.remove(); });
+  E.pendientes.forEach(x=>{
+    const f=fila('<span class="check"><svg class="i"><use href="#ic-check"></use></svg></span>'+
+      '<div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">'+x.t+'</span><span class="small muted">'+x.d+'</span></div>');
+    f.dataset.hecho=x.t;
+    lp.insertBefore(f, agr);
+  });
+  const ult=E.estudios.slice(0,2);
+  ver($("bUltimo"), ult.length>0);
+  $("listaUltimo").innerHTML="";
+  ult.forEach(x=>{
+    const f=fila('<div class="thumb aten"><svg class="i"><use href="#ic-folder"></use></svg></div>'+
+      '<div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">'+x.t+'</span><span class="small muted">'+x.d+'</span></div>'+
+      '<span class="pill pill-aten">Leyendo</span>');
+    f.dataset.go="estudio"; f.dataset.origen="estudios|Estudios"; f.dataset.est=x.t+"|"+x.d;
+    $("listaUltimo").appendChild(f);
+  });
+
+  /* ---- Consultas ---- */
+  const hayCons = !!E.consulta || E.anteriores.length>0;
+  ver($("consVacio"), !hayCons);
+  ver($("consBuscar"), hayCons);
+  ver($("consProxWrap"), !!E.consulta);
+  ver($("consAntWrap"), E.anteriores.length>0);
+  $("consSub").textContent = hayCons
+    ? (E.consulta?"1 agendada":"") + (E.consulta&&E.anteriores.length?" · ":"") + (E.anteriores.length?E.anteriores.length+" anterior"+(E.anteriores.length>1?"es":""):"")
+    : "Todavía no hay ninguna";
+  $("listaProximas").innerHTML="";
+  if(E.consulta){
+    const f=fila('<div class="thumb" style="background:var(--marca-suave)"><svg class="i"><use href="#ic-today"></use></svg></div>'+
+      '<div class="stack-sm" style="gap:2px;flex:1"><span class="med-name">'+E.consulta.quien+' · '+E.consulta.esp+'</span>'+
+      '<span class="small" style="color:var(--marca-texto);font-weight:600">'+E.consulta.fecha+', '+E.consulta.cuando+'</span>'+
+      '<span class="small muted">'+(E.notas.length?E.notas.length+" nota"+(E.notas.length>1?"s":"")+" lista"+(E.notas.length>1?"s":""):"Sin notas todavía")+'</span></div>'+chev);
+    f.dataset.go="consultas-prox";
+    $("listaProximas").appendChild(f);
+  }
+
+  /* ---- Estudios ---- */
+  ver($("estVacio"), E.estudios.length===0);
+  ver($("estWrap"), E.estudios.length>0);
+  ver($("estFiltros"), E.estudios.length>0);
+  const es=$("estSub");
+  es.textContent = E.estudios.length ? E.estudios.length+" cargado"+(E.estudios.length>1?"s":"") : "";
+  ver(es, E.estudios.length>0);
+  $("listaEstudios").innerHTML="";
+  E.estudios.forEach(x=>{
+    const f=fila('<div class="thumb aten"><svg class="i"><use href="#ic-folder"></use></svg></div>'+
+      '<div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">'+x.t+'</span><span class="small muted">'+x.d+'</span></div>'+
+      '<span class="pill pill-aten">Leyendo</span>');
+    f.dataset.go="estudio"; f.dataset.origen="estudios|Estudios"; f.dataset.est=x.t+"|"+x.d;
+    const del=document.createElement("span");
+    del.className="borrar"; del.dataset.borrarEstudio=x.t;
+    del.innerHTML='<svg class="i"><use href="#ic-x"></use></svg>';
+    f.appendChild(del);
+    $("listaEstudios").appendChild(f);
+  });
+
+  /* ---- Preparar ---- */
+  if(E.consulta){
+    $("proxQuien").textContent=E.consulta.quien+" · "+E.consulta.esp;
+    $("proxSub").textContent=E.consulta.fecha+", "+E.consulta.cuando;
+  }
+  ver($("notasVacio"), E.notas.length===0);
+  $("listaNotas").innerHTML="";
+  E.notas.forEach((n,i)=>{
+    const d=document.createElement("div"); d.className="card nuevo-item";
+    d.innerHTML=filaNota(n,i);
+    $("listaNotas").appendChild(d);
+  });
+  const lnc=$("notasEnConsulta");
+  if(lnc){
+    lnc.innerHTML="";
+    E.notas.forEach((n,i)=>{
+      const d=document.createElement("div"); d.className="med-row"; d.style.padding="10px 0";
+      d.innerHTML=filaNota(n,i);
+      lnc.appendChild(d);
+    });
+    ver($("consNotasCard"), E.notas.length>0);
+  }
+
+  /* ---- cuidadores invitados ---- */
+  const lc=$("listaCuidadores");
+  if(lc){
+    lc.querySelectorAll(".invitado").forEach(n=>n.remove());
+    const anclaInv=$("filaInvitar");
+    E.cuidadores.forEach(c=>{
+      const f=fila('<span class="av" style="width:44px;height:44px;font-size:16px;background:var(--suave);color:var(--gris)">'+c.n.charAt(0).toUpperCase()+'</span>'+
+        '<div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">'+c.n+'</span><span class="small muted">Invitación enviada</span></div>'+
+        '<span class="pill pill-aten">Pendiente</span>',"invitado");
+      lc.insertBefore(f, anclaInv);
+    });
+  }
+
+  /* ---- asignar grabación ---- */
+  const aa=$("asignarAgendada");
+  if(aa){
+    ver(aa, !!E.consulta);
+    if(E.consulta){
+      $("asignarQuien").textContent=E.consulta.quien+" · "+E.consulta.esp;
+      $("asignarCuando").textContent="La que tenías agendada · "+E.consulta.fecha;
+    }
+  }
+  ver($("resSinAsignar"), grabPara==="despues");
+  const lnr=$("listaNotasRes");
+  if(lnr){
+    lnr.innerHTML="";
+    E.notasRes.forEach((n,i)=>{
+      const d=document.createElement("div"); d.className="med-row"; d.style.padding="10px 0";
+      d.innerHTML=filaNota(n,i,"r");
+      lnr.appendChild(d);
+    });
+  }
+  const la=$("listaAsignar");
+  if(la){
+    la.innerHTML="";
+    const opciones=[];
+    if(E.consulta) opciones.push({n:E.consulta.quien+" · "+E.consulta.esp, d:"La que tenías agendada · "+E.consulta.fecha});
+    E.anteriores.forEach(a=>opciones.push({n:a.q, d:"Consulta anterior"}));
+    opciones.forEach(o=>{
+      const b=document.createElement("button");
+      b.className="opcion"; b.dataset.go="resumen"; b.dataset.asignarA=o.n;
+      b.innerHTML='<div class="thumb" style="background:var(--marca-suave)"><svg class="i"><use href="#ic-today"></use></svg></div>'+
+        '<span><b>'+o.n+'</b><span>'+o.d+'</span></span>'+chev;
+      la.appendChild(b);
+    });
+    ver($("asignarExistentes"), opciones.length>0);
+    $("lblNombreGrab").textContent = opciones.length ? "O ponele un nombre" : "Ponele un nombre";
+  }
+
+  /* ---- elegir médico ---- */
+  const le=$("listaElegirMedico");
+  if(le){
+    le.innerHTML="";
+    E.medicos.forEach(m=>{
+      const b=document.createElement("button");
+      b.className="opcion"; b.dataset.go="consultas"; b.dataset.medico=m.n; b.dataset.agendar="1";
+      b.innerHTML='<div class="thumb"><svg class="i"><use href="#ic-user"></use></svg></div>'+
+        '<span><b>'+m.n+'</b><span>'+m.e+'</span></span>'+chev;
+      le.appendChild(b);
+    });
+    ver(le, E.medicos.length>0);
+    ver(le.previousElementSibling, E.medicos.length>0);
+  }
+
+  /* ---- Elsa ---- */
+  const lm=$("listaMedicos");
+  if(lm){
+    lm.innerHTML="";
+    E.medicos.forEach(m=>{
+      const f=fila('<div class="thumb"><svg class="i"><use href="#ic-user"></use></svg></div>'+
+        '<div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">'+m.n+'</span><span class="small muted">'+m.e+'</span></div>'+
+        '<span class="borrar" data-borrar-medico="'+m.n+'"><svg class="i"><use href="#ic-x"></use></svg></span>');
+      lm.appendChild(f);
+    });
+    ver(lm, E.medicos.length>0);
+    ver($("medVacio"), E.medicos.length===0);
+  }
+}
+
+/* --- altas --- */
+let ultimo=null;
+function deshacer(){
+  if(!ultimo) return;
+  ultimo(); ultimo=null;
+  toast.classList.remove("ver"); clearTimeout(relojToast);
+  render();
+}
+document.getElementById("deshacer").addEventListener("click",deshacer);
+
+function reiniciar(){
+  E.consulta=null; E.pendientes.length=0; E.estudios.length=0;
+  E.notas.length=0; E.notasRes.length=0; E.anteriores.length=0; E.medicos.length=0; E.cuidadores.length=0;
+  medicoElegido=null; modoAlta="agendar"; grabPara=null; ultimo=null;
+  grabando=false; stage.classList.remove("grabando"); clearInterval(relojGrab); relojGrab=null;
+  const ant=$("listaAnteriores"); if(ant) ant.innerHTML="";
+  toast.classList.remove("ver");
+  render();
+}
+function agregarPendiente(){
+  const x={t:"Autorizar la ecografía de control", d:"Esta semana · de la consulta del 26/8", icono:"lock"};
+  E.pendientes.unshift(x);
+  ultimo=()=>{E.pendientes.splice(E.pendientes.indexOf(x),1);};
+  render(); mostrarToast("Listo, lo agregué");
+}
+function agregarEstudio(origen){
+  const x={t:"Estudio sin nombre", d:"1 de septiembre · desde "+origen};
+  E.estudios.unshift(x);
+  ultimo=()=>{E.estudios.splice(E.estudios.indexOf(x),1);};
+  render(); mostrarToast("Lo estoy leyendo, te aviso");
+}
+function agregarNota(){
+  const campo=$("notaTexto");
+  const txt=(campo.textContent||"").trim();
+  if(!txt) return;
+  const x={t:txt, hecha:false};
+  (destinoNota==="r" ? E.notasRes : E.notas).push(x);
+  campo.textContent="";
+  ultimo=null;
+  render();
+}
+/* rueda de hora */
+function armarRueda(el,desde,hasta,paso,inicial){
+  el.innerHTML='<span class="pad"></span>'+
+    Array.from({length:Math.floor((hasta-desde)/paso)+1},(_,k)=>{
+      const v=desde+k*paso;
+      return '<i data-v="'+v+'">'+String(v).padStart(2,"0")+'</i>';
+    }).join("")+'<span class="pad"></span>';
+  const marcar=()=>{
+    const items=[...el.querySelectorAll("i")];
+    const centro=el.scrollTop+el.clientHeight/2;
+    let mejor=items[0], dist=Infinity;
+    items.forEach(n=>{
+      const d=Math.abs(n.offsetTop+n.offsetHeight/2-centro);
+      if(d<dist){dist=d; mejor=n;}
+    });
+    items.forEach(n=>n.classList.toggle("sel",n===mejor));
+    el.dataset.valor=mejor?.dataset.v??desde;
+  };
+  el.addEventListener("scroll",()=>{clearTimeout(el._t); el._t=setTimeout(marcar,110);},{passive:true});
+  el.addEventListener("scrollend",marcar);
+  el._colocar=()=>{
+    if(!el._listo){ el.scrollTop=((inicial-desde)/paso)*40; el._listo=true; }
+    marcar();
+  };
+}
+const ruedaH=$("ruedaH"), ruedaM=$("ruedaM");
+armarRueda(ruedaH,6,20,1,11); armarRueda(ruedaM,0,55,5,30);
+function colocarRuedas(){ ruedaH._colocar(); ruedaM._colocar(); }
+const horaElegida=()=>String(ruedaH.dataset.valor??11)+":"+String(ruedaM.dataset.valor??30).padStart(2,"0");
+
+let medicoElegido=null, modoAlta="agendar", grabPara=null, origenAlta="consultas", origenGrab="hoy", origenNota="consultas-prox", destinoNota="n";
+function guardarMedico(){
+  const nom=($("medNombre").textContent||"").trim();
+  const ape=($("medApellido").textContent||"").trim();
+  const esp=($("medEsp").textContent||"").trim()||"Sin especialidad";
+  medicoElegido={n:(nom+" "+ape).trim()||"Médico nuevo", e:esp, nuevo:true};
+}
+function crearAdHoc(){
+  const m=medicoElegido||{n:"Médico",e:""};
+  E.consulta={quien:m.n, esp:m.e, fecha:"Hoy, 1 de septiembre", cuando:"ahora", donde:"", adhoc:true};
+  if(m.nuevo && !E.medicos.some(x=>x.n===m.n)) E.medicos.push({n:m.n,e:m.e});
+  grabPara="agendada"; modoAlta="agendar";
+  render();
+}
+function agendarConsulta(){
+  const m=medicoElegido||{n:"Médico",e:""};
+  const previa=E.consulta, eraNuevo=m.nuevo && !E.medicos.some(x=>x.n===m.n);
+  E.consulta={quien:m.n, esp:m.e, fecha:"Lunes 28 de septiembre", cuando:horaElegida(), donde:"Hospital Italiano"};
+  if(eraNuevo) E.medicos.push({n:m.n,e:m.e});
+  ultimo=()=>{ E.consulta=previa; if(eraNuevo) E.medicos.pop(); };
+  render();
+  mostrarToast(eraNuevo ? "Turno agendado. Y lo guardé en los médicos de Elsa." : "Listo, agendé el turno");
+}
+
+/* grabación en segundo plano */
+let grabando=false, seg=0, relojGrab=null;
+const fmt=v=>Math.floor(v/60)+":"+String(v%60).padStart(2,"0");
+function pintarTimer(){
+  const a=$("timerGrande");
+  if(a) a.textContent=fmt(seg);
+}
+function empezarGrabacion(){
+  grabando=true; seg=0; stage.classList.add("grabando");
+  clearInterval(relojGrab);
+  relojGrab=setInterval(()=>{seg++; pintarTimer();},1000);
+  pintarTimer();
+}
+function abrirEstudio(nombre,sub){
+  $("estQuien").textContent=nombre;
+  $("estSubDet").textContent=sub;
+}
+function abrirResumen(quien,esp,fecha){
+  $("resQuien").textContent = esp ? quien+" · "+esp : quien;
+  $("resSub").textContent=fecha;
+}
+function anotarAnterior(titulo,sub){
+  E.anteriores.unshift({q:titulo});
+  const ant=$("listaAnteriores");
+  if(ant){
+    const f=fila('<div class="thumb"><svg class="i"><use href="#ic-mic"></use></svg></div>'+
+      '<div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">'+titulo+'</span>'+
+      '<span class="small muted">'+sub+'</span></div>'+chev);
+    f.dataset.go="resumen"; f.dataset.res=titulo+"||hoy";
+    ant.insertBefore(f, ant.firstChild);
+  }
+}
+function terminarGrabacion(){
+  if(!grabando){ render(); return; }
+  grabando=false; stage.classList.remove("grabando");
+  clearInterval(relojGrab); relojGrab=null;
+  E.notasRes=E.notas.slice(); E.notas.length=0;
+  if(grabPara==="despues"){
+    abrirResumen("Consulta sin nombre","","Hoy · sin asignar");
+  } else if(E.consulta){
+    abrirResumen(E.consulta.quien, E.consulta.esp, "Hoy");
+    anotarAnterior(E.consulta.quien+" · "+E.consulta.esp, "Hoy · 3 indicaciones");
+    E.consulta=null;
+    grabPara=null;
+  }
+  render();
+}
+function asignarGrabacion(titulo,sub){
+  abrirResumen(titulo,"",sub);
+  anotarAnterior(titulo, "Hoy · 3 indicaciones");
+  if(E.consulta && titulo.indexOf(E.consulta.quien)===0){ E.consulta=null; E.notas.length=0; }
+  grabPara=null;
+  render(); mostrarToast("Guardada en "+titulo);
+}
+
+function origenEstudio(valor){
+  const b=$("atrasEstudio"); if(!b) return;
+  const [destino,etiqueta]=(valor||"estudios|Estudios").split("|");
+  b.dataset.go=destino;
+  const oj=$("estOjal"); if(oj) oj.textContent=etiqueta;
+  const scr=document.querySelector('.scr[data-scr="estudio"]');
+  if(scr) scr.dataset.tab = destino==="estudios" ? "estudios" : (destino==="consulta" ? "" : "consultas");
+}
+
+document.addEventListener("click",e=>{
+  const bm=e.target.closest("[data-borrar-medico]");
+  if(bm){
+    const n=bm.dataset.borrarMedico, i=E.medicos.findIndex(x=>x.n===n);
+    if(i>=0){ const m=E.medicos.splice(i,1)[0]; ultimo=()=>E.medicos.splice(i,0,m); render(); mostrarToast("Saqué a "+n); }
+    return;
+  }
+  const be=e.target.closest("[data-borrar-estudio]");
+  if(be){
+    const t=be.dataset.borrarEstudio, i=E.estudios.findIndex(x=>x.t===t);
+    if(i>=0){ const x=E.estudios.splice(i,1)[0]; ultimo=()=>E.estudios.splice(i,0,x); render(); mostrarToast("Estudio borrado"); }
+    return;
+  }
+  const rl=e.target.closest("[data-rol]");
+  if(rl){
+    rl.parentElement.querySelectorAll("[data-rol]").forEach(x=>{
+      const on=x===rl; x.classList.toggle("on",on);
+      const tic=x.querySelector("svg");
+      if(on && !tic) x.insertAdjacentHTML("afterbegin",'<svg class="i"><use href="#ic-check"></use></svg>');
+      if(!on && tic) tic.remove();
+    });
+    return;
+  }
+  const hc=e.target.closest("[data-hecho]");
+  if(hc){
+    const x=E.pendientes.find(y=>y.t===hc.dataset.hecho);
+    if(x){
+      const pos=E.pendientes.indexOf(x);
+      E.pendientes.splice(pos,1);
+      ultimo=()=>{E.pendientes.splice(pos,0,x);};
+      render(); mostrarToast("Hecho");
+    }
+    return;
+  }
+  const nh=e.target.closest("[data-nota-hecha]");
+  if(nh){
+    const [lista,idx]=nh.dataset.notaHecha.split(":");
+    const n=(lista==="r"?E.notasRes:E.notas)[+idx];
+    if(n){ n.hecha=!n.hecha; render(); }
+    return;
+  }
+  const b=e.target.closest("[data-go]");
+  if(b){
+    if(b.dataset.res){ const [q,e2,f2]=b.dataset.res.split("|"); abrirResumen(q,e2,f2); }
+    if(b.dataset.est){ const [n2,s2]=b.dataset.est.split("|"); abrirEstudio(n2,s2); }
+    if(b.dataset.origen) origenEstudio(b.dataset.origen);
+    if(b.dataset.go==="consulta" && !grabando) empezarGrabacion();
+    if(b.dataset.terminar) terminarGrabacion();
+    if(b.dataset.go==="cons-cuando" || b.dataset.go==="cons-quien"){
+      const act=document.querySelector(".scr.is-on");
+      if(act && act.dataset.dock==="si") origenAlta=act.dataset.scr;
+    }
+    if(b.dataset.reset) reiniciar();
+    if(b.dataset.invitar){
+      const n=($("invNombre").textContent||"Alguien").trim();
+      const c={n:n};
+      E.cuidadores.push(c);
+      ultimo=()=>{E.cuidadores.splice(E.cuidadores.indexOf(c),1);};
+      render(); mostrarToast("Invitación enviada a "+n);
+    } else if(b.dataset.aviso){ mostrarToast(b.dataset.aviso); }
+    if((b.dataset.go==="cons-cuando"||b.dataset.go==="cons-quien") && !b.dataset.asignar){
+      modoAlta="agendar"; grabPara=null;
+      const bt=$("btnMedicoNuevo"); if(bt) bt.textContent="Agregar el turno";
+    }
+    if(b.dataset.asignar){
+      const act=document.querySelector(".scr.is-on");
+      if(act && act.dataset.dock==="si") origenGrab=act.dataset.scr;
+      grabPara=b.dataset.asignar;
+      modoAlta = b.dataset.asignar==="adhoc" ? "adhoc" : "agendar";
+      $("btnMedicoNuevo").textContent = modoAlta==="adhoc" ? "Agregar y empezar" : "Agregar el turno";
+    }
+    if(b.dataset.medico==="nuevo") guardarMedico();
+    else if(b.dataset.medico){
+      const m=E.medicos.find(x=>x.n===b.dataset.medico);
+      if(m) medicoElegido={n:m.n,e:m.e};
+    }
+    if(modoAlta==="adhoc" && b.dataset.medico){ crearAdHoc(); go("consentimiento"); return; }
+    go(b.dataset.go);
+    if(b.dataset.asignarA) asignarGrabacion(b.dataset.asignarA,"Hoy");
+    if(b.dataset.nombrar){
+      const c=$("nombreGrab"), t=(c.textContent||"").trim()||"Consulta sin nombre";
+      c.textContent=""; asignarGrabacion(t,"Hoy");
+    }
+    if(b.dataset.agregar) agregarPendiente();
+    if(b.dataset.agendar) agendarConsulta();
+    if(b.dataset.notaNueva) agregarNota();
+    if(b.dataset.nuevoEstudio) agregarEstudio(b.dataset.nuevoEstudio);
+    return;
+  }
+  const seg=e.target.closest(".segmentado button");
+  if(seg){ seg.parentElement.querySelectorAll("button").forEach(x=>x.setAttribute("aria-selected",String(x===seg))); return; }
+  const f=e.target.closest(".filtro");
+  if(f){ f.parentElement.querySelectorAll(".filtro").forEach(x=>x.setAttribute("aria-pressed",String(x===f))); }
+  const ch=e.target.closest(".chip, .check");
+  if(ch && ch.classList.contains("check")) ch.classList.toggle("on");
+});
+render();
+go("hoy");
+</script>
