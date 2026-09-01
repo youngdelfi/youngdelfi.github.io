@@ -65,7 +65,7 @@ body{
   font-family:"Instrument Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
   font-size:14.6px; line-height:1.55; -webkit-font-smoothing:antialiased;
 }
-h1,h2,h3,h4{margin:0; text-wrap:balance; line-height:1.15; font-weight:700}
+h1,h2,h3,h4{margin:0; text-wrap:balance; line-height:1.15; font-weight:600}
 p{margin:0}
 button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 :focus-visible{outline:2.5px solid var(--marca-solida); outline-offset:3px; border-radius:7px}
@@ -85,15 +85,15 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 .hdr.hdr-raiz{background:var(--terracota);color:#FFFFFF;padding:2px 16px 16px;
   position:relative;z-index:14;box-shadow:0 6px 18px -5px rgba(70,32,16,.38)}
 .hdr.hdr-raiz .fila-r{display:flex;align-items:center;gap:10px;min-height:46px}
-.hdr.hdr-raiz h1{font-size:25px;font-weight:700;letter-spacing:-.035em;line-height:1.1;display:flex;align-items:center;gap:10px}
-.hdr.hdr-raiz .sub-r{font-size:13.2px;font-weight:600;opacity:.94;margin-top:5px}
+.hdr.hdr-raiz h1{font-size:25px;font-weight:600;letter-spacing:-.035em;line-height:1.1;display:flex;align-items:center;gap:10px}
+.hdr.hdr-raiz .sub-r{font-size:13.2px;font-weight:500;opacity:.94;margin-top:5px}
 .hdr.hdr-raiz::after{display:none}
 .scr.colapsado .hdr.hdr-raiz{background:var(--terracota);backdrop-filter:none;-webkit-backdrop-filter:none}
 .hdr.hdr-raiz .accion-urg{background:#FFFFFF;border-color:transparent;color:var(--urgencia)}
 .hdr.hdr-raiz .rombo-h1{background:#FFFFFF}
 .hdr.hdr-raiz .rombo-h1::after{background:var(--terracota)}
 .statusbar{flex:none;height:44px;display:flex;align-items:center;justify-content:space-between;
-  padding:0 26px 0 30px;font-size:12.7px;font-weight:700;font-variant-numeric:tabular-nums;z-index:20;background:var(--papel)}
+  padding:0 26px 0 30px;font-size:12.7px;font-weight:600;font-variant-numeric:tabular-nums;z-index:20;background:var(--papel)}
 .sb-right{display:flex;align-items:center;gap:5px}
 .sb-right svg{width:16px;height:12px;fill:currentColor;stroke:none}
 .stage{position:relative;flex:1;min-height:0}
@@ -109,44 +109,44 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 .scr.colapsado .hdr::after{opacity:1}
 .navbar{display:flex;align-items:center;gap:8px;min-height:50px;padding:0 16px}
 .crece{flex:1}
-.atras{display:flex;align-items:center;gap:1px;color:var(--marca-texto);font-weight:700;
+.atras{display:flex;align-items:center;gap:1px;color:var(--marca-texto);font-weight:600;
   font-size:14.1px;letter-spacing:-.015em;padding:8px 8px 8px 2px;margin-left:-2px;min-height:44px}
 .atras .i{width:21px;height:21px;stroke-width:2.4}
 .atras:hover{opacity:.72}
-.accion{display:inline-flex;align-items:center;gap:6px;color:var(--marca-texto);font-weight:700;
+.accion{display:inline-flex;align-items:center;gap:6px;color:var(--marca-texto);font-weight:600;
   font-size:13.2px;letter-spacing:-.01em;padding:8px 10px;min-height:44px;border-radius:12px}
 .accion:hover{background:var(--suave)}
 .accion .i{width:18px;height:18px;stroke-width:2.1}
 .accion-urg{color:var(--urgencia);background:var(--urgencia-bg);border:1.5px solid var(--urgencia-linea);
-  padding:7px 13px;border-radius:999px;font-weight:700}
+  padding:7px 13px;border-radius:999px;font-weight:600}
 .persona{display:inline-flex;align-items:center;gap:8px;background:var(--suave);border-radius:999px;
-  padding:6px 12px 6px 6px;font-weight:700;font-size:12.7px;letter-spacing:-.01em;min-height:44px}
+  padding:6px 12px 6px 6px;font-weight:600;font-size:12.7px;letter-spacing:-.01em;min-height:44px}
 .persona:hover{background:var(--linea-tenue)}
 .av{width:30px;height:30px;border-radius:999px;background:var(--marca-solida);color:var(--sobre-marca);
-  display:grid;place-items:center;font-size:11.8px;font-weight:700;flex:none}
-.persona .rol{color:var(--gris);font-weight:600}
+  display:grid;place-items:center;font-size:11.8px;font-weight:600;flex:none}
+.persona .rol{color:var(--gris);font-weight:500}
 .persona .i{width:15px;height:15px;color:var(--gris);stroke-width:2.4}
-.hdr-titulo{display:flex;align-items:center;gap:9px;font-size:18.2px;font-weight:700;letter-spacing:-.032em;line-height:1.1}
+.hdr-titulo{display:flex;align-items:center;gap:9px;font-size:18.2px;font-weight:600;letter-spacing:-.032em;line-height:1.1}
 .hdr-titulo-c{position:absolute;left:0;right:0;top:0;height:50px;line-height:50px;text-align:center;
-  font-size:15px;font-weight:700;letter-spacing:-.02em;pointer-events:none;padding:0 104px;
+  font-size:15px;font-weight:600;letter-spacing:-.02em;pointer-events:none;padding:0 104px;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.hdr-sub{padding:0 16px 9px;margin-top:-2px;font-size:12.7px;font-weight:600;color:var(--gris)}
+.hdr-sub{padding:0 16px 9px;margin-top:-2px;font-size:12.7px;font-weight:500;color:var(--gris)}
 .buscar{margin:2px 18px 10px;display:flex;align-items:center;gap:9px;min-height:48px;
-  background:var(--suave);border-radius:14px;padding:0 14px;color:var(--gris);font-size:13.7px;font-weight:600}
+  background:var(--suave);border-radius:14px;padding:0 14px;color:var(--gris);font-size:13.7px;font-weight:500}
 .buscar .i{width:18px;height:18px;stroke-width:2.2;flex:none}
 .buscar span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .segmentado{margin:0 18px 10px;display:flex;gap:3px;background:var(--suave);border-radius:13px;padding:4px}
-.segmentado button{flex:1;font-weight:700;font-size:12.7px;letter-spacing:-.01em;color:var(--gris);
+.segmentado button{flex:1;font-weight:600;font-size:12.7px;letter-spacing:-.01em;color:var(--gris);
   padding:10px 4px;border-radius:10px;min-height:44px}
 .segmentado button[aria-selected="true"]{background:var(--tarjeta);color:var(--tinta);box-shadow:0 1px 3px rgba(0,0,0,.14)}
 .filtros{display:flex;gap:7px;padding:0 18px 10px;overflow-x:auto;scrollbar-width:none}
 .filtros::-webkit-scrollbar{display:none}
 .filtro{flex:none;padding:8px 14px;min-height:40px;border-radius:999px;border:1.5px solid var(--linea);
-  background:var(--tarjeta);font-size:13.2px;font-weight:700;color:var(--gris);white-space:nowrap}
+  background:var(--tarjeta);font-size:13.2px;font-weight:600;color:var(--gris);white-space:nowrap}
 .filtro[aria-pressed="true"]{background:var(--marca-suave);border-color:var(--marca);color:var(--marca-texto)}
 .hdr-modal .navbar{min-height:52px}
 .hdr-modal .titulo-modal{position:absolute;left:0;right:0;top:2px;height:52px;line-height:52px;text-align:center;
-  font-size:14.1px;font-weight:700;letter-spacing:-.02em;pointer-events:none;padding:0 100px;
+  font-size:14.1px;font-weight:600;letter-spacing:-.02em;pointer-events:none;padding:0 100px;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .hdr.hdr-marca{background:var(--terracota);color:#FFFFFF;padding:0 16px 15px}
 .hdr-marca::after{display:none}
@@ -158,18 +158,18 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 .hdr-marca .cuad:active{transform:scale(.95)}
 .hdr-marca .tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
 .hdr-marca .tx .ojal{display:block;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;
-  letter-spacing:.13em;text-transform:uppercase;font-weight:600;opacity:.82;margin-bottom:2px}
-.hdr-marca .tx b{font-size:19.1px;font-weight:700;letter-spacing:-.03em;line-height:1.2}
-.hdr-marca .tx span{font-size:13.7px;opacity:.94;font-weight:600}
+  letter-spacing:.13em;text-transform:uppercase;font-weight:500;opacity:.82;margin-bottom:2px}
+.hdr-marca .tx b{font-size:19.1px;font-weight:600;letter-spacing:-.03em;line-height:1.2}
+.hdr-marca .tx span{font-size:13.7px;opacity:.94;font-weight:500}
 .hdr-marca .navbar{padding:0;min-height:50px}
 .hdr-marca .atras,.hdr-marca .accion{color:#FFFFFF}
 .hdr-marca .accion:hover{background:rgba(255,255,255,.16)}
-.hdr-marca h1{font-size:19.1px;font-weight:700;letter-spacing:-.03em;line-height:1.15}
-.hdr-marca p{font-size:13.2px;opacity:.92;margin-top:3px;font-weight:600}
+.hdr-marca h1{font-size:19.1px;font-weight:600;letter-spacing:-.03em;line-height:1.15}
+.hdr-marca p{font-size:13.2px;opacity:.92;margin-top:3px;font-weight:500}
 .hdr-urg{background:var(--urgencia);color:var(--sobre-urgencia);padding:6px 16px 16px}
 .hdr-urg .navbar{padding:0;min-height:48px}
 .hdr-urg .accion{color:var(--sobre-urgencia);background:rgba(255,255,255,.16);border-radius:999px;padding:8px 14px}
-.hdr-urg h1{font-size:21.8px;font-weight:700;letter-spacing:-.03em}
+.hdr-urg h1{font-size:21.8px;font-weight:600;letter-spacing:-.03em}
 .hdr-urg p{font-size:12.7px;opacity:.92;margin-top:3px}
 .progreso{flex:none;display:flex;gap:5px;padding:4px 18px 12px}
 .progreso span{height:5px;flex:1;border-radius:99px;background:var(--linea)}
@@ -191,7 +191,7 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
   box-shadow:var(--sombra-dock);border:1px solid color-mix(in srgb, var(--linea) 55%, transparent);
   transition:padding .22s ease}
 .tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
-  min-height:54px;border-radius:19px;color:var(--gris);font-size:10px;font-weight:700;padding:6px 2px;
+  min-height:54px;border-radius:19px;color:var(--gris);font-size:10px;font-weight:600;padding:6px 2px;
   transition:background .16s ease,color .16s ease}
 .tab .i{width:25px;height:25px;stroke-width:1.9}
 .tab .et{transition:max-height .2s ease,opacity .15s ease;max-height:2em;overflow:hidden}
@@ -200,7 +200,7 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 .tab:not([aria-selected="true"]):hover{background:var(--suave)}
 .fab{position:absolute;right:16px;bottom:calc(100% + 12px);display:none;align-items:center;gap:8px;
   height:56px;padding:0 20px;border-radius:20px;background:var(--marca-solida);color:#FFFFFF;
-  font-size:14.1px;font-weight:700;letter-spacing:-.02em;pointer-events:auto;
+  font-size:14.1px;font-weight:600;letter-spacing:-.02em;pointer-events:auto;
   box-shadow:0 8px 22px -6px rgba(160,80,30,.5),0 2px 6px rgba(60,30,10,.18);
   transition:transform .16s ease,filter .16s ease}
 .tabbar-wrap{position:relative}
@@ -222,7 +222,7 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
   box-shadow:0 -12px 40px -10px rgba(30,16,6,.4);animation:sube .22s ease}
 @keyframes sube{from{transform:translateY(26px);opacity:.4}to{transform:none;opacity:1}}
 .hoja-tirador{width:40px;height:5px;border-radius:99px;background:var(--linea);margin:2px auto 12px}
-.hoja-panel h2{font-size:20px;font-weight:700;letter-spacing:-.03em;padding:0 6px 8px}
+.hoja-panel h2{font-size:20px;font-weight:600;letter-spacing:-.03em;padding:0 6px 8px}
 .hoja-op{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:13px 6px;border-radius:14px}
 .hoja-op+.hoja-op{border-top:1px solid var(--linea-tenue)}
 .hoja-op:hover{background:var(--suave-2)}
@@ -232,17 +232,17 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
   background:var(--tinta);color:var(--papel);box-shadow:0 10px 30px -8px rgba(0,0,0,.45);
   animation:sube .22s ease}
 .toast.ver{display:flex}
-.toast .txt{flex:1;font-size:14.1px;font-weight:700;letter-spacing:-.01em}
-.toast button{color:var(--marca);font-weight:700;font-size:14.1px;padding:8px 4px;min-height:44px}
+.toast .txt{flex:1;font-size:14.1px;font-weight:600;letter-spacing:-.01em}
+.toast button{color:var(--marca);font-weight:600;font-size:14.1px;padding:8px 4px;min-height:44px}
 .toast .i{width:20px;height:20px;color:var(--hecho);stroke-width:2.6}
 .rec-bar{position:absolute;top:0;left:0;right:0;height:34px;z-index:26;display:none;align-items:center;gap:9px;
-  padding:0 16px;background:var(--hecho);color:#FFFFFF;font-size:12.7px;font-weight:700;letter-spacing:-.01em}
+  padding:0 16px;background:var(--hecho);color:#FFFFFF;font-size:12.7px;font-weight:600;letter-spacing:-.01em}
 .stage.grabando .rec-bar{display:flex}
 .stage.grabando.sin-bar .rec-bar{display:none}
 .stage.grabando.sin-bar .scr{top:0}
 .stage.grabando .scr{top:34px}
 .rec-bar .luz{width:9px;height:9px;border-radius:99px;background:currentColor;animation:latir 1.6s ease-in-out infinite;flex:none}
-.rec-bar .vol{margin-left:auto;color:currentColor;font-weight:700;font-size:12.7px;text-decoration:underline;padding:6px 0}
+.rec-bar .vol{margin-left:auto;color:currentColor;font-weight:600;font-size:12.7px;text-decoration:underline;padding:6px 0}
 @keyframes latir{0%,100%{opacity:1}50%{opacity:.28}}
 .tab{position:relative}
 .tab .punto{position:absolute;top:6px;left:calc(50% + 8px);width:9px;height:9px;border-radius:99px;
@@ -256,26 +256,26 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
   scrollbar-width:none;text-align:center;-webkit-overflow-scrolling:touch}
 .rueda::-webkit-scrollbar{display:none}
 .rueda i{display:block;height:40px;line-height:40px;scroll-snap-align:center;font-style:normal;
-  font-size:18.2px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--tenue);transition:color .12s ease}
-.rueda i.sel{color:var(--tinta);font-weight:700}
+  font-size:18.2px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--tenue);transition:color .12s ease}
+.rueda i.sel{color:var(--tinta);font-weight:600}
 .rueda .pad{display:block;height:46px;scroll-snap-align:none}
-.reloj .sep{position:relative;z-index:1;font-size:18.2px;font-weight:700;color:var(--tinta)}
+.reloj .sep{position:relative;z-index:1;font-size:18.2px;font-weight:600;color:var(--tinta)}
 .editable{outline:none}
 .editable:focus{box-shadow:inset 0 0 0 2px var(--marca);border-radius:12px}
 .opcion{display:flex;align-items:center;gap:13px;width:100%;text-align:left;padding:13px 4px}
 .opcion+.opcion{border-top:1px solid var(--linea-tenue)}
-.opcion b{display:block;font-size:14.6px;font-weight:700;letter-spacing:-.02em}
-.opcion span{display:block;font-size:12.7px;color:var(--gris);font-weight:500}
+.opcion b{display:block;font-size:14.6px;font-weight:600;letter-spacing:-.02em}
+.opcion span{display:block;font-size:12.7px;color:var(--gris);font-weight:400}
 .nuevo-item{animation:aparece .3s ease}
 @keyframes aparece{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
-.hoja-op b{display:block;font-size:15.5px;font-weight:700;letter-spacing:-.02em}
-.hoja-op span{display:block;font-size:12.3px;color:var(--gris);font-weight:500}
+.hoja-op b{display:block;font-size:15.5px;font-weight:600;letter-spacing:-.02em}
+.hoja-op span{display:block;font-size:12.3px;color:var(--gris);font-weight:400}
 /* ============================================================
    4 · ÁTOMOS
    ============================================================ */
 .card{background:var(--tarjeta);border:1px solid var(--linea-tenue);border-radius:var(--r);padding:16px;box-shadow:var(--sombra-sm)}
 .card-flat{background:var(--tarjeta);border:1px solid var(--linea-tenue);border-radius:var(--r);padding:16px}
-.lbl{font-family:"Instrument Sans",ui-sans-serif,sans-serif;font-size:10px;letter-spacing:.11em;text-transform:uppercase;font-weight:700;color:var(--tenue)}
+.lbl{font-family:"Instrument Sans",ui-sans-serif,sans-serif;font-size:10px;letter-spacing:.11em;text-transform:uppercase;font-weight:600;color:var(--tenue)}
 .muted{color:var(--gris)} .small{font-size:11.8px} .big{font-size:15px}
 .stack{display:flex;flex-direction:column;gap:12px}
 .stack-sm{display:flex;flex-direction:column;gap:6px}
@@ -283,7 +283,7 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 .hr{height:1px;background:var(--linea-tenue);border:0;margin:2px 0}
 .spacer{flex:1}
 .btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;min-height:56px;padding:0 18px;
-  border-radius:16px;font-size:14.6px;font-weight:700;letter-spacing:-.02em;border:1.5px solid transparent;text-align:center}
+  border-radius:16px;font-size:14.6px;font-weight:600;letter-spacing:-.02em;border:1.5px solid transparent;text-align:center}
 .btn-primary{background:var(--marca-solida);color:var(--sobre-marca)}
 .btn-ghost{background:var(--tarjeta);color:var(--tinta);border-color:var(--linea)}
 .btn-quiet{background:transparent;color:var(--marca-texto);min-height:48px;font-size:13.2px}
@@ -291,28 +291,28 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 .btn-sm{min-height:46px;font-size:13.7px;border-radius:13px;width:auto;padding:0 16px}
 .btn .i{width:20px;height:20px;stroke-width:2.1}
 .chip{display:inline-flex;align-items:center;gap:7px;padding:11px 15px;min-height:46px;border-radius:999px;
-  border:1.5px solid var(--linea);background:var(--tarjeta);font-size:13.2px;font-weight:600}
-.chip.on{background:var(--marca-suave);border-color:var(--marca);color:var(--marca-texto);font-weight:700}
+  border:1.5px solid var(--linea);background:var(--tarjeta);font-size:13.2px;font-weight:500}
+.chip.on{background:var(--marca-suave);border-color:var(--marca);color:var(--marca-texto);font-weight:600}
 .chip .i{width:16px;height:16px;stroke-width:3}
 .chips{display:flex;flex-wrap:wrap;gap:9px}
-.pill{display:inline-flex;align-items:center;gap:6px;font-size:11.4px;font-weight:700;padding:5px 11px;border-radius:999px}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:11.4px;font-weight:600;padding:5px 11px;border-radius:999px}
 .pill-aten{background:var(--atencion-bg);color:var(--atencion);border:1px solid var(--atencion-linea)}
 .pill-ok{background:var(--hecho-bg);color:var(--hecho)}
 .pill-marca{background:var(--marca-suave);color:var(--marca-texto)}
 .field{display:flex;flex-direction:column;gap:7px}
-.field .lbl{color:var(--gris);letter-spacing:.02em;text-transform:none;font-size:12.7px;font-weight:700}
-.input{min-height:56px;border-radius:14px;border:1.5px solid var(--linea);background:var(--tarjeta);padding:15px;font-size:14.6px;font-weight:600}
+.field .lbl{color:var(--gris);letter-spacing:.02em;text-transform:none;font-size:12.7px;font-weight:600}
+.input{min-height:56px;border-radius:14px;border:1.5px solid var(--linea);background:var(--tarjeta);padding:15px;font-size:14.6px;font-weight:500}
 .check{width:30px;height:30px;border-radius:10px;border:2.2px solid var(--linea);flex:none;display:grid;place-items:center;color:transparent}
 .check.on{background:var(--hecho);border-color:var(--hecho);color:#fff}
 .check .i{width:18px;height:18px;stroke-width:3}
 .med-row{display:flex;align-items:center;gap:13px;padding:12px 0}
 .med-row+.med-row{border-top:1px solid var(--linea-tenue)}
 .med-row.done .med-name{text-decoration:line-through;color:var(--tenue)}
-.med-name{font-size:14.1px;font-weight:700;letter-spacing:-.015em}
+.med-name{font-size:14.1px;font-weight:600;letter-spacing:-.015em}
 .quick{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
 .quick button{background:var(--tarjeta);border:1px solid var(--linea-tenue);border-radius:14px;padding:13px 6px;
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;
-  font-size:11.4px;font-weight:700;line-height:1.25;text-align:center;box-shadow:var(--sombra-sm);min-height:82px}
+  font-size:11.4px;font-weight:600;line-height:1.25;text-align:center;box-shadow:var(--sombra-sm);min-height:82px}
 .quick .i{width:22px;height:22px;color:var(--marca-texto);stroke-width:2}
 .hero-card{background:var(--terracota);color:#FFFFFF;border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:14px}
 .hero-card .lbl{color:var(--sobre-marca);opacity:.8}
@@ -337,19 +337,19 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 @keyframes pulso{0%{transform:scale(.86);opacity:.45}100%{transform:scale(1.14);opacity:0}}
 @media (prefers-reduced-motion:reduce){.rec-orb::after{animation:none;opacity:.25}}
 .rec-orb .i{width:46px;height:46px}
-.timer{font-size:30.9px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.timer{font-size:30.9px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
 .capture{display:flex;gap:11px;align-items:flex-start;padding:11px 0}
 .capture+.capture{border-top:1px solid var(--linea-tenue)}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--marca-solida);margin-top:8px;flex:none}
 .uploader{border:2.5px dashed var(--linea);border-radius:20px;padding:24px 18px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;background:var(--suave-2)}
 .uploader .i{width:34px;height:34px;color:var(--marca-texto)}
-.marca-hit{background:var(--marca-suave);border-radius:6px;padding:1px 4px;font-weight:700;color:var(--marca-texto)}
+.marca-hit{background:var(--marca-suave);border-radius:6px;padding:1px 4px;font-weight:600;color:var(--marca-texto)}
 .borrar{width:44px;height:44px;border-radius:12px;background:var(--urgencia-bg);color:var(--urgencia);display:grid;place-items:center;flex:none;border:1px solid var(--urgencia-linea)}
 .borrar .i{width:19px;height:19px;stroke-width:2.2}
-.rol-chip{display:inline-flex;align-items:center;gap:7px;padding:12px 15px;min-height:52px;border-radius:14px;border:1.5px solid var(--linea);background:var(--tarjeta);font-size:14.5px;font-weight:700;width:100%;text-align:left}
+.rol-chip{display:inline-flex;align-items:center;gap:7px;padding:12px 15px;min-height:52px;border-radius:14px;border:1.5px solid var(--linea);background:var(--tarjeta);font-size:14.5px;font-weight:600;width:100%;text-align:left}
 .rol-chip.on{background:var(--marca-suave);border-color:var(--marca);color:var(--marca-texto)}
 .rol-chip .i{width:17px;height:17px;stroke-width:3;flex:none}
-.rol-chip small{display:block;font-size:12.7px;font-weight:500;color:var(--gris);margin-top:2px}
+.rol-chip small{display:block;font-size:12.7px;font-weight:400;color:var(--gris);margin-top:2px}
 .rol-chip.on small{color:var(--marca-texto);opacity:.85}
 .fantasma{display:flex;align-items:center;gap:13px;width:100%;text-align:left;padding:14px 15px;min-height:70px;
   border:2px dashed var(--linea);border-radius:var(--r);background:transparent;transition:border-color .15s ease,background .15s ease}
@@ -357,7 +357,7 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 .fantasma .ft{width:44px;height:44px;border-radius:12px;background:var(--suave);color:var(--tenue);display:grid;place-items:center;flex:none}
 .fantasma .ft .i{width:21px;height:21px}
 .fantasma .tx{flex:1;display:flex;flex-direction:column;gap:3px}
-.fantasma b{font-size:15px;font-weight:700;color:var(--gris);letter-spacing:-.02em}
+.fantasma b{font-size:15px;font-weight:600;color:var(--gris);letter-spacing:-.02em}
 .fantasma .raya{height:7px;border-radius:99px;background:var(--linea-tenue);width:60%}
 .fantasma .mas{width:32px;height:32px;border-radius:999px;background:var(--marca-suave);color:var(--marca-texto);display:grid;place-items:center;flex:none}
 .fantasma .mas .i{width:17px;height:17px;stroke-width:2.8}
@@ -370,15 +370,15 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 .vacio{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:26px 14px;
   border:1.5px dashed var(--linea);border-radius:20px;background:var(--suave-2)}
 .vacio .i{width:32px;height:32px;color:var(--tenue)}
-.vacio b{font-size:15.5px;font-weight:700;letter-spacing:-.02em}
+.vacio b{font-size:15.5px;font-weight:600;letter-spacing:-.02em}
 .vacio p{font-size:12.7px;color:var(--gris);max-width:30ch}
 .doc{background:#FFF;color:#1A1512;border-radius:10px;padding:20px 18px;box-shadow:0 10px 28px -12px rgba(40,25,10,.45),0 0 0 1px rgba(40,25,10,.1);font-size:11.4px;line-height:1.5}
 .doc h3{font-size:13.7px;color:#241A14;letter-spacing:-.02em}
-.doc .doc-lbl{font-size:10px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:#8A7B6E}
+.doc .doc-lbl{font-size:10px;letter-spacing:.13em;text-transform:uppercase;font-weight:600;color:#8A7B6E}
 .doc .doc-rule{height:1px;background:#E6DED6;margin:11px 0}
 .doc-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px 14px}
-.doc-grid b{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#8A7B6E;font-weight:700}
-.doc-alert{background:#FAE7E4;border:1px solid #EEC9C3;color:#8E2019;border-radius:7px;padding:8px 10px;font-weight:700}
+.doc-grid b{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#8A7B6E;font-weight:600}
+.doc-alert{background:#FAE7E4;border:1px solid #EEC9C3;color:#8E2019;border-radius:7px;padding:8px 10px;font-weight:600}
 .doc ul{margin:6px 0 0;padding-left:16px}.doc li{margin-bottom:3px}
 .doc-foot{font-size:10px;color:#8A7B6E;margin-top:12px;line-height:1.45}
 /* la página es sólo el teléfono */
@@ -434,7 +434,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
  <div class="scroll"><div class="cuerpo" style="padding-bottom:26px">
   <div class="welcome">
     <div class="mark"><svg class="i"><use href="#ic-rombo"></use></svg></div>
-    <h1 style="font-size:34.6px;font-weight:700;letter-spacing:-.04em">Releva</h1>
+    <h1 style="font-size:34.6px;font-weight:600;letter-spacing:-.04em">Releva</h1>
     <p class="big muted" style="max-width:24ch">Para los que cuidan a alguien y no saben por dónde empezar.</p>
     <div class="stack" style="width:100%;margin-top:14px">
       <button class="btn btn-primary" data-go="onb1">Empezar</button>
@@ -473,7 +473,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
  <div class="scroll"><div class="cuerpo">
   <h3 style="font-size:21.8px;letter-spacing:-.03em">¿Qué le está pasando a Elsa?</h3>
   <p class="muted small" style="margin-top:-8px">Contalo como se lo contarías a un amigo. No hace falta que uses términos médicos.</p>
-  <div class="input" style="min-height:100px;line-height:1.5;font-weight:500">En junio le encontraron un tumor en la vejiga. Está empezando tratamiento con la oncóloga.</div>
+  <div class="input" style="min-height:100px;line-height:1.5;font-weight:400">En junio le encontraron un tumor en la vejiga. Está empezando tratamiento con la oncóloga.</div>
   <p class="lbl" style="margin-top:4px">Además tiene</p>
   <div class="chips">
     <span class="chip on"><svg class="i"><use href="#ic-check"></use></svg>Hipertensión</span>
@@ -501,7 +501,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   </div>
   <hr class="hr" style="margin:6px 0">
   <div class="chips"><span class="chip">No es alérgica a nada</span><span class="chip">No sé</span></div>
-  <div class="aten-card" style="margin-top:4px"><p class="small" style="color:var(--atencion);font-weight:700">Si no sabés, está bien. Te ayudamos a averiguarlo en la próxima consulta.</p></div>
+  <div class="aten-card" style="margin-top:4px"><p class="small" style="color:var(--atencion);font-weight:600">Si no sabés, está bien. Te ayudamos a averiguarlo en la próxima consulta.</p></div>
   <div class="spacer"></div>
   <button class="btn btn-primary" data-go="hoy" data-reset="1" style="margin-top:14px">Terminar</button>
  </div></div>
@@ -523,23 +523,23 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
       <i class="badge b1"><svg class="i"><use href="#ic-campana"></use></svg></i>
       <i class="badge b2"><svg class="i"><use href="#ic-globo"></use></svg></i>
     </span>
-    <p style="font-size:18.2px;font-weight:700;letter-spacing:-.03em;line-height:1.25;margin-top:16px">¿Cuál es la próxima consulta de Elsa?</p>
-    <p class="muted" style="font-size:13.7px;margin-top:8px;font-weight:600">Te aviso antes · vas con las preguntas listas</p>
+    <p style="font-size:18.2px;font-weight:600;letter-spacing:-.03em;line-height:1.25;margin-top:16px">¿Cuál es la próxima consulta de Elsa?</p>
+    <p class="muted" style="font-size:13.7px;margin-top:8px;font-weight:500">Te aviso antes · vas con las preguntas listas</p>
     <button class="btn btn-primary" style="margin-top:16px" data-go="cons-quien">Agendar</button>
    </div>
   </div>
 
   <div class="card" id="bSinConsulta" style="border-style:dashed;border-width:1.5px;border-color:var(--linea);display:none">
     <span class="lbl">Próxima consulta</span>
-    <p style="font-size:17.3px;font-weight:700;letter-spacing:-.025em;margin-top:6px">No hay ninguna agendada</p>
+    <p style="font-size:17.3px;font-weight:600;letter-spacing:-.025em;margin-top:6px">No hay ninguna agendada</p>
     <button class="btn btn-primary" style="margin-top:12px" data-go="cons-quien">Agendar una consulta</button>
   </div>
 
   <div class="hero-card" id="bConsulta" style="display:none">
     <span class="lbl" id="hcCuando">Tu próxima consulta</span>
     <div class="stack-sm">
-      <span style="font-size:19.1px;font-weight:700;line-height:1.2;letter-spacing:-.025em" id="hcQuien">—</span>
-      <span style="opacity:.9;font-size:13.7px;font-weight:600" id="hcDonde">—</span>
+      <span style="font-size:19.1px;font-weight:600;line-height:1.2;letter-spacing:-.025em" id="hcQuien">—</span>
+      <span style="opacity:.9;font-size:13.7px;font-weight:500" id="hcDonde">—</span>
     </div>
     <button class="btn btn-ghost" data-go="consultas-prox" id="hcBoton">Preparar la consulta</button>
   </div>
@@ -626,8 +626,8 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
    <div class="filtros" style="padding:0 0 8px"><button class="filtro" aria-pressed="true">Todos</button><button class="filtro">Laboratorio</button><button class="filtro">Imágenes</button><button class="filtro">Recetas</button><button class="filtro">Por fecha</button></div>
   </div>
   <div id="estVacio">
-   <p style="font-size:17.3px;font-weight:700;letter-spacing:-.03em;line-height:1.3">Acá van los estudios de Elsa.</p>
-   <p class="muted" style="font-size:13.7px;margin:6px 0 14px;font-weight:600">Sacales una foto y leo los valores por vos.</p>
+   <p style="font-size:17.3px;font-weight:600;letter-spacing:-.03em;line-height:1.3">Acá van los estudios de Elsa.</p>
+   <p class="muted" style="font-size:13.7px;margin:6px 0 14px;font-weight:500">Sacales una foto y leo los valores por vos.</p>
    <div class="stack">
     <button class="fantasma" data-go="est-origen">
       <span class="ft"><svg class="i"><use href="#ic-folder"></use></svg></span>
@@ -715,7 +715,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
     <div class="row" style="align-items:flex-start;gap:11px">
      <svg class="i" style="color:var(--atencion);margin-top:2px"><use href="#ic-help"></use></svg>
      <div class="stack-sm" style="gap:6px;flex:1">
-      <span style="font-weight:700;font-size:14.6px;letter-spacing:-.02em">¿De qué consulta fue?</span>
+      <span style="font-weight:600;font-size:14.6px;letter-spacing:-.02em">¿De qué consulta fue?</span>
       <span class="small muted">Grabaste sin elegirla. Decime a cuál pertenece y la guardo ahí.</span>
       <button class="btn btn-ghost btn-sm" style="margin-top:4px" data-go="grab-asignar">Asignarla ahora</button>
      </div>
@@ -726,7 +726,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
     <button class="btn btn-ghost btn-sm" style="margin-top:9px">Corregir algo</button>
   </div>
   <h3 style="font-size:17.3px;letter-spacing:-.025em">Qué te dijo</h3>
-  <div class="card"><p style="font-size:14.6px;line-height:1.5;font-weight:500">El tratamiento está funcionando y las náuseas son esperables en estas primeras semanas. Quiere ver una TAC de abdomen antes del próximo control para comparar. El riñón le llamó la atención, por eso sube el Enalapril y pide que lo vea el nefrólogo.</p>
+  <div class="card"><p style="font-size:14.6px;line-height:1.5;font-weight:400">El tratamiento está funcionando y las náuseas son esperables en estas primeras semanas. Quiere ver una TAC de abdomen antes del próximo control para comparar. El riñón le llamó la atención, por eso sube el Enalapril y pide que lo vea el nefrólogo.</p>
     <button class="btn btn-quiet" style="justify-content:flex-start;padding:0;margin-top:8px"><svg class="i"><use href="#ic-help"></use></svg>Hay algo que no entendí</button></div>
   <h3 style="font-size:17.3px;margin-top:4px;letter-spacing:-.025em">Qué hay que hacer</h3>
   <div class="card">
@@ -741,7 +741,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   <h3 style="font-size:17.3px;margin-top:4px;letter-spacing:-.025em">Quedó sin responder</h3>
   <div class="card-flat"><div class="row" style="align-items:flex-start;gap:11px">
     <svg class="i" style="color:var(--atencion);margin-top:2px"><use href="#ic-help"></use></svg>
-    <div class="stack-sm" style="gap:6px;flex:1"><p style="font-size:14.1px;font-weight:600">Si puede seguir con la Metformina.</p>
+    <div class="stack-sm" style="gap:6px;flex:1"><p style="font-size:14.1px;font-weight:500">Si puede seguir con la Metformina.</p>
     <button class="btn btn-ghost btn-sm" data-go="consultas-prox">Ya la guardé para la próxima</button></div></div></div>
   <button class="btn btn-ghost"><svg class="i"><use href="#ic-share"></use></svg>Compartir estas notas</button>
   <hr class="hr">
@@ -766,7 +766,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
     <div class="med-row" style="align-items:flex-start">
       <div class="stack-sm" style="gap:3px;flex:1">
         <span class="med-name"><span class="marca-hit">Creatinina</span> · 1,4 mg/dl</span>
-        <span class="small" style="color:var(--atencion);font-weight:700">Por encima del rango (0,6 – 1,1)</span>
+        <span class="small" style="color:var(--atencion);font-weight:600">Por encima del rango (0,6 – 1,1)</span>
         <span class="small muted">Página 2 de 3 · sección «Función renal»</span>
       </div>
     </div>
@@ -789,7 +789,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   <p class="hdr-sub">Desde junio 2026</p>
  </header>
  <div class="scroll"><div class="cuerpo">
-  <div class="urg-card"><p class="lbl" style="color:var(--urgencia)">Alergias</p><p style="color:var(--urgencia);font-size:18.2px;font-weight:700;margin-top:4px;letter-spacing:-.02em">Penicilina</p></div>
+  <div class="urg-card"><p class="lbl" style="color:var(--urgencia)">Alergias</p><p style="color:var(--urgencia);font-size:18.2px;font-weight:600;margin-top:4px;letter-spacing:-.02em">Penicilina</p></div>
   <p class="lbl" style="margin-top:4px">Diagnósticos activos</p>
   <div class="card">
     <div class="med-row"><div class="stack-sm" style="gap:0"><span class="med-name">Carcinoma urotelial de vejiga</span><span class="small muted">Junio 2026 · en tratamiento</span></div></div>
@@ -873,14 +873,14 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
  <div class="scroll"><div class="cuerpo">
   <div class="row" style="gap:13px;margin-top:4px">
     <div class="mark" style="width:54px;height:54px;border-radius:17px"><svg class="i" style="width:28px;height:28px"><use href="#ic-rombo"></use></svg></div>
-    <p class="big" style="font-weight:700;line-height:1.3;letter-spacing:-.02em">Soy el asistente de Releva.<br>Esto es lo que voy a hacer.</p>
+    <p class="big" style="font-weight:600;line-height:1.3;letter-spacing:-.02em">Soy el asistente de Releva.<br>Esto es lo que voy a hacer.</p>
   </div>
   <div class="card"><div class="stack" style="gap:15px">
-    <div class="row" style="align-items:flex-start;gap:11px"><svg class="i" style="color:var(--marca-texto);margin-top:2px"><use href="#ic-lock"></use></svg><p style="font-size:14.1px;font-weight:500"><b>No guardo el audio.</b> Escucho mientras dura la consulta y después se borra. No queda una grabación en ningún lado.</p></div>
-    <div class="row" style="align-items:flex-start;gap:11px"><svg class="i" style="color:var(--marca-texto);margin-top:2px"><use href="#ic-nota"></use></svg><p style="font-size:14.1px;font-weight:500"><b>Anoto lo importante:</b> estudios que pide, cambios de medicación, controles y fechas.</p></div>
-    <div class="row" style="align-items:flex-start;gap:11px"><svg class="i" style="color:var(--marca-texto);margin-top:2px"><use href="#ic-heart"></use></svg><p style="font-size:14.1px;font-weight:500"><b>No doy indicaciones médicas.</b> Ordeno y explico lo que dice la doctora. Fui armado junto con médicos.</p></div>
+    <div class="row" style="align-items:flex-start;gap:11px"><svg class="i" style="color:var(--marca-texto);margin-top:2px"><use href="#ic-lock"></use></svg><p style="font-size:14.1px;font-weight:400"><b>No guardo el audio.</b> Escucho mientras dura la consulta y después se borra. No queda una grabación en ningún lado.</p></div>
+    <div class="row" style="align-items:flex-start;gap:11px"><svg class="i" style="color:var(--marca-texto);margin-top:2px"><use href="#ic-nota"></use></svg><p style="font-size:14.1px;font-weight:400"><b>Anoto lo importante:</b> estudios que pide, cambios de medicación, controles y fechas.</p></div>
+    <div class="row" style="align-items:flex-start;gap:11px"><svg class="i" style="color:var(--marca-texto);margin-top:2px"><use href="#ic-heart"></use></svg><p style="font-size:14.1px;font-weight:400"><b>No doy indicaciones médicas.</b> Ordeno y explico lo que dice la doctora. Fui armado junto con médicos.</p></div>
   </div></div>
-  <div class="aten-card"><p style="font-size:14.1px;font-weight:500"><b style="color:var(--atencion)">Avisale a la doctora.</b> Decile que usás una app que toma notas de la consulta. Casi siempre dicen que sí, y evita un mal momento.</p></div>
+  <div class="aten-card"><p style="font-size:14.1px;font-weight:400"><b style="color:var(--atencion)">Avisale a la doctora.</b> Decile que usás una app que toma notas de la consulta. Casi siempre dicen que sí, y evita un mal momento.</p></div>
   <div class="spacer"></div>
   <div class="stack" style="margin-top:14px">
     <button class="btn btn-primary" data-go="consulta">Le avisé, empezar</button>
@@ -903,9 +903,9 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   </div>
   <div class="card">
     <span class="lbl">Tus preguntas</span>
-    <div class="med-row" style="padding:10px 0"><span class="check on"><svg class="i"><use href="#ic-check"></use></svg></span><span style="font-size:13.7px;color:var(--tenue);text-decoration:line-through;font-weight:600">Las náuseas desde el jueves</span></div>
-    <div class="med-row" style="padding:10px 0"><span class="check"><svg class="i"><use href="#ic-check"></use></svg></span><span style="font-size:13.7px;font-weight:600">La creatinina de 1,4</span></div>
-    <div class="med-row" style="padding:10px 0"><span class="check"><svg class="i"><use href="#ic-check"></use></svg></span><span style="font-size:13.7px;font-weight:600">Si puede seguir con Metformina</span></div>
+    <div class="med-row" style="padding:10px 0"><span class="check on"><svg class="i"><use href="#ic-check"></use></svg></span><span style="font-size:13.7px;color:var(--tenue);text-decoration:line-through;font-weight:500">Las náuseas desde el jueves</span></div>
+    <div class="med-row" style="padding:10px 0"><span class="check"><svg class="i"><use href="#ic-check"></use></svg></span><span style="font-size:13.7px;font-weight:500">La creatinina de 1,4</span></div>
+    <div class="med-row" style="padding:10px 0"><span class="check"><svg class="i"><use href="#ic-check"></use></svg></span><span style="font-size:13.7px;font-weight:500">Si puede seguir con Metformina</span></div>
   </div>
   <div class="card" style="padding:4px 16px">
     <button class="lista-item" data-go="estudio" data-origen="consulta|En consulta">
@@ -916,9 +916,9 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   </div>
   <div class="card">
     <span class="lbl">Anotado hasta ahora</span>
-    <div class="capture"><span class="dot"></span><div class="stack-sm" style="gap:1px"><span style="font-weight:700;font-size:14.1px">Pide TAC de abdomen con contraste</span><span class="small muted">Estudio · antes del próximo control</span></div></div>
-    <div class="capture"><span class="dot"></span><div class="stack-sm" style="gap:1px"><span style="font-weight:700;font-size:14.1px">Sube Enalapril a 10 mg por la noche</span><span class="small muted">Cambio de medicación</span></div></div>
-    <div class="capture"><span class="dot" style="background:var(--atencion)"></span><div class="stack-sm" style="gap:1px"><span style="font-weight:700;font-size:14.1px">Control en 30 días</span><span class="small muted">Turno a sacar</span></div></div>
+    <div class="capture"><span class="dot"></span><div class="stack-sm" style="gap:1px"><span style="font-weight:600;font-size:14.1px">Pide TAC de abdomen con contraste</span><span class="small muted">Estudio · antes del próximo control</span></div></div>
+    <div class="capture"><span class="dot"></span><div class="stack-sm" style="gap:1px"><span style="font-weight:600;font-size:14.1px">Sube Enalapril a 10 mg por la noche</span><span class="small muted">Cambio de medicación</span></div></div>
+    <div class="capture"><span class="dot" style="background:var(--atencion)"></span><div class="stack-sm" style="gap:1px"><span style="font-weight:600;font-size:14.1px">Control en 30 días</span><span class="small muted">Turno a sacar</span></div></div>
   </div>
   <div class="spacer"></div>
   <button class="btn btn-primary" data-go="resumen" data-terminar="1">Terminó la consulta</button>
@@ -931,14 +931,14 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   <p>Elsa Fernández · 78 años · 0+ · OSDE 210 · 6188-3921</p>
  </header>
  <div class="scroll"><div class="cuerpo" style="padding-top:14px">
-  <div class="urg-card"><p class="lbl" style="color:var(--urgencia)">Alérgica a</p><p style="color:var(--urgencia);margin-top:4px;font-size:24.6px;font-weight:700;letter-spacing:-.03em">Penicilina</p></div>
+  <div class="urg-card"><p class="lbl" style="color:var(--urgencia)">Alérgica a</p><p style="color:var(--urgencia);margin-top:4px;font-size:24.6px;font-weight:600;letter-spacing:-.03em">Penicilina</p></div>
   <div class="card">
     <p class="lbl">Toma todos los días</p>
     <div class="med-row"><div class="stack-sm" style="gap:0"><span class="med-name">Enalapril 10 mg</span><span class="small muted">1 comprimido a la noche</span></div></div>
     <div class="med-row"><div class="stack-sm" style="gap:0"><span class="med-name">Metformina 850 mg</span><span class="small muted">1 comprimido con el almuerzo</span></div></div>
     <div class="med-row"><div class="stack-sm" style="gap:0"><span class="med-name">Ondansetrón 4 mg</span><span class="small muted">Sólo si tiene náuseas</span></div></div>
   </div>
-  <div class="card"><p class="lbl">Tiene</p><p style="font-size:15px;line-height:1.45;margin-top:6px;font-weight:600">Cáncer de vejiga en tratamiento oncológico desde junio · Hipertensión · Diabetes tipo 2 · Función renal en control</p></div>
+  <div class="card"><p class="lbl">Tiene</p><p style="font-size:15px;line-height:1.45;margin-top:6px;font-weight:500">Cáncer de vejiga en tratamiento oncológico desde junio · Hipertensión · Diabetes tipo 2 · Función renal en control</p></div>
   <div class="card">
     <p class="lbl">A quién llamar</p>
     <div class="med-row"><div class="stack-sm" style="gap:0;flex:1"><span class="med-name">Dra. Paula Ríos</span><span class="small muted">Oncóloga de cabecera</span></div><button class="btn btn-ghost btn-sm">Llamar</button></div>
@@ -1016,7 +1016,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
    </div>
   </div>
   <div class="field"><span class="lbl">Escribilo con tus palabras</span>
-   <div class="input" style="min-height:118px;line-height:1.5;font-weight:500">Duerme mucho de día desde que empezó el tratamiento. ¿Es normal?</div>
+   <div class="input" style="min-height:118px;line-height:1.5;font-weight:400">Duerme mucho de día desde que empezó el tratamiento. ¿Es normal?</div>
   </div>
   <div class="card-flat">
    <div class="row" style="align-items:flex-start;gap:11px">
@@ -1201,7 +1201,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
    <div class="row" style="align-items:flex-start;gap:11px">
     <span class="check on"><svg class="i"><use href="#ic-check"></use></svg></span>
     <div class="stack-sm" style="gap:3px;flex:1">
-      <span style="font-weight:700;font-size:14.6px;letter-spacing:-.02em">Avisarme el día anterior</span>
+      <span style="font-weight:600;font-size:14.6px;letter-spacing:-.02em">Avisarme el día anterior</span>
       <span class="small muted">Y otra vez dos horas antes, para salir a tiempo.</span>
     </div>
    </div>
@@ -1360,7 +1360,7 @@ function render(){
   if(E.consulta){
     const f=fila('<div class="thumb" style="background:var(--marca-suave)"><svg class="i"><use href="#ic-today"></use></svg></div>'+
       '<div class="stack-sm" style="gap:2px;flex:1"><span class="med-name">'+E.consulta.quien+' · '+E.consulta.esp+'</span>'+
-      '<span class="small" style="color:var(--marca-texto);font-weight:700">'+E.consulta.fecha+', '+E.consulta.cuando+'</span>'+
+      '<span class="small" style="color:var(--marca-texto);font-weight:600">'+E.consulta.fecha+', '+E.consulta.cuando+'</span>'+
       '<span class="small muted">'+(E.notas.length?E.notas.length+" nota"+(E.notas.length>1?"s":"")+" lista"+(E.notas.length>1?"s":""):"Sin notas todavía")+'</span></div>'+chev);
     f.dataset.go="consultas-prox";
     $("listaProximas").appendChild(f);
@@ -1396,7 +1396,7 @@ function render(){
   E.notas.forEach(n=>{
     const d=document.createElement("div"); d.className="card nuevo-item";
     d.innerHTML='<div class="row" style="align-items:flex-start"><span class="check on"><svg class="i"><use href="#ic-check"></use></svg></span>'+
-      '<div class="stack-sm" style="gap:3px"><p style="font-size:14.6px;font-weight:600">'+n.t+'</p>'+
+      '<div class="stack-sm" style="gap:3px"><p style="font-size:14.6px;font-weight:500">'+n.t+'</p>'+
       '<span class="pill '+n.cls+'">'+n.et+'</span></div></div>';
     $("listaNotas").appendChild(d);
   });
