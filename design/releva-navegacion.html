@@ -1154,7 +1154,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
 <section class="scr" data-scr="cons-medico-nuevo" data-dock="no">
  <header class="hdr hdr-marca">
   <div class="fila-hdr">
-   <button class="cuad" data-go="cons-quien"><svg class="i"><use href="#ic-back"></use></svg></button>
+   <button class="cuad" id="atrasMedico" data-go="cons-quien"><svg class="i"><use href="#ic-back"></use></svg></button>
    <div class="tx"><b>Nuevo médico</b><span>Se guarda en los médicos de Elsa</span></div>
   </div>
  </header>
@@ -1255,7 +1255,18 @@ const stage=document.querySelector(".stage"),
       fab=document.getElementById("fab"),
       fabEt=document.getElementById("fabEt");
 function go(id){
-  if(id==="cons-quien" && E.medicos.length===0) id="cons-medico-nuevo";
+  if(id==="cons-quien" && E.medicos.length===0){
+    const act=document.querySelector(".scr.is-on");
+    id = (act && act.dataset.scr==="cons-medico-nuevo") ? origenAlta : "cons-medico-nuevo";
+  }
+  if(id==="cons-medico-nuevo"){
+    const bm=$("atrasMedico");
+    if(bm){
+      const primero=E.medicos.length===0;
+      bm.dataset.go = primero ? origenAlta : "cons-quien";
+      bm.querySelector("use").setAttribute("href", primero ? "#ic-x" : "#ic-back");
+    }
+  }
   if(id==="cons-cuando" && modoAlta==="adhoc"){ crearAdHoc(); id="consentimiento"; }
   if(id==="cons-cuando") requestAnimationFrame(colocarRuedas);
   const t=document.querySelector('.scr[data-scr="'+id+'"]'); if(!t) return;
@@ -1532,7 +1543,7 @@ armarRueda(ruedaH,6,20,1,11); armarRueda(ruedaM,0,55,5,30);
 function colocarRuedas(){ ruedaH._colocar(); ruedaM._colocar(); }
 const horaElegida=()=>String(ruedaH.dataset.valor??11)+":"+String(ruedaM.dataset.valor??30).padStart(2,"0");
 
-let medicoElegido=null, modoAlta="agendar", grabPara=null;
+let medicoElegido=null, modoAlta="agendar", grabPara=null, origenAlta="consultas";
 function guardarMedico(){
   const nom=($("medNombre").textContent||"").trim();
   const ape=($("medApellido").textContent||"").trim();
@@ -1638,6 +1649,10 @@ document.addEventListener("click",e=>{
     if(b.dataset.origen) origenEstudio(b.dataset.origen);
     if(b.dataset.go==="consulta" && !grabando) empezarGrabacion();
     if(b.dataset.terminar) terminarGrabacion();
+    if(b.dataset.go==="cons-quien"){
+      const act=document.querySelector(".scr.is-on");
+      if(act && act.dataset.dock==="si") origenAlta=act.dataset.scr;
+    }
     if(b.dataset.reset) reiniciar();
     if(b.dataset.invitar){
       const n=($("invNombre").textContent||"Alguien").trim();
