@@ -136,6 +136,14 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 .hdr-marca{background:var(--marca-solida);color:#FFFFFF;padding:0 16px 15px}
 .hdr-marca::after{display:none}
 .scr.colapsado .hdr-marca{background:var(--marca-solida);backdrop-filter:none;-webkit-backdrop-filter:none}
+.hdr-marca{display:block;padding:10px 16px 16px}
+.hdr-marca .fila-hdr{display:flex;align-items:center;gap:14px}
+.hdr-marca .cuad{width:54px;height:54px;border-radius:17px;background:#FFFFFF;color:var(--marca-solida);display:grid;place-items:center;flex:none}
+.hdr-marca .cuad .i{width:26px;height:26px;stroke-width:2.9}
+.hdr-marca .cuad:active{transform:scale(.95)}
+.hdr-marca .tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.hdr-marca .tx b{font-size:19.1px;font-weight:800;letter-spacing:-.03em;line-height:1.2}
+.hdr-marca .tx span{font-size:13.7px;opacity:.94;font-weight:600}
 .hdr-marca .navbar{padding:0;min-height:50px}
 .hdr-marca .atras,.hdr-marca .accion{color:#FFFFFF}
 .hdr-marca .accion:hover{background:rgba(255,255,255,.16)}
@@ -319,6 +327,13 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 .uploader{border:2.5px dashed var(--linea);border-radius:20px;padding:24px 18px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;background:var(--suave-2)}
 .uploader .i{width:34px;height:34px;color:var(--marca-texto)}
 .marca-hit{background:var(--marca-suave);border-radius:6px;padding:1px 4px;font-weight:800;color:var(--marca-texto)}
+.borrar{width:44px;height:44px;border-radius:12px;background:var(--urgencia-bg);color:var(--urgencia);display:grid;place-items:center;flex:none;border:1px solid var(--urgencia-linea)}
+.borrar .i{width:19px;height:19px;stroke-width:2.2}
+.rol-chip{display:inline-flex;align-items:center;gap:7px;padding:12px 15px;min-height:52px;border-radius:14px;border:1.5px solid var(--linea);background:var(--tarjeta);font-size:14.5px;font-weight:700;width:100%;text-align:left}
+.rol-chip.on{background:var(--marca-suave);border-color:var(--marca);color:var(--marca-texto)}
+.rol-chip .i{width:17px;height:17px;stroke-width:3;flex:none}
+.rol-chip small{display:block;font-size:12.7px;font-weight:500;color:var(--gris);margin-top:2px}
+.rol-chip.on small{color:var(--marca-texto);opacity:.85}
 .fantasma{display:flex;align-items:center;gap:13px;width:100%;text-align:left;padding:14px 15px;min-height:70px;
   border:2px dashed var(--linea);border-radius:var(--r);background:transparent;transition:border-color .15s ease,background .15s ease}
 .fantasma:hover{border-color:var(--marca);background:var(--suave-2)}
@@ -412,8 +427,13 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
  </div></div>
 </section>
 <section class="scr" data-scr="onb1" data-dock="no">
- <header class="hdr hdr-modal"><div class="navbar"><button class="accion" data-go="bienvenida">Cancelar</button><span class="titulo-modal">Paso 1 de 3</span><span class="crece"></span></div>
-  <div class="progreso"><span class="on"></span><span></span><span></span></div></header>
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+   <button class="cuad" data-go="bienvenida"><svg class="i"><use href="#ic-x"></use></svg></button>
+   <div class="tx"><b>Alta de Elsa</b><span>Paso 1 · a quién cuidás</span></div>
+  </div>
+  <div class="progreso" style="padding:12px 0 0"><span class="on"></span><span></span><span></span></div>
+ </header>
  <div class="scroll"><div class="cuerpo">
   <h3 style="font-size:21.8px;letter-spacing:-.03em">¿A quién estás cuidando?</h3>
   <p class="muted small" style="margin-top:-8px">Con esto alcanza para arrancar. El resto lo completás cuando puedas.</p>
@@ -425,8 +445,13 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
  </div></div>
 </section>
 <section class="scr" data-scr="onb2" data-dock="no">
- <header class="hdr hdr-modal"><div class="navbar"><button class="atras" data-go="onb1"><svg class="i"><use href="#ic-back"></use></svg>Atrás</button><span class="titulo-modal">Paso 2 de 3</span><span class="crece"></span></div>
-  <div class="progreso"><span class="on"></span><span class="on"></span><span></span></div></header>
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+   <button class="cuad" data-go="onb1"><svg class="i"><use href="#ic-back"></use></svg></button>
+   <div class="tx"><b>Alta de Elsa</b><span>Paso 2 · qué le pasa</span></div>
+  </div>
+  <div class="progreso" style="padding:12px 0 0"><span class="on"></span><span class="on"></span><span></span></div>
+ </header>
  <div class="scroll"><div class="cuerpo">
   <h3 style="font-size:21.8px;letter-spacing:-.03em">¿Qué le está pasando a Elsa?</h3>
   <p class="muted small" style="margin-top:-8px">Contalo como se lo contarías a un amigo. No hace falta que uses términos médicos.</p>
@@ -442,8 +467,13 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
  </div></div>
 </section>
 <section class="scr" data-scr="onb3" data-dock="no">
- <header class="hdr hdr-modal"><div class="navbar"><button class="atras" data-go="onb2"><svg class="i"><use href="#ic-back"></use></svg>Atrás</button><span class="titulo-modal">Paso 3 de 3</span><span class="crece"></span></div>
-  <div class="progreso"><span class="on"></span><span class="on"></span><span class="on"></span></div></header>
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+   <button class="cuad" data-go="onb2"><svg class="i"><use href="#ic-back"></use></svg></button>
+   <div class="tx"><b>Alta de Elsa</b><span>Paso 3 · alergias</span></div>
+  </div>
+  <div class="progreso" style="padding:12px 0 0"><span class="on"></span><span class="on"></span><span class="on"></span></div>
+ </header>
  <div class="scroll"><div class="cuerpo">
   <h3 style="font-size:21.8px;letter-spacing:-.03em">¿Es alérgica a algo?</h3>
   <p class="muted small" style="margin-top:-8px">Este es el dato que más rápido te van a pedir en una guardia.</p>
@@ -548,9 +578,11 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
 </section>
 
 <section class="scr" data-scr="consultas-prox" data-tab="consultas" data-dock="si">
- <header class="hdr">
-  <div class="navbar"><button class="atras" data-go="consultas"><svg class="i"><use href="#ic-back"></use></svg>Consultas</button><span class="crece"></span><span class="hdr-titulo-c">Próxima consulta</span></div>
-  <p class="hdr-sub" id="proxSub">—</p>
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+  <button class="cuad" data-go="consultas"><svg class="i"><use href="#ic-back"></use></svg></button>
+  <div class="tx"><b id="proxQuien">—</b><span id="proxSub">—</span></div>
+  </div>
  </header>
  <div class="scroll"><div class="cuerpo">
   <p class="lbl">Para preguntar</p>
@@ -639,17 +671,17 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
       <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Compartir la historia</span><span class="small muted">PDF para otro médico</span></div>
       <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
     </button>
-    <button class="lista-item">
+    <button class="lista-item" data-go="elsa-editar">
       <div class="thumb"><svg class="i"><use href="#ic-user"></use></svg></div>
       <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Editar sus datos</span><span class="small muted">Nombre, edad, obra social, alergias</span></div>
       <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
     </button>
   </div>
   <p class="lbl" style="margin-top:4px">Quién la cuida</p>
-  <div class="card" style="padding:4px 16px">
+  <div class="card" style="padding:4px 16px" id="listaCuidadores">
     <div class="lista-item"><span class="av" style="width:44px;height:44px;font-size:14.6px">M</span><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Mariana · vos</span><span class="small muted">Cuidadora principal</span></div></div>
-    <button class="lista-item"><span class="av" style="width:44px;height:44px;font-size:14.6px;background:var(--suave);color:var(--gris)">J</span><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Javier · tu hermano</span><span class="small muted">Puede ver, no editar</span></div><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
-    <button class="lista-item"><div class="thumb" style="background:var(--marca-suave)"><svg class="i" style="stroke-width:2.4"><use href="#ic-plus"></use></svg></div><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name" style="color:var(--marca-texto)">Invitar a alguien más</span></div></button>
+    <button class="lista-item" data-go="cuidador-editar"><span class="av" style="width:44px;height:44px;font-size:14.6px;background:var(--suave);color:var(--gris)">J</span><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Javier · tu hermano</span><span class="small muted">Puede ver, no editar</span></div><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
+    <button class="lista-item" id="filaInvitar" data-go="invitar"><div class="thumb" style="background:var(--marca-suave)"><svg class="i" style="stroke-width:2.4"><use href="#ic-plus"></use></svg></div><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name" style="color:var(--marca-texto)">Invitar a alguien más</span><span class="small muted">Para que te ayude con Elsa</span></div></button>
   </div>
   <p class="lbl" style="margin-top:4px">Médicos que la atienden</p>
   <div class="card" style="padding:4px 16px" id="listaMedicos"></div>
@@ -663,9 +695,10 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
 <!-- ===== EMPUJADAS ===== -->
 <section class="scr" data-scr="resumen" data-tab="consultas" data-dock="si">
  <header class="hdr hdr-marca">
-  <div class="navbar"><button class="atras" data-go="consultas"><svg class="i"><use href="#ic-back"></use></svg>Consultas</button><span class="crece"></span><button class="accion" data-go="compartir"><svg class="i"><use href="#ic-share"></use></svg>Compartir</button></div>
-  <h1 id="resQuien">—</h1>
-  <p id="resSub">—</p>
+  <div class="fila-hdr">
+  <button class="cuad" data-go="consultas"><svg class="i"><use href="#ic-back"></use></svg></button>
+  <div class="tx"><b id="resQuien">—</b><span id="resSub">—</span></div>
+  </div>
  </header>
  <div class="scroll"><div class="cuerpo">
   <div class="aten-card" id="resSinAsignar" style="display:none">
@@ -700,6 +733,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
     <svg class="i" style="color:var(--atencion);margin-top:2px"><use href="#ic-help"></use></svg>
     <div class="stack-sm" style="gap:6px;flex:1"><p style="font-size:14.1px;font-weight:600">Si puede seguir con la Metformina.</p>
     <button class="btn btn-ghost btn-sm" data-go="consultas-prox">Ya la guardé para la próxima</button></div></div></div>
+  <button class="btn btn-ghost"><svg class="i"><use href="#ic-share"></use></svg>Compartir estas notas</button>
   <hr class="hr">
   <p class="lbl">Otras consultas con la Dra. Ríos</p>
   <div class="card" style="padding:4px 16px">
@@ -710,9 +744,10 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
 </section>
 <section class="scr" data-scr="estudio" data-tab="estudios" data-dock="si">
  <header class="hdr hdr-marca">
-  <div class="navbar"><button class="atras" id="atrasEstudio" data-go="estudios"><svg class="i"><use href="#ic-back"></use></svg>Estudios</button><span class="crece"></span><button class="accion" data-go="compartir"><svg class="i"><use href="#ic-share"></use></svg>Compartir</button></div>
-  <h1 id="estQuien">—</h1>
-  <p id="estSubDet">—</p>
+  <div class="fila-hdr">
+  <button class="cuad" id="atrasEstudio" data-go="estudios"><svg class="i"><use href="#ic-back"></use></svg></button>
+  <div class="tx"><b id="estQuien">—</b><span id="estSubDet">—</span></div>
+  </div>
  </header>
  <div class="scroll"><div class="cuerpo">
   <div class="buscar" style="margin:0"><svg class="i"><use href="#ic-search"></use></svg><span>creatinina</span></div>
@@ -735,6 +770,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   </div>
   <div class="card-flat"><div class="row"><div class="thumb"><svg class="i"><use href="#ic-camera"></use></svg></div><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">3 fotos originales</span><span class="small muted">Como las sacaste, sin recortar</span></div><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></div></div>
   <button class="btn btn-quiet" style="justify-content:flex-start;padding:0"><svg class="i"><use href="#ic-help"></use></svg>Qué significa la creatinina</button>
+  <button class="btn btn-ghost"><svg class="i"><use href="#ic-share"></use></svg>Compartir este estudio</button>
  </div></div>
 </section>
 <section class="scr" data-scr="historia" data-tab="perfil" data-dock="si">
@@ -818,7 +854,12 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
 </section>
 <!-- ===== MODALES ===== -->
 <section class="scr" data-scr="consentimiento" data-dock="no">
- <header class="hdr hdr-modal"><div class="navbar"><button class="accion" data-go="consultas">Cancelar</button><span class="titulo-modal">Antes de entrar</span><span class="crece"></span></div></header>
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+   <button class="cuad" data-go="consultas"><svg class="i"><use href="#ic-x"></use></svg></button>
+   <div class="tx"><b>Antes de entrar</b><span>Lo que voy a hacer</span></div>
+  </div>
+ </header>
  <div class="scroll"><div class="cuerpo">
   <div class="row" style="gap:13px;margin-top:4px">
     <div class="mark" style="width:54px;height:54px;border-radius:17px"><svg class="i" style="width:28px;height:28px"><use href="#ic-rombo"></use></svg></div>
@@ -838,7 +879,12 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
  </div></div>
 </section>
 <section class="scr" data-scr="consulta" data-dock="no">
- <header class="hdr hdr-modal"><div class="navbar"><button class="accion" data-go="hoy" data-minimizar="1"><svg class="i"><use href="#ic-chevdown"></use></svg>Minimizar</button><span class="titulo-modal">En consulta</span><span class="crece"></span><span class="pill pill-ok">Sin audio</span></div></header>
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+   <button class="cuad" data-go="hoy" data-minimizar="1"><svg class="i"><use href="#ic-chevdown"></use></svg></button>
+   <div class="tx"><b>En consulta</b><span>Escuchando, sin grabar audio</span></div>
+  </div>
+ </header>
  <div class="scroll"><div class="cuerpo" style="gap:16px">
   <div class="rec-stage">
     <div class="rec-orb"><svg class="i"><use href="#ic-mic"></use></svg></div>
@@ -894,7 +940,12 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
 </section>
 
 <section class="scr" data-scr="pend-tipo" data-dock="no">
- <header class="hdr hdr-modal"><div class="navbar"><button class="accion" data-go="hoy">Cancelar</button><span class="titulo-modal">Nuevo pendiente</span><span class="crece"></span></div></header>
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+   <button class="cuad" data-go="hoy"><svg class="i"><use href="#ic-x"></use></svg></button>
+   <div class="tx"><b>Nuevo pendiente</b><span>¿Qué tenés que hacer?</span></div>
+  </div>
+ </header>
  <div class="scroll"><div class="cuerpo">
   <h3 style="font-size:20px;letter-spacing:-.03em">¿Qué tenés que hacer?</h3>
   <p class="muted small" style="margin-top:-8px">Elegí lo más parecido. Después lo podés cambiar.</p>
@@ -909,7 +960,12 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
 </section>
 
 <section class="scr" data-scr="pend-form" data-dock="no">
- <header class="hdr hdr-modal"><div class="navbar"><button class="atras" data-go="pend-tipo"><svg class="i"><use href="#ic-back"></use></svg>Atrás</button><span class="titulo-modal">Nuevo pendiente</span><span class="crece"></span></div></header>
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+   <button class="cuad" data-go="pend-tipo"><svg class="i"><use href="#ic-back"></use></svg></button>
+   <div class="tx"><b>Nuevo pendiente</b><span>Los detalles</span></div>
+  </div>
+ </header>
  <div class="scroll"><div class="cuerpo">
   <div class="field"><span class="lbl">¿Qué hay que hacer?</span><div class="input">Autorizar la ecografía de control</div></div>
   <div class="field"><span class="lbl">¿Para cuándo?</span>
@@ -932,7 +988,12 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
 
 
 <section class="scr" data-scr="nota-nueva" data-dock="no">
- <header class="hdr hdr-modal"><div class="navbar"><button class="accion" data-go="consultas-prox">Cancelar</button><span class="titulo-modal">Nueva nota</span><span class="crece"></span></div></header>
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+   <button class="cuad" data-go="consultas-prox"><svg class="i"><use href="#ic-x"></use></svg></button>
+   <div class="tx"><b>Nueva nota</b><span>Para la próxima consulta</span></div>
+  </div>
+ </header>
  <div class="scroll"><div class="cuerpo">
   <div class="card-flat" style="background:var(--suave-2)">
    <p class="small muted">Para la consulta del <b style="color:var(--tinta)">viernes 4 con la Dra. Ríos</b>. Va a aparecer sola ese día.</p>
@@ -958,10 +1019,90 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
  </div></div>
 </section>
 
-<section class="scr" data-scr="grab-asignar" data-dock="no">
- <header class="hdr hdr-modal"><div class="navbar"><button class="accion" data-go="hoy">Cancelar</button><span class="titulo-modal">Grabar</span><span class="crece"></span></div></header>
+<section class="scr" data-scr="elsa-editar" data-tab="perfil" data-dock="si">
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+  <button class="cuad" data-go="perfil"><svg class="i"><use href="#ic-back"></use></svg></button>
+  <div class="tx"><b>Datos de Elsa</b><span>Los que ve un médico de guardia</span></div>
+  </div>
+ </header>
  <div class="scroll"><div class="cuerpo">
-  <h3 style="font-size:18.2px;letter-spacing:-.03em">¿De qué consulta es?</h3>
+  <div class="field"><span class="lbl">Nombre y apellido</span><div class="input editable" contenteditable="true" spellcheck="false">Elsa Fernández</div></div>
+  <div class="field"><span class="lbl">Edad</span><div class="input editable" contenteditable="true" spellcheck="false">78</div></div>
+  <div class="field"><span class="lbl">Qué es tuyo</span><div class="chips">
+    <span class="chip on"><svg class="i"><use href="#ic-check"></use></svg>Mi mamá</span><span class="chip">Mi papá</span><span class="chip">Mi pareja</span><span class="chip">Otro</span></div></div>
+  <div class="field"><span class="lbl">Obra social y afiliado</span><div class="input editable" contenteditable="true" spellcheck="false">OSDE 210 · 6188-3921</div></div>
+  <div class="field"><span class="lbl">Grupo sanguíneo</span><div class="input editable" contenteditable="true" spellcheck="false">0+</div></div>
+  <div class="urg-card">
+   <p class="lbl" style="color:var(--urgencia)">Alergias</p>
+   <p class="small muted" style="margin:4px 0 10px">Es lo primero que preguntan en una guardia.</p>
+   <div class="chips">
+     <span class="chip on"><svg class="i"><use href="#ic-check"></use></svg>Penicilina</span>
+     <span class="chip">Ibuprofeno</span><span class="chip">Iodo</span><span class="chip">Aspirina</span><span class="chip">Látex</span>
+   </div>
+  </div>
+  <button class="btn btn-primary" style="margin-top:6px" data-go="perfil" data-aviso="Datos actualizados">Guardar</button>
+ </div></div>
+</section>
+
+<section class="scr" data-scr="cuidador-editar" data-tab="perfil" data-dock="si">
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+  <button class="cuad" data-go="perfil"><svg class="i"><use href="#ic-back"></use></svg></button>
+  <div class="tx"><b>Javier</b><span>Tu hermano · cuidador</span></div>
+  </div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <div class="field"><span class="lbl">Nombre</span><div class="input editable" contenteditable="true" spellcheck="false">Javier</div></div>
+  <div class="field"><span class="lbl">Qué es tuyo</span><div class="input editable" contenteditable="true" spellcheck="false">Mi hermano</div></div>
+  <p class="lbl" style="margin-top:4px">Qué puede hacer</p>
+  <div class="stack" style="gap:9px">
+   <button class="rol-chip on" data-rol="ver"><svg class="i"><use href="#ic-check"></use></svg><span>Ver todo<small>La historia, los estudios y las notas. No puede cambiar nada.</small></span></button>
+   <button class="rol-chip" data-rol="editar"><span>Ver y editar<small>Puede cargar estudios, agendar y marcar pendientes.</small></span></button>
+   <button class="rol-chip" data-rol="guardia"><span>Sólo modo guardia<small>Alergias, medicación y a quién llamar. Nada más.</small></span></button>
+  </div>
+  <div class="spacer"></div>
+  <button class="btn btn-primary" style="margin-top:14px" data-go="perfil" data-aviso="Permisos actualizados">Guardar</button>
+  <button class="btn btn-ghost" style="color:var(--urgencia);border-color:var(--urgencia-linea)" data-go="perfil" data-aviso="Javier ya no tiene acceso">Sacarle el acceso</button>
+  <p class="fineprint" style="text-align:center;max-width:none">Deja de ver todo al instante. Lo que ya cargó queda.</p>
+ </div></div>
+</section>
+
+<section class="scr" data-scr="invitar" data-tab="perfil" data-dock="si">
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+  <button class="cuad" data-go="perfil"><svg class="i"><use href="#ic-back"></use></svg></button>
+  <div class="tx"><b>Invitar a alguien</b><span>Para que te ayude con Elsa</span></div>
+  </div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
+  <div class="field"><span class="lbl">¿Cómo se llama?</span><div class="input editable" id="invNombre" contenteditable="true" spellcheck="false">Laura</div></div>
+  <div class="field"><span class="lbl">¿Qué es tuyo?</span><div class="input editable" contenteditable="true" spellcheck="false">Mi hermana</div></div>
+  <p class="lbl" style="margin-top:4px">Qué va a poder hacer</p>
+  <div class="stack" style="gap:9px">
+   <button class="rol-chip on" data-rol="ver"><svg class="i"><use href="#ic-check"></use></svg><span>Ver todo<small>Lo más común. Después lo podés cambiar.</small></span></button>
+   <button class="rol-chip" data-rol="editar"><span>Ver y editar<small>Si también va a cargar cosas y agendar.</small></span></button>
+   <button class="rol-chip" data-rol="guardia"><span>Sólo modo guardia<small>Para alguien que sólo tiene que saber lo urgente.</small></span></button>
+  </div>
+  <div class="card-flat" style="margin-top:4px">
+   <div class="row" style="align-items:flex-start;gap:11px">
+    <svg class="i" style="color:var(--gris);margin-top:2px"><use href="#ic-lock"></use></svg>
+    <p class="small muted" style="flex:1">Le va a llegar un link por WhatsApp. Hasta que no lo abra, no ve nada de Elsa.</p>
+   </div>
+  </div>
+  <div class="spacer"></div>
+  <button class="btn btn-primary" style="margin-top:14px" data-go="perfil" data-invitar="1"><svg class="i"><use href="#ic-share"></use></svg>Mandar la invitación</button>
+ </div></div>
+</section>
+
+<section class="scr" data-scr="grab-asignar" data-dock="no">
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+   <button class="cuad" data-go="hoy"><svg class="i"><use href="#ic-x"></use></svg></button>
+   <div class="tx"><b>Grabar consulta</b><span>¿De qué consulta es?</span></div>
+  </div>
+ </header>
+ <div class="scroll"><div class="cuerpo">
   <p class="muted small" style="margin-top:-8px">Así después sé dónde guardar las notas.</p>
   <div class="card" style="padding:2px 14px;border:1.5px solid var(--marca);display:none" id="asignarAgendada">
    <button class="opcion" data-go="consentimiento" data-asignar="agendada">
@@ -986,9 +1127,13 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
 </section>
 
 <section class="scr" data-scr="cons-quien" data-dock="no">
- <header class="hdr hdr-modal"><div class="navbar"><button class="accion" data-go="consultas">Cancelar</button><span class="titulo-modal">Nueva consulta</span><span class="crece"></span></div></header>
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+   <button class="cuad" data-go="consultas"><svg class="i"><use href="#ic-x"></use></svg></button>
+   <div class="tx"><b>Nueva consulta</b><span>¿Con quién es?</span></div>
+  </div>
+ </header>
  <div class="scroll"><div class="cuerpo">
-  <h3 style="font-size:18.2px;letter-spacing:-.03em">¿Con quién es?</h3>
   <p class="muted small" style="margin-top:-8px">Los médicos que ya atienden a Elsa.</p>
   <div class="card" style="padding:2px 14px" id="listaElegirMedico"></div>
   <div class="card" style="padding:2px 14px">
@@ -998,7 +1143,12 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
 </section>
 
 <section class="scr" data-scr="cons-medico-nuevo" data-dock="no">
- <header class="hdr hdr-modal"><div class="navbar"><button class="atras" data-go="cons-quien"><svg class="i"><use href="#ic-back"></use></svg>Atrás</button><span class="titulo-modal">Nuevo médico</span><span class="crece"></span></div></header>
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+   <button class="cuad" data-go="cons-quien"><svg class="i"><use href="#ic-back"></use></svg></button>
+   <div class="tx"><b>Nuevo médico</b><span>Se guarda en los médicos de Elsa</span></div>
+  </div>
+ </header>
  <div class="scroll"><div class="cuerpo">
   <div class="field"><span class="lbl">Nombre</span><div class="input editable" id="medNombre" contenteditable="true" spellcheck="false">Laura</div></div>
   <div class="field"><span class="lbl">Apellido</span><div class="input editable" id="medApellido" contenteditable="true" spellcheck="false">Giménez</div></div>
@@ -1015,7 +1165,12 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
 </section>
 
 <section class="scr" data-scr="cons-cuando" data-dock="no">
- <header class="hdr hdr-modal"><div class="navbar"><button class="atras" data-go="cons-quien"><svg class="i"><use href="#ic-back"></use></svg>Atrás</button><span class="titulo-modal">Nueva consulta</span><span class="crece"></span></div></header>
+ <header class="hdr hdr-marca">
+  <div class="fila-hdr">
+   <button class="cuad" data-go="cons-quien"><svg class="i"><use href="#ic-back"></use></svg></button>
+   <div class="tx"><b>Nueva consulta</b><span>Cuándo y dónde</span></div>
+  </div>
+ </header>
  <div class="scroll"><div class="cuerpo">
   <div class="card-flat" style="background:var(--suave-2)">
    <div class="row"><div class="thumb"><svg class="i"><use href="#ic-user"></use></svg></div>
@@ -1108,7 +1263,7 @@ function go(id){
     const [et,destino]=f.split("|");
     fabEt.textContent=et; fab.dataset.go=destino; stage.dataset.fab="si";
   } else { stage.dataset.fab="no"; }
-  if(!["hoy","estudios","consultas","consultas-prox"].includes(id)){ toast.classList.remove("ver"); }
+  if(!["hoy","estudios","consultas","consultas-prox","perfil"].includes(id)){ toast.classList.remove("ver"); }
   const tab=t.dataset.tab||"";
   tabbar.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",String(b.dataset.tab===tab)));
 }
@@ -1123,7 +1278,7 @@ document.querySelectorAll(".scroll").forEach(sc=>{
   },{passive:true});
 });
 let relojToast=null;
-const E={consulta:null, pendientes:[], estudios:[], notas:[], anteriores:[], medicos:[]};
+const E={consulta:null, pendientes:[], estudios:[], notas:[], anteriores:[], medicos:[], cuidadores:[]};
 const $=id=>document.getElementById(id);
 const ver=(el,on)=>{ if(el) el.style.display = on ? "" : "none"; };
 
@@ -1207,11 +1362,18 @@ function render(){
       '<div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">'+x.t+'</span><span class="small muted">'+x.d+'</span></div>'+
       '<span class="pill pill-aten">Leyendo</span>');
     f.dataset.go="estudio"; f.dataset.origen="estudios|Estudios"; f.dataset.est=x.t+"|"+x.d;
+    const del=document.createElement("span");
+    del.className="borrar"; del.dataset.borrarEstudio=x.t;
+    del.innerHTML='<svg class="i"><use href="#ic-x"></use></svg>';
+    f.appendChild(del);
     $("listaEstudios").appendChild(f);
   });
 
   /* ---- Preparar ---- */
-  if(E.consulta) $("proxSub").textContent=E.consulta.quien+" · "+E.consulta.fecha+", "+E.consulta.cuando;
+  if(E.consulta){
+    $("proxQuien").textContent=E.consulta.quien+" · "+E.consulta.esp;
+    $("proxSub").textContent="Próxima · "+E.consulta.fecha+", "+E.consulta.cuando;
+  }
   ver($("notasVacio"), E.notas.length===0);
   $("listaNotas").innerHTML="";
   E.notas.forEach(n=>{
@@ -1229,6 +1391,19 @@ function render(){
     f.dataset.go="estudio"; f.dataset.origen="consultas-prox|Preparar"; f.dataset.est=x.t+"|"+x.d;
     $("listaProxEstudios").appendChild(f);
   });
+
+  /* ---- cuidadores invitados ---- */
+  const lc=$("listaCuidadores");
+  if(lc){
+    lc.querySelectorAll(".invitado").forEach(n=>n.remove());
+    const anclaInv=$("filaInvitar");
+    E.cuidadores.forEach(c=>{
+      const f=fila('<span class="av" style="width:44px;height:44px;font-size:16px;background:var(--suave);color:var(--gris)">'+c.n.charAt(0).toUpperCase()+'</span>'+
+        '<div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">'+c.n+'</span><span class="small muted">Invitación enviada</span></div>'+
+        '<span class="pill pill-aten">Pendiente</span>',"invitado");
+      lc.insertBefore(f, anclaInv);
+    });
+  }
 
   /* ---- asignar grabación ---- */
   const aa=$("asignarAgendada");
@@ -1260,9 +1435,12 @@ function render(){
   const lm=$("listaMedicos");
   if(lm){
     lm.innerHTML="";
-    E.medicos.forEach(m=>lm.appendChild(fila(
-      '<div class="thumb"><svg class="i"><use href="#ic-user"></use></svg></div>'+
-      '<div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">'+m.n+'</span><span class="small muted">'+m.e+'</span></div>'+chev)));
+    E.medicos.forEach(m=>{
+      const f=fila('<div class="thumb"><svg class="i"><use href="#ic-user"></use></svg></div>'+
+        '<div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">'+m.n+'</span><span class="small muted">'+m.e+'</span></div>'+
+        '<span class="borrar" data-borrar-medico="'+m.n+'"><svg class="i"><use href="#ic-x"></use></svg></span>');
+      lm.appendChild(f);
+    });
     ver(lm, E.medicos.length>0);
     ver($("medVacio"), E.medicos.length===0);
   }
@@ -1280,7 +1458,7 @@ document.getElementById("deshacer").addEventListener("click",deshacer);
 
 function reiniciar(){
   E.consulta=null; E.pendientes.length=0; E.estudios.length=0;
-  E.notas.length=0; E.anteriores.length=0; E.medicos.length=0;
+  E.notas.length=0; E.anteriores.length=0; E.medicos.length=0; E.cuidadores.length=0;
   medicoElegido=null; modoAlta="agendar"; grabPara=null; ultimo=null;
   terminarGrabacion();
   const ant=$("listaAnteriores"); if(ant) ant.innerHTML="";
@@ -1382,8 +1560,8 @@ function abrirEstudio(nombre,sub){
   $("estSubDet").textContent=sub;
 }
 function abrirResumen(quien,esp,fecha){
-  $("resQuien").textContent=quien;
-  $("resSub").textContent=esp+" · "+fecha;
+  $("resQuien").textContent=quien+" · "+esp;
+  $("resSub").textContent=fecha;
 }
 function terminarGrabacion(){
   grabando=false; stage.classList.remove("grabando");
@@ -1407,14 +1585,35 @@ function terminarGrabacion(){
 
 function origenEstudio(valor){
   const b=$("atrasEstudio"); if(!b) return;
-  const [destino,etiqueta]=(valor||"estudios|Estudios").split("|");
+  const destino=(valor||"estudios|Estudios").split("|")[0];
   b.dataset.go=destino;
-  b.innerHTML='<svg class="i"><use href="#ic-back"></use></svg>'+etiqueta;
   const scr=document.querySelector('.scr[data-scr="estudio"]');
   if(scr) scr.dataset.tab = destino==="estudios" ? "estudios" : (destino==="consulta" ? "" : "consultas");
 }
 
 document.addEventListener("click",e=>{
+  const bm=e.target.closest("[data-borrar-medico]");
+  if(bm){
+    const n=bm.dataset.borrarMedico, i=E.medicos.findIndex(x=>x.n===n);
+    if(i>=0){ const m=E.medicos.splice(i,1)[0]; ultimo=()=>E.medicos.splice(i,0,m); render(); mostrarToast("Saqué a "+n); }
+    return;
+  }
+  const be=e.target.closest("[data-borrar-estudio]");
+  if(be){
+    const t=be.dataset.borrarEstudio, i=E.estudios.findIndex(x=>x.t===t);
+    if(i>=0){ const x=E.estudios.splice(i,1)[0]; ultimo=()=>E.estudios.splice(i,0,x); render(); mostrarToast("Estudio borrado"); }
+    return;
+  }
+  const rl=e.target.closest("[data-rol]");
+  if(rl){
+    rl.parentElement.querySelectorAll("[data-rol]").forEach(x=>{
+      const on=x===rl; x.classList.toggle("on",on);
+      const tic=x.querySelector("svg");
+      if(on && !tic) x.insertAdjacentHTML("afterbegin",'<svg class="i"><use href="#ic-check"></use></svg>');
+      if(!on && tic) tic.remove();
+    });
+    return;
+  }
   const b=e.target.closest("[data-go]");
   if(b){
     if(b.dataset.res){ const [q,e2,f2]=b.dataset.res.split("|"); abrirResumen(q,e2,f2); }
@@ -1423,6 +1622,13 @@ document.addEventListener("click",e=>{
     if(b.dataset.go==="consulta" && !grabando) empezarGrabacion();
     if(b.dataset.terminar) terminarGrabacion();
     if(b.dataset.reset) reiniciar();
+    if(b.dataset.invitar){
+      const n=($("invNombre").textContent||"Alguien").trim();
+      const c={n:n};
+      E.cuidadores.push(c);
+      ultimo=()=>{E.cuidadores.splice(E.cuidadores.indexOf(c),1);};
+      render(); mostrarToast("Invitación enviada a "+n);
+    } else if(b.dataset.aviso){ mostrarToast(b.dataset.aviso); }
     if(b.dataset.go==="cons-quien" && !b.dataset.asignar){
       modoAlta="agendar"; grabPara=null;
       const bt=$("btnMedicoNuevo"); if(bt) bt.textContent="Agregar";
