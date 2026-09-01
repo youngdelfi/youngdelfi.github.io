@@ -138,10 +138,12 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 .scr.colapsado .hdr-marca{background:var(--marca-solida);backdrop-filter:none;-webkit-backdrop-filter:none}
 .hdr-marca{display:block;padding:10px 16px 16px}
 .hdr-marca .fila-hdr{display:flex;align-items:center;gap:14px}
-.hdr-marca .cuad{width:54px;height:54px;border-radius:17px;background:#FFFFFF;color:var(--marca-solida);display:grid;place-items:center;flex:none}
+.hdr-marca .cuad{width:54px;height:54px;border-radius:999px;background:#FFFFFF;color:var(--marca-solida);display:grid;place-items:center;flex:none}
 .hdr-marca .cuad .i{width:26px;height:26px;stroke-width:2.9}
 .hdr-marca .cuad:active{transform:scale(.95)}
 .hdr-marca .tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.hdr-marca .tx .ojal{display:block;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;
+  letter-spacing:.13em;text-transform:uppercase;font-weight:600;opacity:.82;margin-bottom:2px}
 .hdr-marca .tx b{font-size:19.1px;font-weight:800;letter-spacing:-.03em;line-height:1.2}
 .hdr-marca .tx span{font-size:13.7px;opacity:.94;font-weight:600}
 .hdr-marca .navbar{padding:0;min-height:50px}
@@ -581,7 +583,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
  <header class="hdr hdr-marca">
   <div class="fila-hdr">
   <button class="cuad" data-go="consultas"><svg class="i"><use href="#ic-back"></use></svg></button>
-  <div class="tx"><b id="proxQuien">—</b><span id="proxSub">—</span></div>
+  <div class="tx"><span class="ojal">Consultas</span><b id="proxQuien">—</b><span id="proxSub">—</span></div>
   </div>
  </header>
  <div class="scroll"><div class="cuerpo">
@@ -697,7 +699,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
  <header class="hdr hdr-marca">
   <div class="fila-hdr">
   <button class="cuad" data-go="consultas"><svg class="i"><use href="#ic-back"></use></svg></button>
-  <div class="tx"><b id="resQuien">—</b><span id="resSub">—</span></div>
+  <div class="tx"><span class="ojal">Consultas</span><b id="resQuien">—</b><span id="resSub">—</span></div>
   </div>
  </header>
  <div class="scroll"><div class="cuerpo">
@@ -746,7 +748,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
  <header class="hdr hdr-marca">
   <div class="fila-hdr">
   <button class="cuad" id="atrasEstudio" data-go="estudios"><svg class="i"><use href="#ic-back"></use></svg></button>
-  <div class="tx"><b id="estQuien">—</b><span id="estSubDet">—</span></div>
+  <div class="tx"><span class="ojal" id="estOjal">Estudios</span><b id="estQuien">—</b><span id="estSubDet">—</span></div>
   </div>
  </header>
  <div class="scroll"><div class="cuerpo">
@@ -1023,7 +1025,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
  <header class="hdr hdr-marca">
   <div class="fila-hdr">
   <button class="cuad" data-go="perfil"><svg class="i"><use href="#ic-back"></use></svg></button>
-  <div class="tx"><b>Datos de Elsa</b><span>Los que ve un médico de guardia</span></div>
+  <div class="tx"><span class="ojal">Elsa</span><b>Datos de Elsa</b><span>Los que ve un médico de guardia</span></div>
   </div>
  </header>
  <div class="scroll"><div class="cuerpo">
@@ -1049,7 +1051,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
  <header class="hdr hdr-marca">
   <div class="fila-hdr">
   <button class="cuad" data-go="perfil"><svg class="i"><use href="#ic-back"></use></svg></button>
-  <div class="tx"><b>Javier</b><span>Tu hermano · cuidador</span></div>
+  <div class="tx"><span class="ojal">Elsa · quién la cuida</span><b>Javier</b><span>Tu hermano · cuidador</span></div>
   </div>
  </header>
  <div class="scroll"><div class="cuerpo">
@@ -1072,7 +1074,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
  <header class="hdr hdr-marca">
   <div class="fila-hdr">
   <button class="cuad" data-go="perfil"><svg class="i"><use href="#ic-back"></use></svg></button>
-  <div class="tx"><b>Invitar a alguien</b><span>Para que te ayude con Elsa</span></div>
+  <div class="tx"><span class="ojal">Elsa · quién la cuida</span><b>Invitar a alguien</b><span>Para que te ayude con Elsa</span></div>
   </div>
  </header>
  <div class="scroll"><div class="cuerpo">
@@ -1585,8 +1587,9 @@ function terminarGrabacion(){
 
 function origenEstudio(valor){
   const b=$("atrasEstudio"); if(!b) return;
-  const destino=(valor||"estudios|Estudios").split("|")[0];
+  const [destino,etiqueta]=(valor||"estudios|Estudios").split("|");
   b.dataset.go=destino;
+  const oj=$("estOjal"); if(oj) oj.textContent=etiqueta;
   const scr=document.querySelector('.scr[data-scr="estudio"]');
   if(scr) scr.dataset.tab = destino==="estudios" ? "estudios" : (destino==="consulta" ? "" : "consultas");
 }
