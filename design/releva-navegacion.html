@@ -574,7 +574,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   <div class="navbar"><h1 class="hdr-titulo">Estudios</h1><span class="crece"></span>
     <button class="accion accion-urg" data-go="guardia"><svg class="i"><use href="#ic-alert"></use></svg>Guardia</button>
   </div>
-  <p class="hdr-sub" id="estSub">Todavía no hay ninguno</p>
+  <p class="hdr-sub" id="estSub" style="display:none"></p>
   <div id="estFiltros" style="display:none">
    <div class="buscar"><svg class="i"><use href="#ic-search"></use></svg><span>Buscá «creatinina», «TAC», una fecha…</span></div>
    <div class="filtros"><button class="filtro" aria-pressed="true">Todos</button><button class="filtro">Laboratorio</button><button class="filtro">Imágenes</button><button class="filtro">Recetas</button><button class="filtro">Por fecha</button></div>
@@ -1198,7 +1198,9 @@ function render(){
   ver($("estVacio"), E.estudios.length===0);
   ver($("estWrap"), E.estudios.length>0);
   ver($("estFiltros"), E.estudios.length>0);
-  $("estSub").textContent = E.estudios.length ? E.estudios.length+" cargado"+(E.estudios.length>1?"s":"") : "Todavía no hay ninguno";
+  const es=$("estSub");
+  es.textContent = E.estudios.length ? E.estudios.length+" cargado"+(E.estudios.length>1?"s":"") : "";
+  ver(es, E.estudios.length>0);
   $("listaEstudios").innerHTML="";
   E.estudios.forEach(x=>{
     const f=fila('<div class="thumb aten"><svg class="i"><use href="#ic-folder"></use></svg></div>'+
