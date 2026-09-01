@@ -199,7 +199,7 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 .tab[aria-selected="true"] .i{stroke-width:2.4}
 .tab:not([aria-selected="true"]):hover{background:var(--suave)}
 .fab{position:absolute;right:16px;bottom:calc(100% + 12px);display:none;align-items:center;gap:8px;
-  height:56px;padding:0 20px;border-radius:20px;background:var(--marca-solida);color:var(--sobre-marca);
+  height:56px;padding:0 20px;border-radius:20px;background:var(--terracota);color:#FFFFFF;
   font-size:14.1px;font-weight:800;letter-spacing:-.02em;pointer-events:auto;
   box-shadow:0 8px 22px -6px rgba(160,80,30,.5),0 2px 6px rgba(60,30,10,.18);
   transition:transform .16s ease,filter .16s ease}
@@ -568,7 +568,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
  </div></div>
 </section>
 
-<section class="scr" data-scr="consultas" data-tab="consultas" data-dock="si" data-fab="Nueva consulta|cons-quien">
+<section class="scr" data-scr="consultas" data-tab="consultas" data-dock="si" data-fab="Nueva consulta|cons-quien|ic-today">
  <header class="hdr hdr-raiz">
   <div class="fila-r"><h1>Consultas</h1><span class="crece"></span></div>
   <p class="sub-r" id="consSub"></p>
@@ -615,7 +615,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
  </div></div>
 </section>
 
-<section class="scr" data-scr="estudios" data-tab="estudios" data-dock="si" data-fab="Nuevo estudio|est-origen">
+<section class="scr" data-scr="estudios" data-tab="estudios" data-dock="si" data-fab="Nuevo estudio|est-origen|ic-camera">
  <header class="hdr hdr-raiz">
   <div class="fila-r"><h1>Estudios</h1><span class="crece"></span></div>
   <p class="sub-r" id="estSub"></p>
@@ -1235,7 +1235,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
        </div>
        <div class="dock" id="dock">
          <div class="tabbar-wrap">
-         <button class="fab" id="fab" data-go="consultas-prox"><svg class="i"><use href="#ic-plus"></use></svg><span id="fabEt">Nueva consulta</span></button>
+         <button class="fab" id="fab" data-go="consultas-prox"><svg class="i"><use href="#ic-today" id="fabIco"></use></svg><span id="fabEt">Nueva consulta</span></button>
          <nav class="tabbar" role="tablist" id="tabbar">
            <button class="tab" role="tab" data-tab="hoy" data-go="hoy"><svg class="i"><use href="#ic-today"></use></svg><span class="et">Inicio</span></button>
            <button class="tab" role="tab" data-tab="consultas" data-go="consultas"><span class="punto"></span><svg class="i"><use href="#ic-mic"></use></svg><span class="et">Consultas</span></button>
@@ -1275,8 +1275,10 @@ function go(id){
   stage.classList.remove("bajando");
   const f=t.dataset.fab;
   if(f && t.dataset.dock==="si"){
-    const [et,destino]=f.split("|");
-    fabEt.textContent=et; fab.dataset.go=destino; stage.dataset.fab="si";
+    const [et,destino,ico]=f.split("|");
+    fabEt.textContent=et; fab.dataset.go=destino;
+    fab.querySelector("use").setAttribute("href","#"+(ico||"ic-plus"));
+    stage.dataset.fab="si";
   } else { stage.dataset.fab="no"; }
   if(!["hoy","estudios","consultas","consultas-prox","perfil"].includes(id)){ toast.classList.remove("ver"); }
   const tab=t.dataset.tab||"";
@@ -1387,7 +1389,7 @@ function render(){
   /* ---- Preparar ---- */
   if(E.consulta){
     $("proxQuien").textContent=E.consulta.quien+" · "+E.consulta.esp;
-    $("proxSub").textContent="Próxima · "+E.consulta.fecha+", "+E.consulta.cuando;
+    $("proxSub").textContent=E.consulta.fecha+", "+E.consulta.cuando;
   }
   ver($("notasVacio"), E.notas.length===0);
   $("listaNotas").innerHTML="";
