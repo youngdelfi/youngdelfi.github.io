@@ -430,7 +430,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   <div class="chips"><span class="chip">No es alérgica a nada</span><span class="chip">No sé</span></div>
   <div class="aten-card" style="margin-top:4px"><p class="small" style="color:var(--atencion);font-weight:700">Si no sabés, está bien. Te ayudamos a averiguarlo en la próxima consulta.</p></div>
   <div class="spacer"></div>
-  <button class="btn btn-primary" data-go="hoy-vacia" style="margin-top:14px">Terminar</button>
+  <button class="btn btn-primary" data-go="hoy" data-reset="1" style="margin-top:14px">Terminar</button>
  </div></div>
 </section>
 <!-- ===== INICIO · con turno ===== -->
@@ -604,6 +604,9 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   <div class="card" style="padding:4px 16px" id="listaMedicos"></div>
   <p class="small muted" id="medVacio" style="margin-top:-6px">Los vas a ir agregando a medida que agendes consultas.</p>
   <div class="card-flat" style="margin-top:4px"><div class="row"><svg class="i" style="color:var(--gris)"><use href="#ic-lock"></use></svg><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Privacidad y datos</span><span class="small muted">Quién ve qué, y cómo se borra</span></div><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></div></div>
+  <hr class="hr" style="margin:10px 0">
+  <button class="btn btn-ghost" data-go="bienvenida"><svg class="i"><use href="#ic-rombo"></use></svg>Ver el alta desde el principio</button>
+  <p class="fineprint" style="text-align:center;max-width:none">Vuelve a empezar con la app vacía.</p>
  </div></div>
 </section>
 <!-- ===== EMPUJADAS ===== -->
@@ -1218,6 +1221,15 @@ function deshacer(){
 }
 document.getElementById("deshacer").addEventListener("click",deshacer);
 
+function reiniciar(){
+  E.consulta=null; E.pendientes.length=0; E.estudios.length=0;
+  E.notas.length=0; E.anteriores.length=0; E.medicos.length=0;
+  medicoElegido=null; modoAlta="agendar"; grabPara=null; ultimo=null;
+  terminarGrabacion();
+  const ant=$("listaAnteriores"); if(ant) ant.innerHTML="";
+  toast.classList.remove("ver");
+  render();
+}
 function agregarPendiente(){
   const x={t:"Autorizar la ecografía de control", d:"Esta semana · de la consulta del 26/8", icono:"lock"};
   E.pendientes.unshift(x);
@@ -1341,6 +1353,7 @@ document.addEventListener("click",e=>{
     if(b.dataset.origen) origenEstudio(b.dataset.origen);
     if(b.dataset.go==="consulta" && !grabando) empezarGrabacion();
     if(b.dataset.terminar) terminarGrabacion();
+    if(b.dataset.reset) reiniciar();
     if(b.dataset.asignar){
       grabPara=b.dataset.asignar;
       modoAlta = b.dataset.asignar==="adhoc" ? "adhoc" : "agendar";
