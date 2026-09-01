@@ -194,6 +194,20 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 .hoja-op+.hoja-op{border-top:1px solid var(--linea-tenue)}
 .hoja-op:hover{background:var(--suave-2)}
 .hoja-op .thumb{width:48px;height:48px}
+.toast{position:absolute;left:12px;right:12px;bottom:calc(var(--dock) - 8px);z-index:30;
+  display:none;align-items:center;gap:12px;padding:13px 14px;border-radius:16px;
+  background:var(--tinta);color:var(--papel);box-shadow:0 10px 30px -8px rgba(0,0,0,.45);
+  animation:sube .22s ease}
+.toast.ver{display:flex}
+.toast .txt{flex:1;font-size:14.1px;font-weight:700;letter-spacing:-.01em}
+.toast button{color:var(--marca);font-weight:800;font-size:14.1px;padding:8px 4px;min-height:44px}
+.toast .i{width:20px;height:20px;color:var(--hecho);stroke-width:2.6}
+.opcion{display:flex;align-items:center;gap:13px;width:100%;text-align:left;padding:13px 4px}
+.opcion+.opcion{border-top:1px solid var(--linea-tenue)}
+.opcion b{display:block;font-size:14.6px;font-weight:800;letter-spacing:-.02em}
+.opcion span{display:block;font-size:12.7px;color:var(--gris);font-weight:500}
+.nuevo-item{animation:aparece .3s ease}
+@keyframes aparece{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 .hoja-op b{display:block;font-size:15.5px;font-weight:800;letter-spacing:-.02em}
 .hoja-op span{display:block;font-size:12.3px;color:var(--gris);font-weight:500}
 /* ============================================================
@@ -425,7 +439,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
       <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
     </div>
   </button>
-  <div class="card" style="padding:4px 16px">
+  <div class="card" style="padding:4px 16px" id="listaPendientes">
     <button class="lista-item">
       <div class="thumb"><svg class="i"><use href="#ic-doc"></use></svg></div>
       <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Pedir la orden de la TAC</span><span class="small muted">La firma la Dra. Ríos · antes del 20/9</span></div>
@@ -436,7 +450,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
       <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Turno con el nefrólogo</span><span class="small muted">Dr. Beltrán · dentro de 30 días</span></div>
       <span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>
     </button>
-    <button class="lista-item">
+    <button class="lista-item" data-go="pend-tipo">
       <div class="thumb" style="background:var(--marca-suave)"><svg class="i" style="stroke-width:2.4"><use href="#ic-plus"></use></svg></div>
       <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name" style="color:var(--marca-texto)">Agregar un pendiente</span><span class="small muted">Una orden, una autorización, un trámite</span></div>
     </button>
@@ -479,7 +493,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
     </div>
   </button>
   <div class="card" style="padding:4px 16px">
-    <button class="lista-item">
+    <button class="lista-item" data-go="pend-tipo">
       <div class="thumb" style="background:var(--marca-suave)"><svg class="i" style="stroke-width:2.4"><use href="#ic-plus"></use></svg></div>
       <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name" style="color:var(--marca-texto)">Agregar un pendiente</span></div>
     </button>
@@ -591,7 +605,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
  </div></div>
 </section>
 <!-- ===== ESTUDIOS ===== -->
-<section class="scr" data-scr="estudios" data-tab="estudios" data-dock="si" data-fab="Nuevo estudio|estudio">
+<section class="scr" data-scr="estudios" data-tab="estudios" data-dock="si" data-fab="Nuevo estudio|est-origen">
  <header class="hdr">
   <div class="navbar"><h1 class="hdr-titulo">Estudios</h1><span class="crece"></span>
     <button class="accion accion-urg" data-go="guardia"><svg class="i"><use href="#ic-alert"></use></svg>Guardia</button>
@@ -602,7 +616,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
  </header>
  <div class="scroll"><div class="cuerpo">
   <p class="lbl">Agosto 2026</p>
-  <div class="card" style="padding:4px 16px">
+  <div class="card" style="padding:4px 16px" id="listaEstudios">
     <button class="lista-item" data-go="estudio">
       <div class="thumb ok"><svg class="i"><use href="#ic-folder"></use></svg></div>
       <div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Laboratorio completo</span><span class="small muted">19 de agosto · 14 valores leídos</span></div>
@@ -910,6 +924,71 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   <button class="btn btn-urg" data-go="compartir" style="margin-top:14px"><svg class="i"><use href="#ic-share"></use></svg>Pasarle el resumen al médico</button>
  </div></div>
 </section>
+
+<section class="scr" data-scr="pend-tipo" data-dock="no">
+ <header class="hdr hdr-modal"><div class="navbar"><button class="accion" data-go="hoy">Cancelar</button><span class="titulo-modal">Nuevo pendiente</span><span class="crece"></span></div></header>
+ <div class="scroll"><div class="cuerpo">
+  <h3 style="font-size:20px;letter-spacing:-.03em">¿Qué tenés que hacer?</h3>
+  <p class="muted small" style="margin-top:-8px">Elegí lo más parecido. Después lo podés cambiar.</p>
+  <div class="card" style="padding:2px 14px;margin-top:4px">
+   <button class="opcion" data-go="pend-form"><div class="thumb"><svg class="i"><use href="#ic-doc"></use></svg></div><span><b>Pedir una orden médica</b><span>Para un estudio o una práctica</span></span><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
+   <button class="opcion" data-go="pend-form"><div class="thumb aten"><svg class="i"><use href="#ic-lock"></use></svg></div><span><b>Autorizar un estudio</b><span>El permiso de la obra social</span></span><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
+   <button class="opcion" data-go="pend-form"><div class="thumb"><svg class="i"><use href="#ic-today"></use></svg></div><span><b>Sacar un turno</b><span>Con un médico o para un estudio</span></span><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
+   <button class="opcion" data-go="pend-form"><div class="thumb"><svg class="i"><use href="#ic-pill"></use></svg></div><span><b>Comprar o retirar medicación</b><span>Farmacia, droguería, receta</span></span><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
+   <button class="opcion" data-go="pend-form"><div class="thumb"><svg class="i"><use href="#ic-nota"></use></svg></div><span><b>Otra cosa</b><span>Escribilo con tus palabras</span></span><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
+  </div>
+ </div></div>
+</section>
+
+<section class="scr" data-scr="pend-form" data-dock="no">
+ <header class="hdr hdr-modal"><div class="navbar"><button class="atras" data-go="pend-tipo"><svg class="i"><use href="#ic-back"></use></svg>Atrás</button><span class="titulo-modal">Nuevo pendiente</span><span class="crece"></span></div></header>
+ <div class="scroll"><div class="cuerpo">
+  <div class="field"><span class="lbl">¿Qué hay que hacer?</span><div class="input">Autorizar la ecografía de control</div></div>
+  <div class="field"><span class="lbl">¿Para cuándo?</span>
+   <div class="chips">
+     <span class="chip on"><svg class="i"><use href="#ic-check"></use></svg>Esta semana</span>
+     <span class="chip">El mes que viene</span><span class="chip">Elegir fecha</span><span class="chip">Sin fecha</span>
+   </div>
+  </div>
+  <div class="aten-card">
+   <div class="row" style="align-items:flex-start;gap:11px">
+    <span class="check on"><svg class="i"><use href="#ic-check"></use></svg></span>
+    <div class="stack-sm" style="gap:3px;flex:1">
+      <span style="font-weight:800;font-size:14.6px;letter-spacing:-.02em">Te armo los 4 pasos</span>
+      <span class="small muted">Los mismos que usaste para la autorización de la TAC en OSDE. Si no te sirven, los borrás.</span>
+    </div>
+   </div>
+  </div>
+  <div class="field"><span class="lbl">¿De dónde salió? · opcional</span>
+   <div class="card" style="padding:2px 14px">
+    <button class="lista-item" style="padding:11px 0"><div class="thumb"><svg class="i"><use href="#ic-mic"></use></svg></div><div class="stack-sm" style="gap:0;flex:1"><span class="med-name">Dra. Ríos · 26 de agosto</span><span class="small muted">Última consulta</span></div><span class="check on"><svg class="i"><use href="#ic-check"></use></svg></span></button>
+    <button class="lista-item" style="padding:11px 0"><div class="stack-sm" style="gap:0;flex:1;padding-left:2px"><span class="med-name">De ninguna</span></div><span class="check"><svg class="i"><use href="#ic-check"></use></svg></span></button>
+   </div>
+  </div>
+  <div class="spacer"></div>
+  <button class="btn btn-primary" style="margin-top:14px" data-go="hoy" data-agregar="1">Agregar el pendiente</button>
+  <p class="fineprint" style="text-align:center;max-width:none">Lo vas a ver en Inicio, abajo de Pendientes.</p>
+ </div></div>
+</section>
+
+
+<section class="scr hoja" data-scr="est-origen" data-dock="no">
+ <div class="hoja-panel">
+  <div class="hoja-tirador"></div>
+  <h2>Nuevo estudio</h2>
+  <p class="small muted" style="padding:0 6px 8px">Análisis, informes, recetas u órdenes. Si son varias hojas, sacá una foto por hoja.</p>
+  <button class="hoja-op" data-go="estudios" data-nuevo-estudio="Foto"><div class="thumb"><svg class="i"><use href="#ic-camera"></use></svg></div><span><b>Sacar una foto</b><span>Abre la cámara ahora</span></span></button>
+  <button class="hoja-op" data-go="estudios" data-nuevo-estudio="Galería"><div class="thumb"><svg class="i"><use href="#ic-folder"></use></svg></div><span><b>Elegir de la galería</b><span>Fotos que ya tenés en el teléfono</span></span></button>
+  <button class="hoja-op" data-go="estudios" data-nuevo-estudio="PDF"><div class="thumb"><svg class="i"><use href="#ic-download"></use></svg></div><span><b>Subir un PDF</b><span>El que te manda el laboratorio por mail</span></span></button>
+  <button class="btn btn-ghost" style="margin-top:12px" data-go="estudios">Cancelar</button>
+ </div>
+</section>
+
+       <div class="toast" id="toast">
+         <svg class="i"><use href="#ic-check"></use></svg>
+         <span class="txt">Listo, lo agregué</span>
+         <button id="deshacer">Deshacer</button>
+       </div>
        <div class="dock" id="dock">
          <div class="tabbar-wrap">
          <button class="fab" id="fab" data-go="consultas-prox"><svg class="i"><use href="#ic-plus"></use></svg><span id="fabEt">Nueva consulta</span></button>
@@ -928,6 +1007,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
 <script>
 const stage=document.querySelector(".stage"),
       tabbar=document.getElementById("tabbar"),
+      toast=document.getElementById("toast"),
       fab=document.getElementById("fab"),
       fabEt=document.getElementById("fabEt");
 function go(id){
@@ -945,6 +1025,7 @@ function go(id){
     const [et,destino]=f.split("|");
     fabEt.textContent=et; fab.dataset.go=destino; stage.dataset.fab="si";
   } else { stage.dataset.fab="no"; }
+  if(id!=="hoy" && id!=="estudios"){ toast.classList.remove("ver"); }
   const tab=t.dataset.tab||"";
   tabbar.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",String(b.dataset.tab===tab)));
 }
@@ -958,8 +1039,47 @@ document.querySelectorAll(".scroll").forEach(sc=>{
     ultimo=y;
   },{passive:true});
 });
+let relojToast=null, agregado=null;
+function mostrarToast(txt){
+  toast.querySelector(".txt").textContent=txt||"Listo, lo agregué";
+  toast.classList.add("ver");
+  clearTimeout(relojToast);
+  relojToast=setTimeout(()=>toast.classList.remove("ver"),6000);
+}
+function agregarPendiente(){
+  const lista=document.getElementById("listaPendientes"); if(!lista) return;
+  if(agregado) agregado.remove();
+  const fila=document.createElement("button");
+  fila.className="lista-item nuevo-item";
+  fila.innerHTML='<div class="thumb aten"><svg class="i"><use href="#ic-lock"></use></svg></div>'+
+    '<div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Autorizar la ecografía de control</span>'+
+    '<span class="small muted">Esta semana · 4 pasos · de la consulta del 26/8</span></div>'+
+    '<span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span>';
+  lista.insertBefore(fila, lista.firstElementChild);
+  agregado=fila;
+  mostrarToast("Listo, lo agregué");
+}
+function agregarEstudio(origen){
+  const lista=document.getElementById("listaEstudios"); if(!lista) return;
+  if(agregado) agregado.remove();
+  const fila=document.createElement("button");
+  fila.className="lista-item nuevo-item";
+  fila.innerHTML='<div class="thumb aten"><svg class="i"><use href="#ic-folder"></use></svg></div>'+
+    '<div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Estudio sin nombre</span>'+
+    '<span class="small muted">1 de septiembre · desde '+origen+'</span></div>'+
+    '<span class="pill pill-aten">Leyendo</span>';
+  lista.insertBefore(fila, lista.firstElementChild);
+  agregado=fila;
+  mostrarToast("Lo estoy leyendo, te aviso");
+}
+document.getElementById("deshacer").addEventListener("click",()=>{
+  if(agregado){agregado.remove(); agregado=null;}
+  toast.classList.remove("ver"); clearTimeout(relojToast);
+});
+
 document.addEventListener("click",e=>{
-  const b=e.target.closest("[data-go]"); if(b){ go(b.dataset.go); return; }
+  const b=e.target.closest("[data-go]");
+  if(b){ go(b.dataset.go); if(b.dataset.agregar) agregarPendiente(); if(b.dataset.nuevoEstudio) agregarEstudio(b.dataset.nuevoEstudio); return; }
   const seg=e.target.closest(".segmentado button");
   if(seg){ seg.parentElement.querySelectorAll("button").forEach(x=>x.setAttribute("aria-selected",String(x===seg))); return; }
   const f=e.target.closest(".filtro");
