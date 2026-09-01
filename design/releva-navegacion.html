@@ -11,20 +11,16 @@
   --papel:#F4F2F0; --tarjeta:#FFFFFF; --suave:#EFEAE5; --suave-2:#F7F4F1;
   --linea:#E2DBD3; --linea-tenue:#EDE8E3;
   --tinta:#16130F; --gris:#6E6459; --tenue:#8B8179;
-
   --marca:#E98047;
   --marca-solida:#E98047;
   --marca-texto:#E98047;
   --marca-suave:#FDF0E7;
-  --sobre-marca:#2A1206;
-
+  --sobre-marca:#FFFFFF;
   --hecho:#2F7A55; --hecho-bg:#E4F0E9;
   --atencion:#1C5A63; --atencion-bg:#E2EEEF; --atencion-linea:#C5DCDF;
   --urgencia:#B02418; --urgencia-bg:#FAE7E4; --urgencia-linea:#F0CFC9; --sobre-urgencia:#FFFFFF;
-
   --pag-fondo:#EDEAE6; --pag-panel:#FBFAF9; --pag-texto:#211D18;
   --pag-gris:#665D53; --pag-linea:#DCD5CC;
-
   --sombra-sm:0 1px 2px rgba(40,26,12,.05), 0 2px 6px rgba(40,26,12,.045);
   --sombra-lg:0 26px 64px -20px rgba(35,20,8,.32), 0 4px 14px rgba(35,20,8,.10);
   --sombra-dock:0 -1px 0 rgba(255,255,255,.55) inset, 0 10px 30px -8px rgba(40,24,10,.28), 0 2px 8px rgba(40,24,10,.10);
@@ -36,7 +32,7 @@
     --linea:#2F2925; --linea-tenue:#272220;
     --tinta:#F2EDE7; --gris:#A79C92; --tenue:#7E736A;
     --marca:#E98047; --marca-solida:#E98047; --marca-texto:#E98047;
-    --marca-suave:#36231A; --sobre-marca:#2A1206;
+    --marca-suave:#36231A; --sobre-marca:#FFFFFF;
     --hecho:#6FB68C; --hecho-bg:#15251D;
     --atencion:#7FC4CC; --atencion-bg:#12262A; --atencion-linea:#1F3E43;
     --urgencia:#F08A7C; --urgencia-bg:#2E1512; --urgencia-linea:#4A231D; --sobre-urgencia:#1A0806;
@@ -51,7 +47,7 @@
   --linea:#2F2925; --linea-tenue:#272220;
   --tinta:#F2EDE7; --gris:#A79C92; --tenue:#7E736A;
   --marca:#E98047; --marca-solida:#E98047; --marca-texto:#E98047;
-  --marca-suave:#36231A; --sobre-marca:#2A1206;
+  --marca-suave:#36231A; --sobre-marca:#FFFFFF;
   --hecho:#6FB68C; --hecho-bg:#15251D;
   --atencion:#7FC4CC; --atencion-bg:#12262A; --atencion-linea:#1F3E43;
   --urgencia:#F08A7C; --urgencia-bg:#2E1512; --urgencia-linea:#4A231D; --sobre-urgencia:#1A0806;
@@ -60,7 +56,6 @@
   --sombra-lg:0 26px 64px -20px rgba(0,0,0,.7), 0 4px 14px rgba(0,0,0,.45);
   --sombra-dock:0 -1px 0 rgba(255,255,255,.06) inset, 0 12px 34px -10px rgba(0,0,0,.7);
 }
-
 *{box-sizing:border-box}
 body{
   margin:0; background:var(--pag-fondo); color:var(--pag-texto);
@@ -75,7 +70,6 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 .sprite{display:none}
 .i{width:22px;height:22px;flex:none;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
 .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
-
 /* ============================================================
    TELÉFONO
    ============================================================ */
@@ -90,7 +84,6 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 .stage{position:relative;flex:1;min-height:0}
 .scr{position:absolute;inset:0;display:none;flex-direction:column}
 .scr.is-on{display:flex}
-
 /* ============================================================
    1 · ENCABEZADOS
    ============================================================ */
@@ -99,27 +92,18 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 .scr.colapsado .hdr{background:color-mix(in srgb, var(--papel) 78%, transparent);
   backdrop-filter:saturate(180%) blur(20px); -webkit-backdrop-filter:saturate(180%) blur(20px)}
 .scr.colapsado .hdr::after{opacity:1}
-
-.navbar{display:flex;align-items:center;gap:8px;min-height:48px;padding:2px 14px 0}
-.navbar .titulo-inline{position:absolute;left:0;right:0;top:2px;height:48px;line-height:48px;text-align:center;
-  font-size:14.1px;font-weight:800;letter-spacing:-.02em;pointer-events:none;
-  opacity:0;transform:translateY(5px);transition:opacity .16s ease,transform .16s ease;
-  padding:0 118px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.scr.colapsado .navbar .titulo-inline{opacity:1;transform:none}
+.navbar{display:flex;align-items:center;gap:8px;min-height:50px;padding:0 16px}
 .crece{flex:1}
-
 .atras{display:flex;align-items:center;gap:1px;color:var(--marca-texto);font-weight:700;
   font-size:14.1px;letter-spacing:-.015em;padding:8px 8px 8px 2px;margin-left:-2px;min-height:44px}
 .atras .i{width:21px;height:21px;stroke-width:2.4}
 .atras:hover{opacity:.72}
-
 .accion{display:inline-flex;align-items:center;gap:6px;color:var(--marca-texto);font-weight:700;
   font-size:13.2px;letter-spacing:-.01em;padding:8px 10px;min-height:44px;border-radius:12px}
 .accion:hover{background:var(--suave)}
 .accion .i{width:18px;height:18px;stroke-width:2.1}
 .accion-urg{color:var(--urgencia);background:var(--urgencia-bg);border:1.5px solid var(--urgencia-linea);
   padding:7px 13px;border-radius:999px;font-weight:800}
-
 .persona{display:inline-flex;align-items:center;gap:8px;background:var(--suave);border-radius:999px;
   padding:6px 12px 6px 6px;font-weight:700;font-size:12.7px;letter-spacing:-.01em;min-height:44px}
 .persona:hover{background:var(--linea-tenue)}
@@ -127,12 +111,11 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
   display:grid;place-items:center;font-size:11.8px;font-weight:800;flex:none}
 .persona .rol{color:var(--gris);font-weight:600}
 .persona .i{width:15px;height:15px;color:var(--gris);stroke-width:2.4}
-
-.titulo-grande{overflow:hidden;max-height:132px;opacity:1;transition:max-height .24s ease,opacity .16s ease;padding:2px 18px 6px}
-.scr.colapsado .titulo-grande{max-height:0;opacity:0;padding-bottom:0}
-.titulo-grande h1{font-size:26.4px;letter-spacing:-.04em;font-weight:800;line-height:1.08}
-.titulo-grande p{margin-top:3px;font-size:12.3px;font-weight:600;color:var(--gris)}
-
+.hdr-titulo{display:flex;align-items:center;gap:9px;font-size:18.2px;font-weight:800;letter-spacing:-.032em;line-height:1.1}
+.hdr-titulo-c{position:absolute;left:0;right:0;top:0;height:50px;line-height:50px;text-align:center;
+  font-size:15px;font-weight:800;letter-spacing:-.02em;pointer-events:none;padding:0 104px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hdr-sub{padding:0 16px 9px;margin-top:-2px;font-size:12.7px;font-weight:600;color:var(--gris)}
 .buscar{margin:2px 18px 10px;display:flex;align-items:center;gap:9px;min-height:48px;
   background:var(--suave);border-radius:14px;padding:0 14px;color:var(--gris);font-size:13.7px;font-weight:600}
 .buscar .i{width:18px;height:18px;stroke-width:2.2;flex:none}
@@ -146,7 +129,6 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 .filtro{flex:none;padding:8px 14px;min-height:40px;border-radius:999px;border:1.5px solid var(--linea);
   background:var(--tarjeta);font-size:13.2px;font-weight:700;color:var(--gris);white-space:nowrap}
 .filtro[aria-pressed="true"]{background:var(--marca-suave);border-color:var(--marca);color:var(--marca-texto)}
-
 .hdr-modal .navbar{min-height:52px}
 .hdr-modal .titulo-modal{position:absolute;left:0;right:0;top:2px;height:52px;line-height:52px;text-align:center;
   font-size:14.1px;font-weight:800;letter-spacing:-.02em;pointer-events:none;padding:0 100px;
@@ -159,14 +141,12 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 .progreso{flex:none;display:flex;gap:5px;padding:4px 18px 12px}
 .progreso span{height:5px;flex:1;border-radius:99px;background:var(--linea)}
 .progreso span.on{background:var(--marca-solida)}
-
 /* ============================================================
    2 · CUERPO
    ============================================================ */
 .scroll{flex:1;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
 .cuerpo{padding:2px 18px 26px;display:flex;flex-direction:column;gap:14px;min-height:100%}
 .scr[data-dock="si"] .cuerpo{padding-bottom:calc(var(--dock) + 14px)}
-
 /* ============================================================
    3 · BARRA DE PESTAÑAS FLOTANTE + BOTÓN AGREGAR
    ============================================================ */
@@ -185,7 +165,6 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 .tab[aria-selected="true"]{color:var(--marca-texto);background:var(--marca-suave)}
 .tab[aria-selected="true"] .i{stroke-width:2.4}
 .tab:not([aria-selected="true"]):hover{background:var(--suave)}
-
 .fab{position:absolute;right:16px;bottom:calc(100% + 12px);display:none;align-items:center;gap:8px;
   height:56px;padding:0 20px;border-radius:20px;background:var(--marca-solida);color:var(--sobre-marca);
   font-size:14.1px;font-weight:800;letter-spacing:-.02em;pointer-events:auto;
@@ -197,17 +176,13 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 .fab:hover{filter:brightness(1.05)}
 .fab:active{transform:scale(.95)}
 .marca-titulo{display:flex;align-items:center;gap:10px}
-.rombo-h1{width:26px;height:26px;background:var(--marca);border-radius:6px;transform:rotate(45deg);display:grid;place-items:center;flex:none}
-.rombo-h1::after{content:"";width:9px;height:9px;background:var(--papel);border-radius:2px}
-.rombo-mini{width:15px;height:15px;background:var(--marca);border-radius:4px;transform:rotate(45deg);display:inline-grid;place-items:center;margin-right:8px;vertical-align:-2px}
-.rombo-mini::after{content:"";width:5px;height:5px;background:var(--papel);border-radius:1px}
-
+.rombo-h1{width:21px;height:21px;background:var(--marca);border-radius:6px;transform:rotate(45deg);display:grid;place-items:center;flex:none}
+.rombo-h1::after{content:"";width:7px;height:7px;background:var(--papel);border-radius:2px}
 .screen.permite-mini .stage.bajando .tabbar{padding:3px 6px}
 .screen.permite-mini .stage.bajando .tab{min-height:42px}
 .screen.permite-mini .stage.bajando .tab .et{max-height:0;opacity:0}
 .screen.permite-mini .stage.bajando .fab{height:46px;padding:0 16px}
 .indicador{width:132px;height:5px;border-radius:99px;background:var(--tinta);opacity:.28;margin:9px auto 2px}
-
 /* hoja inferior (sheet) del botón Agregar */
 .scr.hoja{background:rgba(20,12,6,.42);justify-content:flex-end}
 .hoja-panel{background:var(--tarjeta);border-radius:26px 26px 0 0;padding:10px 14px 16px;max-height:90%;overflow-y:auto;
@@ -221,7 +196,6 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 .hoja-op .thumb{width:48px;height:48px}
 .hoja-op b{display:block;font-size:15.5px;font-weight:800;letter-spacing:-.02em}
 .hoja-op span{display:block;font-size:12.3px;color:var(--gris);font-weight:500}
-
 /* ============================================================
    4 · ÁTOMOS
    ============================================================ */
@@ -268,8 +242,8 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 .quick .i{width:22px;height:22px;color:var(--marca-texto);stroke-width:2}
 .hero-card{background:var(--marca-solida);color:var(--sobre-marca);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:14px}
 .hero-card .lbl{color:var(--sobre-marca);opacity:.8}
-.hero-card .btn-ghost{background:rgba(255,255,255,.92);border-color:transparent;color:#2A1206}
-:root[data-theme="dark"] .hero-card .btn-ghost,:root:not([data-theme="light"]) .hero-card .btn-ghost{background:rgba(255,255,255,.92);border-color:transparent;color:#2A1206}
+.hero-card .btn-ghost{background:rgba(255,255,255,.26);border:1.5px solid rgba(255,255,255,.9);color:#FFFFFF}
+:root[data-theme="dark"] .hero-card .btn-ghost,:root:not([data-theme="light"]) .hero-card .btn-ghost{background:rgba(255,255,255,.26);border:1.5px solid rgba(255,255,255,.9);color:#FFFFFF}
 .aten-card{background:var(--atencion-bg);border:1px solid var(--atencion-linea);border-radius:var(--r);padding:15px 16px}
 .urg-card{background:var(--urgencia-bg);border:1px solid var(--urgencia-linea);border-radius:var(--r);padding:15px 16px}
 .lista-item{display:flex;align-items:center;gap:13px;padding:14px 0;width:100%;text-align:left}
@@ -310,8 +284,6 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 .doc-alert{background:#FAE7E4;border:1px solid #EEC9C3;color:#8E2019;border-radius:7px;padding:8px 10px;font-weight:800}
 .doc ul{margin:6px 0 0;padding-left:16px}.doc li{margin-bottom:3px}
 .doc-foot{font-size:10px;color:#8A7B6E;margin-top:12px;line-height:1.45}
-
-
 /* la página es sólo el teléfono */
 body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
 @media (max-width:440px){
@@ -320,7 +292,6 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   .screen{border-radius:30px;height:100vh;max-height:780px}
 }
 </style>
-
 <svg class="sprite" aria-hidden="true"><defs>
 <symbol id="ic-rombo" viewBox="0 0 24 24"><rect x="5.4" y="5.4" width="13.2" height="13.2" rx="2.4" transform="rotate(45 12 12)"></rect><rect x="10.1" y="10.1" width="3.8" height="3.8" rx="1" transform="rotate(45 12 12)" fill="currentColor" stroke="none"></rect></symbol>
 <symbol id="ic-today" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3.4"></rect><path d="M3 10h18M8 3v4M16 3v4"></path><circle cx="12" cy="15.5" r="1.7" fill="currentColor" stroke="none"></circle></symbol>
@@ -348,7 +319,6 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
 <symbol id="ic-lista" viewBox="0 0 24 24"><path d="M9 6.5h11M9 12h11M9 17.5h11M4.4 6.5h.1M4.4 12h.1M4.4 17.5h.1"></path></symbol>
 <symbol id="ic-luz" viewBox="0 0 24 24"><path d="M12 3a6 6 0 00-3.4 10.9c.6.5.9 1.1.9 1.8v.3h5v-.3c0-.7.3-1.3.9-1.8A6 6 0 0012 3z"></path><path d="M9.5 19h5M10.5 21.5h3"></path></symbol>
 </defs></svg>
-
 <div class="phone">
  <div class="screen" id="screen">
   <div class="statusbar">
@@ -374,7 +344,6 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   </div>
  </div></div>
 </section>
-
 <section class="scr" data-scr="onb1" data-dock="no">
  <header class="hdr hdr-modal"><div class="navbar"><button class="accion" data-go="bienvenida">Cancelar</button><span class="titulo-modal">Paso 1 de 3</span><span class="crece"></span></div>
   <div class="progreso"><span class="on"></span><span></span><span></span></div></header>
@@ -388,7 +357,6 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   <button class="btn btn-primary" data-go="onb2" style="margin-top:14px">Seguir</button>
  </div></div>
 </section>
-
 <section class="scr" data-scr="onb2" data-dock="no">
  <header class="hdr hdr-modal"><div class="navbar"><button class="atras" data-go="onb1"><svg class="i"><use href="#ic-back"></use></svg>Atrás</button><span class="titulo-modal">Paso 2 de 3</span><span class="crece"></span></div>
   <div class="progreso"><span class="on"></span><span class="on"></span><span></span></div></header>
@@ -406,7 +374,6 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   <button class="btn btn-primary" data-go="onb3" style="margin-top:14px">Seguir</button>
  </div></div>
 </section>
-
 <section class="scr" data-scr="onb3" data-dock="no">
  <header class="hdr hdr-modal"><div class="navbar"><button class="atras" data-go="onb2"><svg class="i"><use href="#ic-back"></use></svg>Atrás</button><span class="titulo-modal">Paso 3 de 3</span><span class="crece"></span></div>
   <div class="progreso"><span class="on"></span><span class="on"></span><span class="on"></span></div></header>
@@ -424,15 +391,13 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   <button class="btn btn-primary" data-go="hoy-vacia" style="margin-top:14px">Terminar</button>
  </div></div>
 </section>
-
 <!-- ===== INICIO · con turno ===== -->
 <section class="scr" data-scr="hoy" data-tab="hoy" data-dock="si">
  <header class="hdr">
-  <div class="navbar"><span class="crece"></span>
+  <div class="navbar"><h1 class="hdr-titulo"><span class="rombo-h1"></span>Releva</h1><span class="crece"></span>
     <button class="accion accion-urg" data-go="guardia"><svg class="i"><use href="#ic-alert"></use></svg>Guardia</button>
-    <span class="titulo-inline"><span class="rombo-mini"></span>Releva</span>
   </div>
-  <div class="titulo-grande"><h1 class="marca-titulo"><span class="rombo-h1"></span>Releva</h1><p>Martes 1 de septiembre</p></div>
+  <p class="hdr-sub">Martes 1 de septiembre</p>
  </header>
  <div class="scroll"><div class="cuerpo">
   <div class="hero-card">
@@ -443,13 +408,11 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
     </div>
     <button class="btn btn-ghost" data-go="consultas-prox">Preparar la consulta · 3 notas</button>
   </div>
-
   <div class="quick">
     <button data-go="consentimiento"><svg class="i"><use href="#ic-mic"></use></svg>Grabar una consulta</button>
     <button data-go="estudios"><svg class="i"><use href="#ic-camera"></use></svg>Cargar un estudio</button>
     <button data-go="compartir"><svg class="i"><use href="#ic-share"></use></svg>Compartir historia</button>
   </div>
-
   <p class="lbl" style="margin-top:4px">Pendientes</p>
   <button class="aten-card" style="width:100%;text-align:left" data-go="tramite">
     <div class="row" style="align-items:flex-start;gap:11px">
@@ -481,15 +444,13 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   <p class="fineprint" style="text-align:center;max-width:none">Lo que marcás como hecho desaparece de acá y queda en la historia de Elsa.</p>
  </div></div>
 </section>
-
 <!-- ===== INICIO · sin próxima consulta ===== -->
 <section class="scr" data-scr="hoy-sinturno" data-tab="hoy" data-dock="si">
  <header class="hdr">
-  <div class="navbar"><span class="crece"></span>
+  <div class="navbar"><h1 class="hdr-titulo"><span class="rombo-h1"></span>Releva</h1><span class="crece"></span>
     <button class="accion accion-urg" data-go="guardia"><svg class="i"><use href="#ic-alert"></use></svg>Guardia</button>
-    <span class="titulo-inline"><span class="rombo-mini"></span>Releva</span>
   </div>
-  <div class="titulo-grande"><h1 class="marca-titulo"><span class="rombo-h1"></span>Releva</h1><p>Martes 1 de septiembre</p></div>
+  <p class="hdr-sub">Martes 1 de septiembre</p>
  </header>
  <div class="scroll"><div class="cuerpo">
   <div class="card" style="border-style:dashed;border-width:1.5px;border-color:var(--linea)">
@@ -501,13 +462,11 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
     </div>
     <button class="btn btn-primary" style="margin-top:12px" data-go="consultas">Agendar una consulta</button>
   </div>
-
   <div class="quick">
     <button data-go="consentimiento"><svg class="i"><use href="#ic-mic"></use></svg>Grabar una consulta</button>
     <button data-go="estudios"><svg class="i"><use href="#ic-camera"></use></svg>Cargar un estudio</button>
     <button data-go="compartir"><svg class="i"><use href="#ic-share"></use></svg>Compartir historia</button>
   </div>
-
   <p class="lbl" style="margin-top:4px">Pendientes</p>
   <button class="aten-card" style="width:100%;text-align:left" data-go="tramite">
     <div class="row" style="align-items:flex-start;gap:11px">
@@ -527,15 +486,13 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   </div>
  </div></div>
 </section>
-
 <!-- ===== INICIO · día uno ===== -->
 <section class="scr" data-scr="hoy-vacia" data-tab="hoy" data-dock="si">
  <header class="hdr">
-  <div class="navbar"><span class="crece"></span>
+  <div class="navbar"><h1 class="hdr-titulo"><span class="rombo-h1"></span>Releva</h1><span class="crece"></span>
     <button class="accion accion-urg" data-go="guardia"><svg class="i"><use href="#ic-alert"></use></svg>Guardia</button>
-    <span class="titulo-inline"><span class="rombo-mini"></span>Releva</span>
   </div>
-  <div class="titulo-grande"><h1 class="marca-titulo"><span class="rombo-h1"></span>Releva</h1><p>Hola, Mariana · martes 1 de septiembre</p></div>
+  <p class="hdr-sub">Hola, Mariana · martes 1 de septiembre</p>
  </header>
  <div class="scroll"><div class="cuerpo">
   <div class="card" style="padding:20px 18px">
@@ -553,15 +510,13 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   </div>
  </div></div>
 </section>
-
 <!-- ===== CONSULTAS ===== -->
 <section class="scr" data-scr="consultas" data-tab="consultas" data-dock="si" data-fab="Nueva consulta|consultas-prox">
  <header class="hdr">
-  <div class="navbar"><span class="crece"></span>
+  <div class="navbar"><h1 class="hdr-titulo">Consultas</h1><span class="crece"></span>
     <button class="accion accion-urg" data-go="guardia"><svg class="i"><use href="#ic-alert"></use></svg>Guardia</button>
-    <span class="titulo-inline">Consultas</span>
-  </div>
-  <div class="titulo-grande"><h1>Consultas</h1><p>1 agendada · 6 anteriores</p></div>
+    </div>
+  <p class="hdr-sub">1 agendada · 6 anteriores</p>
   <div class="buscar"><svg class="i"><use href="#ic-search"></use></svg><span>Buscar un médico, una fecha, algo que dijeron</span></div>
  </header>
  <div class="scroll"><div class="cuerpo">
@@ -612,11 +567,10 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   </div>
  </div></div>
 </section>
-
 <section class="scr" data-scr="consultas-prox" data-tab="consultas" data-dock="si">
  <header class="hdr">
-  <div class="navbar"><button class="atras" data-go="consultas"><svg class="i"><use href="#ic-back"></use></svg>Consultas</button><span class="crece"></span><span class="titulo-inline">Próxima consulta</span></div>
-  <div class="titulo-grande"><h1>Dra. Ríos</h1><p>Viernes 4 de septiembre, 10:30 · en 3 días</p></div>
+  <div class="navbar"><button class="atras" data-go="consultas"><svg class="i"><use href="#ic-back"></use></svg>Consultas</button><span class="crece"></span><span class="hdr-titulo-c">Dra. Ríos</span></div>
+  <p class="hdr-sub">Viernes 4 de septiembre, 10:30 · en 3 días</p>
  </header>
  <div class="scroll"><div class="cuerpo">
   <p class="lbl">Para preguntar</p>
@@ -636,15 +590,13 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   <button class="btn btn-primary" data-go="consentimiento" style="margin-top:4px"><svg class="i"><use href="#ic-mic"></use></svg>Estoy entrando a la consulta</button>
  </div></div>
 </section>
-
 <!-- ===== ESTUDIOS ===== -->
 <section class="scr" data-scr="estudios" data-tab="estudios" data-dock="si" data-fab="Nuevo estudio|estudio">
  <header class="hdr">
-  <div class="navbar"><span class="crece"></span>
+  <div class="navbar"><h1 class="hdr-titulo">Estudios</h1><span class="crece"></span>
     <button class="accion accion-urg" data-go="guardia"><svg class="i"><use href="#ic-alert"></use></svg>Guardia</button>
-    <span class="titulo-inline">Estudios</span>
-  </div>
-  <div class="titulo-grande"><h1>Estudios</h1><p>9 cargados · desde junio 2026</p></div>
+    </div>
+  <p class="hdr-sub">9 cargados · desde junio 2026</p>
   <div class="buscar"><svg class="i"><use href="#ic-search"></use></svg><span>Buscá «creatinina», «TAC», una fecha…</span></div>
   <div class="filtros"><button class="filtro" aria-pressed="true">Todos</button><button class="filtro">Laboratorio</button><button class="filtro">Imágenes</button><button class="filtro">Recetas</button><button class="filtro">Por fecha</button></div>
  </header>
@@ -682,15 +634,13 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   </div>
  </div></div>
 </section>
-
 <!-- ===== ELSA ===== -->
 <section class="scr" data-scr="perfil" data-tab="perfil" data-dock="si">
  <header class="hdr">
-  <div class="navbar"><span class="crece"></span>
+  <div class="navbar"><h1 class="hdr-titulo">Elsa Fernández</h1><span class="crece"></span>
     <button class="accion accion-urg" data-go="guardia"><svg class="i"><use href="#ic-alert"></use></svg>Guardia</button>
-    <span class="titulo-inline">Elsa Fernández</span>
-  </div>
-  <div class="titulo-grande"><h1>Elsa Fernández</h1><p>78 años · tu mamá · 0+ · OSDE 210</p></div>
+    </div>
+  <p class="hdr-sub">78 años · tu mamá · 0+ · OSDE 210</p>
  </header>
  <div class="scroll"><div class="cuerpo">
   <div class="card" style="padding:4px 16px">
@@ -729,12 +679,11 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   <div class="card-flat" style="margin-top:4px"><div class="row"><svg class="i" style="color:var(--gris)"><use href="#ic-lock"></use></svg><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Privacidad y datos</span><span class="small muted">Quién ve qué, y cómo se borra</span></div><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></div></div>
  </div></div>
 </section>
-
 <!-- ===== EMPUJADAS ===== -->
 <section class="scr" data-scr="tramite" data-tab="hoy" data-dock="si">
  <header class="hdr">
-  <div class="navbar"><button class="atras" data-go="hoy"><svg class="i"><use href="#ic-back"></use></svg>Inicio</button><span class="crece"></span><span class="titulo-inline">Autorización TAC</span></div>
-  <div class="titulo-grande"><h1>Autorización de la TAC</h1><p>OSDE · vence el miércoles 3</p></div>
+  <div class="navbar"><button class="atras" data-go="hoy"><svg class="i"><use href="#ic-back"></use></svg>Inicio</button><span class="crece"></span><span class="hdr-titulo-c">Autorización de la TAC</span></div>
+  <p class="hdr-sub">OSDE · vence el miércoles 3</p>
  </header>
  <div class="scroll"><div class="cuerpo">
   <div class="aten-card"><p style="font-weight:700;color:var(--atencion);font-size:13.7px">Quedan 2 días. Si vence, hay que volver a pedir la orden.</p></div>
@@ -749,11 +698,10 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   <button class="btn btn-ghost">Ya lo hice, marcar como listo</button>
  </div></div>
 </section>
-
 <section class="scr" data-scr="resumen" data-tab="consultas" data-dock="si">
  <header class="hdr">
-  <div class="navbar"><button class="atras" data-go="consultas"><svg class="i"><use href="#ic-back"></use></svg>Consultas</button><span class="crece"></span><button class="accion" data-go="compartir"><svg class="i"><use href="#ic-share"></use></svg></button><span class="titulo-inline">Consulta 26/8</span></div>
-  <div class="titulo-grande"><h1>Dra. Ríos</h1><p>Oncología · miércoles 26 de agosto</p></div>
+  <div class="navbar"><button class="atras" data-go="consultas"><svg class="i"><use href="#ic-back"></use></svg>Consultas</button><span class="crece"></span><span class="hdr-titulo-c">Dra. Ríos</span><button class="accion" data-go="compartir"><svg class="i"><use href="#ic-share"></use></svg></button></div>
+  <p class="hdr-sub">Oncología · miércoles 26 de agosto</p>
  </header>
  <div class="scroll"><div class="cuerpo">
   <div class="card-flat" style="background:var(--suave-2);border-style:dashed">
@@ -786,11 +734,10 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   </div>
  </div></div>
 </section>
-
 <section class="scr" data-scr="estudio" data-tab="estudios" data-dock="si">
  <header class="hdr">
-  <div class="navbar"><button class="atras" data-go="estudios"><svg class="i"><use href="#ic-back"></use></svg>Estudios</button><span class="crece"></span><button class="accion" data-go="compartir"><svg class="i"><use href="#ic-share"></use></svg></button><span class="titulo-inline">Laboratorio 19/8</span></div>
-  <div class="titulo-grande"><h1>Laboratorio completo</h1><p>19 de agosto · pedido por la Dra. Ríos</p></div>
+  <div class="navbar"><button class="atras" data-go="estudios"><svg class="i"><use href="#ic-back"></use></svg>Estudios</button><span class="crece"></span><span class="hdr-titulo-c">Laboratorio completo</span><button class="accion" data-go="compartir"><svg class="i"><use href="#ic-share"></use></svg></button></div>
+  <p class="hdr-sub">19 de agosto · pedido por la Dra. Ríos</p>
   <div class="buscar"><svg class="i"><use href="#ic-search"></use></svg><span>creatinina</span></div>
  </header>
  <div class="scroll"><div class="cuerpo">
@@ -815,11 +762,10 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   <button class="btn btn-quiet" style="justify-content:flex-start;padding:0"><svg class="i"><use href="#ic-help"></use></svg>Qué significa la creatinina</button>
  </div></div>
 </section>
-
 <section class="scr" data-scr="historia" data-tab="perfil" data-dock="si">
  <header class="hdr">
-  <div class="navbar"><button class="atras" data-go="perfil"><svg class="i"><use href="#ic-back"></use></svg>Elsa</button><span class="crece"></span><button class="accion" data-go="compartir"><svg class="i"><use href="#ic-share"></use></svg>Compartir</button><span class="titulo-inline">Historia clínica</span></div>
-  <div class="titulo-grande"><h1>Historia clínica</h1><p>Desde junio 2026</p></div>
+  <div class="navbar"><button class="atras" data-go="perfil"><svg class="i"><use href="#ic-back"></use></svg>Elsa</button><span class="crece"></span><span class="hdr-titulo-c">Historia clínica</span><button class="accion" data-go="compartir"><svg class="i"><use href="#ic-share"></use></svg>Compartir</button></div>
+  <p class="hdr-sub">Desde junio 2026</p>
  </header>
  <div class="scroll"><div class="cuerpo">
   <div class="urg-card"><p class="lbl" style="color:var(--urgencia)">Alergias</p><p style="color:var(--urgencia);font-size:18.2px;font-weight:800;margin-top:4px;letter-spacing:-.02em">Penicilina</p></div>
@@ -837,11 +783,10 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   </div>
  </div></div>
 </section>
-
 <section class="scr" data-scr="medicacion" data-tab="perfil" data-dock="si">
  <header class="hdr">
-  <div class="navbar"><button class="atras" data-go="perfil"><svg class="i"><use href="#ic-back"></use></svg>Elsa</button><span class="crece"></span><button class="accion"><svg class="i"><use href="#ic-plus"></use></svg></button><span class="titulo-inline">Medicación</span></div>
-  <div class="titulo-grande"><h1>Medicación</h1><p>3 activas</p></div>
+  <div class="navbar"><button class="atras" data-go="perfil"><svg class="i"><use href="#ic-back"></use></svg>Elsa</button><span class="crece"></span><span class="hdr-titulo-c">Medicación</span><button class="accion"><svg class="i"><use href="#ic-plus"></use></svg></button></div>
+  <p class="hdr-sub">3 activas</p>
  </header>
  <div class="scroll"><div class="cuerpo">
   <div class="card">
@@ -859,11 +804,10 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   </div>
  </div></div>
 </section>
-
 <section class="scr" data-scr="compartir" data-tab="perfil" data-dock="si">
  <header class="hdr">
-  <div class="navbar"><button class="atras" data-go="perfil"><svg class="i"><use href="#ic-back"></use></svg>Elsa</button><span class="crece"></span><span class="titulo-inline">Compartir</span></div>
-  <div class="titulo-grande"><h1>Compartir historia</h1><p>Elegí qué incluir antes de mandarlo</p></div>
+  <div class="navbar"><button class="atras" data-go="perfil"><svg class="i"><use href="#ic-back"></use></svg>Elsa</button><span class="crece"></span><span class="hdr-titulo-c">Compartir historia</span></div>
+  <p class="hdr-sub">Elegí qué incluir antes de mandarlo</p>
   <div class="segmentado"><button aria-selected="true">Resumen</button><button>+ Estudios</button><button>Todo</button></div>
  </header>
  <div class="scroll"><div class="cuerpo">
@@ -897,7 +841,6 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   </div>
  </div></div>
 </section>
-
 <!-- ===== MODALES ===== -->
 <section class="scr" data-scr="consentimiento" data-dock="no">
  <header class="hdr hdr-modal"><div class="navbar"><button class="accion" data-go="consultas">Cancelar</button><span class="titulo-modal">Antes de entrar</span><span class="crece"></span></div></header>
@@ -919,7 +862,6 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   </div>
  </div></div>
 </section>
-
 <section class="scr" data-scr="consulta" data-dock="no">
  <header class="hdr hdr-modal"><div class="navbar"><span class="crece"></span><span class="titulo-modal">En consulta</span><span class="pill pill-ok" style="margin-right:4px">Sin grabar audio</span></div></header>
  <div class="scroll"><div class="cuerpo" style="gap:16px">
@@ -945,7 +887,6 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   <button class="btn btn-quiet" data-go="consultas">Dejar de escuchar</button>
  </div></div>
 </section>
-
 <section class="scr" data-scr="guardia" data-dock="no">
  <header class="hdr hdr-urg">
   <div class="navbar"><svg class="i" style="width:24px;height:24px;stroke-width:2.3"><use href="#ic-alert"></use></svg><h1>Modo guardia</h1><span class="crece"></span><button class="accion" data-go="hoy">Cerrar</button></div>
@@ -969,7 +910,6 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   <button class="btn btn-urg" data-go="compartir" style="margin-top:14px"><svg class="i"><use href="#ic-share"></use></svg>Pasarle el resumen al médico</button>
  </div></div>
 </section>
-
        <div class="dock" id="dock">
          <div class="tabbar-wrap">
          <button class="fab" id="fab" data-go="consultas-prox"><svg class="i"><use href="#ic-plus"></use></svg><span id="fabEt">Nueva consulta</span></button>
@@ -982,17 +922,14 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
          </div>
          <div class="indicador"></div>
        </div>
-
   </div>
  </div>
 </div>
-
 <script>
 const stage=document.querySelector(".stage"),
       tabbar=document.getElementById("tabbar"),
       fab=document.getElementById("fab"),
       fabEt=document.getElementById("fabEt");
-
 function go(id){
   const t=document.querySelector('.scr[data-scr="'+id+'"]'); if(!t) return;
   document.querySelectorAll(".scr").forEach(s=>{
@@ -1011,7 +948,6 @@ function go(id){
   const tab=t.dataset.tab||"";
   tabbar.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",String(b.dataset.tab===tab)));
 }
-
 document.querySelectorAll(".scroll").forEach(sc=>{
   let ultimo=0;
   sc.addEventListener("scroll",()=>{
@@ -1022,7 +958,6 @@ document.querySelectorAll(".scroll").forEach(sc=>{
     ultimo=y;
   },{passive:true});
 });
-
 document.addEventListener("click",e=>{
   const b=e.target.closest("[data-go]"); if(b){ go(b.dataset.go); return; }
   const seg=e.target.closest(".segmentado button");
@@ -1032,6 +967,5 @@ document.addEventListener("click",e=>{
   const ch=e.target.closest(".chip, .check");
   if(ch && ch.classList.contains("check")) ch.classList.toggle("on");
 });
-
 go("hoy");
 </script>
