@@ -1,0 +1,1454 @@
+<title>Releva</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* ==========================================================================
+   RELEVA · historia clínica unificada para quien cuida
+   --------------------------------------------------------------------------
+   Voz      Fraunces  · lo que la app dice
+   Interfaz Instrument Sans
+   Datos    IBM Plex Mono · fechas, valores, etiquetas
+   Tierra   lino #EDE8E0 · papel #FCFAF7 · tinta #241C16
+   Mano     arcilla #E98047 (marca)
+   Calma    eucalipto #46796C   Alerta ladrillo #A93A28
+   ========================================================================== */
+:root{
+  --lino:#EDE8E0;
+  --papel:#FCFAF7;
+  --papel-2:#F5F1EA;
+  --hueco:#E6E0D6;
+  --linea:#DCD4C8;
+  --linea-fina:#E8E2D8;
+  --tinta:#241C16;
+  --grafito:#6C6057;
+  --tenue:#948779;
+
+  --arcilla:#E98047;
+  --arcilla-honda:#AF4F1B;
+  --arcilla-tenue:#FBEDE2;
+  --sobre-arcilla:#FFFFFF;
+
+  --euca:#46796C;
+  --euca-tenue:#E4EEEA;
+  --euca-linea:#C7DCD5;
+
+  --ladrillo:#A93A28;
+  --ladrillo-tenue:#F8E7E3;
+  --ladrillo-linea:#EDCEC7;
+
+  --escena:#E2DCD2;
+  --sombra-baja:0 1px 2px rgba(50,34,18,.05), 0 2px 6px rgba(50,34,18,.04);
+  --sombra-alta:0 30px 70px -22px rgba(40,24,10,.34), 0 4px 16px rgba(40,24,10,.10);
+  --sombra-flote:0 -1px 0 rgba(255,255,255,.6) inset, 0 12px 32px -10px rgba(45,28,12,.3), 0 2px 8px rgba(45,28,12,.1);
+  --r:15px;
+  --dock:104px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --lino:#141110; --papel:#1E1A17; --papel-2:#231F1B; --hueco:#2A2521;
+    --linea:#332C27; --linea-fina:#2B2521;
+    --tinta:#F1EBE3; --grafito:#A79A8E; --tenue:#80746A;
+    --arcilla:#EE8C57; --arcilla-honda:#F0A277; --arcilla-tenue:#33211A; --sobre-arcilla:#1A0E07;
+    --euca:#7FBBAA; --euca-tenue:#15251F; --euca-linea:#25453C;
+    --ladrillo:#EC8878; --ladrillo-tenue:#2D1512; --ladrillo-linea:#48231D;
+    --escena:#0C0A09;
+    --sombra-baja:0 1px 2px rgba(0,0,0,.5);
+    --sombra-alta:0 30px 70px -22px rgba(0,0,0,.75), 0 4px 16px rgba(0,0,0,.5);
+    --sombra-flote:0 -1px 0 rgba(255,255,255,.05) inset, 0 14px 36px -12px rgba(0,0,0,.75);
+  }
+}
+:root[data-theme="dark"]{
+  --lino:#141110; --papel:#1E1A17; --papel-2:#231F1B; --hueco:#2A2521;
+  --linea:#332C27; --linea-fina:#2B2521;
+  --tinta:#F1EBE3; --grafito:#A79A8E; --tenue:#80746A;
+  --arcilla:#EE8C57; --arcilla-honda:#F0A277; --arcilla-tenue:#33211A; --sobre-arcilla:#1A0E07;
+  --euca:#7FBBAA; --euca-tenue:#15251F; --euca-linea:#25453C;
+  --ladrillo:#EC8878; --ladrillo-tenue:#2D1512; --ladrillo-linea:#48231D;
+  --escena:#0C0A09;
+  --sombra-baja:0 1px 2px rgba(0,0,0,.5);
+  --sombra-alta:0 30px 70px -22px rgba(0,0,0,.75), 0 4px 16px rgba(0,0,0,.5);
+  --sombra-flote:0 -1px 0 rgba(255,255,255,.05) inset, 0 14px 36px -12px rgba(0,0,0,.75);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; min-height:100vh; background:var(--escena); color:var(--tinta);
+  font-family:"Instrument Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:14.5px; line-height:1.55; -webkit-font-smoothing:antialiased;
+  display:grid; place-items:center; padding:28px 16px;
+}
+h1,h2,h3{margin:0; line-height:1.16; font-weight:600; text-wrap:balance}
+p{margin:0}
+button{font:inherit; color:inherit; border:0; background:none; cursor:pointer; text-align:left}
+:focus-visible{outline:2.5px solid var(--arcilla); outline-offset:3px; border-radius:8px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* ---- voz de la app ---- */
+.voz{
+  font-family:"Fraunces",Georgia,"Times New Roman",serif;
+  font-variation-settings:"SOFT" 40,"WONK" 0,"opsz" 40;
+  font-weight:400; letter-spacing:-.012em; line-height:1.24;
+}
+.voz-xl{font-size:27px}
+.voz-l{font-size:22px}
+.voz-m{font-size:18.5px;line-height:1.34}
+.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+
+/* ---- teléfono ---- */
+.telefono{
+  width:394px; background:#0B0908; border-radius:50px; padding:11px;
+  box-shadow:var(--sombra-alta); border:1px solid rgba(255,255,255,.08);
+}
+.pantalla{
+  position:relative; height:812px; border-radius:40px; overflow:hidden;
+  background:var(--lino); color:var(--tinta);
+  display:flex; flex-direction:column;
+}
+.barra-sistema{
+  flex:none; height:44px; display:flex; align-items:center; justify-content:space-between;
+  padding:0 26px 0 31px; font-size:12.6px; font-weight:600; font-variant-numeric:tabular-nums;
+  background:var(--lino); z-index:20;
+}
+.barra-sistema .der{display:flex;align-items:center;gap:5px}
+.barra-sistema svg{fill:currentColor;stroke:none}
+.escenario{position:relative;flex:1;min-height:0}
+.vista{position:absolute;inset:0;display:none;flex-direction:column}
+.vista.activa{display:flex}
+.sprite{display:none}
+.i{width:22px;height:22px;flex:none;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---- encabezados: papel, nunca bloques de color ---- */
+.cab{flex:none;position:relative;z-index:12;background:var(--lino);transition:box-shadow .2s ease}
+.vista.hundida .cab{box-shadow:0 1px 0 var(--linea), 0 8px 20px -16px rgba(40,24,10,.5)}
+.cab-fila{display:flex;align-items:center;gap:8px;min-height:52px;padding:0 18px}
+.crece{flex:1}
+.volver{display:flex;align-items:center;gap:2px;color:var(--arcilla-honda);font-weight:600;
+  font-size:14px;letter-spacing:-.015em;padding:9px 8px 9px 0;min-height:44px}
+.volver .i{width:20px;height:20px;stroke-width:2.4}
+.volver:hover{opacity:.7}
+.cab-tit{font-size:15px;font-weight:600;letter-spacing:-.02em}
+.cab-tit-c{position:absolute;left:0;right:0;top:0;height:52px;line-height:52px;text-align:center;
+  font-size:15px;font-weight:600;letter-spacing:-.02em;pointer-events:none;padding:0 96px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.accion{display:inline-flex;align-items:center;gap:6px;color:var(--arcilla-honda);font-weight:600;
+  font-size:13.4px;letter-spacing:-.01em;padding:8px 10px;margin-right:-10px;min-height:44px;border-radius:11px}
+.accion:hover{background:var(--hueco)}
+.accion .i{width:18px;height:18px;stroke-width:2.1}
+.accion-guardia{color:var(--ladrillo);border:1.4px solid var(--ladrillo-linea);background:var(--ladrillo-tenue);
+  border-radius:999px;padding:7px 13px;margin-right:0;font-size:12.8px;min-height:38px}
+.cab-sub{padding:0 18px 10px;font-size:12.8px;font-weight:500;color:var(--grafito)}
+.rotulo-app{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:600;letter-spacing:-.03em}
+.marca-p{width:19px;height:19px;border-radius:6px;background:var(--arcilla);position:relative;flex:none}
+.marca-p::after{content:"";position:absolute;inset:6px;border-radius:2px;background:var(--lino)}
+.paso{flex:none;display:flex;gap:5px;padding:2px 18px 14px}
+.paso span{height:4px;flex:1;border-radius:99px;background:var(--linea)}
+.paso span.on{background:var(--arcilla)}
+
+/* ---- cuerpo ---- */
+.rollo{flex:1;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+.cuerpo{padding:6px 18px 28px;display:flex;flex-direction:column;gap:14px;min-height:100%}
+.vista[data-dock="si"] .cuerpo{padding-bottom:calc(var(--dock) + 12px)}
+.empuja{flex:1}
+
+/* ---- átomos ---- */
+.hoja{background:var(--papel);border:1px solid var(--linea-fina);border-radius:var(--r);padding:16px}
+.hoja-quieta{background:var(--papel-2);border-radius:var(--r);padding:15px 16px}
+.rotulo{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.2px;letter-spacing:.13em;
+  text-transform:uppercase;font-weight:500;color:var(--tenue)}
+.gris{color:var(--grafito)}
+.chico{font-size:12.4px;line-height:1.45}
+.pila{display:flex;flex-direction:column;gap:12px}
+.pila-ap{display:flex;flex-direction:column;gap:5px}
+.linea{display:flex;align-items:center;gap:12px}
+.raya{height:1px;background:var(--linea-fina);border:0;margin:0}
+
+.btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;min-height:54px;padding:0 18px;
+  border-radius:15px;font-size:14.5px;font-weight:600;letter-spacing:-.02em;border:1.5px solid transparent}
+.btn-lleno{background:var(--arcilla);color:var(--sobre-arcilla)}
+.btn-lleno:hover{filter:brightness(1.04)}
+.btn-borde{background:var(--papel);color:var(--tinta);border-color:var(--linea)}
+.btn-borde:hover{background:var(--papel-2)}
+.btn-mudo{background:transparent;color:var(--arcilla-honda);min-height:46px;font-size:13.4px}
+.btn-alerta{background:var(--ladrillo);color:#FFFFFF}
+.btn-chico{min-height:42px;font-size:13px;border-radius:11px;width:auto;padding:0 15px}
+.btn .i{width:19px;height:19px;stroke-width:2.1}
+
+.pildora{display:inline-flex;align-items:center;gap:6px;font-size:11.2px;font-weight:600;padding:4px 10px;
+  border-radius:999px;white-space:nowrap}
+.p-calma{background:var(--euca-tenue);color:var(--euca)}
+.p-ojo{background:var(--arcilla-tenue);color:var(--arcilla-honda)}
+.p-alerta{background:var(--ladrillo-tenue);color:var(--ladrillo)}
+
+.ficha{display:inline-flex;align-items:center;gap:7px;padding:10px 14px;min-height:44px;border-radius:999px;
+  border:1.4px solid var(--linea);background:var(--papel);font-size:13px;font-weight:500}
+.ficha.on{background:var(--arcilla-tenue);border-color:var(--arcilla);color:var(--arcilla-honda);font-weight:600}
+.ficha .i{width:15px;height:15px;stroke-width:3}
+.fichas{display:flex;flex-wrap:wrap;gap:8px}
+
+.campo{display:flex;flex-direction:column;gap:6px}
+.campo .et{font-size:12.6px;font-weight:600;color:var(--grafito)}
+.caja{min-height:54px;border-radius:13px;border:1.4px solid var(--linea);background:var(--papel);
+  padding:15px;font-size:14.5px;font-weight:500;outline:none}
+.caja[contenteditable]:focus{border-color:var(--arcilla);box-shadow:0 0 0 3px var(--arcilla-tenue)}
+.caja[data-ph]:empty:before{content:attr(data-ph);color:var(--tenue);font-weight:400}
+
+.tilde{width:27px;height:27px;border-radius:9px;border:2px solid var(--linea);flex:none;display:grid;
+  place-items:center;color:transparent;background:var(--papel);transition:background .14s ease,border-color .14s ease}
+.tilde.on{background:var(--euca);border-color:var(--euca);color:#fff}
+.tilde .i{width:16px;height:16px;stroke-width:3.2}
+
+.glifo{width:38px;height:38px;border-radius:11px;background:var(--hueco);display:grid;place-items:center;
+  color:var(--grafito);flex:none}
+.glifo .i{width:19px;height:19px}
+.glifo.arcilla{background:var(--arcilla-tenue);color:var(--arcilla-honda)}
+.glifo.calma{background:var(--euca-tenue);color:var(--euca)}
+.glifo.alerta{background:var(--ladrillo-tenue);color:var(--ladrillo)}
+
+.fila{display:flex;align-items:center;gap:12px;padding:13px 0;width:100%}
+.fila+.fila{border-top:1px solid var(--linea-fina)}
+.fila-tit{font-size:14.2px;font-weight:600;letter-spacing:-.015em}
+.fila .flecha{color:var(--tenue);flex:none}
+.fila .flecha .i{width:16px;height:16px;stroke-width:2.4}
+.lista{background:var(--papel);border:1px solid var(--linea-fina);border-radius:var(--r);padding:2px 16px}
+
+.segmento{display:flex;gap:3px;background:var(--hueco);border-radius:12px;padding:3px}
+.segmento button{flex:1;font-weight:600;font-size:12.6px;color:var(--grafito);padding:9px 4px;
+  border-radius:9px;min-height:40px;text-align:center}
+.segmento button[aria-selected="true"]{background:var(--papel);color:var(--tinta);box-shadow:0 1px 3px rgba(0,0,0,.13)}
+
+.puntero{display:flex;align-items:center;gap:9px;min-height:46px;background:var(--hueco);border-radius:13px;
+  padding:0 14px;color:var(--grafito);font-size:13.4px;font-weight:500}
+.puntero .i{width:17px;height:17px;stroke-width:2.2;flex:none}
+
+.finita{font-size:12px;color:var(--tenue);line-height:1.5}
+
+/* ---- barra de pestañas ---- */
+.dock{position:absolute;left:0;right:0;bottom:0;z-index:15;padding:0 12px 8px;pointer-events:none;display:none}
+.escenario[data-dock="si"] .dock{display:block}
+.pestanas{pointer-events:auto;display:flex;align-items:center;gap:2px;padding:6px 6px;border-radius:24px;
+  background:color-mix(in srgb, var(--papel) 80%, transparent);
+  backdrop-filter:saturate(190%) blur(24px); -webkit-backdrop-filter:saturate(190%) blur(24px);
+  box-shadow:var(--sombra-flote); border:1px solid color-mix(in srgb, var(--linea) 60%, transparent)}
+.pest{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+  min-height:52px;border-radius:18px;color:var(--grafito);font-size:9.8px;font-weight:600;padding:5px 2px;
+  position:relative;text-align:center;transition:background .15s ease,color .15s ease}
+.pest .i{width:23px;height:23px;stroke-width:1.85}
+.pest[aria-selected="true"]{color:var(--arcilla-honda);background:var(--arcilla-tenue)}
+.pest[aria-selected="true"] .i{stroke-width:2.4}
+.pest:not([aria-selected="true"]):hover{background:var(--hueco)}
+.pest .chispa{position:absolute;top:5px;left:calc(50% + 7px);width:8px;height:8px;border-radius:99px;
+  background:var(--euca);box-shadow:0 0 0 2px var(--papel);display:none}
+.escenario.grabando .pest[data-pest="historia"] .chispa{display:block}
+.mas{position:absolute;right:15px;bottom:calc(100% + 11px);display:flex;align-items:center;justify-content:center;
+  width:56px;height:56px;border-radius:19px;background:var(--arcilla);color:var(--sobre-arcilla);
+  pointer-events:auto;box-shadow:0 10px 24px -8px rgba(160,80,30,.55),0 2px 6px rgba(60,30,10,.2);
+  transition:transform .15s ease}
+.mas .i{width:25px;height:25px;stroke-width:2.6}
+.mas:active{transform:scale(.94)}
+.pestanas-caja{position:relative}
+.gesto{width:130px;height:5px;border-radius:99px;background:var(--tinta);opacity:.26;margin:9px auto 2px}
+
+/* ---- avisos ---- */
+.aviso{position:absolute;left:12px;right:12px;bottom:calc(var(--dock) - 6px);z-index:30;display:none;
+  align-items:center;gap:11px;padding:13px 14px;border-radius:15px;background:var(--tinta);color:var(--lino);
+  box-shadow:0 12px 30px -10px rgba(0,0,0,.5);animation:asoma .22s ease}
+.aviso.ver{display:flex}
+.aviso .tx{flex:1;font-size:13.8px;font-weight:600}
+.aviso .i{width:19px;height:19px;color:var(--euca);stroke-width:2.6}
+@keyframes asoma{from{transform:translateY(22px);opacity:0}to{transform:none;opacity:1}}
+
+.cinta{position:absolute;top:0;left:0;right:0;height:32px;z-index:26;display:none;align-items:center;gap:9px;
+  padding:0 16px;background:var(--euca);color:#FFFFFF;font-size:12.4px;font-weight:600;width:100%}
+.escenario.grabando .cinta{display:flex}
+.escenario.grabando.sin-cinta .cinta{display:none}
+.escenario.grabando .vista{top:32px}
+.escenario.grabando.sin-cinta .vista{top:0}
+.cinta .luz{width:8px;height:8px;border-radius:99px;background:currentColor;animation:latido 1.7s ease-in-out infinite;flex:none}
+.cinta .vol{margin-left:auto;text-decoration:underline;font-weight:600}
+@keyframes latido{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ==========================================================================
+   PREGUNTAR · el corazón
+   ========================================================================== */
+.charla{display:flex;flex-direction:column;gap:16px;padding:8px 18px 12px}
+.mia{align-self:flex-end;max-width:82%;background:var(--tinta);color:var(--lino);border-radius:18px 18px 5px 18px;
+  padding:11px 15px;font-size:14.2px;font-weight:500;line-height:1.4}
+.suya{display:flex;flex-direction:column;gap:11px;max-width:100%}
+.resp-guia{font-size:19px;line-height:1.32}
+.resp-cuerpo{font-size:14.4px;line-height:1.55;color:var(--tinta);font-weight:400}
+.cursor::after{content:"";display:inline-block;width:2px;height:1em;background:var(--arcilla);
+  margin-left:2px;vertical-align:-.12em;animation:parpadeo .9s steps(2) infinite}
+@keyframes parpadeo{0%,50%{opacity:1}51%,100%{opacity:0}}
+.fuentes{border-left:2px solid var(--linea);padding-left:13px;display:flex;flex-direction:column;gap:7px;
+  animation:asoma .3s ease}
+.fuente{display:flex;align-items:center;gap:9px;font-size:12.3px;color:var(--grafito);font-weight:500}
+.fuente .i{width:14px;height:14px;stroke-width:2.2;color:var(--tenue);flex:none}
+.fuente b{font-weight:600;color:var(--tinta)}
+.pensando{display:flex;align-items:center;gap:9px;color:var(--grafito);font-size:13.2px;font-weight:500}
+.pensando span{width:6px;height:6px;border-radius:99px;background:var(--arcilla);animation:respira 1.2s ease-in-out infinite}
+.pensando span:nth-child(2){animation-delay:.16s}
+.pensando span:nth-child(3){animation-delay:.32s}
+@keyframes respira{0%,100%{opacity:.25;transform:translateY(0)}50%{opacity:1;transform:translateY(-3px)}}
+.sugeridas{display:flex;gap:8px;overflow-x:auto;padding:0 18px 10px;scrollbar-width:none}
+.sugeridas::-webkit-scrollbar{display:none}
+.sugerida{flex:none;padding:10px 14px;min-height:42px;border-radius:999px;border:1.4px solid var(--linea);
+  background:var(--papel);font-size:13px;font-weight:500;color:var(--tinta);white-space:nowrap}
+.sugerida:hover{border-color:var(--arcilla);color:var(--arcilla-honda)}
+.tecla{flex:none;padding:10px 14px 12px;background:var(--lino);border-top:1px solid var(--linea-fina)}
+.vista[data-dock="si"] .tecla{padding-bottom:calc(var(--dock) - 44px)}
+.tecla-caja{display:flex;align-items:flex-end;gap:9px;background:var(--papel);border:1.4px solid var(--linea);
+  border-radius:22px;padding:6px 6px 6px 16px}
+.tecla-caja:focus-within{border-color:var(--arcilla);box-shadow:0 0 0 3px var(--arcilla-tenue)}
+.tecla-caja .escribo{flex:1;min-height:34px;padding:8px 0;font-size:14.3px;outline:none;line-height:1.4}
+.tecla-caja .escribo:empty:before{content:attr(data-ph);color:var(--tenue)}
+.enviar{width:38px;height:38px;border-radius:999px;background:var(--arcilla);color:var(--sobre-arcilla);
+  display:grid;place-items:center;flex:none}
+.enviar .i{width:19px;height:19px;stroke-width:2.5}
+.aclara{font-size:11.4px;color:var(--tenue);text-align:center;margin-top:8px;line-height:1.4}
+
+/* ---- barra de preguntar en Inicio ---- */
+.preguntar-cta{display:flex;align-items:center;gap:12px;width:100%;padding:15px 16px;border-radius:17px;
+  background:var(--papel);border:1.5px solid var(--arcilla);box-shadow:0 6px 18px -12px rgba(175,79,27,.55)}
+.preguntar-cta .glifo{background:var(--arcilla);color:var(--sobre-arcilla);border-radius:12px}
+.preguntar-cta:hover{background:var(--arcilla-tenue)}
+
+/* ==========================================================================
+   HISTORIA · una sola columna con todo
+   ========================================================================== */
+.esencial{background:var(--papel);border:1px solid var(--linea);border-radius:var(--r);overflow:hidden}
+.esencial-alergia{background:var(--ladrillo-tenue);border-bottom:1px solid var(--ladrillo-linea);padding:13px 16px}
+.esencial-bloque{padding:13px 16px}
+.esencial-bloque+.esencial-bloque{border-top:1px solid var(--linea-fina)}
+.par{display:grid;grid-template-columns:104px 1fr;gap:10px;align-items:baseline}
+.par+.par{margin-top:8px}
+.par dt{color:var(--tenue);font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.2px;
+  letter-spacing:.11em;text-transform:uppercase;font-weight:500}
+.par dd{margin:0;font-size:13.7px;font-weight:500;line-height:1.4}
+
+.mes{display:flex;align-items:center;gap:10px;padding:6px 0 2px}
+.mes .txt{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.4px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--tenue);font-weight:500}
+.mes .barra{flex:1;height:1px;background:var(--linea-fina)}
+.riel{position:relative;padding-left:74px}
+.riel::before{content:"";position:absolute;left:57px;top:6px;bottom:6px;width:1px;background:var(--linea)}
+.hito{position:relative;display:block;width:100%;padding:11px 0;text-align:left}
+.hito+.hito{border-top:1px solid var(--linea-fina)}
+.hito .cuando{position:absolute;left:-74px;top:13px;width:44px;text-align:right;
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;color:var(--tenue);
+  line-height:1.25;font-variant-numeric:tabular-nums}
+.hito .nodo{position:absolute;left:-20px;top:17px;width:9px;height:9px;border-radius:99px;
+  background:var(--hueco);border:1.5px solid var(--linea);box-sizing:border-box}
+.hito[data-tipo="consulta"] .nodo{background:var(--arcilla);border-color:var(--arcilla)}
+.hito[data-tipo="estudio"] .nodo{background:var(--euca);border-color:var(--euca)}
+.hito[data-tipo="cambio"] .nodo{background:var(--papel);border-color:var(--arcilla);border-width:2.5px}
+.hito h4{font-size:14.3px;font-weight:600;letter-spacing:-.015em;line-height:1.3}
+.hito p{font-size:12.6px;color:var(--grafito);margin-top:3px;line-height:1.42}
+.hito .sello{display:inline-flex;align-items:center;gap:5px;margin-top:7px;font-size:11px;color:var(--tenue);
+  font-weight:500}
+.hito .sello .i{width:12px;height:12px;stroke-width:2.3}
+.hito:hover h4{color:var(--arcilla-honda)}
+
+/* ---- documento para compartir ---- */
+.doc{background:#FFF;color:#241C16;border-radius:8px;padding:20px 18px;font-size:11.4px;line-height:1.5;
+  box-shadow:0 12px 30px -14px rgba(40,25,10,.5), 0 0 0 1px rgba(40,25,10,.09)}
+.doc h3{font-size:14px;letter-spacing:-.02em;color:#241C16}
+.doc .d-rot{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:9.4px;letter-spacing:.14em;
+  text-transform:uppercase;font-weight:500;color:#8A7B6E}
+.doc .d-raya{height:1px;background:#E8E1D8;margin:11px 0}
+.doc-rejilla{display:grid;grid-template-columns:1fr 1fr;gap:8px 14px}
+.doc-rejilla b{display:block;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:9.4px;
+  letter-spacing:.11em;text-transform:uppercase;color:#8A7B6E;font-weight:500}
+.doc-alerta{background:#F8E7E3;border:1px solid #EDCEC7;color:#93301F;border-radius:6px;padding:8px 10px;font-weight:600}
+.doc ul{margin:6px 0 0;padding-left:16px}
+.doc li{margin-bottom:3px}
+.doc-pie{font-size:9.8px;color:#8A7B6E;margin-top:13px;line-height:1.45}
+
+/* ---- grabación ---- */
+.orbe-caja{display:flex;flex-direction:column;align-items:center;gap:14px;padding:16px 0 6px}
+.orbe{width:112px;height:112px;border-radius:50%;background:var(--arcilla-tenue);display:grid;place-items:center;
+  color:var(--arcilla-honda);position:relative}
+.orbe::after{content:"";position:absolute;inset:-14px;border-radius:50%;border:2px solid var(--arcilla);
+  opacity:.3;animation:onda 2.6s ease-out infinite}
+@keyframes onda{0%{transform:scale(.85);opacity:.42}100%{transform:scale(1.16);opacity:0}}
+@media (prefers-reduced-motion:reduce){.orbe::after{animation:none;opacity:.22}}
+.orbe .i{width:44px;height:44px}
+.crono{font-size:29px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.pesca{display:flex;gap:11px;align-items:flex-start;padding:10px 0}
+.pesca+.pesca{border-top:1px solid var(--linea-fina)}
+.pesca .pt{width:7px;height:7px;border-radius:50%;background:var(--arcilla);margin-top:7px;flex:none}
+
+/* ---- vacíos y estados tiernos ---- */
+.vacio{display:flex;flex-direction:column;align-items:center;text-align:center;gap:9px;padding:26px 16px;
+  border:1.4px dashed var(--linea);border-radius:18px;background:var(--papel-2)}
+.vacio .i{width:28px;height:28px;color:var(--tenue)}
+.abrazo{background:var(--euca-tenue);border:1px solid var(--euca-linea);border-radius:var(--r);padding:16px}
+.abrazo .rotulo{color:var(--euca)}
+.aten{background:var(--arcilla-tenue);border:1px solid color-mix(in srgb,var(--arcilla) 32%,transparent);
+  border-radius:var(--r);padding:14px 16px}
+.grave{background:var(--ladrillo-tenue);border:1px solid var(--ladrillo-linea);border-radius:var(--r);padding:14px 16px}
+.marca-alta{background:var(--arcilla-tenue);border-radius:5px;padding:1px 4px;font-weight:600;color:var(--arcilla-honda)}
+
+/* ---- hoja inferior ---- */
+.vista.sobre{background:rgba(24,14,6,.44);justify-content:flex-end}
+.sobre-panel{background:var(--papel);border-radius:24px 24px 0 0;padding:10px 14px 18px;max-height:92%;
+  overflow-y:auto;box-shadow:0 -14px 44px -12px rgba(30,16,6,.45);animation:asoma .24s ease}
+.sobre-tira{width:38px;height:5px;border-radius:99px;background:var(--linea);margin:2px auto 12px}
+.sobre-panel h2{font-size:19px;padding:0 6px 4px;letter-spacing:-.03em}
+.sobre-op{display:flex;align-items:center;gap:13px;width:100%;padding:13px 6px;border-radius:12px}
+.sobre-op+.sobre-op{border-top:1px solid var(--linea-fina)}
+.sobre-op:hover{background:var(--papel-2)}
+.sobre-op .glifo{width:42px;height:42px;border-radius:13px}
+.sobre-op b{display:block;font-size:14.8px;font-weight:600;letter-spacing:-.02em}
+.sobre-op span{display:block;font-size:12.3px;color:var(--grafito);font-weight:400;line-height:1.4}
+
+.nueva{animation:brota .3s ease}
+@keyframes brota{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:none}}
+.hecho .fila-tit{text-decoration:line-through;color:var(--tenue)}
+
+/* ---- bienvenida ---- */
+.portada{flex:1;display:flex;flex-direction:column;justify-content:center;gap:18px;padding:0 28px 46px;
+  text-align:center;align-items:center}
+.sello-marca{width:66px;height:66px;border-radius:22px;background:var(--arcilla);position:relative}
+.sello-marca::after{content:"";position:absolute;inset:23px;border-radius:6px;background:var(--lino)}
+
+@media (max-width:440px){
+  body{padding:0}
+  .telefono{width:100%;max-width:394px;padding:7px;border-radius:34px}
+  .pantalla{border-radius:28px;height:100vh;max-height:812px}
+}
+</style>
+
+<svg class="sprite" aria-hidden="true"><defs>
+<symbol id="ic-casa" viewBox="0 0 24 24"><path d="M4 10.6L12 4l8 6.6V19a1.5 1.5 0 01-1.5 1.5h-13A1.5 1.5 0 014 19z"></path><path d="M9.6 20.5v-6h4.8v6"></path></symbol>
+<symbol id="ic-preg" viewBox="0 0 24 24"><path d="M20.5 12.2c0 3.9-3.8 7-8.5 7-.95 0-1.9-.13-2.75-.37L4 20.5l1.25-3.5A6.5 6.5 0 013.5 12.2c0-3.87 3.8-7 8.5-7s8.5 3.13 8.5 7z"></path><path d="M9.8 10.3a2.35 2.35 0 013.7 2c-.8.6-1.45 1-1.45 1.85M12 16.4v.1"></path></symbol>
+<symbol id="ic-hist" viewBox="0 0 24 24"><path d="M6.5 3.5h11a1.5 1.5 0 011.5 1.5v14a1.5 1.5 0 01-1.5 1.5h-11A1.5 1.5 0 015 19V5a1.5 1.5 0 011.5-1.5z"></path><path d="M9 8h6M9 12h6M9 16h3.5"></path></symbol>
+<symbol id="ic-persona" viewBox="0 0 24 24"><circle cx="12" cy="8.4" r="3.7"></circle><path d="M4.6 20c1.3-3.7 4-5.5 7.4-5.5s6.1 1.8 7.4 5.5"></path></symbol>
+<symbol id="ic-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5.5 11.4a6.5 6.5 0 0013 0M12 18v3"></path></symbol>
+<symbol id="ic-camara" viewBox="0 0 24 24"><path d="M3 8.5A1.5 1.5 0 014.5 7h2.2l1.2-2h8.2l1.2 2h2.2A1.5 1.5 0 0121 8.5v9A1.5 1.5 0 0119.5 19h-15A1.5 1.5 0 013 17.5z"></path><circle cx="12" cy="13" r="3.3"></circle></symbol>
+<symbol id="ic-carpeta" viewBox="0 0 24 24"><path d="M4 6.5A1.5 1.5 0 015.5 5h3.6c.5 0 1 .24 1.3.65l1 1.35h7.1A1.5 1.5 0 0120 8.5v9A1.5 1.5 0 0118.5 19h-13A1.5 1.5 0 014 17.5z"></path></symbol>
+<symbol id="ic-pastilla" viewBox="0 0 24 24"><rect x="2.6" y="8.4" width="18.8" height="7.2" rx="3.6" transform="rotate(-40 12 12)"></rect><path d="M9.2 9.2l5.6 5.6"></path></symbol>
+<symbol id="ic-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="3"></rect><path d="M3.5 10h17M8 3v4M16 3v4"></path></symbol>
+<symbol id="ic-compartir" viewBox="0 0 24 24"><path d="M12 15.5V3.5M12 3.5L8.3 7.2M12 3.5l3.7 3.7"></path><path d="M5.2 12v7.3a1.5 1.5 0 001.5 1.5h10.6a1.5 1.5 0 001.5-1.5V12"></path></symbol>
+<symbol id="ic-alerta" viewBox="0 0 24 24"><path d="M12 3.8L20.8 19.4H3.2z"></path><path d="M12 9.6v4.1M12 16.6v.1"></path></symbol>
+<symbol id="ic-tilde" viewBox="0 0 24 24"><path d="M5 12.6l4.6 4.6L19 7.4"></path></symbol>
+<symbol id="ic-atras" viewBox="0 0 24 24"><path d="M15 4.5L7.5 12l7.5 7.5"></path></symbol>
+<symbol id="ic-ade" viewBox="0 0 24 24"><path d="M9 4.5l7.5 7.5L9 19.5"></path></symbol>
+<symbol id="ic-baja" viewBox="0 0 24 24"><path d="M5.5 9.5L12 16l6.5-6.5"></path></symbol>
+<symbol id="ic-mas" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></symbol>
+<symbol id="ic-equis" viewBox="0 0 24 24"><path d="M6.2 6.2l11.6 11.6M17.8 6.2L6.2 17.8"></path></symbol>
+<symbol id="ic-candado" viewBox="0 0 24 24"><rect x="4.6" y="10" width="14.8" height="10.4" rx="2.6"></rect><path d="M8.2 10V7.6a3.8 3.8 0 017.6 0V10"></path></symbol>
+<symbol id="ic-reloj" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7v5.3l3.2 2"></path></symbol>
+<symbol id="ic-corazon" viewBox="0 0 24 24"><path d="M12 20s-7.4-4.4-7.4-9.3A4.2 4.2 0 0112 8.3a4.2 4.2 0 017.4 2.4C19.4 15.6 12 20 12 20z"></path></symbol>
+<symbol id="ic-lupa" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"></circle><path d="M15.7 15.7L21 21"></path></symbol>
+<symbol id="ic-doc" viewBox="0 0 24 24"><path d="M6 3.6h7.6L19 9v11.4H6z"></path><path d="M13.4 3.6V9H19M9 13h6M9 16.4h4"></path></symbol>
+<symbol id="ic-nota" viewBox="0 0 24 24"><path d="M4.6 5.5h14.8v10.5l-4.3 4.3H4.6z"></path><path d="M19.4 16h-4.3v4.3M8 9.4h8M8 12.6h5"></path></symbol>
+<symbol id="ic-enviar" viewBox="0 0 24 24"><path d="M4.5 12h15M12 4.5l7.5 7.5-7.5 7.5"></path></symbol>
+<symbol id="ic-descarga" viewBox="0 0 24 24"><path d="M12 3.5v12M12 15.5l-4-4M12 15.5l4-4M5 20h14"></path></symbol>
+<symbol id="ic-imprimir" viewBox="0 0 24 24"><path d="M7 9V3.8h10V9"></path><rect x="3" y="9" width="18" height="8" rx="2"></rect><path d="M7 14h10v6.2H7z"></path></symbol>
+<symbol id="ic-tel" viewBox="0 0 24 24"><path d="M5 4.5h3.6l1.6 4-2 1.5a11 11 0 005.8 5.8l1.5-2 4 1.6V19a1.6 1.6 0 01-1.8 1.6C9.9 19.9 4.1 14.1 3.4 6.3A1.6 1.6 0 015 4.5z"></path></symbol>
+<symbol id="ic-hoja" viewBox="0 0 24 24"><path d="M19.5 4.5C19.5 13 15 19 8.5 19.5c-.6-6 3-13.5 11-15z"></path><path d="M4.5 20.5c1.5-3.5 3.5-6 6-8"></path></symbol>
+<symbol id="ic-manos" viewBox="0 0 24 24"><path d="M8.5 20.5v-4.7L5 12.4a2 2 0 012.8-2.8l1.4 1.4V4.6a1.6 1.6 0 013.2 0v5"></path><path d="M12.4 9.6a1.6 1.6 0 013.2 0v1.2a1.6 1.6 0 013.2 0v5c0 2.6-1.6 4.7-4 4.7"></path></symbol>
+</defs></svg>
+
+<div class="telefono">
+ <div class="pantalla" id="pantalla">
+  <div class="barra-sistema">
+    <span>10:24</span>
+    <span class="der">
+      <svg viewBox="0 0 18 12" width="17" height="11"><path d="M1 9h2v3H1zM5 6.5h2V12H5zM9 4h2v8H9zM13 1.5h2V12h-2z"></path></svg>
+      <svg viewBox="0 0 24 12" width="23" height="11"><rect x="1" y="2" width="18" height="8" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.4"></rect><rect x="3" y="4" width="13" height="4" rx="1"></rect><rect x="20.5" y="4.5" width="2" height="3" rx="1"></rect></svg>
+    </span>
+  </div>
+  <div class="escenario" id="escenario">
+
+<!-- ============================ BIENVENIDA ============================ -->
+<section class="vista" data-vista="bienvenida" data-dock="no">
+ <div class="rollo"><div class="cuerpo">
+  <div class="portada">
+    <div class="sello-marca"></div>
+    <h1 class="voz voz-xl" style="max-width:15ch">Vos acordate de estar. Del resto me acuerdo yo.</h1>
+    <p class="gris" style="max-width:30ch;font-size:14.4px">Releva junta todo lo de la persona que cuidás —estudios, consultas, remedios— y te lo devuelve cuando lo necesitás.</p>
+    <div class="pila" style="width:100%;margin-top:6px">
+      <button class="btn btn-lleno" data-ir="onb1">Empezar</button>
+      <button class="btn btn-borde" data-ir="hoy">Ya tengo cuenta</button>
+    </div>
+    <p class="finita" style="max-width:32ch">Nada de lo que cargues sale de acá. Vos elegís qué compartir, con quién y por cuánto tiempo.</p>
+  </div>
+ </div></div>
+</section>
+
+<!-- ============================ ALTA ============================ -->
+<section class="vista" data-vista="onb1" data-dock="no">
+ <header class="cab">
+  <div class="cab-fila"><button class="volver" data-ir="bienvenida"><svg class="i"><use href="#ic-equis"></use></svg></button>
+   <span class="crece"></span><span class="cab-tit-c">Paso 1 de 3</span></div>
+  <div class="paso"><span class="on"></span><span></span><span></span></div>
+ </header>
+ <div class="rollo"><div class="cuerpo">
+  <h2 class="voz voz-l">¿A quién estás cuidando?</h2>
+  <p class="gris chico" style="margin-top:-6px">Con el nombre alcanza para arrancar. El resto lo vas completando cuando puedas —o nunca.</p>
+  <div class="campo" style="margin-top:4px"><span class="et">Nombre</span><div class="caja" contenteditable="true" spellcheck="false">Elsa Fernández</div></div>
+  <div class="campo"><span class="et">Edad</span><div class="caja" contenteditable="true" spellcheck="false" style="font-variant-numeric:tabular-nums">78</div></div>
+  <div class="campo"><span class="et">Qué es tuyo</span>
+    <div class="fichas"><span class="ficha on"><svg class="i"><use href="#ic-tilde"></use></svg>Mi mamá</span><span class="ficha">Mi papá</span><span class="ficha">Mi pareja</span><span class="ficha">Otro</span></div>
+  </div>
+  <div class="empuja"></div>
+  <button class="btn btn-lleno" data-ir="onb2">Seguir</button>
+ </div></div>
+</section>
+
+<section class="vista" data-vista="onb2" data-dock="no">
+ <header class="cab">
+  <div class="cab-fila"><button class="volver" data-ir="onb1"><svg class="i"><use href="#ic-atras"></use></svg></button>
+   <span class="crece"></span><span class="cab-tit-c">Paso 2 de 3</span></div>
+  <div class="paso"><span class="on"></span><span class="on"></span><span></span></div>
+ </header>
+ <div class="rollo"><div class="cuerpo">
+  <h2 class="voz voz-l">¿Qué le está pasando a Elsa?</h2>
+  <p class="gris chico" style="margin-top:-6px">Contámelo como se lo contarías a una amiga. Yo después lo traduzco.</p>
+  <div class="caja" contenteditable="true" spellcheck="false" style="min-height:104px;line-height:1.5;font-weight:400">En junio le encontraron un tumor en la vejiga. Está empezando tratamiento con la oncóloga.</div>
+  <p class="rotulo" style="margin-top:4px">Además tiene</p>
+  <div class="fichas">
+    <span class="ficha on"><svg class="i"><use href="#ic-tilde"></use></svg>Hipertensión</span>
+    <span class="ficha on"><svg class="i"><use href="#ic-tilde"></use></svg>Diabetes tipo 2</span>
+    <span class="ficha">Colesterol alto</span><span class="ficha">Artrosis</span><span class="ficha">Problemas de riñón</span><span class="ficha">Problemas de memoria</span>
+  </div>
+  <div class="empuja"></div>
+  <button class="btn btn-lleno" data-ir="onb3">Seguir</button>
+ </div></div>
+</section>
+
+<section class="vista" data-vista="onb3" data-dock="no">
+ <header class="cab">
+  <div class="cab-fila"><button class="volver" data-ir="onb2"><svg class="i"><use href="#ic-atras"></use></svg></button>
+   <span class="crece"></span><span class="cab-tit-c">Paso 3 de 3</span></div>
+  <div class="paso"><span class="on"></span><span class="on"></span><span class="on"></span></div>
+ </header>
+ <div class="rollo"><div class="cuerpo">
+  <h2 class="voz voz-l">¿Es alérgica a algo?</h2>
+  <p class="gris chico" style="margin-top:-6px">Es lo primero que te van a preguntar en una guardia, a las tres de la mañana, cuando no podés pensar.</p>
+  <div class="fichas" style="margin-top:4px">
+    <span class="ficha on"><svg class="i"><use href="#ic-tilde"></use></svg>Penicilina</span>
+    <span class="ficha">Ibuprofeno</span><span class="ficha">Iodo (contraste)</span><span class="ficha">Aspirina</span><span class="ficha">Látex</span>
+  </div>
+  <hr class="raya" style="margin:4px 0">
+  <div class="fichas"><span class="ficha">No es alérgica a nada</span><span class="ficha">No sé</span></div>
+  <div class="abrazo"><p class="chico" style="color:var(--euca);font-weight:600">Si no sabés, está bien. Lo dejamos abierto y te lo recuerdo en la próxima consulta.</p></div>
+  <div class="empuja"></div>
+  <button class="btn btn-lleno" data-ir="hoy">Listo, entrar</button>
+ </div></div>
+</section>
+
+<!-- ============================ INICIO ============================ -->
+<section class="vista" data-vista="hoy" data-pest="hoy" data-dock="si">
+ <header class="cab">
+  <div class="cab-fila">
+    <span class="rotulo-app"><span class="marca-p"></span>Releva</span>
+    <span class="crece"></span>
+    <button class="accion accion-guardia" data-ir="guardia"><svg class="i" style="width:15px;height:15px"><use href="#ic-alerta"></use></svg>Guardia</button>
+  </div>
+ </header>
+ <div class="rollo"><div class="cuerpo">
+
+  <div style="padding:2px 0 2px">
+    <h1 class="voz voz-xl">Buenas, Mariana.</h1>
+    <p class="gris" style="margin-top:6px;font-size:14.4px">Elsa está estable. Hoy no hay nada urgente —te lo digo para que puedas soltar un poco el hombro.</p>
+  </div>
+
+  <button class="preguntar-cta" data-ir="preguntar">
+    <span class="glifo"><svg class="i"><use href="#ic-preg"></use></svg></span>
+    <span style="flex:1">
+      <b style="display:block;font-size:14.8px;font-weight:600;letter-spacing:-.02em">Preguntame lo que sea de Elsa</b>
+      <span class="chico gris" style="display:block">Sé todo lo que cargaste: 3 consultas, 4 estudios, 6 remedios</span>
+    </span>
+    <span class="flecha" style="color:var(--tenue)"><svg class="i" style="width:16px;height:16px;stroke-width:2.4"><use href="#ic-ade"></use></svg></span>
+  </button>
+
+  <p class="rotulo" style="margin-top:2px">Lo que viene</p>
+  <div class="hoja" style="padding:0">
+    <div style="padding:16px 16px 14px">
+      <div class="linea" style="align-items:flex-start">
+        <span class="glifo arcilla"><svg class="i"><use href="#ic-cal"></use></svg></span>
+        <div class="pila-ap" style="gap:2px;flex:1">
+          <span style="font-size:15.5px;font-weight:600;letter-spacing:-.02em">Dra. Paula Ríos · Oncología</span>
+          <span class="chico" style="color:var(--arcilla-honda);font-weight:600">Lunes 28 de septiembre, 11:30</span>
+          <span class="chico gris">Hospital Italiano · consultorio 412</span>
+        </div>
+      </div>
+      <p class="chico gris" style="margin-top:12px">Tenés <b style="color:var(--tinta)">3 notas guardadas</b> para ese día. Ese día te las muestro solas, no hace falta que las busques.</p>
+    </div>
+    <hr class="raya">
+    <div style="display:grid;grid-template-columns:1fr 1fr">
+      <button class="btn btn-mudo" style="min-height:50px;border-right:1px solid var(--linea-fina);border-radius:0" data-ir="preparar"><svg class="i"><use href="#ic-nota"></use></svg>Preparar</button>
+      <button class="btn btn-mudo" style="min-height:50px;border-radius:0" data-ir="consentimiento"><svg class="i"><use href="#ic-mic"></use></svg>Grabar</button>
+    </div>
+  </div>
+
+  <p class="rotulo" style="margin-top:2px">Hoy hay que</p>
+  <div class="lista" id="listaHoy">
+    <div class="fila" data-tarea="tac">
+      <button class="tilde" data-tildar><svg class="i"><use href="#ic-tilde"></use></svg></button>
+      <div class="pila-ap" style="gap:3px;flex:1">
+        <span class="fila-tit">Pedir la orden para la TAC de abdomen</span>
+        <span class="chico gris">Con contraste · la firma la Dra. Ríos</span>
+        <span><span class="pildora p-ojo">Antes del 20/9</span></span>
+      </div>
+    </div>
+    <div class="fila" data-tarea="nefro">
+      <button class="tilde" data-tildar><svg class="i"><use href="#ic-tilde"></use></svg></button>
+      <div class="pila-ap" style="gap:3px;flex:1">
+        <span class="fila-tit">Sacar turno con el nefrólogo</span>
+        <span class="chico gris">Dr. Gustavo Beltrán · dentro de 30 días</span>
+      </div>
+    </div>
+  </div>
+  <p class="finita" style="margin-top:-6px">Hay 4 cosas más anotadas. Ninguna es para hoy, así que no te las muestro.</p>
+
+  <p class="rotulo" style="margin-top:2px">Lo último que guardé</p>
+  <div class="lista">
+    <button class="fila" data-ir="resumen">
+      <span class="glifo arcilla"><svg class="i"><use href="#ic-mic"></use></svg></span>
+      <span class="pila-ap" style="gap:1px;flex:1"><span class="fila-tit">Consulta con la Dra. Ríos</span><span class="chico gris">26 de agosto · 3 indicaciones, 1 cambio de remedio</span></span>
+      <span class="flecha"><svg class="i"><use href="#ic-ade"></use></svg></span>
+    </button>
+    <button class="fila" data-ir="estudio">
+      <span class="glifo calma"><svg class="i"><use href="#ic-carpeta"></use></svg></span>
+      <span class="pila-ap" style="gap:1px;flex:1"><span class="fila-tit">Laboratorio completo</span><span class="chico gris">19 de agosto · leí 14 valores, 2 fuera de rango</span></span>
+      <span class="flecha"><svg class="i"><use href="#ic-ade"></use></svg></span>
+    </button>
+  </div>
+
+  <button class="abrazo" style="display:block;width:100%;margin-top:4px" data-ir="respiro">
+    <span class="linea" style="align-items:flex-start;gap:12px">
+      <svg class="i" style="color:var(--euca);margin-top:2px;width:20px;height:20px"><use href="#ic-hoja"></use></svg>
+      <span style="flex:1">
+        <span class="voz voz-m" style="display:block;color:var(--euca)">Este mes hiciste 24 cosas por Elsa.</span>
+        <span class="chico" style="display:block;color:var(--euca);opacity:.9;margin-top:4px">Nadie las contó. Yo sí. Tocá si querés verlas.</span>
+      </span>
+    </span>
+  </button>
+
+ </div></div>
+</section>
+
+<!-- ============================ PREGUNTAR ============================ -->
+<section class="vista" data-vista="preguntar" data-pest="preguntar" data-dock="si">
+ <header class="cab">
+  <div class="cab-fila">
+    <span class="cab-tit">Preguntar</span>
+    <span class="crece"></span>
+    <button class="accion" data-ir="hist-limpia" id="btnLimpiar">Limpiar</button>
+  </div>
+  <p class="cab-sub">Sobre todo lo que sé de Elsa. Preguntá con tus palabras.</p>
+ </header>
+ <div class="rollo" id="rolloCharla"><div class="cuerpo" style="padding:0 0 8px;gap:0">
+   <div class="charla" id="charla">
+     <div class="mia">¿Desde cuándo toma Enalapril?</div>
+     <div class="suya">
+       <p class="voz resp-guia">Desde 2019, pero hace tres semanas le cambiaron la dosis.</p>
+       <p class="resp-cuerpo">El 26 de agosto la Dra. Ríos se la subió de 5 a 10 mg, una sola por la noche, porque la creatinina le había dado 1,4. Desde ese día toma la nueva dosis. La caja de 5 mg que te quedó en casa ya no va.</p>
+       <div class="fuentes">
+         <p class="rotulo" style="color:var(--tenue)">De dónde lo saqué</p>
+         <span class="fuente"><svg class="i"><use href="#ic-mic"></use></svg><span><b>Consulta del 26 de agosto</b> · la grabaste vos</span></span>
+         <span class="fuente"><svg class="i"><use href="#ic-carpeta"></use></svg><span><b>Laboratorio del 19 de agosto</b> · foto que sacaste</span></span>
+         <span class="fuente"><svg class="i"><use href="#ic-pastilla"></use></svg><span><b>Medicación de Elsa</b> · actualizada el 26/8</span></span>
+       </div>
+     </div>
+   </div>
+ </div></div>
+ <div class="sugeridas" id="sugeridas">
+   <button class="sugerida" data-preg="nauseas">¿Qué dijo de las náuseas?</button>
+   <button class="sugerida" data-preg="alergia">¿Es alérgica a algo?</button>
+   <button class="sugerida" data-preg="lab">¿Cómo dio el último laboratorio?</button>
+   <button class="sugerida" data-preg="llevar">¿Qué llevo el lunes?</button>
+   <button class="sugerida" data-preg="urologo">¿Hace cuánto no ve al urólogo?</button>
+ </div>
+ <div class="tecla">
+   <div class="tecla-caja">
+     <div class="escribo" id="campoPreg" contenteditable="true" spellcheck="false" role="textbox" aria-label="Escribí tu pregunta" data-ph="Escribí o mandame un audio…"></div>
+     <button class="enviar" id="btnEnviar" aria-label="Preguntar"><svg class="i"><use href="#ic-enviar"></use></svg></button>
+   </div>
+   <p class="aclara">Te contesto sólo con lo que vos cargaste. No doy diagnósticos ni indicaciones médicas.</p>
+ </div>
+</section>
+
+<!-- ============================ HISTORIA ============================ -->
+<section class="vista" data-vista="historia" data-pest="historia" data-dock="si">
+ <header class="cab">
+  <div class="cab-fila">
+    <span class="cab-tit">Historia de Elsa</span>
+    <span class="crece"></span>
+    <button class="accion" data-ir="compartir"><svg class="i"><use href="#ic-compartir"></use></svg>Compartir</button>
+  </div>
+  <p class="cab-sub">Todo en una sola línea, desde junio de 2026</p>
+ </header>
+ <div class="rollo"><div class="cuerpo">
+
+  <div class="esencial">
+    <div class="esencial-alergia">
+      <p class="rotulo" style="color:var(--ladrillo)">Alérgica a</p>
+      <p style="color:var(--ladrillo);font-size:19px;font-weight:600;letter-spacing:-.02em;margin-top:2px">Penicilina</p>
+    </div>
+    <div class="esencial-bloque">
+      <dl style="margin:0">
+        <div class="par"><dt>Diagnósticos</dt><dd>Carcinoma urotelial de vejiga <span class="gris">(jun 2026, en tratamiento)</span><br>Hipertensión <span class="gris">(2019)</span> · Diabetes tipo 2 <span class="gris">(2015)</span></dd></div>
+        <div class="par"><dt>Toma hoy</dt><dd>Enalapril 10 mg noche · Metformina 850 mg almuerzo · Ondansetrón 4 mg si tiene náuseas</dd></div>
+        <div class="par"><dt>Datos</dt><dd>78 años · 0+ · OSDE 210 · 6188-3921</dd></div>
+      </dl>
+    </div>
+    <div class="esencial-bloque" style="padding:11px 16px">
+      <button class="btn btn-mudo" style="justify-content:flex-start;padding:0;min-height:32px" data-ir="elsa">Ver y editar todo lo esencial</button>
+    </div>
+  </div>
+
+  <div class="segmento" style="margin-top:2px">
+    <button aria-selected="true">Todo</button><button>Consultas</button><button>Estudios</button><button>Cambios</button>
+  </div>
+  <div class="puntero"><svg class="i"><use href="#ic-lupa"></use></svg><span>Buscá «creatinina», «náuseas», una fecha…</span></div>
+
+  <div class="mes"><span class="txt">Agosto 2026</span><span class="barra"></span></div>
+  <div class="riel">
+    <button class="hito" data-tipo="consulta" data-ir="resumen">
+      <span class="cuando">mar<br>26</span><span class="nodo"></span>
+      <h4>Control con la Dra. Ríos</h4>
+      <p>El tratamiento va bien. Pide TAC de abdomen, sube el Enalapril y quiere que la vea un nefrólogo.</p>
+      <span class="sello"><svg class="i"><use href="#ic-mic"></use></svg>Grabada por vos · 22 min</span>
+    </button>
+    <div class="hito" data-tipo="cambio">
+      <span class="cuando">mar<br>26</span><span class="nodo"></span>
+      <h4>Enalapril: de 5 a 10 mg</h4>
+      <p>Pasó a una sola toma por la noche. La dosis vieja quedó archivada.</p>
+      <span class="sello"><svg class="i"><use href="#ic-pastilla"></use></svg>Cambio de medicación</span>
+    </div>
+    <button class="hito" data-tipo="estudio" data-ir="estudio">
+      <span class="cuando">lun<br>19</span><span class="nodo"></span>
+      <h4>Laboratorio completo</h4>
+      <p>Creatinina 1,4 (alta) y hemoglobina 11,2 (baja). Los otros 12 valores dieron en rango.</p>
+      <span class="sello"><svg class="i"><use href="#ic-camara"></use></svg>3 fotos que sacaste vos</span>
+    </button>
+    <div class="hito" data-tipo="nota">
+      <span class="cuando">jue<br>08</span><span class="nodo"></span>
+      <h4>«Se cansa subiendo la escalera»</h4>
+      <p>Me lo contaste por audio. Lo dejé anotado para la consulta del 26 —y ese día lo preguntaste.</p>
+      <span class="sello"><svg class="i"><use href="#ic-corazon"></use></svg>Contado por vos</span>
+    </div>
+  </div>
+
+  <div class="mes"><span class="txt">Julio 2026</span><span class="barra"></span></div>
+  <div class="riel">
+    <button class="hito" data-tipo="consulta" data-ir="resumen">
+      <span class="cuando">jue<br>24</span><span class="nodo"></span>
+      <h4>Inicio del tratamiento</h4>
+      <p>Primera aplicación. Le explicaron los efectos de las primeras semanas.</p>
+      <span class="sello"><svg class="i"><use href="#ic-mic"></use></svg>Grabada por vos · 31 min</span>
+    </button>
+    <button class="hito" data-tipo="estudio" data-ir="estudio">
+      <span class="cuando">mié<br>02</span><span class="nodo"></span>
+      <h4>Análisis prequirúrgico</h4>
+      <p>Coagulación y función renal previas al procedimiento. Todo apto.</p>
+      <span class="sello"><svg class="i"><use href="#ic-doc"></use></svg>PDF del laboratorio</span>
+    </button>
+  </div>
+
+  <div class="mes"><span class="txt">Junio 2026</span><span class="barra"></span></div>
+  <div class="riel">
+    <button class="hito" data-tipo="estudio" data-ir="estudio">
+      <span class="cuando">vie<br>12</span><span class="nodo"></span>
+      <h4>TAC de abdomen · diagnóstico inicial</h4>
+      <p>Lesión vesical de 22 mm. Es el estudio con el que empezó todo.</p>
+      <span class="sello"><svg class="i"><use href="#ic-carpeta"></use></svg>Informe cargado por vos</span>
+    </button>
+  </div>
+
+  <p class="finita" style="text-align:center;margin-top:8px">Todo esto lo juntaste vos en tres meses.<br>Once cosas que ya no tenés que tener en la cabeza.</p>
+ </div></div>
+</section>
+
+<!-- ============================ ELSA ============================ -->
+<section class="vista" data-vista="elsa" data-pest="elsa" data-dock="si">
+ <header class="cab">
+  <div class="cab-fila"><span class="cab-tit">Elsa Fernández</span><span class="crece"></span>
+   <button class="accion" data-aviso="Datos guardados">Editar</button></div>
+  <p class="cab-sub">78 años · tu mamá · 0+ · OSDE 210</p>
+ </header>
+ <div class="rollo"><div class="cuerpo">
+
+  <div class="grave">
+    <p class="rotulo" style="color:var(--ladrillo)">Lo que hay que decir siempre</p>
+    <p style="color:var(--ladrillo);font-size:17px;font-weight:600;margin-top:3px">Alérgica a la penicilina</p>
+    <button class="btn btn-alerta btn-chico" style="width:100%;margin-top:11px" data-ir="guardia"><svg class="i"><use href="#ic-alerta"></use></svg>Abrir modo guardia</button>
+  </div>
+
+  <p class="rotulo" style="margin-top:2px">Quién la cuida</p>
+  <div class="lista" id="listaCuida">
+    <div class="fila">
+      <span class="glifo arcilla" style="border-radius:999px;font-weight:600;font-size:14px">M</span>
+      <span class="pila-ap" style="gap:1px;flex:1"><span class="fila-tit">Mariana · vos</span><span class="chico gris">Cuidadora principal · cargaste 11 de 11 cosas</span></span>
+    </div>
+    <button class="fila" data-ir="reparto">
+      <span class="glifo" style="border-radius:999px;font-weight:600;font-size:14px">J</span>
+      <span class="pila-ap" style="gap:1px;flex:1"><span class="fila-tit">Javier · tu hermano</span><span class="chico gris">Puede ver todo · no cargó nada todavía</span></span>
+      <span class="flecha"><svg class="i"><use href="#ic-ade"></use></svg></span>
+    </button>
+    <button class="fila" data-ir="invitar">
+      <span class="glifo arcilla" style="border-radius:999px"><svg class="i" style="stroke-width:2.4"><use href="#ic-mas"></use></svg></span>
+      <span class="pila-ap" style="gap:1px;flex:1"><span class="fila-tit" style="color:var(--arcilla-honda)">Invitar a alguien</span><span class="chico gris">Para que no seas la única que sabe</span></span>
+    </button>
+  </div>
+
+  <p class="rotulo" style="margin-top:2px">Sus médicos</p>
+  <div class="lista">
+    <div class="fila"><span class="glifo"><svg class="i"><use href="#ic-persona"></use></svg></span><span class="pila-ap" style="gap:1px;flex:1"><span class="fila-tit">Dra. Paula Ríos</span><span class="chico gris">Oncología · la ve hace 3 meses</span></span><button class="btn btn-borde btn-chico"><svg class="i" style="width:16px;height:16px"><use href="#ic-tel"></use></svg></button></div>
+    <div class="fila"><span class="glifo"><svg class="i"><use href="#ic-persona"></use></svg></span><span class="pila-ap" style="gap:1px;flex:1"><span class="fila-tit">Dr. Andrés Sosa</span><span class="chico gris">Urología · última consulta en junio</span></span><button class="btn btn-borde btn-chico"><svg class="i" style="width:16px;height:16px"><use href="#ic-tel"></use></svg></button></div>
+    <div class="fila"><span class="glifo"><svg class="i"><use href="#ic-persona"></use></svg></span><span class="pila-ap" style="gap:1px;flex:1"><span class="fila-tit">Dr. Gustavo Beltrán</span><span class="chico gris">Nefrología · turno pendiente</span></span><span class="pildora p-ojo">Falta turno</span></div>
+  </div>
+
+  <div class="lista" style="margin-top:2px">
+    <button class="fila" data-ir="compartir"><span class="glifo"><svg class="i"><use href="#ic-compartir"></use></svg></span><span class="pila-ap" style="gap:1px;flex:1"><span class="fila-tit">Compartir su historia</span><span class="chico gris">Un link que vence, o un PDF</span></span><span class="flecha"><svg class="i"><use href="#ic-ade"></use></svg></span></button>
+    <button class="fila" data-aviso="Privacidad: nada sale de acá sin que lo compartas"><span class="glifo"><svg class="i"><use href="#ic-candado"></use></svg></span><span class="pila-ap" style="gap:1px;flex:1"><span class="fila-tit">Privacidad y datos</span><span class="chico gris">Quién ve qué, y cómo se borra todo</span></span><span class="flecha"><svg class="i"><use href="#ic-ade"></use></svg></span></button>
+  </div>
+
+  <button class="btn btn-borde" style="margin-top:4px" data-ir="bienvenida">Ver la app desde el principio</button>
+  <p class="finita" style="text-align:center">Vuelve a la pantalla de bienvenida. No borra nada.</p>
+ </div></div>
+</section>
+
+<!-- ============================ RESPIRO ============================ -->
+<section class="vista" data-vista="respiro" data-pest="hoy" data-dock="si">
+ <header class="cab">
+  <div class="cab-fila"><button class="volver" data-ir="hoy"><svg class="i"><use href="#ic-atras"></use></svg>Inicio</button>
+   <span class="crece"></span><span class="cab-tit-c">Un rato para vos</span></div>
+ </header>
+ <div class="rollo"><div class="cuerpo">
+  <h2 class="voz voz-xl" style="margin-top:6px">No estás fallando.<br>Estás cansada.</h2>
+  <p class="gris" style="font-size:14.4px">Son dos cosas distintas y se parecen mucho. Esto es lo que hiciste en los últimos 30 días, por si te sirve verlo escrito.</p>
+
+  <div class="hoja" style="padding:0">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;text-align:center">
+      <div style="padding:16px 8px;border-right:1px solid var(--linea-fina)"><p class="mono" style="font-size:25px;font-weight:500;color:var(--euca)">24</p><p class="chico gris" style="margin-top:2px">cosas hechas</p></div>
+      <div style="padding:16px 8px;border-right:1px solid var(--linea-fina)"><p class="mono" style="font-size:25px;font-weight:500;color:var(--euca)">3</p><p class="chico gris" style="margin-top:2px">consultas</p></div>
+      <div style="padding:16px 8px"><p class="mono" style="font-size:25px;font-weight:500;color:var(--euca)">11</p><p class="chico gris" style="margin-top:2px">trámites</p></div>
+    </div>
+    <hr class="raya">
+    <div style="padding:14px 16px">
+      <p class="chico gris">Dos noches te quedaste despierta buscando un resultado que ya tenías guardado acá. La próxima vez preguntame y listo.</p>
+    </div>
+  </div>
+
+  <div class="abrazo">
+    <p class="rotulo">Repartir el peso</p>
+    <p class="voz voz-m" style="margin-top:6px;color:var(--tinta)">Javier puede hacer una de estas. Elegí y le llega por WhatsApp.</p>
+    <div class="pila" style="gap:8px;margin-top:12px" id="listaReparto">
+      <button class="hoja" style="display:flex;align-items:center;gap:11px;padding:13px 14px;text-align:left" data-pasar="Sacar turno con el nefrólogo">
+        <span class="glifo" style="width:32px;height:32px;border-radius:9px"><svg class="i" style="width:16px;height:16px"><use href="#ic-cal"></use></svg></span>
+        <span style="flex:1;font-size:13.8px;font-weight:600">Sacar turno con el nefrólogo</span>
+        <span class="pildora p-calma">Pasársela</span>
+      </button>
+      <button class="hoja" style="display:flex;align-items:center;gap:11px;padding:13px 14px;text-align:left" data-pasar="Retirar la medicación de la farmacia">
+        <span class="glifo" style="width:32px;height:32px;border-radius:9px"><svg class="i" style="width:16px;height:16px"><use href="#ic-pastilla"></use></svg></span>
+        <span style="flex:1;font-size:13.8px;font-weight:600">Retirar la medicación de la farmacia</span>
+        <span class="pildora p-calma">Pasársela</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="hoja">
+    <p class="rotulo">Puede esperar</p>
+    <p class="chico gris" style="margin-top:6px">Cargar los estudios viejos de 2019. Ordenar las fotos de recetas. Completar el grupo sanguíneo del papá.</p>
+    <p class="chico" style="margin-top:10px;font-weight:600">Nada de esto es urgente. Lo dejo acá y no te lo vuelvo a mostrar hasta que lo pidas.</p>
+  </div>
+
+  <p class="voz voz-m" style="text-align:center;padding:8px 12px 0;color:var(--grafito)">Ella no se acuerda de todo lo que hacés.<br>Yo sí.</p>
+ </div></div>
+</section>
+
+<!-- ============================ PREPARAR CONSULTA ============================ -->
+<section class="vista" data-vista="preparar" data-pest="hoy" data-dock="si">
+ <header class="cab">
+  <div class="cab-fila"><button class="volver" data-ir="hoy"><svg class="i"><use href="#ic-atras"></use></svg>Inicio</button>
+   <span class="crece"></span><span class="cab-tit-c">Preparar la consulta</span></div>
+  <p class="cab-sub">Dra. Ríos · lunes 28 de septiembre, 11:30</p>
+ </header>
+ <div class="rollo"><div class="cuerpo">
+  <p class="voz voz-m">Guardá acá lo que se te ocurra entre hoy y el lunes. Ese día te lo muestro todo junto, sin que lo busques.</p>
+  <p class="rotulo" style="margin-top:2px">Para preguntar</p>
+  <div class="lista" id="listaNotas">
+    <div class="fila"><button class="tilde" data-tildar><svg class="i"><use href="#ic-tilde"></use></svg></button><span class="pila-ap" style="gap:2px;flex:1"><span class="fila-tit" style="font-weight:500">¿Puede seguir tomando la metformina con el tratamiento?</span><span class="chico gris">Anotado el 29/8</span></span></div>
+    <div class="fila"><button class="tilde" data-tildar><svg class="i"><use href="#ic-tilde"></use></svg></button><span class="pila-ap" style="gap:2px;flex:1"><span class="fila-tit" style="font-weight:500">Se cansa mucho subiendo la escalera</span><span class="chico gris">Me lo contaste por audio el 8/8</span></span></div>
+    <div class="fila"><button class="tilde" data-tildar><svg class="i"><use href="#ic-tilde"></use></svg></button><span class="pila-ap" style="gap:2px;flex:1"><span class="fila-tit" style="font-weight:500">¿La TAC hay que hacerla antes o después del próximo ciclo?</span><span class="chico gris">Anotado el 27/8</span></span></div>
+  </div>
+  <button class="btn btn-borde" data-ir="nota-nueva"><svg class="i"><use href="#ic-mas"></use></svg>Anotar otra cosa</button>
+  <div class="aten">
+    <p class="chico" style="font-weight:600;color:var(--arcilla-honda)">Ese día también le voy a tener listo el laboratorio del 19/8, porque la doctora lo va a pedir.</p>
+  </div>
+  <div class="empuja"></div>
+  <button class="btn btn-lleno" data-ir="consentimiento"><svg class="i"><use href="#ic-mic"></use></svg>Grabar esta consulta</button>
+ </div></div>
+</section>
+
+<!-- ============================ CONSENTIMIENTO ============================ -->
+<section class="vista" data-vista="consentimiento" data-dock="no">
+ <header class="cab">
+  <div class="cab-fila"><button class="volver" data-ir="hoy"><svg class="i"><use href="#ic-equis"></use></svg></button>
+   <span class="crece"></span><span class="cab-tit-c">Antes de entrar</span></div>
+ </header>
+ <div class="rollo"><div class="cuerpo">
+  <h2 class="voz voz-l" style="margin-top:4px">Mostrale esto al médico si te lo pide.</h2>
+  <div class="hoja">
+   <div class="pila" style="gap:15px">
+    <div class="linea" style="align-items:flex-start;gap:11px"><svg class="i" style="color:var(--arcilla-honda);margin-top:2px;width:20px;height:20px"><use href="#ic-candado"></use></svg>
+      <p style="font-size:14px"><b>No guardo el audio.</b> Escucho mientras dura la consulta y después se borra. No queda una grabación en ningún lado.</p></div>
+    <div class="linea" style="align-items:flex-start;gap:11px"><svg class="i" style="color:var(--arcilla-honda);margin-top:2px;width:20px;height:20px"><use href="#ic-nota"></use></svg>
+      <p style="font-size:14px"><b>Anoto lo importante:</b> estudios que pide, cambios de medicación, controles y fechas.</p></div>
+    <div class="linea" style="align-items:flex-start;gap:11px"><svg class="i" style="color:var(--arcilla-honda);margin-top:2px;width:20px;height:20px"><use href="#ic-corazon"></use></svg>
+      <p style="font-size:14px"><b>No doy indicaciones médicas.</b> Ordeno y explico lo que dice la doctora. Fui armado junto con médicos.</p></div>
+   </div>
+  </div>
+  <div class="aten"><p style="font-size:13.8px"><b style="color:var(--arcilla-honda)">Avisale a la doctora.</b> Decile que usás una app que toma notas de la consulta. Casi siempre dicen que sí, y te evita un mal momento.</p></div>
+  <div class="empuja"></div>
+  <div class="pila">
+    <button class="btn btn-lleno" data-ir="consulta">Le avisé, empezar</button>
+    <button class="btn btn-borde" data-ir="hoy">Prefiero anotar yo</button>
+  </div>
+ </div></div>
+</section>
+
+<!-- ============================ EN CONSULTA ============================ -->
+<section class="vista" data-vista="consulta" data-dock="no">
+ <header class="cab">
+  <div class="cab-fila"><button class="volver" data-ir="hoy" data-minimizar="1"><svg class="i"><use href="#ic-baja"></use></svg></button>
+   <span class="crece"></span><span class="cab-tit-c">Escuchando · sin grabar audio</span></div>
+ </header>
+ <div class="rollo"><div class="cuerpo" style="gap:16px">
+  <div class="orbe-caja">
+    <div class="orbe"><svg class="i"><use href="#ic-mic"></use></svg></div>
+    <span class="crono" id="crono">0:00</span>
+    <p class="voz voz-m" style="text-align:center;max-width:28ch;color:var(--grafito)">Guardá el teléfono si querés. Yo sigo escuchando.</p>
+  </div>
+  <div class="hoja">
+    <p class="rotulo">Tus notas, a mano</p>
+    <div style="margin-top:8px">
+     <div class="pesca"><span class="pt" style="background:var(--euca)"></span><p style="font-size:13.8px;font-weight:500">¿Puede seguir con la metformina?</p></div>
+     <div class="pesca"><span class="pt" style="background:var(--euca)"></span><p style="font-size:13.8px;font-weight:500">Se cansa subiendo la escalera</p></div>
+    </div>
+  </div>
+  <div class="hoja">
+    <p class="rotulo">Voy anotando</p>
+    <div style="margin-top:8px">
+      <div class="pesca"><span class="pt"></span><div class="pila-ap" style="gap:1px"><span style="font-weight:600;font-size:13.9px">Pide TAC de abdomen con contraste</span><span class="chico gris">Estudio · antes del próximo control</span></div></div>
+      <div class="pesca"><span class="pt"></span><div class="pila-ap" style="gap:1px"><span style="font-weight:600;font-size:13.9px">Sube Enalapril a 10 mg por la noche</span><span class="chico gris">Cambio de medicación</span></div></div>
+      <div class="pesca"><span class="pt"></span><div class="pila-ap" style="gap:1px"><span style="font-weight:600;font-size:13.9px">Control en 30 días</span><span class="chico gris">Turno a sacar</span></div></div>
+    </div>
+  </div>
+  <div class="empuja"></div>
+  <button class="btn btn-lleno" data-ir="resumen" data-terminar="1">Terminó la consulta</button>
+ </div></div>
+</section>
+
+<!-- ============================ RESUMEN ============================ -->
+<section class="vista" data-vista="resumen" data-pest="historia" data-dock="si">
+ <header class="cab">
+  <div class="cab-fila"><button class="volver" data-ir="historia"><svg class="i"><use href="#ic-atras"></use></svg>Historia</button>
+   <span class="crece"></span><button class="accion" data-ir="compartir"><svg class="i"><use href="#ic-compartir"></use></svg>Compartir</button></div>
+  <p class="cab-sub">Dra. Paula Ríos · Oncología · 26 de agosto</p>
+ </header>
+ <div class="rollo"><div class="cuerpo">
+  <p class="rotulo">Qué te dijo, en criollo</p>
+  <div class="hoja">
+    <p class="voz resp-guia">El tratamiento está funcionando y las náuseas no la preocupan.</p>
+    <p style="font-size:14.2px;line-height:1.55;margin-top:9px">Son esperables en estas primeras semanas. Quiere una TAC de abdomen antes del próximo control para comparar. Lo que sí le llamó la atención fue el riñón: por eso sube el Enalapril y pide que la vea un nefrólogo.</p>
+    <button class="btn btn-mudo" style="justify-content:flex-start;padding:10px 0 0" data-ir="preguntar"><svg class="i"><use href="#ic-preg"></use></svg>Hay algo que no entendí</button>
+  </div>
+
+  <p class="rotulo" style="margin-top:2px">Qué hay que hacer</p>
+  <div class="lista">
+    <div class="fila" style="align-items:flex-start"><button class="tilde" data-tildar><svg class="i"><use href="#ic-tilde"></use></svg></button>
+      <span class="pila-ap" style="gap:4px;flex:1"><span class="fila-tit">Pedir la orden para la TAC de abdomen</span><span class="chico gris">Con contraste · la firma la Dra. Ríos</span><span><span class="pildora p-ojo">Antes del 20/9</span></span></span></div>
+    <div class="fila hecho" style="align-items:flex-start"><button class="tilde on" data-tildar><svg class="i"><use href="#ic-tilde"></use></svg></button>
+      <span class="pila-ap" style="gap:3px;flex:1"><span class="fila-tit">Cambiar Enalapril a 10 mg de noche</span><span class="chico gris">Ya lo actualicé en la medicación de Elsa</span></span></div>
+    <div class="fila" style="align-items:flex-start"><button class="tilde" data-tildar><svg class="i"><use href="#ic-tilde"></use></svg></button>
+      <span class="pila-ap" style="gap:3px;flex:1"><span class="fila-tit">Sacar turno con el nefrólogo</span><span class="chico gris">Dr. Gustavo Beltrán · dentro de 30 días</span></span></div>
+  </div>
+
+  <p class="rotulo" style="margin-top:2px">Lo que preguntaste</p>
+  <div class="lista">
+    <div class="fila"><span class="glifo calma"><svg class="i"><use href="#ic-tilde"></use></svg></span><span class="pila-ap" style="gap:1px;flex:1"><span class="fila-tit" style="font-weight:500">Si podía seguir con la metformina</span><span class="chico gris">Sí, sin cambios</span></span></div>
+    <div class="fila"><span class="glifo calma"><svg class="i"><use href="#ic-tilde"></use></svg></span><span class="pila-ap" style="gap:1px;flex:1"><span class="fila-tit" style="font-weight:500">Que se cansa en la escalera</span><span class="chico gris">Puede ser la hemoglobina baja. Lo controla en el próximo lab.</span></span></div>
+  </div>
+  <p class="finita">Las dos las habías anotado antes de entrar. Se las preguntaste a las dos.</p>
+ </div></div>
+</section>
+
+<!-- ============================ ESTUDIO ============================ -->
+<section class="vista" data-vista="estudio" data-pest="historia" data-dock="si">
+ <header class="cab">
+  <div class="cab-fila"><button class="volver" data-ir="historia"><svg class="i"><use href="#ic-atras"></use></svg>Historia</button>
+   <span class="crece"></span><button class="accion" data-ir="compartir"><svg class="i"><use href="#ic-compartir"></use></svg></button></div>
+  <p class="cab-sub">Laboratorio completo · 19 de agosto de 2026</p>
+ </header>
+ <div class="rollo"><div class="cuerpo">
+  <p class="voz voz-m">Leí las tres fotos y saqué 14 valores. Dos están fuera de rango.</p>
+  <div class="hoja">
+    <div class="fila" style="padding-top:0"><span class="pila-ap" style="gap:2px;flex:1">
+      <span class="fila-tit"><span class="marca-alta">Creatinina</span> · <span class="mono">1,4 mg/dl</span></span>
+      <span class="chico" style="color:var(--arcilla-honda);font-weight:600">Por encima del rango (0,6 – 1,1)</span>
+      <span class="chico gris">Por esto la Dra. Ríos subió el Enalapril</span></span></div>
+    <div class="fila"><span class="pila-ap" style="gap:2px;flex:1">
+      <span class="fila-tit">Hemoglobina · <span class="mono">11,2 g/dl</span></span>
+      <span class="chico" style="color:var(--arcilla-honda);font-weight:600">Baja (12,0 – 15,5)</span>
+      <span class="chico gris">Puede explicar que se canse en la escalera</span></span></div>
+  </div>
+  <p class="rotulo" style="margin-top:2px">Los otros doce</p>
+  <div class="lista">
+    <div class="fila"><span class="pila-ap" style="gap:0;flex:1"><span class="fila-tit">Glucemia</span><span class="chico gris mono">118 mg/dl</span></span><span class="pildora p-calma">En rango</span></div>
+    <div class="fila"><span class="pila-ap" style="gap:0;flex:1"><span class="fila-tit">Urea</span><span class="chico gris mono">48 mg/dl</span></span><span class="pildora p-calma">En rango</span></div>
+    <div class="fila"><span class="pila-ap" style="gap:0;flex:1"><span class="fila-tit">Potasio</span><span class="chico gris mono">4,1 mEq/l</span></span><span class="pildora p-calma">En rango</span></div>
+    <button class="fila" style="justify-content:flex-start;color:var(--arcilla-honda);font-weight:600;font-size:13.4px">Ver los nueve que faltan</button>
+  </div>
+  <div class="lista">
+    <button class="fila"><span class="glifo"><svg class="i"><use href="#ic-camara"></use></svg></span><span class="pila-ap" style="gap:1px;flex:1"><span class="fila-tit">Las 3 fotos originales</span><span class="chico gris">Como las sacaste, sin recortar</span></span><span class="flecha"><svg class="i"><use href="#ic-ade"></use></svg></span></button>
+  </div>
+  <button class="btn btn-borde" data-ir="preguntar"><svg class="i"><use href="#ic-preg"></use></svg>Preguntame qué significa</button>
+ </div></div>
+</section>
+
+<!-- ============================ COMPARTIR ============================ -->
+<section class="vista" data-vista="compartir" data-pest="historia" data-dock="si">
+ <header class="cab">
+  <div class="cab-fila"><button class="volver" data-ir="historia"><svg class="i"><use href="#ic-atras"></use></svg>Historia</button>
+   <span class="crece"></span><span class="cab-tit-c">Compartir</span></div>
+  <p class="cab-sub">Elegí qué ve del otro lado</p>
+ </header>
+ <div class="rollo"><div class="cuerpo">
+  <div class="segmento" id="segCompartir">
+    <button aria-selected="true" data-alcance="esencial">Lo esencial</button>
+    <button data-alcance="estudios">+ estudios</button>
+    <button data-alcance="todo">Todo</button>
+  </div>
+  <div class="doc">
+    <div class="linea" style="justify-content:space-between;align-items:flex-start">
+      <div><p class="d-rot">Resumen clínico</p><h3 style="margin-top:2px">Elsa Fernández</h3></div>
+      <p class="d-rot" style="text-align:right">01/09/2026<br>Releva</p>
+    </div>
+    <div class="d-raya"></div>
+    <div class="doc-rejilla"><p><b>Edad</b>78 años</p><p><b>Sexo</b>Femenino</p><p><b>Obra social</b>OSDE 210 · 6188-3921</p><p><b>Grupo</b>0+</p></div>
+    <div class="d-raya"></div>
+    <p class="doc-alerta">Alergias: penicilina</p>
+    <div class="d-raya"></div>
+    <p class="d-rot">Diagnósticos activos</p>
+    <ul><li>Carcinoma urotelial de vejiga — dx. junio 2026, en tratamiento</li><li>Hipertensión arterial (2019)</li><li>Diabetes tipo 2 (2015)</li></ul>
+    <div class="d-raya"></div>
+    <p class="d-rot">Medicación actual</p>
+    <ul><li>Enalapril 10 mg — 1 comp. noche <i>(modificado 26/08)</i></li><li>Metformina 850 mg — 1 comp. almuerzo</li><li>Ondansetrón 4 mg — a demanda por náuseas</li></ul>
+    <div class="d-raya" data-extra hidden></div>
+    <div data-extra hidden>
+      <p class="d-rot">Últimos estudios</p>
+      <ul><li>Laboratorio 19/08/2026 — creatinina 1,4 mg/dl · Hb 11,2 g/dl</li><li>TAC abdomen 12/06/2026 — lesión vesical 22 mm</li><li>Prequirúrgico 02/07/2026 — coagulación normal</li></ul>
+    </div>
+    <div class="d-raya" data-todo hidden></div>
+    <div data-todo hidden>
+      <p class="d-rot">Consultas registradas</p>
+      <ul><li>26/08/2026 — Dra. P. Ríos (oncología): sube enalapril, solicita TAC, deriva a nefrología</li><li>24/07/2026 — Dra. P. Ríos: inicio de tratamiento</li><li>19/06/2026 — Dr. A. Sosa (urología): primera consulta</li></ul>
+    </div>
+    <p class="doc-pie">Documento armado por la cuidadora a cargo (Mariana F., hija) con información que cargó ella y notas de consulta. No es una historia clínica oficial ni un diagnóstico.</p>
+  </div>
+
+  <div class="hoja">
+    <p class="rotulo">Cómo lo mandás</p>
+    <div class="pila" style="gap:9px;margin-top:11px">
+      <button class="btn btn-lleno" data-aviso="Link copiado · vence en 7 días"><svg class="i"><use href="#ic-compartir"></use></svg>Mandar un link que vence en 7 días</button>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px">
+        <button class="btn btn-borde btn-chico" style="width:100%;min-height:48px" data-aviso="PDF descargado"><svg class="i"><use href="#ic-descarga"></use></svg>PDF</button>
+        <button class="btn btn-borde btn-chico" style="width:100%;min-height:48px" data-aviso="Mandado a imprimir"><svg class="i"><use href="#ic-imprimir"></use></svg>Imprimir</button>
+      </div>
+    </div>
+    <p class="finita" style="margin-top:11px">Vas a ver quién lo abrió y cuándo. Podés cortarlo antes de los 7 días desde acá.</p>
+  </div>
+ </div></div>
+</section>
+
+<!-- ============================ GUARDIA ============================ -->
+<section class="vista" data-vista="guardia" data-dock="no">
+ <header class="cab" style="background:var(--ladrillo-tenue)">
+  <div class="cab-fila"><svg class="i" style="color:var(--ladrillo);width:21px;height:21px;stroke-width:2.2"><use href="#ic-alerta"></use></svg>
+   <span class="cab-tit" style="color:var(--ladrillo)">Modo guardia</span><span class="crece"></span>
+   <button class="accion" style="color:var(--ladrillo)" data-ir="hoy">Cerrar</button></div>
+  <p class="cab-sub" style="color:var(--ladrillo);font-weight:600">Elsa Fernández · 78 años · 0+ · OSDE 210 · 6188-3921</p>
+ </header>
+ <div class="rollo"><div class="cuerpo" style="padding-top:14px">
+  <div class="grave">
+    <p class="rotulo" style="color:var(--ladrillo)">Alérgica a</p>
+    <p style="color:var(--ladrillo);margin-top:2px;font-size:26px;font-weight:600;letter-spacing:-.03em">Penicilina</p>
+  </div>
+  <div class="hoja">
+    <p class="rotulo">Toma todos los días</p>
+    <div style="margin-top:4px">
+      <div class="fila"><span class="pila-ap" style="gap:0;flex:1"><span class="fila-tit">Enalapril 10 mg</span><span class="chico gris">1 comprimido a la noche</span></span></div>
+      <div class="fila"><span class="pila-ap" style="gap:0;flex:1"><span class="fila-tit">Metformina 850 mg</span><span class="chico gris">1 comprimido con el almuerzo</span></span></div>
+      <div class="fila"><span class="pila-ap" style="gap:0;flex:1"><span class="fila-tit">Ondansetrón 4 mg</span><span class="chico gris">Sólo si tiene náuseas</span></span></div>
+    </div>
+  </div>
+  <div class="hoja"><p class="rotulo">Tiene</p>
+    <p style="font-size:14.6px;line-height:1.5;margin-top:6px;font-weight:500">Cáncer de vejiga en tratamiento oncológico desde junio · Hipertensión · Diabetes tipo 2 · Función renal en control (creatinina 1,4 el 19/8)</p></div>
+  <div class="hoja">
+    <p class="rotulo">A quién llamar</p>
+    <div style="margin-top:4px">
+      <div class="fila"><span class="pila-ap" style="gap:0;flex:1"><span class="fila-tit">Dra. Paula Ríos</span><span class="chico gris">Oncóloga de cabecera</span></span><button class="btn btn-borde btn-chico"><svg class="i" style="width:16px;height:16px"><use href="#ic-tel"></use></svg>Llamar</button></div>
+      <div class="fila"><span class="pila-ap" style="gap:0;flex:1"><span class="fila-tit">Javier, tu hermano</span><span class="chico gris">Segundo cuidador</span></span><button class="btn btn-borde btn-chico"><svg class="i" style="width:16px;height:16px"><use href="#ic-tel"></use></svg>Llamar</button></div>
+    </div>
+  </div>
+  <div class="empuja"></div>
+  <button class="btn btn-alerta" data-ir="compartir"><svg class="i"><use href="#ic-compartir"></use></svg>Pasarle todo esto al médico</button>
+  <p class="finita" style="text-align:center">Funciona sin señal. Ya lo tenés descargado en el teléfono.</p>
+ </div></div>
+</section>
+
+<!-- ============================ REPARTO / INVITAR ============================ -->
+<section class="vista" data-vista="reparto" data-pest="elsa" data-dock="si">
+ <header class="cab">
+  <div class="cab-fila"><button class="volver" data-ir="elsa"><svg class="i"><use href="#ic-atras"></use></svg>Elsa</button>
+   <span class="crece"></span><span class="cab-tit-c">Javier</span></div>
+  <p class="cab-sub">Tu hermano · puede ver todo</p>
+ </header>
+ <div class="rollo"><div class="cuerpo">
+  <p class="voz voz-m">Javier ve lo mismo que vos. Todavía no cargó nada, pero podés pasarle algo concreto.</p>
+  <p class="rotulo" style="margin-top:2px">Qué puede hacer</p>
+  <div class="pila" style="gap:9px">
+    <button class="hoja" style="display:flex;align-items:flex-start;gap:11px;border-color:var(--arcilla);background:var(--arcilla-tenue)" data-rol>
+      <svg class="i" style="color:var(--arcilla-honda);width:17px;height:17px;stroke-width:3;margin-top:3px"><use href="#ic-tilde"></use></svg>
+      <span><b style="font-size:14.4px;color:var(--arcilla-honda)">Ver todo</b><span class="chico" style="display:block;color:var(--arcilla-honda);opacity:.85">La historia, los estudios y las notas. No puede cambiar nada.</span></span>
+    </button>
+    <button class="hoja" style="display:flex;align-items:flex-start;gap:11px" data-rol>
+      <span><b style="font-size:14.4px">Ver y cargar</b><span class="chico gris" style="display:block">Además puede subir estudios, agendar y marcar pendientes.</span></span>
+    </button>
+    <button class="hoja" style="display:flex;align-items:flex-start;gap:11px" data-rol>
+      <span><b style="font-size:14.4px">Sólo modo guardia</b><span class="chico gris" style="display:block">Alergias, medicación y a quién llamar. Nada más.</span></span>
+    </button>
+  </div>
+  <div class="empuja"></div>
+  <button class="btn btn-lleno" data-ir="elsa" data-aviso="Permisos actualizados">Guardar</button>
+  <button class="btn btn-borde" style="color:var(--ladrillo);border-color:var(--ladrillo-linea)" data-ir="elsa" data-aviso="Javier ya no tiene acceso">Sacarle el acceso</button>
+ </div></div>
+</section>
+
+<section class="vista" data-vista="invitar" data-pest="elsa" data-dock="si">
+ <header class="cab">
+  <div class="cab-fila"><button class="volver" data-ir="elsa"><svg class="i"><use href="#ic-atras"></use></svg>Elsa</button>
+   <span class="crece"></span><span class="cab-tit-c">Invitar a alguien</span></div>
+ </header>
+ <div class="rollo"><div class="cuerpo">
+  <h2 class="voz voz-l">No tendrías que ser la única que sabe.</h2>
+  <p class="gris chico" style="margin-top:-4px">Si mañana no podés, alguien más tiene que poder abrir esto y entender todo en dos minutos.</p>
+  <div class="campo" style="margin-top:4px"><span class="et">Cómo se llama</span><div class="caja" id="campoInvitado" contenteditable="true" spellcheck="false" data-ph="Laura"></div></div>
+  <div class="campo"><span class="et">Qué es tuyo</span><div class="caja" contenteditable="true" spellcheck="false">Mi hermana</div></div>
+  <div class="hoja-quieta">
+    <div class="linea" style="align-items:flex-start;gap:11px">
+      <svg class="i" style="color:var(--grafito);margin-top:2px;width:18px;height:18px"><use href="#ic-candado"></use></svg>
+      <p class="chico gris" style="flex:1">Le llega un link por WhatsApp. Hasta que no lo abra, no ve nada de Elsa. Podés sacarle el acceso cuando quieras.</p>
+    </div>
+  </div>
+  <div class="empuja"></div>
+  <button class="btn btn-lleno" data-ir="elsa" data-invitar="1"><svg class="i"><use href="#ic-compartir"></use></svg>Mandar la invitación</button>
+ </div></div>
+</section>
+
+<!-- ============================ HOJAS ============================ -->
+<section class="vista sobre" data-vista="agregar" data-dock="no">
+ <div class="sobre-panel">
+  <div class="sobre-tira"></div>
+  <h2 class="voz voz-l">¿Qué querés guardar?</h2>
+  <p class="chico gris" style="padding:4px 6px 6px">Lo que sea. Yo lo ordeno y lo pongo en la historia de Elsa.</p>
+  <button class="sobre-op" data-ir="consentimiento"><span class="glifo arcilla"><svg class="i"><use href="#ic-mic"></use></svg></span><span><b>Grabar una consulta</b><span>Escucho y anoto. El audio no se guarda.</span></span></button>
+  <button class="sobre-op" data-ir="estudio" data-aviso="Lo estoy leyendo, te aviso en un minuto"><span class="glifo calma"><svg class="i"><use href="#ic-camara"></use></svg></span><span><b>Sacar foto de un estudio</b><span>Un análisis, un informe, una receta. Leo los valores.</span></span></button>
+  <button class="sobre-op" data-ir="hoy" data-aviso="Guardado. Lo sumé a la historia de Elsa."><span class="glifo"><svg class="i"><use href="#ic-corazon"></use></svg></span><span><b>Contarme algo</b><span>Un audio tuyo, como si me lo contaras. «Hoy durmió mal».</span></span></button>
+  <button class="sobre-op" data-ir="preparar"><span class="glifo"><svg class="i"><use href="#ic-nota"></use></svg></span><span><b>Anotar para la próxima consulta</b><span>Te lo muestro solo el día del turno.</span></span></button>
+  <button class="btn btn-borde" style="margin-top:12px" data-ir="hoy">Ahora no</button>
+ </div>
+</section>
+
+<section class="vista sobre" data-vista="nota-nueva" data-dock="no">
+ <div class="sobre-panel">
+  <div class="sobre-tira"></div>
+  <h2 class="voz voz-l">¿Qué querés preguntarle?</h2>
+  <p class="chico gris" style="padding:4px 6px 12px">Para la consulta del lunes con la Dra. Ríos. Ese día aparece sola.</p>
+  <div class="caja" id="campoNota" contenteditable="true" spellcheck="false" data-ph="Escribilo con tus palabras" style="min-height:112px;line-height:1.5;font-weight:400"></div>
+  <button class="btn btn-lleno" style="margin-top:13px" data-ir="preparar" data-nota="1">Guardar</button>
+  <button class="btn btn-borde" style="margin-top:9px" data-ir="preparar">Cancelar</button>
+ </div>
+</section>
+
+    <button class="cinta" id="cinta" data-ir="consulta">
+      <span class="luz"></span>En consulta<span class="vol">Volver</span>
+    </button>
+    <div class="aviso" id="aviso">
+      <svg class="i"><use href="#ic-tilde"></use></svg>
+      <span class="tx">Listo</span>
+    </div>
+    <div class="dock" id="dock">
+      <div class="pestanas-caja">
+        <button class="mas" id="btnMas" data-ir="agregar" aria-label="Guardar algo nuevo"><svg class="i"><use href="#ic-mas"></use></svg></button>
+        <nav class="pestanas" role="tablist" id="pestanas">
+          <button class="pest" role="tab" data-pest="hoy" data-ir="hoy"><svg class="i"><use href="#ic-casa"></use></svg><span>Inicio</span></button>
+          <button class="pest" role="tab" data-pest="preguntar" data-ir="preguntar"><svg class="i"><use href="#ic-preg"></use></svg><span>Preguntar</span></button>
+          <button class="pest" role="tab" data-pest="historia" data-ir="historia"><span class="chispa"></span><svg class="i"><use href="#ic-hist"></use></svg><span>Historia</span></button>
+          <button class="pest" role="tab" data-pest="elsa" data-ir="elsa"><svg class="i"><use href="#ic-persona"></use></svg><span>Elsa</span></button>
+        </nav>
+      </div>
+      <div class="gesto"></div>
+    </div>
+  </div>
+ </div>
+</div>
+
+<script>
+"use strict";
+const $ = id => document.getElementById(id);
+const escenario = $("escenario"), pestanas = $("pestanas"), aviso = $("aviso");
+const lento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- navegación ---------- */
+function ir(id){
+  const destino = document.querySelector('.vista[data-vista="'+id+'"]');
+  if(!destino) return;
+  document.querySelectorAll(".vista").forEach(v => {
+    v.classList.toggle("activa", v === destino);
+    if(v !== destino){
+      v.classList.remove("hundida");
+      const r = v.querySelector(".rollo"); if(r) r.scrollTop = 0;
+    }
+  });
+  destino.classList.remove("hundida");
+  const rollo = destino.querySelector(".rollo");
+  if(rollo && id !== "preguntar") rollo.scrollTop = 0;
+  escenario.dataset.dock = destino.dataset.dock || "no";
+  escenario.classList.toggle("sin-cinta", id === "consulta");
+  const pest = destino.dataset.pest || "";
+  pestanas.querySelectorAll(".pest").forEach(b => b.setAttribute("aria-selected", String(b.dataset.pest === pest)));
+  if(id !== "preguntar") aviso.classList.remove("ver");
+  if(id === "preguntar") requestAnimationFrame(alFinal);
+}
+document.querySelectorAll(".rollo").forEach(r => {
+  r.addEventListener("scroll", () => {
+    const v = r.closest(".vista");
+    if(v) v.classList.toggle("hundida", r.scrollTop > 8);
+  }, {passive:true});
+});
+
+/* ---------- avisos ---------- */
+let relojAviso = null;
+function mostrarAviso(txt){
+  aviso.querySelector(".tx").textContent = txt;
+  aviso.classList.add("ver");
+  clearTimeout(relojAviso);
+  relojAviso = setTimeout(() => aviso.classList.remove("ver"), 4200);
+}
+
+/* ---------- grabación ---------- */
+let grabando = false, segundos = 0, relojGrab = null;
+const reloj = s => Math.floor(s/60) + ":" + String(s%60).padStart(2,"0");
+function empezarGrabacion(){
+  if(grabando) return;
+  grabando = true; segundos = 0;
+  escenario.classList.add("grabando");
+  $("crono").textContent = "0:00";
+  relojGrab = setInterval(() => { segundos++; $("crono").textContent = reloj(segundos); }, 1000);
+}
+function terminarGrabacion(){
+  grabando = false;
+  escenario.classList.remove("grabando");
+  clearInterval(relojGrab); relojGrab = null;
+}
+
+/* ---------- preguntar ---------- */
+const charla = $("charla"), rolloCharla = $("rolloCharla");
+const respuestas = {
+  nauseas: {
+    p: "¿Qué le dijo la oncóloga sobre las náuseas?",
+    guia: "Que son esperables y que no la preocupan.",
+    cuerpo: "Le dijo que en las primeras semanas de tratamiento pasa seguido. Te dejó Ondansetrón 4 mg para darle sólo cuando aparecen, no todos los días. Ahora, si vomita más de dos veces en un día o no puede retener líquido, ahí sí hay que llamarla —eso también te lo dijo, y es lo que a vos se te olvidó dos veces.",
+    fuentes: [["ic-mic","Consulta del 26 de agosto","minuto 8"],["ic-pastilla","Medicación de Elsa","Ondansetrón, a demanda"]]
+  },
+  alergia: {
+    p: "¿Es alérgica a algo?",
+    guia: "Sí. A la penicilina.",
+    cuerpo: "Es la única alergia registrada. Está cargada desde el alta, en junio, y aparece primero en todo lo que compartas y en el modo guardia. Si alguna vez te preguntan por iodo o contraste: nunca lo anotamos, así que no lo afirmes.",
+    fuentes: [["ic-persona","Datos de Elsa","cargado en junio"],["ic-alerta","Modo guardia","siempre visible"]]
+  },
+  lab: {
+    p: "¿Cómo dio el último laboratorio?",
+    guia: "Bien en general, con dos valores que hay que seguir.",
+    cuerpo: "Fue el 19 de agosto. La creatinina dio 1,4 —por encima del rango 0,6 a 1,1— y por eso le subieron el Enalapril. La hemoglobina dio 11,2, un poco baja, y puede tener que ver con que se canse en la escalera. Los otros doce valores dieron bien.",
+    fuentes: [["ic-carpeta","Laboratorio del 19 de agosto","3 fotos que sacaste"],["ic-mic","Consulta del 26 de agosto","lo comentaron ahí"]]
+  },
+  llevar: {
+    p: "¿Qué le tengo que llevar el lunes?",
+    guia: "El laboratorio del 19/8, la orden de la TAC y el carnet.",
+    cuerpo: "El laboratorio ya lo tengo cargado, así que con mostrarlo desde acá alcanza. La orden de la TAC todavía no la pediste —está en tus pendientes desde el 26/8. Y llevá el carnet de OSDE, que en el Italiano lo piden en admisión.",
+    fuentes: [["ic-carpeta","Laboratorio del 19 de agosto","cargado"],["ic-nota","Pendientes","orden de TAC, sin hacer"],["ic-mic","Consulta del 26 de agosto","lo pidió la doctora"]]
+  },
+  urologo: {
+    p: "¿Hace cuánto que no ve al urólogo?",
+    guia: "Dos meses y medio. La última fue el 19 de junio.",
+    cuerpo: "Desde entonces la sigue la oncóloga. El Dr. Sosa no dejó ningún control pautado —lo dejó atado a cómo respondiera al tratamiento. Si querés, te lo anoto como pregunta para el lunes.",
+    fuentes: [["ic-hist","Historia de Elsa","última consulta 19/6"],["ic-persona","Dr. Andrés Sosa","urología"]]
+  }
+};
+const generica = {
+  guia: "Todavía no tengo eso cargado.",
+  cuerpo: "Buscé en las tres consultas, los cuatro estudios y todo lo que me contaste, y no encontré nada. Prefiero decirte que no sé antes que inventarte algo. Si lo tenés en un papel, sacale una foto y lo sumo a la historia.",
+  fuentes: [["ic-hist","Historia de Elsa","11 registros revisados"]]
+};
+
+function alFinal(){ rolloCharla.scrollTop = rolloCharla.scrollHeight; }
+
+function escribir(el, texto, listo){
+  if(lento){ el.textContent = texto; listo && listo(); return; }
+  el.classList.add("cursor");
+  let i = 0;
+  const paso = () => {
+    i = Math.min(texto.length, i + 2);
+    el.textContent = texto.slice(0, i);
+    alFinal();
+    if(i < texto.length) setTimeout(paso, 16);
+    else { el.classList.remove("cursor"); listo && listo(); }
+  };
+  paso();
+}
+
+let ocupado = false;
+function preguntar(clave, textoLibre){
+  if(ocupado) return;
+  ocupado = true;
+  const r = respuestas[clave] || Object.assign({p: textoLibre}, generica);
+  const mia = document.createElement("div");
+  mia.className = "mia nueva";
+  mia.textContent = r.p;
+  charla.appendChild(mia);
+  alFinal();
+
+  const pensando = document.createElement("div");
+  pensando.className = "pensando";
+  pensando.innerHTML = "<span></span><span></span><span></span>Buscando en la historia de Elsa…";
+  charla.appendChild(pensando);
+  alFinal();
+
+  setTimeout(() => {
+    pensando.remove();
+    const suya = document.createElement("div");
+    suya.className = "suya";
+    const guia = document.createElement("p"); guia.className = "voz resp-guia";
+    const cuerpo = document.createElement("p"); cuerpo.className = "resp-cuerpo";
+    suya.appendChild(guia); suya.appendChild(cuerpo);
+    charla.appendChild(suya);
+    escribir(guia, r.guia, () => escribir(cuerpo, r.cuerpo, () => {
+      const caja = document.createElement("div");
+      caja.className = "fuentes";
+      caja.innerHTML = '<p class="rotulo" style="color:var(--tenue)">De dónde lo saqué</p>' +
+        r.fuentes.map(f => '<span class="fuente"><svg class="i"><use href="#' + f[0] + '"></use></svg><span><b>' + f[1] + '</b> · ' + f[2] + '</span></span>').join("");
+      suya.appendChild(caja);
+      alFinal();
+      ocupado = false;
+    }));
+  }, lento ? 120 : 780);
+}
+
+$("btnEnviar").addEventListener("click", () => {
+  const campo = $("campoPreg");
+  const texto = (campo.textContent || "").trim();
+  if(!texto) return;
+  campo.textContent = "";
+  preguntar(null, texto);
+});
+$("campoPreg").addEventListener("keydown", e => {
+  if(e.key === "Enter"){ e.preventDefault(); $("btnEnviar").click(); }
+});
+$("sugeridas").addEventListener("click", e => {
+  const b = e.target.closest("[data-preg]");
+  if(!b) return;
+  preguntar(b.dataset.preg);
+});
+$("btnLimpiar").addEventListener("click", () => {
+  charla.innerHTML = '<div class="vacio" style="margin:14px 0"><svg class="i"><use href="#ic-preg"></use></svg>' +
+    '<b style="font-size:15px">Preguntame lo que sea</b>' +
+    '<p class="chico gris" style="max-width:30ch">Sé todo lo que cargaste de Elsa: tres consultas, cuatro estudios, seis remedios y lo que me contaste vos.</p></div>';
+  ocupado = false;
+});
+
+/* ---------- compartir: alcance del documento ---------- */
+$("segCompartir").addEventListener("click", e => {
+  const b = e.target.closest("button[data-alcance]");
+  if(!b) return;
+  const a = b.dataset.alcance;
+  document.querySelectorAll(".doc [data-extra]").forEach(n => { n.hidden = (a === "esencial"); });
+  document.querySelectorAll(".doc [data-todo]").forEach(n => { n.hidden = (a !== "todo"); });
+});
+
+/* ---------- clics globales ---------- */
+document.addEventListener("click", e => {
+  const tilde = e.target.closest("[data-tildar]");
+  if(tilde){
+    const on = tilde.classList.toggle("on");
+    const fila = tilde.closest(".fila");
+    if(fila) fila.classList.toggle("hecho", on);
+    if(on) mostrarAviso("Hecho. Una menos.");
+    return;
+  }
+  const pasar = e.target.closest("[data-pasar]");
+  if(pasar){
+    pasar.remove();
+    mostrarAviso("Se la mandé a Javier");
+    return;
+  }
+  const rol = e.target.closest("[data-rol]");
+  if(rol){
+    rol.parentElement.querySelectorAll("[data-rol]").forEach(x => {
+      const on = x === rol;
+      x.style.borderColor = on ? "var(--arcilla)" : "var(--linea-fina)";
+      x.style.background = on ? "var(--arcilla-tenue)" : "var(--papel)";
+      x.querySelectorAll("b, .chico").forEach(t => t.style.color = on ? "var(--arcilla-honda)" : "");
+    });
+    return;
+  }
+  const seg = e.target.closest(".segmento button");
+  if(seg){
+    seg.parentElement.querySelectorAll("button").forEach(x => x.setAttribute("aria-selected", String(x === seg)));
+  }
+  const ficha = e.target.closest(".ficha");
+  if(ficha){
+    const on = ficha.classList.toggle("on");
+    const tic = ficha.querySelector("svg");
+    if(on && !tic) ficha.insertAdjacentHTML("afterbegin", '<svg class="i"><use href="#ic-tilde"></use></svg>');
+    if(!on && tic) tic.remove();
+  }
+  const b = e.target.closest("[data-ir]");
+  if(!b) return;
+  const destino = b.dataset.ir;
+  if(destino === "consulta" && !grabando) empezarGrabacion();
+  if(b.dataset.terminar) terminarGrabacion();
+  if(b.dataset.nota){
+    const campo = $("campoNota");
+    const txt = (campo.textContent || "").trim();
+    if(txt){
+      const fila = document.createElement("div");
+      fila.className = "fila nueva";
+      fila.innerHTML = '<button class="tilde" data-tildar><svg class="i"><use href="#ic-tilde"></use></svg></button>' +
+        '<span class="pila-ap" style="gap:2px;flex:1"><span class="fila-tit" style="font-weight:500"></span>' +
+        '<span class="chico gris">Anotado recién</span></span>';
+      fila.querySelector(".fila-tit").textContent = txt;
+      $("listaNotas").appendChild(fila);
+      campo.textContent = "";
+      mostrarAviso("Guardado para el lunes");
+    }
+  }
+  if(b.dataset.invitar){
+    const n = ($("campoInvitado").textContent || "Laura").trim() || "Laura";
+    mostrarAviso("Invitación enviada a " + n);
+  } else if(b.dataset.aviso){
+    mostrarAviso(b.dataset.aviso);
+  }
+  ir(destino);
+});
+
+ir("hoy");
+</script>
