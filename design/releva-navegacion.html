@@ -313,6 +313,8 @@ button{font:inherit; color:inherit; border:0; background:none; cursor:pointer}
 .pill-aten{background:var(--atencion-bg);color:var(--atencion);border:1px solid var(--atencion-linea)}
 .pill-ok{background:var(--hecho-bg);color:var(--hecho)}
 .pill-marca{background:var(--marca-suave);color:var(--marca-texto)}
+.pill-urg{background:var(--urgencia-bg);color:var(--urgencia);border:1px solid var(--urgencia-linea)}
+.tira-pills{display:flex;flex-wrap:wrap;gap:7px}
 .field{display:flex;flex-direction:column;gap:7px}
 .field .lbl{color:var(--gris);letter-spacing:.02em;text-transform:none;font-size:12.7px;font-weight:600}
 .input{min-height:56px;border-radius:14px;border:1.5px solid var(--linea);background:var(--tarjeta);padding:15px;font-size:14.6px;font-weight:500}
@@ -463,16 +465,26 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
  <header class="hdr hdr-marca">
   <div class="fila-hdr">
    <button class="cuad" data-go="bienvenida"><svg class="i"><use href="#ic-x"></use></svg></button>
-   <div class="tx"><b>Alta de Elsa</b><span>Paso 1 · a quién cuidás</span></div>
+   <div class="tx"><b>Empecemos</b><span>Paso 1 de 3</span></div>
   </div>
   <div class="progreso" style="padding:12px 0 0"><span class="on"></span><span></span><span></span></div>
  </header>
  <div class="scroll"><div class="cuerpo">
   <h3 style="font-size:21.8px;letter-spacing:-.03em">¿A quién estás cuidando?</h3>
   <p class="muted small" style="margin-top:-8px">Con esto alcanza para arrancar. El resto lo completás cuando puedas.</p>
-  <div class="field" style="margin-top:6px"><span class="lbl">Nombre</span><div class="input">Elsa Fernández</div></div>
-  <div class="field"><span class="lbl">Edad</span><div class="input" style="font-variant-numeric:tabular-nums">78 años</div></div>
-  <div class="field"><span class="lbl">¿Qué es tuyo?</span><div class="chips"><span class="chip on">Mi mamá</span><span class="chip">Mi papá</span><span class="chip">Mi pareja</span><span class="chip">Otro</span></div></div>
+  <div class="field" style="margin-top:6px"><span class="lbl">Nombre</span>
+   <div class="input editable" id="obNombre" contenteditable="true" spellcheck="false" data-ph="Elsa">Elsa</div></div>
+  <div class="field"><span class="lbl">Apellido</span>
+   <div class="input editable" id="obApellido" contenteditable="true" spellcheck="false" data-ph="Fernández">Fernández</div></div>
+  <div class="field"><span class="lbl">Edad</span>
+   <div class="input editable" id="obEdad" contenteditable="true" spellcheck="false" style="font-variant-numeric:tabular-nums" data-ph="78">78</div></div>
+  <div class="field"><span class="lbl">¿Qué es tuyo?</span>
+   <div class="chips" id="obVinculo">
+    <button class="chip on" data-vinculo="Mi mamá">Mi mamá</button>
+    <button class="chip" data-vinculo="Mi papá">Mi papá</button>
+    <button class="chip" data-vinculo="Mi pareja">Mi pareja</button>
+    <button class="chip" data-vinculo="Otro">Otro</button>
+   </div></div>
   <div class="spacer"></div>
   <button class="btn btn-primary" data-go="onb2" style="margin-top:14px">Seguir</button>
  </div></div>
@@ -481,19 +493,22 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
  <header class="hdr hdr-marca">
   <div class="fila-hdr">
    <button class="cuad" data-go="onb1"><svg class="i"><use href="#ic-back"></use></svg></button>
-   <div class="tx"><b>Alta de Elsa</b><span>Paso 2 · qué le pasa</span></div>
+   <div class="tx"><b class="nom"></b><span>Paso 2 de 3</span></div>
   </div>
   <div class="progreso" style="padding:12px 0 0"><span class="on"></span><span class="on"></span><span></span></div>
  </header>
  <div class="scroll"><div class="cuerpo">
-  <h3 style="font-size:21.8px;letter-spacing:-.03em">¿Qué le está pasando a Elsa?</h3>
+  <h3 style="font-size:21.8px;letter-spacing:-.03em">¿Qué le está pasando a <span class="nom"></span>?</h3>
   <p class="muted small" style="margin-top:-8px">Contalo como se lo contarías a un amigo. No hace falta que uses términos médicos.</p>
-  <div class="input" style="min-height:100px;line-height:1.5;font-weight:400">En junio le encontraron un tumor en la vejiga. Está empezando tratamiento con la oncóloga.</div>
+  <div class="input editable" id="obCuadro" contenteditable="true" spellcheck="false" style="min-height:100px;line-height:1.5;font-weight:400" data-ph="Escribí con tus palabras qué le está pasando"></div>
   <p class="lbl" style="margin-top:4px">Además tiene</p>
-  <div class="chips">
-    <span class="chip on"><svg class="i"><use href="#ic-check"></use></svg>Hipertensión</span>
-    <span class="chip on"><svg class="i"><use href="#ic-check"></use></svg>Diabetes tipo 2</span>
-    <span class="chip">Colesterol alto</span><span class="chip">Artrosis</span><span class="chip">Problemas de riñón</span><span class="chip">Problemas de memoria</span>
+  <div class="chips" id="obCondiciones">
+    <button class="chip" data-cond="Hipertensión">Hipertensión</button>
+    <button class="chip" data-cond="Diabetes tipo 2">Diabetes tipo 2</button>
+    <button class="chip" data-cond="Colesterol alto">Colesterol alto</button>
+    <button class="chip" data-cond="Artrosis">Artrosis</button>
+    <button class="chip" data-cond="Problemas de riñón">Problemas de riñón</button>
+    <button class="chip" data-cond="Problemas de memoria">Problemas de memoria</button>
   </div>
   <div class="spacer"></div>
   <button class="btn btn-primary" data-go="onb3" style="margin-top:14px">Seguir</button>
@@ -503,22 +518,28 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
  <header class="hdr hdr-marca">
   <div class="fila-hdr">
    <button class="cuad" data-go="onb2"><svg class="i"><use href="#ic-back"></use></svg></button>
-   <div class="tx"><b>Alta de Elsa</b><span>Paso 3 · alergias</span></div>
+   <div class="tx"><b class="nom"></b><span>Paso 3 de 3</span></div>
   </div>
   <div class="progreso" style="padding:12px 0 0"><span class="on"></span><span class="on"></span><span class="on"></span></div>
  </header>
  <div class="scroll"><div class="cuerpo">
   <h3 style="font-size:21.8px;letter-spacing:-.03em">¿Es alérgica a algo?</h3>
   <p class="muted small" style="margin-top:-8px">Este es el dato que más rápido te van a pedir en una guardia.</p>
-  <div class="chips" style="margin-top:4px">
-    <span class="chip on"><svg class="i"><use href="#ic-check"></use></svg>Penicilina</span>
-    <span class="chip">Ibuprofeno / AINEs</span><span class="chip">Iodo (contraste)</span><span class="chip">Aspirina</span><span class="chip">Látex</span>
+  <div class="chips" id="obAlergias" style="margin-top:4px">
+    <button class="chip" data-alergia="Penicilina">Penicilina</button>
+    <button class="chip" data-alergia="Ibuprofeno / AINEs">Ibuprofeno / AINEs</button>
+    <button class="chip" data-alergia="Iodo (contraste)">Iodo (contraste)</button>
+    <button class="chip" data-alergia="Aspirina">Aspirina</button>
+    <button class="chip" data-alergia="Látex">Látex</button>
   </div>
   <hr class="hr" style="margin:6px 0">
-  <div class="chips"><span class="chip">No es alérgica a nada</span><span class="chip">No sé</span></div>
+  <div class="chips" id="obSinAlergia">
+    <button class="chip" data-alergia-no="No es alérgica a nada">No es alérgica a nada</button>
+    <button class="chip" data-alergia-no="No sé">No sé</button>
+  </div>
   <div class="aten-card" style="margin-top:4px"><p class="small" style="color:var(--atencion);font-weight:600">Si no sabés, está bien. Te ayudamos a averiguarlo en la próxima consulta.</p></div>
   <div class="spacer"></div>
-  <button class="btn btn-primary" data-go="hoy" data-reset="1" style="margin-top:14px">Terminar</button>
+  <button class="btn btn-primary" data-go="hoy" data-reset="1" data-alta="1" style="margin-top:14px">Terminar</button>
  </div></div>
 </section>
 <!-- ===== INICIO · con turno ===== -->
@@ -538,7 +559,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
       <i class="badge b1"><svg class="i"><use href="#ic-campana"></use></svg></i>
       <i class="badge b2"><svg class="i"><use href="#ic-globo"></use></svg></i>
     </span>
-    <p style="font-size:18.2px;font-weight:600;letter-spacing:-.03em;line-height:1.25;margin-top:16px">¿Cuál es el próximo turno de Elsa?</p>
+    <p style="font-size:18.2px;font-weight:600;letter-spacing:-.03em;line-height:1.25;margin-top:16px">¿Cuál es el próximo turno de <span class="nom"></span>?</p>
     <button class="btn btn-primary" style="margin-top:16px" data-go="cons-cuando">Agregar turno</button>
    </div>
   </div>
@@ -649,7 +670,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
    <div class="filtros" style="padding:0 0 8px"><button class="filtro" aria-pressed="true">Todos</button><button class="filtro">Laboratorio</button><button class="filtro">Imágenes</button><button class="filtro">Recetas</button><button class="filtro">Por fecha</button></div>
   </div>
   <div id="estVacio">
-   <p style="font-size:17.3px;font-weight:600;letter-spacing:-.03em;line-height:1.3">Acá van los estudios de Elsa.</p>
+   <p style="font-size:17.3px;font-weight:600;letter-spacing:-.03em;line-height:1.3">Acá van los estudios de <span class="nom"></span>.</p>
    <p class="muted" style="font-size:13.7px;margin:6px 0 14px;font-weight:500">Sacales una foto y leo los valores por vos.</p>
    <div class="stack">
     <button class="fantasma" data-go="est-origen">
@@ -683,10 +704,22 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
 
 <section class="scr" data-scr="perfil" data-tab="perfil" data-dock="si">
  <header class="hdr hdr-raiz">
-  <div class="fila-r"><h1>Elsa Fernández</h1><span class="crece"></span></div>
-  <p class="sub-r" id="perfilSub">78 años · tu mamá · 0+ · OSDE 210</p>
+  <div class="fila-r"><h1 class="nom-full"></h1><span class="crece"></span></div>
+  <p class="sub-r" id="perfilSub"></p>
  </header>
  <div class="scroll"><div class="cuerpo">
+  <div class="card" id="resumenCuadro" style="display:none">
+    <span class="lbl">Qué le está pasando</span>
+    <p id="cuadroTexto" style="font-size:14.6px;line-height:1.5;font-weight:400"></p>
+    <div id="bloqueCondiciones" style="display:none">
+     <span class="lbl" style="margin-top:4px">Además tiene</span>
+     <div class="tira-pills" id="listaCondiciones"></div>
+    </div>
+    <div id="bloqueAlergias" style="display:none">
+     <span class="lbl" style="margin-top:4px">Alergias</span>
+     <div class="tira-pills" id="listaAlergias"></div>
+    </div>
+  </div>
   <div class="card" style="padding:4px 16px">
     <button class="lista-item" data-go="historia">
       <div class="thumb"><svg class="i"><use href="#ic-lista"></use></svg></div>
@@ -713,7 +746,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   <div class="card" style="padding:4px 16px" id="listaCuidadores">
     <div class="lista-item"><span class="av" style="width:44px;height:44px;font-size:14.6px">M</span><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Mariana · vos</span><span class="small muted">Cuidadora principal</span></div></div>
     <button class="lista-item" data-go="cuidador-editar"><span class="av" style="width:44px;height:44px;font-size:14.6px;background:var(--suave);color:var(--gris)">J</span><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name">Javier · tu hermano</span><span class="small muted">Puede ver, no editar</span></div><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
-    <button class="lista-item" id="filaInvitar" data-go="invitar"><div class="thumb" style="background:var(--marca-suave)"><svg class="i" style="stroke-width:2.4"><use href="#ic-plus"></use></svg></div><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name" style="color:var(--marca-texto)">Invitar a alguien más</span><span class="small muted">Para que te ayude con Elsa</span></div></button>
+    <button class="lista-item" id="filaInvitar" data-go="invitar"><div class="thumb" style="background:var(--marca-suave)"><svg class="i" style="stroke-width:2.4"><use href="#ic-plus"></use></svg></div><div class="stack-sm" style="gap:1px;flex:1"><span class="med-name" style="color:var(--marca-texto)">Invitar a alguien más</span><span class="small muted">Para que te ayude con <span class="nom"></span></span></div></button>
   </div>
   <p class="lbl" style="margin-top:4px">Médicos que la atienden</p>
   <div class="card" style="padding:4px 16px" id="listaMedicos"></div>
@@ -753,7 +786,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
       <div class="stack-sm" style="gap:6px"><span class="med-name">Pedir la orden para la TAC de abdomen</span><span class="small muted">Con contraste · la firma la Dra. Ríos</span>
       <div class="row" style="gap:7px"><span class="pill pill-aten">Antes del 20/9</span></div></div></div>
     <div class="med-row" style="align-items:flex-start"><span class="check on"><svg class="i"><use href="#ic-check"></use></svg></span>
-      <div class="stack-sm" style="gap:6px"><span class="med-name">Cambiar Enalapril a 10 mg de noche</span><span class="small muted">Actualizado en la medicación de Elsa</span></div></div>
+      <div class="stack-sm" style="gap:6px"><span class="med-name">Cambiar Enalapril a 10 mg de noche</span><span class="small muted">Actualizado en la medicación de <span class="nom"></span></span></div></div>
     <div class="med-row" style="align-items:flex-start"><span class="check"><svg class="i"><use href="#ic-check"></use></svg></span>
       <div class="stack-sm" style="gap:6px"><span class="med-name">Sacar turno con el nefrólogo</span><span class="small muted">Dr. Gustavo Beltrán · dentro de 30 días</span></div></div>
     <button class="alta-punteada" data-go="pend-tipo">
@@ -805,7 +838,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
 </section>
 <section class="scr" data-scr="historia" data-tab="perfil" data-dock="si">
  <header class="hdr">
-  <div class="navbar"><button class="atras" data-go="perfil"><svg class="i"><use href="#ic-back"></use></svg>Elsa</button><span class="crece"></span><span class="hdr-titulo-c">Historia clínica</span><button class="accion" data-go="compartir"><svg class="i"><use href="#ic-share"></use></svg>Compartir</button></div>
+  <div class="navbar"><button class="atras" data-go="perfil"><svg class="i"><use href="#ic-back"></use></svg><span class="nom"></span></button><span class="crece"></span><span class="hdr-titulo-c">Historia clínica</span><button class="accion" data-go="compartir"><svg class="i"><use href="#ic-share"></use></svg>Compartir</button></div>
   <p class="hdr-sub">Desde junio 2026</p>
  </header>
  <div class="scroll"><div class="cuerpo">
@@ -826,7 +859,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
 </section>
 <section class="scr" data-scr="medicacion" data-tab="perfil" data-dock="si">
  <header class="hdr">
-  <div class="navbar"><button class="atras" data-go="perfil"><svg class="i"><use href="#ic-back"></use></svg>Elsa</button><span class="crece"></span><span class="hdr-titulo-c">Medicación</span><button class="accion"><svg class="i"><use href="#ic-plus"></use></svg></button></div>
+  <div class="navbar"><button class="atras" data-go="perfil"><svg class="i"><use href="#ic-back"></use></svg><span class="nom"></span></button><span class="crece"></span><span class="hdr-titulo-c">Medicación</span><button class="accion"><svg class="i"><use href="#ic-plus"></use></svg></button></div>
   <p class="hdr-sub">3 activas</p>
  </header>
  <div class="scroll"><div class="cuerpo">
@@ -847,14 +880,14 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
 </section>
 <section class="scr" data-scr="compartir" data-tab="perfil" data-dock="si">
  <header class="hdr">
-  <div class="navbar"><button class="atras" data-go="perfil"><svg class="i"><use href="#ic-back"></use></svg>Elsa</button><span class="crece"></span><span class="hdr-titulo-c">Compartir historia</span></div>
+  <div class="navbar"><button class="atras" data-go="perfil"><svg class="i"><use href="#ic-back"></use></svg><span class="nom"></span></button><span class="crece"></span><span class="hdr-titulo-c">Compartir historia</span></div>
   <p class="hdr-sub">Elegí qué incluir antes de mandarlo</p>
   <div class="segmentado"><button aria-selected="true">Resumen</button><button>+ Estudios</button><button>Todo</button></div>
  </header>
  <div class="scroll"><div class="cuerpo">
   <div class="doc">
     <div class="row" style="justify-content:space-between;align-items:flex-start">
-      <div><p class="doc-lbl">Resumen clínico</p><h3 style="margin-top:2px">Elsa Fernández</h3></div>
+      <div><p class="doc-lbl">Resumen clínico</p><h3 style="margin-top:2px" class="nom-full"></h3></div>
       <p class="doc-lbl" style="text-align:right">01/09/2026<br>Releva</p>
     </div>
     <div class="doc-rule"></div>
@@ -946,7 +979,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
 <section class="scr" data-scr="guardia" data-dock="no">
  <header class="hdr hdr-urg">
   <div class="navbar"><svg class="i" style="width:24px;height:24px;stroke-width:2.3"><use href="#ic-alert"></use></svg><h1>Modo guardia</h1><span class="crece"></span><button class="accion" data-go="hoy">Cerrar</button></div>
-  <p>Elsa Fernández · 78 años · 0+ · OSDE 210 · 6188-3921</p>
+  <p><span class="nom-full"></span> · <span class="edad"></span> · 0+ · OSDE 210 · 6188-3921</p>
  </header>
  <div class="scroll"><div class="cuerpo" style="padding-top:14px">
   <div class="urg-card"><p class="lbl" style="color:var(--urgencia)">Alérgica a</p><p style="color:var(--urgencia);margin-top:4px;font-size:24.6px;font-weight:600;letter-spacing:-.03em">Penicilina</p></div>
@@ -1030,12 +1063,12 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
  <header class="hdr hdr-marca">
   <div class="fila-hdr">
   <button class="cuad" data-go="perfil"><svg class="i"><use href="#ic-back"></use></svg></button>
-  <div class="tx"><span class="ojal">Elsa</span><b>Datos de Elsa</b><span>Los que ve un médico de guardia</span></div>
+  <div class="tx"><span class="ojal nom"></span><b>Datos de <span class="nom"></span></b><span>Los que ve un médico de guardia</span></div>
   </div>
  </header>
  <div class="scroll"><div class="cuerpo">
-  <div class="field"><span class="lbl">Nombre y apellido</span><div class="input editable" contenteditable="true" spellcheck="false">Elsa Fernández</div></div>
-  <div class="field"><span class="lbl">Edad</span><div class="input editable" contenteditable="true" spellcheck="false">78</div></div>
+  <div class="field"><span class="lbl">Nombre y apellido</span><div class="input editable" id="edNombre" contenteditable="true" spellcheck="false"></div></div>
+  <div class="field"><span class="lbl">Edad</span><div class="input editable" id="edEdad" contenteditable="true" spellcheck="false"></div></div>
   <div class="field"><span class="lbl">Qué es tuyo</span><div class="chips">
     <span class="chip on"><svg class="i"><use href="#ic-check"></use></svg>Mi mamá</span><span class="chip">Mi papá</span><span class="chip">Mi pareja</span><span class="chip">Otro</span></div></div>
   <div class="field"><span class="lbl">Obra social y afiliado</span><div class="input editable" contenteditable="true" spellcheck="false">OSDE 210 · 6188-3921</div></div>
@@ -1048,7 +1081,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
      <span class="chip">Ibuprofeno</span><span class="chip">Iodo</span><span class="chip">Aspirina</span><span class="chip">Látex</span>
    </div>
   </div>
-  <button class="btn btn-primary" style="margin-top:6px" data-go="perfil" data-aviso="Datos actualizados">Guardar</button>
+  <button class="btn btn-primary" style="margin-top:6px" data-go="perfil" data-editar-persona="1" data-aviso="Datos actualizados">Guardar</button>
  </div></div>
 </section>
 
@@ -1056,7 +1089,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
  <header class="hdr hdr-marca">
   <div class="fila-hdr">
   <button class="cuad" data-go="perfil"><svg class="i"><use href="#ic-back"></use></svg></button>
-  <div class="tx"><span class="ojal">Elsa · quién la cuida</span><b>Javier</b><span>Tu hermano · cuidador</span></div>
+  <div class="tx"><span class="ojal"><span class="nom"></span> · quién la cuida</span><b>Javier</b><span>Tu hermano · cuidador</span></div>
   </div>
  </header>
  <div class="scroll"><div class="cuerpo">
@@ -1079,7 +1112,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
  <header class="hdr hdr-marca">
   <div class="fila-hdr">
   <button class="cuad" data-go="perfil"><svg class="i"><use href="#ic-back"></use></svg></button>
-  <div class="tx"><span class="ojal">Elsa · quién la cuida</span><b>Invitar a alguien</b><span>Para que te ayude con Elsa</span></div>
+  <div class="tx"><span class="ojal"><span class="nom"></span> · quién la cuida</span><b>Invitar a alguien</b><span>Para que te ayude con <span class="nom"></span></span></div>
   </div>
  </header>
  <div class="scroll"><div class="cuerpo">
@@ -1094,7 +1127,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
   <div class="card-flat" style="margin-top:4px">
    <div class="row" style="align-items:flex-start;gap:11px">
     <svg class="i" style="color:var(--gris);margin-top:2px"><use href="#ic-lock"></use></svg>
-    <p class="small muted" style="flex:1">Le va a llegar un link por WhatsApp. Hasta que no lo abra, no ve nada de Elsa.</p>
+    <p class="small muted" style="flex:1">Le va a llegar un link por WhatsApp. Hasta que no lo abra, no ve nada de <span class="nom"></span>.</p>
    </div>
   </div>
   <div class="spacer"></div>
@@ -1135,10 +1168,10 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
     <div class="stack-sm" style="gap:0;flex:1"><span class="med-name" id="cuandoDia">Lunes 28 de septiembre</span><span class="small muted" id="cuandoDonde">14:30 · Hospital Italiano</span></div>
     <button class="accion" data-go="cons-cuando">Cambiar</button></div>
   </div>
-  <p class="muted small">Los médicos que ya atienden a Elsa.</p>
+  <p class="muted small">Los médicos que ya atienden a <span class="nom"></span>.</p>
   <div class="card" style="padding:2px 14px" id="listaElegirMedico"></div>
   <div class="card" style="padding:2px 14px">
-   <button class="opcion" data-go="cons-medico-nuevo"><div class="thumb" style="background:var(--marca-suave)"><svg class="i" style="stroke-width:2.4"><use href="#ic-plus"></use></svg></div><span><b>Otro médico</b><span>Lo agrego a la lista de Elsa</span></span><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
+   <button class="opcion" data-go="cons-medico-nuevo"><div class="thumb" style="background:var(--marca-suave)"><svg class="i" style="stroke-width:2.4"><use href="#ic-plus"></use></svg></div><span><b>Otro médico</b><span>Lo agrego a la lista de <span class="nom"></span></span></span><span class="chev"><svg class="i"><use href="#ic-fwd"></use></svg></span></button>
   </div>
  </div></div>
 </section>
@@ -1147,7 +1180,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
  <header class="hdr hdr-marca">
   <div class="fila-hdr">
    <button class="cuad" id="atrasMedico" data-go="cons-quien"><svg class="i"><use href="#ic-back"></use></svg></button>
-   <div class="tx"><b>Nuevo médico</b><span>Se guarda en los médicos de Elsa</span></div>
+   <div class="tx"><b>Nuevo médico</b><span>Se guarda en los médicos de <span class="nom"></span></span></div>
   </div>
  </header>
  <div class="scroll"><div class="cuerpo">
@@ -1209,7 +1242,7 @@ body{min-height:100vh;display:grid;place-items:center;padding:26px 16px}
            <button class="tab" role="tab" data-tab="hoy" data-go="hoy"><svg class="i"><use href="#ic-today"></use></svg><span class="et">Inicio</span></button>
            <button class="tab" role="tab" data-tab="consultas" data-go="consultas"><span class="punto"></span><svg class="i"><use href="#ic-mic"></use></svg><span class="et">Consultas</span></button>
            <button class="tab" role="tab" data-tab="estudios" data-go="estudios"><svg class="i"><use href="#ic-folder"></use></svg><span class="et">Estudios</span></button>
-           <button class="tab" role="tab" data-tab="perfil" data-go="perfil"><svg class="i"><use href="#ic-user"></use></svg><span class="et">Elsa</span></button>
+           <button class="tab" role="tab" data-tab="perfil" data-go="perfil"><svg class="i"><use href="#ic-user"></use></svg><span class="et nom"></span></button>
          </nav>
          </div>
          <div class="indicador"></div>
@@ -1258,6 +1291,16 @@ function go(id){
       : (E.consulta ? E.consulta.quien+" · "+E.consulta.fecha : "la próxima consulta");
     requestAnimationFrame(()=>{const c=$("notaTexto"); if(c) c.focus();});
   }
+  if(id==="bienvenida" || id==="onb1") cargarAlta();
+  if(id==="onb2" || id==="onb3"){
+    const escrito=(($("obNombre").textContent||"").trim())||nom();
+    document.querySelectorAll('[data-scr="onb2"] .nom, [data-scr="onb3"] .nom').forEach(x=>x.textContent=escrito);
+  }
+  if(id==="elsa-editar"){
+    const a=$("edNombre"), b2=$("edEdad");
+    if(a) a.textContent=nomFull();
+    if(b2) b2.textContent=E.persona.edad;
+  }
   if(id==="consentimiento"){
     const cs=$("cerrarConsent"); if(cs) cs.dataset.go=origenGrab;
   }
@@ -1297,9 +1340,17 @@ document.querySelectorAll(".scroll").forEach(sc=>{
   },{passive:true});
 });
 let relojToast=null;
-const E={consulta:null, notasRes:[], pendientes:[], estudios:[], notas:[], anteriores:[], medicos:[], cuidadores:[]};
+const E={persona:{nombre:"Elsa", apellido:"Fernández", edad:"78", vinculo:"Mi mamá", cuadro:"", condiciones:[], alergias:[]},
+  consulta:null, notasRes:[], pendientes:[], estudios:[], notas:[], anteriores:[], medicos:[], cuidadores:[]};
 const $=id=>document.getElementById(id);
 const ver=(el,on)=>{ if(el) el.style.display = on ? "" : "none"; };
+const nom=()=>E.persona.nombre||"tu ser querido";
+const nomFull=()=>(E.persona.nombre+" "+E.persona.apellido).trim()||nom();
+function pintarNombre(){
+  document.querySelectorAll(".nom").forEach(x=>x.textContent=nom());
+  document.querySelectorAll(".nom-full").forEach(x=>x.textContent=nomFull());
+  document.querySelectorAll(".edad").forEach(x=>x.textContent=E.persona.edad?E.persona.edad+" años":"");
+}
 
 function mostrarToast(txt){
   toast.querySelector(".txt").textContent=txt||"Listo";
@@ -1321,6 +1372,7 @@ function filaNota(n,i,lista){
 }
 
 function render(){
+  pintarNombre();
   const hayAlgo = E.consulta || E.pendientes.length || E.estudios.length;
   /* ---- Inicio ---- */
   ver($("bDiaUno"), !hayAlgo);
@@ -1481,6 +1533,22 @@ function render(){
   }
 
   /* ---- Elsa ---- */
+  const ps=$("perfilSub");
+  if(ps){
+    const P=E.persona;
+    ps.textContent=[P.edad?P.edad+" años":"", P.vinculo?P.vinculo.toLowerCase():"", "0+", "OSDE 210"].filter(Boolean).join(" · ");
+  }
+  const rc=$("resumenCuadro");
+  if(rc){
+    const P=E.persona;
+    ver(rc, !!(P.cuadro||P.condiciones.length||P.alergias.length));
+    ver($("cuadroTexto"), !!P.cuadro);
+    $("cuadroTexto").textContent=P.cuadro;
+    ver($("bloqueCondiciones"), P.condiciones.length>0);
+    $("listaCondiciones").innerHTML=P.condiciones.map(c=>'<span class="pill pill-aten">'+c+'</span>').join("");
+    ver($("bloqueAlergias"), P.alergias.length>0);
+    $("listaAlergias").innerHTML=P.alergias.map(a=>'<span class="pill pill-urg">'+a+'</span>').join("");
+  }
   const lm=$("listaMedicos");
   if(lm){
     lm.innerHTML="";
@@ -1505,6 +1573,44 @@ function deshacer(){
 }
 document.getElementById("deshacer").addEventListener("click",deshacer);
 
+function marcarChips(sel,valores){
+  document.querySelectorAll(sel).forEach(c=>{
+    const on=valores.indexOf(c.textContent.trim())>=0;
+    c.classList.toggle("on",on);
+    const tic=c.querySelector("svg");
+    if(on && !tic) c.insertAdjacentHTML("afterbegin",'<svg class="i"><use href="#ic-check"></use></svg>');
+    if(!on && tic) tic.remove();
+  });
+}
+function cargarAlta(){
+  const P=E.persona, v=(id,val)=>{const e=$(id); if(e) e.textContent=val;};
+  v("obNombre",P.nombre); v("obApellido",P.apellido); v("obEdad",P.edad); v("obCuadro",P.cuadro);
+  marcarChips("#obVinculo .chip",[P.vinculo]);
+  marcarChips("#obCondiciones .chip",P.condiciones);
+  marcarChips("#obAlergias .chip",P.alergias);
+  marcarChips("#obSinAlergia .chip",P.alergias);
+}
+function guardarAlta(){
+  const t=id=>((document.getElementById(id)||{}).textContent||"").trim();
+  E.persona.nombre = t("obNombre") || "Elsa";
+  E.persona.apellido = t("obApellido");
+  E.persona.edad = t("obEdad").replace(/\D+/g,"");
+  E.persona.cuadro = t("obCuadro");
+  const marcados=sel=>[...document.querySelectorAll(sel)].filter(x=>x.classList.contains("on")).map(x=>x.textContent.trim());
+  E.persona.condiciones = marcados("#obCondiciones .chip");
+  E.persona.alergias = marcados("#obAlergias .chip");
+  const nada=document.querySelector("#obSinAlergia .chip.on");
+  if(nada) E.persona.alergias=[nada.textContent.trim()];
+  const vin=document.querySelector("#obVinculo .chip.on");
+  if(vin) E.persona.vinculo=vin.textContent.trim();
+}
+function guardarPersona(){
+  const partes=(($("edNombre").textContent||"").trim()||"Elsa").split(/\s+/);
+  E.persona.nombre=partes.shift();
+  E.persona.apellido=partes.join(" ");
+  E.persona.edad=(($("edEdad").textContent||"").trim()).replace(/\D+/g,"");
+  render();
+}
 function reiniciar(){
   E.consulta=null; E.pendientes.length=0; E.estudios.length=0;
   E.notas.length=0; E.notasRes.length=0; E.anteriores.length=0; E.medicos.length=0; E.cuidadores.length=0;
@@ -1688,6 +1794,28 @@ document.addEventListener("click",e=>{
     }
     return;
   }
+  const vi=e.target.closest("[data-vinculo]");
+  if(vi){ marcarChips("#obVinculo .chip",[vi.textContent.trim()]); return; }
+  const al=e.target.closest("[data-alergia]");
+  if(al){
+    al.classList.toggle("on");
+    marcarChips("#obAlergias .chip",[...document.querySelectorAll("#obAlergias .chip.on")].map(x=>x.textContent.trim()));
+    marcarChips("#obSinAlergia .chip",[]);
+    return;
+  }
+  const an=e.target.closest("[data-alergia-no]");
+  if(an){
+    const ya=an.classList.contains("on");
+    marcarChips("#obSinAlergia .chip", ya?[]:[an.textContent.trim()]);
+    if(!ya) marcarChips("#obAlergias .chip",[]);
+    return;
+  }
+  const cd=e.target.closest("[data-cond]");
+  if(cd){
+    cd.classList.toggle("on");
+    marcarChips("#obCondiciones .chip",[...document.querySelectorAll("#obCondiciones .chip.on")].map(x=>x.textContent.trim()));
+    return;
+  }
   const nh=e.target.closest("[data-nota-hecha]");
   if(nh){
     const [lista,idx]=nh.dataset.notaHecha.split(":");
@@ -1697,6 +1825,8 @@ document.addEventListener("click",e=>{
   }
   const b=e.target.closest("[data-go]");
   if(b){
+    if(b.dataset.alta) guardarAlta();
+    if(b.dataset.editarPersona) guardarPersona();
     if(b.dataset.res){ const [q,e2,f2]=b.dataset.res.split("|"); abrirResumen(q,e2,f2); }
     if(b.dataset.est){ const [n2,s2]=b.dataset.est.split("|"); abrirEstudio(n2,s2); }
     if(b.dataset.origen) origenEstudio(b.dataset.origen);
