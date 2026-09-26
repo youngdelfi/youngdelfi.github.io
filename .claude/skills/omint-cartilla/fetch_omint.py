@@ -23,10 +23,15 @@ Hallazgos clave (no obvios):
    "ED_63.00") SI es estable entre planes (mismo catalogo de especialidades
    subyacente) — el mapeo a nuestro esquema (`ESPECIALIDAD_MAP`) se hace por
    ese codigo numerico, no por el id completo con prefijo de plan.
-4. Los resultados de esta seccion parecen ser todos centros/instituciones
-   (no medicos individuales) — no se vio ningun nombre con el patron
-   "APELLIDO, Nombre" en el muestreo. Igual se aplica un filtro `is_doctor`
-   por las dudas (mismo criterio que Medife: coma en el nombre).
+4. Los resultados de esta seccion son todos centros/instituciones (no
+   medicos individuales): la separacion segun/institucion ya la hace Omint
+   con secciones distintas (P/CM = consultorios de profesionales, W/ED =
+   diagnostico y tratamiento). A diferencia de Medife, ACA NO HAY QUE
+   FILTRAR POR COMA: los nombres de instituciones vienen en minuscula/
+   capitalizados normales y algunos consultorios compartidos por varios
+   socios usan coma en el nombre real (ej. "Consultorio Oftalmologico Dres.
+   Donato, Oliveri y Rainaudi") — filtrarlos por coma los descarta por
+   error. No se aplica ningun filtro de médico acá.
 
 Uso:
     python3 fetch_omint.py <out_dir>
@@ -114,7 +119,6 @@ ESPECIALIDAD_MAP = {
     "52.04": ("urodinamia", "general"),
 }
 
-DOCTOR_RE_COMMA = re.compile(r",")
 
 
 def http_get_json(url, retries=3):
@@ -179,10 +183,6 @@ def fetch_combo(plan_code, esp_id, ubicacion):
     return out
 
 
-def is_doctor(name):
-    return bool(DOCTOR_RE_COMMA.search(name or ""))
-
-
 def norm(s):
     s = unicodedata.normalize('NFKD', s).encode('ascii', 'ignore').decode()
     return s.lower()
@@ -192,6 +192,46 @@ def slug(s, maxlen=35):
     s = norm(s)
     s = re.sub(r'[^a-z0-9]+', '-', s).strip('-')
     return s[:maxlen]
+
+
+# Palabras que indican institucion (ver SKILL.md, hallazgo 4): la seccion de
+# diagnostico y tratamiento de Omint mezcla medicos individuales (formato
+# "Apellido Nombre", sin coma, indistinguible por patron simple) con centros
+# reales. Cualquier nombre de 2-4 palabras SIN alguna de estas keywords se
+# descarta por defecto (bucket "dudoso") en vez de cargarse como institucion.
+KW_WORDS = ['centro', 'centros', 'instituto', 'institutos', 'laboratorio', 'laboratorios',
+            'clinica', 'sanatorio', 'consultorio', 'consultorios', 'fundacion', 'grupo',
+            'diagnostico', 'diagnostica', 'ecografia', 'ecografico', 'radiologia', 'radiologico',
+            'imagenes', 'imagen', 'tomografia', 'resonancia', 'cardiovascular',
+            'gastroenterologia', 'oftalmologico', 'oftalmologia', 'cardiologico', 'cardiologia',
+            'servicio', 'servicios', 'unidad', 'srl', 'sa', 'hospital', 'policlinica', 'sistema',
+            'centralab', 'gedyt', 'gedave', 'varelab', 'stamboulian', 'cedine', 'cinme',
+            'biorossi', 'maiba', 'genos', 'paideia', 'infans', 'baimed', 'uroserver',
+            'multidiagnostico', 'bioimagenes', 'osen', 'tcba', 'ceac', 'majestic', 'health',
+            'dres', 'dr', 'dra', 'atencion', 'vision', 'ojos', 'ipc', 'iama', 'cid', 'dim',
+            'cemi', 'cemedic', 'cepem', 'ineba', 'fleni', 'iamed', 'kinet', 'kinest',
+            'oncologico', 'odontologico', 'odontologica', 'traumatologia', 'urologico',
+            'neurologia', 'equipo', 'sr']
+
+_WORD_RE = re.compile(r'[a-z]+')
+
+
+def is_institution(name):
+    """True si el nombre parece institucion (ver KW_WORDS arriba). False =
+    bucket 'dudoso', se excluye de la carga por defecto (posible medico
+    individual)."""
+    u = norm(name)
+    words = set(_WORD_RE.findall(u))
+    if words & set(KW_WORDS):
+        return True
+    if re.search(r'\d', name):
+        return True
+    if name.replace('.', '').replace(' ', '').isupper() and len(name) <= 14:
+        return True  # sigla tipo IAMA, INEBA, CEDINE
+    nwords = name.split()
+    if len(nwords) >= 5:
+        return True
+    return False
 
 
 def main():
@@ -301,9 +341,13 @@ def main():
     sedes = set()
     attrs = set()
     coberturas = set()
+    excluded_names = set()
     plan_by_code = dict(plans)
     for r in raw:
-        if not r["nombre"] or is_doctor(r["nombre"]):
+        if not r["nombre"]:
+            continue
+        if not is_institution(r["nombre"]):
+            excluded_names.add(r["nombre"])
             continue
         pid = "omt-" + slug(r["nombre"]) + "-" + str(r["item_id"])[-6:]
         institutions[pid] = r["nombre"]
@@ -312,6 +356,12 @@ def main():
         if mapping:
             attrs.add((pid, mapping[0], mapping[1]))
         coberturas.add((pid, r["plan"]))
+
+    with open(out_dir / "review_dudoso.txt", "w", encoding="utf-8") as f:
+        f.write(f"{len(excluded_names)} nombres excluidos de la carga por parecer medicos individuales.\n")
+        f.write("Si alguno es en realidad una institucion, avisa el nombre exacto.\n\n")
+        for n in sorted(excluded_names):
+            f.write(n + "\n")
 
     def esc(s):
         return (s or "").replace("'", "''")
@@ -334,7 +384,7 @@ def main():
 
     by_esp = {}
     for r in raw:
-        if not r["nombre"] or is_doctor(r["nombre"]):
+        if not r["nombre"] or r["nombre"] in excluded_names:
             continue
         by_esp.setdefault(r["especialidad"], set()).add(r["nombre"])
     with open(out_dir / "omint_summary.txt", "w", encoding="utf-8") as f:
@@ -342,7 +392,7 @@ def main():
         for esp in sorted(by_esp.keys()):
             f.write(f"## {esp} ({len(by_esp[esp])} instituciones)\n")
 
-    print(f"Instituciones: {len(institutions)}, sedes: {len(sedes)}, atributos: {len(attrs)}, cobertura x plan: {len(coberturas)}")
+    print(f"Instituciones: {len(institutions)}, sedes: {len(sedes)}, atributos: {len(attrs)}, cobertura x plan: {len(coberturas)}, excluidos (dudoso): {len(excluded_names)}")
     print(f"Archivos en {out_dir}/omint_*.sql — revisar omint_summary.txt antes de cargar.")
 
 
