@@ -191,3 +191,19 @@ par sospechoso.
   Médico, Cuerpo Odontológico, Farmacias y Ópticas quedan fuera de alcance
   (igual que se decidió para Plan Azul) salvo que el usuario pida
   explícitamente extenderlo.
+- **Direcciones cruzadas con localidad presente (visto en Integra):** el
+  filtro de "fragmento sin localidad" (nota anterior) no atrapa todos los
+  casos. Cuando el mismo nombre de institución se repite en cada bloque de
+  modalidad (patrón normal del documento) y una institución tiene una
+  dirección que ocupa 2+ líneas completas (con localidad incluida en una
+  línea intermedia), esa dirección puede terminar atribuida a la
+  institución impresa inmediatamente ANTES en vez de a la que realmente le
+  pertenece — ambas instituciones son reales y ambas direcciones son
+  reales, solo el emparejamiento nombre↔dirección fallado. Se vio con
+  "Diagnóstico Tesla" arrastrando una sede de "Hospital San Juan de Dios".
+  No hay filtro automático confiable para esto todavía: conviene, antes de
+  cargar, buscar en `<prefix>_summary.txt` instituciones que compartan
+  literalmente la misma dirección de texto con otra institución de nombre
+  distinto (ej. grep de la localidad "MORON", "SAN JUSTO", etc. y comparar
+  a mano contra el PDF esa página puntual) y corregir el JSON de entradas
+  antes de generar el SQL final (como se hizo manualmente para Integra).
