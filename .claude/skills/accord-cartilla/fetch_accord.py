@@ -33,9 +33,14 @@ Zona metropolitana subzonas used (CABA + GBA, matching the "area metropolitana" 
 for Medicus/Medife/Omint): CAR991 Ciudad de Bs As, CAR992 GBA Norte, CAR993 GBA Oeste,
 CAR994 GBA Sur, CAR995 GBA Noroeste.
 
-Unlike Omint, Accord's /prestadores results are ALREADY institutions only - no individual
-doctor names mixed in (NomPrestador/NomConsultorio are always clinic/lab/institute names).
-No doctor-vs-institution classifier is needed here.
+Like Omint (and unlike Medife), Accord's /prestadores results DO mix individual doctors in
+with real institutions in the M6/M7/M11 categories (solo practitioners billing diagnostic
+studies under their own name). A keyword-based classifier (KW_WORDS, is_institution()) filters
+these out, tuned by manually reviewing the excluded/included split on the actual fetched data.
+All Accord names are uppercase, so - unlike Omint's classifier - there is no "short all-caps =
+acronym" heuristic (it would just match every doctor name) and no "5+ words = institution"
+heuristic (multiple doctors sharing one consultorio produce long personal-name strings, e.g.
+"ASCUA ESTER MARIA VICTORIA FABRO JUAN PEDRO" - two doctors, not an institution).
 
 Dedup key for a raw provider record: NomConsultorio (the specific branch name) + direccion,
 since NomPrestador is the legal/holding name (e.g. "FINAER") while NomConsultorio is the
@@ -111,6 +116,23 @@ ESPECIALIDAD_MAP = {
     "HEMODINAMIA": ("hemodinamia", 1),
     "ENDOSCOPIA DIGESTIVA": ("endoscopia", 1),
     "VIDEOENDOSCOPIA DIGESTIVA": ("endoscopia", 1),
+    "VIDEOCOLONOSCOPIA (VCC)": ("endoscopia", 1),
+    "VIDEOENDOSCOPIA DIGESTIVA ALTA/ BAJA (VEDA/ VCC)": ("endoscopia", 1),
+    "VIDEOESOFAGOGASTRODUODENOSCOPIA (VEDA)": ("endoscopia", 1),
+    "FIBROBRONCOSCOPIA": ("endoscopia", 1),
+    "TOMOGRAFIA AXIAL COMPUTADA": ("tomografia", 1),
+    "COLANGIORESONANCIA MAGNETICA": ("resonancia", 1),
+    "ECODOPPLER ARTERIAL Y VENOSO INFANTIL": ("ecodoppler", 2),
+    "ECODOPPLER CARDIOLOGICO INFANTIL": ("ecodoppler", 2),
+    "ELECTROCARDIOGRAMA INFANTIL": ("electrocardiograma", 2),
+    "ELECTROENCEFALOGRAMA INFANTIL": ("electroencefalograma", 2),
+    "ELECTROMIOGRAMA": ("electromiograma", 1),
+    "HOLTER INFANTIL": ("holter-ritmo", 2),
+    "POTENCIALES EVOCADOS (BERA - POE - PESS) INFANTILES": ("potenciales-evocados", 2),
+    "URODINAMIA ADULTOS": ("urodinamia", 1),
+    "URODINAMIA INFANTIL": ("urodinamia", 2),
+    "RADIOTERAPIA CON ACELERADOR LINEAL": ("radioterapia", 1),
+    "TELECOBALTO TERAPIA": ("radioterapia", 1),
 }
 
 
@@ -122,6 +144,39 @@ def norm(s):
 def slug(s, maxlen=35):
     s = re.sub(r"[^a-z0-9]+", "-", norm(s)).strip("-")
     return s[:maxlen]
+
+
+KW_WORDS = [
+    "centro", "centros", "ctro", "instituto", "institutos", "laboratorio", "laboratorios",
+    "lab", "clinica", "sanatorio", "consultorio", "consultorios", "fundacion", "grupo",
+    "diagnostico", "diagnostica", "ecografia", "ecografico", "radiologia", "radiologico",
+    "imagenes", "imagen", "tomografia", "resonancia", "cardiovascular", "gastroenterologia",
+    "oftalmologico", "oftalmologia", "cardiologico", "cardiologia", "servicio", "servicios",
+    "unidad", "srl", "sa", "sh", "hospital", "policlinica", "sistema", "analisis", "clinico",
+    "clinicos", "bioquimico", "densitometria", "radiologica", "medicina", "medico", "medicos",
+    "prevencion", "prestaciones", "equipo", "oftalmologica", "urologia", "traumatologico",
+    "integral", "integrales", "asoc", "sanatorial", "anal", "cidi", "imat",
+]
+INSTITUTION_WHITELIST = {"fundus"}
+_WORD_RE = re.compile(r"[a-z]+")
+
+
+def is_institution(name):
+    """Accord's M6/M7/M11 results mix individual doctors with real institutions (like Omint,
+    unlike Medife). Classified by keyword match, digits, or spaced-out legal-entity suffixes
+    ("S A", "S R L", "S H") - see module docstring for why length/case heuristics don't work
+    here (all names are uppercase)."""
+    u = norm(name)
+    words = set(_WORD_RE.findall(u))
+    if words & set(KW_WORDS):
+        return True
+    if u in INSTITUTION_WHITELIST:
+        return True
+    if re.search(r"\d", name):
+        return True
+    if re.search(r"\bs\s+a\b", u) or re.search(r"\bs\s+r\s+l\b", u) or re.search(r"\bs\s+h\b", u):
+        return True
+    return False
 
 
 async def get(session, path, sem, retries=4):
@@ -233,10 +288,14 @@ async def main():
     attrs = set()
     cobs = set()
     unmapped_esp = set()
+    excluded_names = set()
 
     for r in raw:
         nombre = (r.get("NomConsultorio") or r.get("NomPrestador") or "").strip()
         if not nombre:
+            continue
+        if not is_institution(nombre):
+            excluded_names.add(nombre)
             continue
         direccion = (r.get("fullDireccion") or f"{r.get('Calle','')} {r.get('Numero','')}").strip()
         localidad = r.get("NomLocalidad", "")
@@ -268,6 +327,11 @@ async def main():
         cobs.add((pid, r["_plan"]))
 
     print(f"{len(inst_by_key)} institutions, {len(sedes)} sedes, {len(attrs)} atributo links, {len(cobs)} cobertura links")
+    print(f"{len(excluded_names)} individual-doctor names excluded (see accord_review_dudoso.txt)")
+    with open("accord_review_dudoso.txt", "w") as f:
+        f.write(f"{len(excluded_names)} names classified as individual doctors (excluded):\n\n")
+        for n in sorted(excluded_names):
+            f.write(f"{n}\n")
     if unmapped_esp:
         print(f"WARNING: {len(unmapped_esp)} unmapped especialidades (skipped, not in Diag/Trat map): {sorted(unmapped_esp)}")
 
